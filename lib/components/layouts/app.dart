@@ -4,7 +4,7 @@ import 'package:gamer_reflection/components/layouts/content.dart' as content;
 ///
 const title = 'Gamer Reflection';
 
-///
+/// 基本
 class App extends StatelessWidget {
   const App({super.key});
 

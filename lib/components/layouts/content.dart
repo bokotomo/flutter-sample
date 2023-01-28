@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/molecules/footer.dart' as footer;
+import 'package:gamer_reflection/components/common/molecules/footer.dart'
+    as footer;
 import 'package:gamer_reflection/components/pages/task.dart';
 import 'package:gamer_reflection/components/pages/ranking.dart';
 import 'package:gamer_reflection/components/pages/reflection.dart';
@@ -29,13 +30,17 @@ class Content extends StatefulWidget {
 
 /// _ContentState
 class _ContentState extends State<Content> {
+  /// タブで表示するページ一覧
   static const List<Widget> _tabPages = [
     PageTask(),
     PageReflection(),
     PageRanking(),
   ];
+
+  /// 現在選択しているタブIndex
   int _selectedIndex = 0;
 
+  /// タブがクリックされた
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
