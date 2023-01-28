@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/frames/footer.dart' as footer;
+import 'package:gamer_reflection/components/molecules/footer.dart' as footer;
 import 'package:gamer_reflection/components/pages/task.dart';
 import 'package:gamer_reflection/components/pages/ranking.dart';
 import 'package:gamer_reflection/components/pages/reflection.dart';
 
 /// home
 Widget home(
-  List<StatelessWidget> screens,
+  List<Widget> tabPages,
   int selectedIndex,
   void Function(int) onItemTapped,
 ) {
   return Scaffold(
-    body: screens[selectedIndex],
+    body: tabPages[selectedIndex],
     bottomNavigationBar: footer.Footer(
       onItemTapped: onItemTapped,
       selectedIndex: selectedIndex,
@@ -29,10 +29,10 @@ class Content extends StatefulWidget {
 
 /// _ContentState
 class _ContentState extends State<Content> {
-  static const _screens = [
-    TaskScreen(),
-    ReflectionScreen(),
-    RankingScreen(),
+  static const List<Widget> _tabPages = [
+    PageTask(),
+    PageReflection(),
+    PageRanking(),
   ];
   int _selectedIndex = 0;
 
@@ -46,7 +46,7 @@ class _ContentState extends State<Content> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: home(
-        _screens,
+        _tabPages,
         _selectedIndex,
         _onItemTapped,
       ),

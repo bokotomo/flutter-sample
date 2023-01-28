@@ -14,7 +14,6 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: title,
       theme: ThemeData(
-        // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const content.Content(),

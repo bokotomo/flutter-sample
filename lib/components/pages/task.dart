@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/atoms/text.dart' as text;
-import 'package:gamer_reflection/components/frames/header.dart' as header;
-import 'package:gamer_reflection/modules/const/color.dart' as color;
-
-///
-const body = Center(
-  child: text.BasicText(
-    text: 'task一覧',
-    size: "M",
-  ),
-);
+import 'package:gamer_reflection/components/templates/task.dart' as task;
 
 /// ページ: タスク一覧
-class TaskScreen extends StatelessWidget {
-  const TaskScreen({super.key});
+class PageTask extends StatefulWidget {
+  const PageTask({super.key});
+
+  @override
+  State<PageTask> createState() => _PageTaskState();
+}
+
+/// _PageTaskState
+class _PageTaskState extends State<PageTask> {
+  @override
+  void initState() {
+    print("PageTask");
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: color.contentColor,
-      appBar: header.Header(title: "Tasks"),
-      body: body,
+      body: task.TemplateTaskScreen(),
     );
   }
 }
