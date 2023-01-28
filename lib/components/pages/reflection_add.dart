@@ -6,20 +6,20 @@ import 'package:gamer_reflection/modules/const/color.dart' as color;
 ///
 const body = Center(
   child: text.BasicText(
-    text: 'task画面',
+    text: '振り返り追加',
     size: "M",
   ),
 );
 
-///
-class TaskScreen extends StatelessWidget {
-  const TaskScreen({super.key});
+///　ページ: 振り返りの追加
+class ReflectionAdd extends StatelessWidget {
+  const ReflectionAdd({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: color.contentColor,
-      appBar: header.Header(title: "task"),
+      appBar: header.Header(title: "Add Reflection"),
       body: body,
     );
   }

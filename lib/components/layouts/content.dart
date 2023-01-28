@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/frames/footer.dart' as footer;
-import 'package:gamer_reflection/components/screens/task.dart';
-import 'package:gamer_reflection/components/screens/ranking.dart';
-import 'package:gamer_reflection/components/screens/reflection.dart';
+import 'package:gamer_reflection/components/pages/task.dart';
+import 'package:gamer_reflection/components/pages/ranking.dart';
+import 'package:gamer_reflection/components/pages/reflection.dart';
 
 /// home
 Widget home(
@@ -19,7 +19,7 @@ Widget home(
   );
 }
 
-/// Footer
+/// Content
 class Content extends StatefulWidget {
   const Content({super.key});
 

@@ -15,3 +15,6 @@ const Color contentColor = _darkBlue;
 /// 基本的な文字色
 const Color textColor = Colors.white;
 const Color textOpacityColor = Color.fromARGB(120, 255, 255, 255);
+
+/// ボタンの背景色
+const Color buttonColor = Color.fromARGB(255, 71, 22, 80);

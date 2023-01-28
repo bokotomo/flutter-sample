@@ -6,12 +6,12 @@ import 'package:gamer_reflection/modules/const/color.dart' as color;
 ///
 const body = Center(
   child: text.BasicText(
-    text: 'アカウント画面2',
+    text: 'ランキング一覧',
     size: "M",
   ),
 );
 
-///
+/// ページ: ランキング
 class RankingScreen extends StatelessWidget {
   const RankingScreen({super.key});
 

@@ -6,20 +6,20 @@ import 'package:gamer_reflection/modules/const/color.dart' as color;
 ///
 const body = Center(
   child: text.BasicText(
-    text: 'hurikaeri',
+    text: 'task一覧',
     size: "M",
   ),
 );
 
-///
-class ReflectionScreen extends StatelessWidget {
-  const ReflectionScreen({super.key});
+/// ページ: タスク一覧
+class TaskScreen extends StatelessWidget {
+  const TaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: color.contentColor,
-      appBar: header.Header(title: "hurikaeri"),
+      appBar: header.Header(title: "Tasks"),
       body: body,
     );
   }
