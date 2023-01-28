@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import './app.dart';
-import "./tabbar.dart";
+import 'package:flutter/material.dart' as material;
+import 'package:gamer_reflection/components/layouts/app.dart';
 
 void main() {
-  runApp(const MyApp());
-  // runApp(const _TextButtonDemo());
+  material.runApp(const App());
 }
