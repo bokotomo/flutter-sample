@@ -7,7 +7,7 @@ import 'package:gamer_reflection/modules/const/color.dart' as color;
 ///
 const body = Center(
   child: text.BasicText(
-    text: 'ランキング一覧',
+    text: 'ランキングは後々実装。',
     size: "M",
   ),
 );
