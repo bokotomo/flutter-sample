@@ -7,20 +7,20 @@ import 'package:gamer_reflection/modules/const/color.dart' as color;
 ///
 const body = Center(
   child: text.BasicText(
-    text: 'まだタスクがありません。振り返りから追加しましょう！',
+    text: 'Sandbox',
     size: "M",
   ),
 );
 
-/// テンプレート: タスク一覧
-class TemplateTaskScreen extends StatelessWidget {
-  const TemplateTaskScreen({super.key});
+/// テンプレート: サンドボックス
+class TemplateSandbox extends StatelessWidget {
+  const TemplateSandbox({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: color.contentColor,
-      appBar: header.Header(title: "タスク"),
+      appBar: header.Header(title: "Sandbox"),
       body: body,
     );
   }

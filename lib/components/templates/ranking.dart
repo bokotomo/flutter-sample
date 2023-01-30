@@ -7,7 +7,7 @@ import 'package:gamer_reflection/modules/const/color.dart' as color;
 ///
 const body = Center(
   child: text.BasicText(
-    text: 'ランキングは後々実装。',
+    text: 'ランキングを使うには、ニックネームを登録する必要があります。',
     size: "M",
   ),
 );

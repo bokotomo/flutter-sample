@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/molecules/footer.dart'
     as footer;
-import 'package:gamer_reflection/components/pages/task.dart';
-import 'package:gamer_reflection/components/pages/ranking.dart';
-import 'package:gamer_reflection/components/pages/reflection.dart';
+import 'package:gamer_reflection/components/pages/task.dart' as task;
+import 'package:gamer_reflection/components/pages/ranking.dart' as ranking;
+import 'package:gamer_reflection/components/pages/reflection_add.dart'
+    as reflection_add;
 
 /// home
 Widget home(
@@ -32,9 +33,9 @@ class Content extends StatefulWidget {
 class _ContentState extends State<Content> {
   /// タブで表示するページ一覧
   static const List<Widget> _tabPages = [
-    PageTask(),
-    PageReflection(),
-    PageRanking(),
+    task.PageTask(),
+    reflection_add.PageReflectionAdd(),
+    ranking.PageRanking(),
   ];
 
   /// 現在選択しているタブIndex

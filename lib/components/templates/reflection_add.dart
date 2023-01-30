@@ -20,7 +20,7 @@ class TemplateReflectionAdd extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: color.contentColor,
-      appBar: header.Header(title: "Add Reflection"),
+      appBar: header.Header(title: "振り返りの追加"),
       body: body,
     );
   }

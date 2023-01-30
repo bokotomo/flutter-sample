@@ -1,4 +1,4 @@
-/// 振り返り
+/// ドメイン: 振り返り
 class DomainReflection {
   DomainReflection({
     required this.id,
