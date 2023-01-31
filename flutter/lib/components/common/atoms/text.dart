@@ -28,6 +28,7 @@ class BasicText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: TextAlign.left,
       style: TextStyle(
         fontSize: getFontSize(),
         color: color.textColor,

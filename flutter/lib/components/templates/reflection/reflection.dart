@@ -13,7 +13,7 @@ void onPressAdd() {
 }
 
 ///
-const body = Scaffold(
+Scaffold body = const Scaffold(
   body: Center(
     child: text.BasicText(
       text: '振り返り',
@@ -30,16 +30,18 @@ const body = Scaffold(
   ),
 );
 
+Scaffold wrapper = Scaffold(
+  backgroundColor: color.contentColor,
+  appBar: const header.Header(title: "振り返り"),
+  body: body,
+);
+
 /// テンプレート: 振り返りの一覧
 class TemplateReflection extends StatelessWidget {
   const TemplateReflection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: color.contentColor,
-      appBar: header.Header(title: "振り返り"),
-      body: body,
-    );
+    return wrapper;
   }
 }

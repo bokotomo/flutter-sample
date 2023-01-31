@@ -4,7 +4,7 @@ import 'package:gamer_reflection/components/common/molecules/footer.dart'
 import 'package:gamer_reflection/components/pages/task/task.dart' as task;
 import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
     as ranking;
-import 'package:gamer_reflection/components/pages/reflection/reflection_add.dart'
+import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
     as reflection_add;
 
 /// home
@@ -35,7 +35,7 @@ class _TabbarState extends State<Tabbar> {
   /// タブで表示するページ一覧
   static const List<Widget> _tabPages = [
     task.PageTask(),
-    reflection_add.PageReflectionAdd(),
+    reflection_add.PageReflection(),
     ranking.PageRanking(),
   ];
 

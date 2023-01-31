@@ -5,11 +5,17 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
 import 'package:gamer_reflection/modules/const/color.dart' as color;
 
 ///
-const body = Center(
+Center body = const Center(
   child: text.BasicText(
     text: 'ランキングを使うには、ニックネームを登録する必要があります。',
     size: "M",
   ),
+);
+
+Scaffold wrapper = Scaffold(
+  backgroundColor: color.contentColor,
+  appBar: const header.Header(title: "Ranking"),
+  body: body,
 );
 
 /// テンプレート: ランキング
@@ -18,10 +24,6 @@ class TemplateRanking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: color.contentColor,
-      appBar: header.Header(title: "Ranking"),
-      body: body,
-    );
+    return wrapper;
   }
 }

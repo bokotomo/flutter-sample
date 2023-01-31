@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/templates/reflection/reflection.dart'
-    as reflection;
+import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
+    as reflection_add;
 
-/// ページ: 振り返りの一覧こちらは不要だった
+/// ページ: 振り返りの追加
 class PageReflection extends StatefulWidget {
   const PageReflection({super.key});
 
@@ -10,7 +10,7 @@ class PageReflection extends StatefulWidget {
   State<PageReflection> createState() => _PageReflectionState();
 }
 
-/// _PageReflectionState
+/// _PageReflectionAddState
 class _PageReflectionState extends State<PageReflection> {
   @override
   void initState() {
@@ -22,7 +22,7 @@ class _PageReflectionState extends State<PageReflection> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: reflection.TemplateReflection(),
+      body: reflection_add.TemplateReflectionAdd(),
     );
   }
 }
