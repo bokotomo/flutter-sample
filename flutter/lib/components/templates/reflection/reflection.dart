@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/button.dart' as button;
+import 'package:gamer_reflection/components/common/atoms/button_circle.dart'
+    as button;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/header.dart'

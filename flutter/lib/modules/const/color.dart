@@ -26,11 +26,17 @@ class ConstantColor {
   static const Color textOpacity = Color.fromARGB(120, 255, 255, 255);
 
   /// ボタンの背景色
-  static const Color button = Color.fromARGB(255, 71, 22, 80);
+  static const Color button = Color.fromARGB(255, 55, 55, 196);
+
+  /// ボタンの枠線色
+  static const Color buttoBorder = Color.fromARGB(255, 93, 93, 228);
 
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);
 
   /// inputの枠線色
   static const Color inputBorder = Color.fromARGB(255, 45, 24, 114);
+
+  /// inputの枠線色フォーカス
+  static const Color inputBorderFocus = Color.fromARGB(255, 57, 30, 145);
 }

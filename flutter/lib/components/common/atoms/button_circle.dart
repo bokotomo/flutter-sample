@@ -7,12 +7,15 @@ class ButtonCircle extends StatelessWidget {
     super.key,
     required this.onPressed,
   });
-  final void Function() onPressed;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     void onPressed() {
-      this.onPressed();
+      if (this.onPressed == null) {
+        return;
+      }
+      this.onPressed!();
     }
 
     return FloatingActionButton(

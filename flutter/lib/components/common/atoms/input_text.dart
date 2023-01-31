@@ -7,7 +7,7 @@ InputDecoration decoration(String hintText) {
   return InputDecoration(
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(100)),
-      borderSide: BorderSide(color: ConstantColor.inputBorder, width: 2.0),
+      borderSide: BorderSide(color: ConstantColor.inputBorderFocus, width: 2.0),
     ),
     enabledBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(100)),
