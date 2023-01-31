@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/templates/ranking.dart' as ranking;
+import 'package:gamer_reflection/components/templates/ranking/ranking.dart'
+    as ranking;
 
 /// ページ: ランキング
 class PageRanking extends StatefulWidget {

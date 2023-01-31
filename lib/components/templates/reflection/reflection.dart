@@ -5,6 +5,8 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
     as header;
 import 'package:gamer_reflection/modules/const/color.dart' as color;
 
+/// reflectionは消す
+
 /// 追加ボタンを押した
 void onPressAdd() {
   print("OK");

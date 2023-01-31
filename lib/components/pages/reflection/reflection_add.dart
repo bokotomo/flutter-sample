@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/templates/reflection_add.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
     as reflection_add;
 
 /// ページ: 振り返りの追加
