@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/molecules/footer.dart'
     as footer;
-import 'package:gamer_reflection/components/pages/task.dart' as task;
-import 'package:gamer_reflection/components/pages/ranking.dart' as ranking;
+import 'package:gamer_reflection/components/pages/task/task.dart' as task;
+import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
+    as ranking;
 import 'package:gamer_reflection/components/pages/reflection_add.dart'
     as reflection_add;
 

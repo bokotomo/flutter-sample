@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/reflection.dart'
     as reflection;
 
-/// ページ: 振り返りの一覧
+/// ページ: 振り返りの一覧こちらは不要だった
 class PageReflection extends StatefulWidget {
   const PageReflection({super.key});
 
