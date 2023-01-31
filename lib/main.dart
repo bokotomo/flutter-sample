@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' as material;
-import 'package:gamer_reflection/components/layouts/app.dart' as app;
+import 'package:gamer_reflection/components/root/app.dart' as app;
 
 /// アプリ実行
 void main() {

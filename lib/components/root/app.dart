@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/layouts/content.dart' as content;
+import 'package:gamer_reflection/components/layouts/tabbar.dart' as tabbar;
 
 ///
 const title = 'Gamer Reflection';
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const content.Content(),
+      home: const tabbar.Tabbar(),
     );
   }
 }
