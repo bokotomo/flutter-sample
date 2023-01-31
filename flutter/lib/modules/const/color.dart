@@ -18,3 +18,8 @@ const Color textOpacityColor = Color.fromARGB(120, 255, 255, 255);
 
 /// ボタンの背景色
 const Color buttonColor = Color.fromARGB(255, 71, 22, 80);
+
+/// inputの背景色
+const Color borderBackGroundColor = Color.fromARGB(255, 24, 25, 31);
+const Color borderColor = Color.fromARGB(255, 45, 24, 114);
+const Color borderHintTextColor = Color.fromARGB(70, 255, 255, 255);

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/molecules/footer.dart'
-    as footer;
-import 'package:gamer_reflection/components/pages/task/task.dart' as task;
+    show Footer;
+import 'package:gamer_reflection/components/pages/task/task.dart' show PageTask;
 import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
-    as ranking;
+    show PageRanking;
 import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
-    as reflection_add;
+    show PageReflection;
 
 /// home
 Widget home(
@@ -15,7 +15,7 @@ Widget home(
 ) {
   return Scaffold(
     body: tabPages[selectedIndex],
-    bottomNavigationBar: footer.Footer(
+    bottomNavigationBar: Footer(
       onItemTapped: onItemTapped,
       selectedIndex: selectedIndex,
     ),
@@ -34,9 +34,9 @@ class Tabbar extends StatefulWidget {
 class _TabbarState extends State<Tabbar> {
   /// タブで表示するページ一覧
   static const List<Widget> _tabPages = [
-    task.PageTask(),
-    reflection_add.PageReflection(),
-    ranking.PageRanking(),
+    PageTask(),
+    PageReflection(),
+    PageRanking(),
   ];
 
   /// 現在選択しているタブIndex

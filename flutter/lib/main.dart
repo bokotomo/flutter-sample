@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart' as material;
-import 'package:gamer_reflection/components/root/app.dart' as app;
+import 'package:flutter/material.dart' show runApp;
+import 'package:gamer_reflection/components/root/app.dart' show App;
 
 /// アプリ実行
 void main() {
-  material.runApp(const app.App());
+  runApp(const App());
 }

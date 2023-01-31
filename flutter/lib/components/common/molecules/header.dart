@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text.dart' as text;
+import 'package:gamer_reflection/components/common/atoms/text.dart'
+    show BasicText;
 import 'package:gamer_reflection/modules/const/color.dart' as color;
 
 const double headerSize = 20;
@@ -19,7 +20,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: text.BasicText(
+      title: BasicText(
         text: title,
         size: "M",
       ),

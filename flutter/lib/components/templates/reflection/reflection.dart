@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text.dart' as text;
 import 'package:gamer_reflection/components/common/atoms/button.dart' as button;
+import 'package:gamer_reflection/components/common/atoms/text.dart'
+    show BasicText;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
-    as header;
+    show Header;
 import 'package:gamer_reflection/modules/const/color.dart' as color;
 
 /// reflectionは消す
@@ -15,7 +16,7 @@ void onPressAdd() {
 ///
 Scaffold body = const Scaffold(
   body: Center(
-    child: text.BasicText(
+    child: BasicText(
       text: '振り返り',
       size: "M",
     ),
@@ -32,7 +33,7 @@ Scaffold body = const Scaffold(
 
 Scaffold wrapper = Scaffold(
   backgroundColor: color.contentColor,
-  appBar: const header.Header(title: "振り返り"),
+  appBar: const Header(title: "振り返り"),
   body: body,
 );
 
