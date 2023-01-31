@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
-/// 基本的なテキスト
-class BasicText extends StatelessWidget {
-  const BasicText({
+/// 注釈テキスト
+class TextAnnotation extends StatelessWidget {
+  const TextAnnotation({
     super.key,
     required this.text,
     required this.size,
@@ -34,7 +34,7 @@ class BasicText extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.left,
       style: TextStyle(
         fontSize: getFontSize(),
-        color: ConstantColor.text,
+        color: ConstantColor.textOpacity,
       ),
     );
   }

@@ -21,15 +21,19 @@ class Footer extends StatefulWidget {
 const items = <BottomNavigationBarItem>[
   BottomNavigationBarItem(
     icon: Icon(Icons.list),
-    label: "Task",
+    label: "タスク",
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.check_box),
-    label: "Reflection",
+    icon: Icon(Icons.add),
+    label: "振り返り",
   ),
   BottomNavigationBarItem(
-    icon: Icon(Icons.radar),
-    label: "Ranking",
+    icon: Icon(Icons.games),
+    label: "ランキング",
+  ),
+  BottomNavigationBarItem(
+    icon: Icon(Icons.account_circle),
+    label: "アカウント",
   ),
 ];
 

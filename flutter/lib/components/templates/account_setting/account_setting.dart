@@ -4,6 +4,7 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 ///
 Center body = const Center(
@@ -13,10 +14,15 @@ Center body = const Center(
   ),
 );
 
+Padding content = Padding(
+  padding: const EdgeInsets.all(ConstantSizeUI.l3),
+  child: body,
+);
+
 Scaffold wrapper = Scaffold(
   backgroundColor: ConstantColor.content,
   appBar: const Header(title: "アカウント設定"),
-  body: body,
+  body: content,
 );
 
 /// テンプレート: アカウント設定

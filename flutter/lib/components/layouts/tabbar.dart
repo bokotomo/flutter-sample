@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/molecules/footer.dart'
     show Footer;
+import 'package:gamer_reflection/components/pages/account/account.dart'
+    show PageAccountSetting;
 import 'package:gamer_reflection/components/pages/task/task.dart' show PageTask;
 import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
     show PageRanking;
@@ -37,6 +39,7 @@ class _TabbarState extends State<Tabbar> {
     PageTask(),
     PageReflection(),
     PageRanking(),
+    PageAccountSetting(),
   ];
 
   /// 現在選択しているタブIndex
