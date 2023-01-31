@@ -3,6 +3,7 @@
 Flutter のサンプル
 
 ```
+cd ./flutter
 flutter run
 ```
 
@@ -18,7 +19,7 @@ demo(web)
 
 ```
 // docker
-cd ./infrastructure/docker
+cd ./api/infrastructure/docker
 docker-compose up -d
 
 // create database
