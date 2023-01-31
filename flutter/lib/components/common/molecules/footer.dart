@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
 /// Footer
 class Footer extends StatefulWidget {
@@ -43,11 +43,11 @@ class _FooterState extends State<Footer> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       currentIndex: widget.selectedIndex,
-      backgroundColor: color.footerColor,
+      backgroundColor: ConstantColor.footer,
       onTap: _onItemTapped,
       items: items,
-      selectedItemColor: color.textColor,
-      unselectedItemColor: color.textOpacityColor,
+      selectedItemColor: ConstantColor.text,
+      unselectedItemColor: ConstantColor.textOpacity,
       type: BottomNavigationBarType.fixed,
     );
   }

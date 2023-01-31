@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
 /// ボタン: 丸
 class ButtonCircle extends StatelessWidget {
@@ -16,7 +16,7 @@ class ButtonCircle extends StatelessWidget {
     }
 
     return FloatingActionButton(
-      backgroundColor: color.buttonColor,
+      backgroundColor: ConstantColor.button,
       onPressed: onPressed,
       child: const Icon(Icons.add),
     );

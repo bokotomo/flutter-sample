@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/size.dart' as const_size;
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
 /// 基本的なテキスト
 class BasicText extends StatelessWidget {
@@ -17,11 +17,11 @@ class BasicText extends StatelessWidget {
   /// 文字サイズを返す
   double getFontSize() {
     if (size == "L") {
-      return const_size.fontL;
+      return ConstantSizeFont.l;
     } else if (size == "M") {
-      return const_size.fontM;
+      return ConstantSizeFont.m;
     }
-    return const_size.fontS;
+    return ConstantSizeFont.s;
   }
 
   @override
@@ -31,7 +31,7 @@ class BasicText extends StatelessWidget {
       textAlign: TextAlign.left,
       style: TextStyle(
         fontSize: getFontSize(),
-        color: color.textColor,
+        color: ConstantColor.text,
       ),
     );
   }

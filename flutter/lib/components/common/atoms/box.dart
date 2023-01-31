@@ -1,6 +1,6 @@
 // import 'package:flutter/material.dart';
 // import 'package:gamer_reflection/modules/const/size.dart' as constSize;
-// import 'package:gamer_reflection/modules/const/color.dart' as color;
+// import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
 // /// 基本的なテキスト
 // class Box extends StatelessWidget {

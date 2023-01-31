@@ -4,7 +4,7 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
 /// reflectionは消す
 
@@ -21,7 +21,7 @@ Scaffold body = const Scaffold(
       size: "M",
     ),
   ),
-  backgroundColor: color.contentColor,
+  backgroundColor: ConstantColor.content,
   floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
   floatingActionButton: Padding(
     padding: EdgeInsets.only(bottom: 20),
@@ -32,7 +32,7 @@ Scaffold body = const Scaffold(
 );
 
 Scaffold wrapper = Scaffold(
-  backgroundColor: color.contentColor,
+  backgroundColor: ConstantColor.content,
   appBar: const Header(title: "振り返り"),
   body: body,
 );

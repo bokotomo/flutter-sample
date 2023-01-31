@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
-const double headerSize = 20;
-
-/// Header
+/// ヘッダー
 class Header extends StatelessWidget with PreferredSizeWidget {
   const Header({
     super.key,
@@ -15,7 +13,6 @@ class Header extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-  //const Size(0.0, 0.0); //const Size.fromHeight(kToolbarHeight + headerSize);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class Header extends StatelessWidget with PreferredSizeWidget {
         text: title,
         size: "M",
       ),
-      backgroundColor: color.barColor,
+      backgroundColor: ConstantColor.header,
     );
   }
 }

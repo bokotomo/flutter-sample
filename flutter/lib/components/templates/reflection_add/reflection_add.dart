@@ -5,29 +5,33 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/components/common/atoms/input_text.dart'
     show InputText;
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 Column cloumn = Column(
+  crossAxisAlignment: CrossAxisAlignment.start,
   children: const [
     BasicText(
       text: '振り返りの種類',
       size: "M",
     ),
+    SizedBox(height: ConstantSizeUI.l4),
     BasicText(
       text: '悪かった点',
       size: "M",
     ),
+    SizedBox(height: ConstantSizeUI.l3),
     InputText(hintText: '悪かった点を書く(40文字以内)', autofocus: true),
   ],
 );
 
 Padding content = Padding(
-  padding: const EdgeInsets.all(16),
+  padding: const EdgeInsets.all(ConstantSizeUI.l3),
   child: cloumn,
 );
 
 Scaffold wrapper = Scaffold(
-  backgroundColor: color.contentColor,
+  backgroundColor: ConstantColor.content,
   appBar: const Header(title: "振り返りの追加"),
   body: content,
 );

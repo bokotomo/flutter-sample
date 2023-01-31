@@ -3,7 +3,7 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
-import 'package:gamer_reflection/modules/const/color.dart' as color;
+import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 
 ///
 Center body = const Center(
@@ -14,7 +14,7 @@ Center body = const Center(
 );
 
 Scaffold wrapper = Scaffold(
-  backgroundColor: color.contentColor,
+  backgroundColor: ConstantColor.content,
   appBar: const Header(title: "タスク"),
   body: body,
 );
