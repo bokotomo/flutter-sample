@@ -7,14 +7,17 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
+    show useHandler;
 
 ///
-Widget view(BuildContext context) {
+Widget view(BuildContext context, int taskId) {
+  final handler = useHandler();
   Column body = Column(
     children: [
       ButtonDone(
         text: "このタスクを完了する",
-        onPressed: () => {},
+        onPressed: () => handler.onPressedTaskDone(taskId),
       )
     ],
   );
@@ -49,10 +52,11 @@ Scaffold wrapper = Scaffold(
 
 /// テンプレート: タスク詳細
 class TemplateTaskDetail extends StatelessWidget {
-  const TemplateTaskDetail({super.key});
+  const TemplateTaskDetail({super.key, required this.taskId});
+  final int taskId;
 
   @override
   Widget build(BuildContext context) {
-    return view(context);
+    return view(context, taskId);
   }
 }

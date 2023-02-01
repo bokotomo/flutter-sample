@@ -8,12 +8,12 @@ import 'package:gamer_reflection/modules/database/repository/reflection.dart'
 
 class UseReturn {
   const UseReturn({
-    required this.onPressed,
+    required this.onPressedAddReflection,
     required this.onChanged,
     required this.textReflection,
   });
 
-  final void Function(RepositoryReflection?) onPressed;
+  final void Function(RepositoryReflection?) onPressedAddReflection;
   final void Function(String) onChanged;
   final TextEditingController textReflection;
 }
@@ -22,7 +22,8 @@ class UseReturn {
 UseReturn useHandler() {
   TextEditingController textReflection = TextEditingController();
 
-  void onPressed(RepositoryReflection? r) async {
+  /// 振り返りの追加を押した
+  void onPressedAddReflection(RepositoryReflection? r) async {
     print(textReflection.text);
     await addReflection(r, textReflection.text);
     textReflection.clear();
@@ -34,7 +35,7 @@ UseReturn useHandler() {
   }
 
   return UseReturn(
-    onPressed: onPressed,
+    onPressedAddReflection: onPressedAddReflection,
     onChanged: onChanged,
     textReflection: textReflection,
   );

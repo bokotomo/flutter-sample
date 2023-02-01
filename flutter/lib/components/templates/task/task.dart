@@ -13,11 +13,11 @@ import 'package:gamer_reflection/components/pages/task/task_detail/task_detail.d
     show PageTaskDetail;
 
 /// タスク詳細ページへ移動
-void pushTaskDetail(BuildContext context) {
+void pushTaskDetail(BuildContext context, int taskId) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => const PageTaskDetail(),
+      builder: (context) => PageTaskDetail(taskId: taskId),
     ),
   );
 }
@@ -49,7 +49,7 @@ Widget view(List<DomainReflection> reflections, BuildContext context) {
         if (i != 0) const SizedBox(height: ConstantSizeUI.l3),
         ButtonTask(
           text: reflections[i].text,
-          onPressed: () => pushTaskDetail(context),
+          onPressed: () => pushTaskDetail(context, reflections[i].id),
         ),
       }
     ],

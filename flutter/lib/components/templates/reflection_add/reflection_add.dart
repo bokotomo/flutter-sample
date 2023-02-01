@@ -15,7 +15,7 @@ import 'package:gamer_reflection/modules/database/repository/reflection.dart'
     show RepositoryReflection;
 
 Widget view(RepositoryReflection? repositoryReflection) {
-  final use = useHandler();
+  final handler = useHandler();
   Column cloumn = Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -35,16 +35,16 @@ Widget view(RepositoryReflection? repositoryReflection) {
       ),
       const SizedBox(height: ConstantSizeUI.l3),
       InputText(
-        text: use.textReflection,
+        text: handler.textReflection,
         hintText: '悪かった点を書く(40文字以内)',
         autofocus: true,
-        onChanged: use.onChanged,
+        onChanged: handler.onChanged,
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       ButtonBasic(
         icon: Icons.add,
         text: '追加する',
-        onPressed: () => use.onPressed(repositoryReflection),
+        onPressed: () => handler.onPressedAddReflection(repositoryReflection),
       ),
     ],
   );
