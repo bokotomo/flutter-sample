@@ -1,17 +1,28 @@
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
+
 /// ドメイン: 振り返り
 class DomainReflection {
-  DomainReflection({
+  const DomainReflection({
     required this.id,
     required this.text,
+    required this.count,
+    required this.reflectionType,
     required this.createdAt,
   });
 
   /// ID
-  int id;
+  final int id;
 
   /// 振り返り内容
-  String text;
+  final String text;
+
+  /// 回数
+  final int count;
+
+  /// 振り返りの種類
+  final ReflectionType reflectionType;
 
   /// 日付
-  DateTime createdAt;
+  final DateTime createdAt;
 }

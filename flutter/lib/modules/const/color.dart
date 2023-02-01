@@ -8,8 +8,6 @@ const _white = Colors.white;
 class ConstantColor {
   ConstantColor._();
 
-  static const Color borderHintText = Color.fromARGB(70, 255, 255, 255);
-
   /// バーの背景色
   static const Color header = _darkBlueLittle;
 
@@ -36,6 +34,9 @@ class ConstantColor {
 
   /// inputの枠線色
   static const Color inputBorder = Color.fromARGB(255, 45, 24, 114);
+
+  /// prefixの文字色
+  static const Color inputHintText = Color.fromARGB(70, 255, 255, 255);
 
   /// inputの枠線色フォーカス
   static const Color inputBorderFocus = Color.fromARGB(255, 57, 30, 145);
