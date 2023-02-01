@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
     as reflection_add;
 
 /// ページ: 振り返りの追加
 class PageReflection extends StatefulWidget {
-  const PageReflection({super.key});
+  const PageReflection({super.key, required this.db});
+  final Future<Database> db;
 
   @override
   State<PageReflection> createState() => _PageReflectionState();
@@ -21,8 +23,8 @@ class _PageReflectionState extends State<PageReflection> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: reflection_add.TemplateReflectionAdd(),
+    return Scaffold(
+      body: reflection_add.TemplateReflectionAdd(db: widget.db),
     );
   }
 }

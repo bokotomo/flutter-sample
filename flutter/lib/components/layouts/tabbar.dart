@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/common/molecules/footer.dart'
     show Footer;
 import 'package:gamer_reflection/components/pages/account/account.dart'
@@ -26,7 +27,8 @@ Widget home(
 
 /// Tabbar
 class Tabbar extends StatefulWidget {
-  const Tabbar({super.key});
+  const Tabbar({super.key, required this.db});
+  final Future<Database> db;
 
   @override
   State<Tabbar> createState() => _TabbarState();
@@ -35,12 +37,14 @@ class Tabbar extends StatefulWidget {
 /// _ContentState
 class _TabbarState extends State<Tabbar> {
   /// タブで表示するページ一覧
-  static const List<Widget> _tabPages = [
-    PageTask(),
-    PageReflection(),
-    PageRanking(),
-    PageAccountSetting(),
-  ];
+  List<Widget> _tabPages(Future<Database> db) {
+    return [
+      PageTask(db: db),
+      PageReflection(db: db),
+      PageRanking(db: db),
+      PageAccountSetting(db: db),
+    ];
+  }
 
   /// 現在選択しているタブIndex
   int _selectedIndex = 0;
@@ -56,7 +60,7 @@ class _TabbarState extends State<Tabbar> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: home(
-        _tabPages,
+        _tabPages(widget.db),
         _selectedIndex,
         _onItemTapped,
       ),
