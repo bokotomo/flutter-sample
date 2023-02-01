@@ -34,6 +34,7 @@ Widget view(Future<Database> db) {
       ),
       const SizedBox(height: ConstantSizeUI.l3),
       InputText(
+        text: use.textReflection,
         hintText: '悪かった点を書く(40文字以内)',
         autofocus: true,
         onChanged: use.onChanged,

@@ -25,14 +25,18 @@ InputDecoration decoration(String hintText) {
   );
 }
 
-/// input text
+/// input: text
 class InputText extends StatelessWidget {
   const InputText({
     super.key,
     required this.hintText,
+    required this.text,
     required this.autofocus,
     this.onChanged,
   });
+
+  /// プレフィックス
+  final TextEditingController text;
 
   /// プレフィックス
   final String hintText;
@@ -53,6 +57,7 @@ class InputText extends StatelessWidget {
     }
 
     return TextField(
+      controller: text,
       style: const TextStyle(color: ConstantColor.text),
       decoration: decoration(hintText),
       autofocus: autofocus,
