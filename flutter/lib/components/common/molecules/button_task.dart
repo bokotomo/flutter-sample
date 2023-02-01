@@ -4,20 +4,16 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// ボタン: 基本
-class ButtonBasic extends StatelessWidget {
-  const ButtonBasic({
+/// ボタン: タスク
+class ButtonTask extends StatelessWidget {
+  const ButtonTask({
     super.key,
     required this.text,
-    required this.icon,
     this.onPressed,
   });
 
   /// 文字
   final String text;
-
-  /// アイコン
-  final IconData icon;
 
   /// クリックした
   final void Function()? onPressed;
@@ -31,18 +27,17 @@ class ButtonBasic extends StatelessWidget {
       this.onPressed!();
     }
 
-    return ElevatedButton.icon(
+    return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: ConstantColor.button,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+        backgroundColor: ConstantColor.buttonTask,
+        minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(width: 2.0, color: ConstantColor.buttonBorder),
+          side: BorderSide(width: 2.0, color: ConstantColor.buttonTaskBorder),
         ),
       ),
-      icon: Icon(icon),
-      label: BasicText(text: text, size: "M"),
+      child: BasicText(text: text, size: "M"),
     );
   }
 }

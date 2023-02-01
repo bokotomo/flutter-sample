@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text.dart'
-    show BasicText;
+import 'package:gamer_reflection/components/common/molecules/button_task.dart'
+    show ButtonTask;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
@@ -9,9 +9,21 @@ import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/components/pages/task/task_detail/task_detail.dart'
+    show PageTaskDetail;
+
+/// タスク詳細ページへ移動
+void pushTaskDetail(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const PageTaskDetail(),
+    ),
+  );
+}
 
 ///
-Widget view(List<DomainReflection> reflections) {
+Widget view(List<DomainReflection> reflections, BuildContext context) {
   /// データがない場合
   Column noDataAnnotation = Column(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -31,12 +43,14 @@ Widget view(List<DomainReflection> reflections) {
   );
 
   /// 振り返り一覧
-  Column reflectionList = Column(
-    mainAxisAlignment: MainAxisAlignment.center,
+  ListView reflectionList = ListView(
     children: [
       for (int i = 0; i < reflections.length; i++) ...{
-        BasicText(text: reflections[i].text, size: "M"),
-        BasicText(text: "${reflections[i].count}回", size: "M"),
+        if (i != 0) const SizedBox(height: ConstantSizeUI.l3),
+        ButtonTask(
+          text: reflections[i].text,
+          onPressed: () => pushTaskDetail(context),
+        ),
       }
     ],
   );
@@ -65,6 +79,6 @@ class TemplateTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return view(reflections);
+    return view(reflections, context);
   }
 }

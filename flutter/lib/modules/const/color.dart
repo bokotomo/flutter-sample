@@ -27,7 +27,19 @@ class ConstantColor {
   static const Color button = Color.fromARGB(255, 55, 55, 196);
 
   /// ボタンの枠線色
-  static const Color buttoBorder = Color.fromARGB(255, 93, 93, 228);
+  static const Color buttonBorder = Color.fromARGB(255, 93, 93, 228);
+
+  /// 完了ボタンの背景色
+  static const Color buttonDone = Color.fromARGB(255, 43, 115, 93);
+
+  /// 完了ボタンの枠線色
+  static const Color buttonDoneBorder = Color.fromARGB(255, 16, 94, 68);
+
+  /// タスク一覧ボタンの背景色
+  static const Color buttonTask = Color.fromARGB(255, 51, 57, 67);
+
+  /// タスク一覧ボタンの枠線色
+  static const Color buttonTaskBorder = Color.fromARGB(255, 81, 86, 98);
 
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);
