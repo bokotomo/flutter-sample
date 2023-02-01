@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/common/molecules/footer.dart'
     show Footer;
 import 'package:gamer_reflection/components/pages/account/account.dart'
@@ -9,6 +8,8 @@ import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
     show PageRanking;
 import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
     show PageReflection;
+import 'package:gamer_reflection/modules/database/repositories.dart'
+    show Repositories;
 
 /// home
 Widget home(
@@ -27,8 +28,8 @@ Widget home(
 
 /// Tabbar
 class Tabbar extends StatefulWidget {
-  const Tabbar({super.key, required this.db});
-  final Future<Database> db;
+  const Tabbar({super.key, required this.repositories});
+  final ValueNotifier<Repositories?> repositories;
 
   @override
   State<Tabbar> createState() => _TabbarState();
@@ -37,12 +38,12 @@ class Tabbar extends StatefulWidget {
 /// _ContentState
 class _TabbarState extends State<Tabbar> {
   /// タブで表示するページ一覧
-  List<Widget> _tabPages(Future<Database> db) {
+  List<Widget> _tabPages(ValueNotifier<Repositories?> repositories) {
     return [
-      PageTask(db: db),
-      PageReflection(db: db),
-      PageRanking(db: db),
-      PageAccountSetting(db: db),
+      PageTask(repositories: repositories),
+      PageReflection(repositories: repositories),
+      const PageRanking(),
+      const PageAccountSetting(),
     ];
   }
 
@@ -60,7 +61,7 @@ class _TabbarState extends State<Tabbar> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: home(
-        _tabPages(widget.db),
+        _tabPages(widget.repositories),
         _selectedIndex,
         _onItemTapped,
       ),

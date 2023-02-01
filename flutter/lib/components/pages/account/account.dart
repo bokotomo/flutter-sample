@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/templates/account_setting/account_setting.dart'
     as account_setting;
 
 /// ページ: アカウント設定
 class PageAccountSetting extends StatefulWidget {
-  const PageAccountSetting({super.key, required this.db});
-  final Future<Database> db;
+  const PageAccountSetting({super.key});
 
   @override
   State<PageAccountSetting> createState() => _PageAccountSettingState();

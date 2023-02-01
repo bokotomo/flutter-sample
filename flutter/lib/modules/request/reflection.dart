@@ -1,9 +1,8 @@
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/modules/database/repository/reflection.dart'
-    show insertReflection;
+    show RepositoryReflection;
 
 /// 新規追加: Reflection
-Future<void> addReflection(Future<Database> db, String text) async {
-  final Database d = await db;
-  await insertReflection(d, text);
+Future<void> addReflection(RepositoryReflection? r, String text) async {
+  if (r == null) return;
+  await r.insertReflection(text);
 }

@@ -1,26 +1,38 @@
 import 'package:sqflite/sqflite.dart';
+import 'package:gamer_reflection/modules/database/model/reflection.dart'
+    show ModelReflection, tableNameReflection;
 
-/// テーブルの作成
-Future<void> createTables(Database db) async {
-  try {
-    await db.execute('''
-CREATE TABLE IF NOT EXISTS reflection(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  text TEXT NOT NULL, count INTEGER NOT NULL,
-  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime'))
-)
-''');
-  } catch (e) {
-    //todo
-    rethrow;
+/// Repository: Reflection
+class RepositoryReflection {
+  const RepositoryReflection({required this.db});
+  final Database db;
+
+  /// 振り返りの追加
+  Future<void> insertReflection(String text) async {
+    final reflection = ModelReflection(
+      text: text,
+      count: 1,
+    );
+
+    await db.insert(
+      tableNameReflection,
+      reflection.toMap(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
-}
 
-/// 振り返りの追加
-Future<void> insertReflection(Database db, String text) async {
-  await db.execute("INSERT INTO reflection (text, count) values('$text', 1)");
+  /// 振り返りの一覧取得
+  Future<List<ModelReflection>> getReflections() async {
+    final List<Map<String, Object?>> res =
+        await db.rawQuery('SELECT * FROM reflection LIMIT 100');
 
-  final reflections = await db.rawQuery('SELECT * FROM reflection');
-
-  print(reflections);
+    print(res);
+    return List.generate(res.length, (i) {
+      return ModelReflection(
+        id: res[i]['id'] as int,
+        text: res[i]['text'] as String,
+        count: res[i]['count'] as int,
+      );
+    });
+  }
 }

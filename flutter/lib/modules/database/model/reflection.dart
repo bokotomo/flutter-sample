@@ -1,14 +1,16 @@
+const String tableNameReflection = "reflection";
+
 /// Model: Reflection
-class Reflection {
-  const Reflection({
-    required this.id,
+class ModelReflection {
+  ModelReflection({
+    this.id,
     required this.text,
     required this.count,
     // required this.createdAt,
   });
 
   /// ID
-  final int id;
+  final int? id;
 
   /// 振り返り内容
   final String text;
@@ -18,4 +20,11 @@ class Reflection {
 
   // /// 日付
   // final DateTime createdAt;
+
+  Map<String, dynamic> toMap() {
+    return {
+      'text': text,
+      'count': count,
+    };
+  }
 }

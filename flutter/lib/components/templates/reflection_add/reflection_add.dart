@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
@@ -12,8 +11,10 @@ import 'package:gamer_reflection/components/templates/reflection_add/handler.dar
     show useHandler;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/modules/database/repository/reflection.dart'
+    show RepositoryReflection;
 
-Widget view(Future<Database> db) {
+Widget view(RepositoryReflection? repositoryReflection) {
   final use = useHandler();
   Column cloumn = Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +44,7 @@ Widget view(Future<Database> db) {
       ButtonBasic(
         icon: Icons.add,
         text: '追加する',
-        onPressed: () => use.onPressed(db),
+        onPressed: () => use.onPressed(repositoryReflection),
       ),
     ],
   );
@@ -64,11 +65,11 @@ Widget view(Future<Database> db) {
 
 /// テンプレート: 振り返りの追加
 class TemplateReflectionAdd extends StatelessWidget {
-  const TemplateReflectionAdd({super.key, required this.db});
-  final Future<Database> db;
+  const TemplateReflectionAdd({super.key, required this.repositoryReflection});
+  final RepositoryReflection? repositoryReflection;
 
   @override
   Widget build(BuildContext context) {
-    return view(db);
+    return view(repositoryReflection);
   }
 }

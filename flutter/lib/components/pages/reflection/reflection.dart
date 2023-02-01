@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
     as reflection_add;
+import 'package:gamer_reflection/modules/database/repositories.dart'
+    show Repositories;
 
 /// ページ: 振り返りの追加
 class PageReflection extends StatefulWidget {
-  const PageReflection({super.key, required this.db});
-  final Future<Database> db;
+  const PageReflection({super.key, required this.repositories});
+  final ValueNotifier<Repositories?> repositories;
 
   @override
   State<PageReflection> createState() => _PageReflectionState();
@@ -14,17 +15,24 @@ class PageReflection extends StatefulWidget {
 
 /// _PageReflectionAddState
 class _PageReflectionState extends State<PageReflection> {
+  Future<void> getData() async {
+    setState(() {});
+  }
+
   @override
   void initState() {
+    super.initState();
     print("PageReflection");
 
-    super.initState();
+    getData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: reflection_add.TemplateReflectionAdd(db: widget.db),
+      body: reflection_add.TemplateReflectionAdd(
+        repositoryReflection: widget.repositories.value?.repositoryReflection,
+      ),
     );
   }
 }

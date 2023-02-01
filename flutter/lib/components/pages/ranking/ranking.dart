@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/components/templates/ranking/ranking.dart'
     as ranking;
 
 /// ページ: ランキング
 class PageRanking extends StatefulWidget {
-  const PageRanking({super.key, required this.db});
-  final Future<Database> db;
+  const PageRanking({super.key});
 
   @override
   State<PageRanking> createState() => _PageRankingState();

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart' show TextEditingController;
-import 'package:sqflite/sqflite.dart';
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show addReflection;
+import 'package:gamer_reflection/modules/database/repository/reflection.dart'
+    show RepositoryReflection;
 
 /// handler event
 
@@ -12,7 +13,7 @@ class UseReturn {
     required this.textReflection,
   });
 
-  final void Function(Future<Database>) onPressed;
+  final void Function(RepositoryReflection?) onPressed;
   final void Function(String) onChanged;
   final TextEditingController textReflection;
 }
@@ -21,9 +22,9 @@ class UseReturn {
 UseReturn useHandler() {
   TextEditingController textReflection = TextEditingController();
 
-  void onPressed(Future<Database> db) async {
+  void onPressed(RepositoryReflection? r) async {
     print(textReflection.text);
-    await addReflection(db, textReflection.text);
+    await addReflection(r, textReflection.text);
     textReflection.clear();
   }
 
