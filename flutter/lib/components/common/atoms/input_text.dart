@@ -17,7 +17,7 @@ InputDecoration decoration(String hintText) {
     fillColor: ConstantColor.input,
     hintText: hintText,
     hintStyle: const TextStyle(
-      color: ConstantColor.borderHintText,
+      color: ConstantColor.inputHintText,
     ),
     contentPadding: const EdgeInsets.symmetric(
       horizontal: ConstantSizeUI.l4,
@@ -31,16 +31,32 @@ class InputText extends StatelessWidget {
     super.key,
     required this.hintText,
     required this.autofocus,
+    this.onChanged,
   });
+
+  /// プレフィックス
   final String hintText;
+
+  /// 自動フォーカス
   final bool autofocus;
+
+  /// 変更した
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
+    void onChanged(String t) {
+      if (this.onChanged == null) {
+        return;
+      }
+      this.onChanged!(t);
+    }
+
     return TextField(
       style: const TextStyle(color: ConstantColor.text),
       decoration: decoration(hintText),
       autofocus: autofocus,
+      onChanged: onChanged,
     );
   }
 }

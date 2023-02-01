@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/task/task.dart' as task;
+import 'package:gamer_reflection/modules/domain/reflection.dart'
+    show DomainReflection;
+import 'package:gamer_reflection/modules/fetch/reflection.dart'
+    show fetchReflections;
 
 /// ページ: タスク一覧
 class PageTask extends StatefulWidget {
@@ -11,17 +15,19 @@ class PageTask extends StatefulWidget {
 
 /// _PageTaskState
 class _PageTaskState extends State<PageTask> {
+  List<DomainReflection> reflections = fetchReflections();
+
   @override
   void initState() {
-    print("PageTask");
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: task.TemplateTaskScreen(),
+    return Scaffold(
+      body: task.TemplateTask(
+        reflections: reflections,
+      ),
     );
   }
 }

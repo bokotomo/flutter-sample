@@ -10,11 +10,14 @@ class ButtonBasic extends StatelessWidget {
     required this.icon,
     this.onPressed,
   });
-  // 文字
+
+  /// 文字
   final String text;
-  // 文字
+
+  /// 文字
   final IconData icon;
-  // クリックした
+
+  /// クリックした
   final void Function()? onPressed;
 
   @override
