@@ -5,23 +5,23 @@ class ConstantSizeFont {
   /// 12
   static const double xs = 12;
 
+  /// 14
+  static const double s = 14;
+
   /// 16
-  static const double s = 16;
+  static const double m = 16;
 
   /// 20
-  static const double m = 20;
+  static const double xm = 20;
 
   /// 24
-  static const double xm = 24;
-
-  /// 28
-  static const double l = 28;
+  static const double l = 24;
 
   /// 32
-  static const double xl = 32;
+  static const double xl = 28;
 
   /// 40
-  static const double xxl = 40;
+  static const double xxl = 32;
 }
 
 /// UIサイズ

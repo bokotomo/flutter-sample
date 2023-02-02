@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+const _white = Colors.white;
 const _darkBlueLittle = Color.fromARGB(239, 49, 43, 74);
 const _darkBlue = Color.fromARGB(255, 14, 9, 32);
-const _white = Colors.white;
+const _grayDark = Color.fromARGB(255, 51, 57, 67);
+const _grayLight = Color.fromARGB(255, 81, 86, 98);
 
 /// 用途ごとに色を定義する
 class ConstantColor {
@@ -23,6 +25,12 @@ class ConstantColor {
   /// 薄い文字
   static const Color textOpacity = Color.fromARGB(120, 255, 255, 255);
 
+  /// ボックスの背景色
+  static const Color box = _grayDark;
+
+  /// ボックスの枠線色
+  static const Color boxBorder = _grayLight;
+
   /// ボタンの背景色
   static const Color button = Color.fromARGB(255, 55, 55, 196);
 
@@ -36,10 +44,10 @@ class ConstantColor {
   static const Color buttonDoneBorder = Color.fromARGB(255, 16, 94, 68);
 
   /// タスク一覧ボタンの背景色
-  static const Color buttonTask = Color.fromARGB(255, 51, 57, 67);
+  static const Color buttonTask = _grayDark;
 
   /// タスク一覧ボタンの枠線色
-  static const Color buttonTaskBorder = Color.fromARGB(255, 81, 86, 98);
+  static const Color buttonTaskBorder = _grayLight;
 
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);

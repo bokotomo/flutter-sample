@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
+import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+    show TextAnnotation;
+import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
@@ -9,35 +12,79 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
     show useHandler;
 
 ///
-Widget view(BuildContext context, int taskId, DomainReflection? reflection) {
+Widget view(
+  BuildContext context,
+  int taskId,
+  DomainReflection? reflection,
+  bool isEditMode,
+  Function onPressedEdit,
+) {
   final handler = useHandler();
-  Column body = Column(
+  final isGood = reflection?.reflectionType == ReflectionType.good;
+  final count = reflection?.count ?? 0;
+  final detailNotExist = reflection?.detail == "";
+  final detailBox = isEditMode
+      ? const BasicText(
+          text: "編集モード",
+          size: "M",
+        )
+      : Box(
+          child: detailNotExist
+              ? const TextAnnotation(
+                  text: "まだ追加していません",
+                  size: "M",
+                )
+              : BasicText(
+                  text: reflection?.detail ?? "",
+                  size: "M",
+                ),
+        );
+
+  ListView body = ListView(
     children: [
-      const BasicText(
-        text: "タスク詳細",
-        size: "M",
+      const SizedBox(height: ConstantSizeUI.l4),
+      Box(
+        child: BasicText(
+          text: reflection?.text ?? "none",
+          size: "M",
+        ),
+      ),
+      const SizedBox(height: ConstantSizeUI.l4),
+      Row(
+        children: [
+          BasicText(
+            text: "回数: $count回",
+            size: "M",
+          ),
+          const SizedBox(width: ConstantSizeUI.l4),
+          BasicText(
+            text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
+            size: "M",
+          ),
+        ],
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       BasicText(
-        text: reflection?.text ?? "none",
+        text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
         size: "M",
       ),
       const SizedBox(height: ConstantSizeUI.l4),
-      const BasicText(
-        text: "悪かった点の対策",
-        size: "M",
-      ),
+      detailBox,
       const SizedBox(height: ConstantSizeUI.l4),
       ButtonBasic(
         icon: Icons.edit,
         text: "編集する",
-        onPressed: () => {},
+        onPressed: () => {
+          onPressedEdit(),
+        },
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       ButtonDone(
@@ -51,7 +98,10 @@ Widget view(BuildContext context, int taskId, DomainReflection? reflection) {
   );
 
   Padding content = Padding(
-    padding: const EdgeInsets.all(ConstantSizeUI.l3),
+    padding: const EdgeInsets.only(
+      left: ConstantSizeUI.l3,
+      right: ConstantSizeUI.l3,
+    ),
     child: body,
   );
 
@@ -64,22 +114,8 @@ Widget view(BuildContext context, int taskId, DomainReflection? reflection) {
   return wrapper;
 }
 
-///
-Center body = const Center(
-  child: BasicText(
-    text: 'タスク詳細',
-    size: "M",
-  ),
-);
-
-Scaffold wrapper = Scaffold(
-  backgroundColor: ConstantColor.content,
-  appBar: const Header(title: "タスク詳細"),
-  body: body,
-);
-
-/// テンプレート: タスク詳細
-class TemplateTaskDetail extends StatelessWidget {
+/// ページ: タスク一覧
+class TemplateTaskDetail extends StatefulWidget {
   const TemplateTaskDetail({
     super.key,
     required this.taskId,
@@ -89,7 +125,27 @@ class TemplateTaskDetail extends StatelessWidget {
   final DomainReflection? reflection;
 
   @override
+  State<TemplateTaskDetail> createState() => TemplateTaskDetailState();
+}
+
+/// テンプレート: タスク詳細
+class TemplateTaskDetailState extends State<TemplateTaskDetail> {
+  bool isEditMode = false;
+
+  @override
   Widget build(BuildContext context) {
-    return view(context, taskId, reflection);
+    void onPressedEdit() {
+      setState(() {
+        isEditMode = !isEditMode;
+      });
+    }
+
+    return view(
+      context,
+      widget.taskId,
+      widget.reflection,
+      isEditMode,
+      onPressedEdit,
+    );
   }
 }

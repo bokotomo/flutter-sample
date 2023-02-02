@@ -19,26 +19,30 @@ Widget view(
   Function(BuildContext context, int taskId) pushTaskDetail,
 ) {
   /// データがない場合
-  Column noDataAnnotation = Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: const [
-      Icon(
-        Icons.info,
-        color: ConstantColor.textOpacity,
-        size: 60,
-      ),
-      SizedBox(height: ConstantSizeUI.l3),
-      TextAnnotation(
-        text: 'まだタスクがありません。振り返りから追加しましょう！',
-        size: "M",
-        textAlign: TextAlign.center,
-      ),
-    ],
+  SizedBox noDataAnnotation = SizedBox(
+    width: double.infinity,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        Icon(
+          Icons.info,
+          color: ConstantColor.textOpacity,
+          size: 56,
+        ),
+        SizedBox(height: ConstantSizeUI.l3),
+        TextAnnotation(
+          text: 'まだタスクがありません。\n振り返りから追加しましょう!',
+          size: "M",
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ),
   );
 
   /// 振り返り一覧
   ListView reflectionList = ListView(
     children: [
+      const SizedBox(height: ConstantSizeUI.l3),
       const BasicText(text: "振り返り名A", size: "M"),
       const SizedBox(height: ConstantSizeUI.l3),
       for (int i = 0; i < reflections.length; i++) ...{
@@ -52,7 +56,8 @@ Widget view(
   );
 
   Padding content = Padding(
-    padding: const EdgeInsets.all(ConstantSizeUI.l3),
+    padding: const EdgeInsets.only(
+        left: ConstantSizeUI.l3, right: ConstantSizeUI.l3),
     child: reflections.isEmpty ? noDataAnnotation : reflectionList,
   );
 

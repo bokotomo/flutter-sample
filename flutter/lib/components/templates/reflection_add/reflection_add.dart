@@ -35,7 +35,6 @@ Widget view() {
       InputText(
         text: handler.textReflection,
         hintText: '悪かった点を書く(40文字以内)',
-        autofocus: true,
         onChanged: handler.onChanged,
       ),
       const SizedBox(height: ConstantSizeUI.l4),
