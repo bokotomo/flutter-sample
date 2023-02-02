@@ -14,4 +14,10 @@ class RequestReflection {
     final db = GetIt.I<DBConnection>().db;
     await repositoryReflection.insertReflection(db, text);
   }
+
+  /// 削除: Reflection
+  Future<void> deleteReflection(int id) async {
+    final db = GetIt.I<DBConnection>().db;
+    await repositoryReflection.deleteReflection(db, id);
+  }
 }

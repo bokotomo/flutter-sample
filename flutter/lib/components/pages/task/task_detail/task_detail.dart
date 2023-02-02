@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/task_detail/task_detail.dart'
-    as task_detail;
+    show TemplateTaskDetail;
+import 'package:gamer_reflection/modules/domain/reflection.dart'
+    show DomainReflection;
+import 'package:gamer_reflection/modules/fetch/reflection.dart'
+    show FetchReflection;
 
 /// ページ: タスク詳細
 class PageTaskDetail extends StatefulWidget {
@@ -13,12 +17,13 @@ class PageTaskDetail extends StatefulWidget {
 
 /// _PageTaskDetailState
 class _PageTaskDetailState extends State<PageTaskDetail> {
+  DomainReflection? reflection;
+
   Future<void> eventRepository() async {
-    // final r =
-    //     await fetchReflections(widget.repositories.value?.repositoryReflection);
+    final r = await FetchReflection().fetchReflectionById(widget.taskId);
 
     setState(() {
-      // reflections = r;
+      reflection = r;
     });
   }
 
@@ -33,7 +38,10 @@ class _PageTaskDetailState extends State<PageTaskDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: task_detail.TemplateTaskDetail(taskId: widget.taskId),
+      body: TemplateTaskDetail(
+        taskId: widget.taskId,
+        reflection: reflection,
+      ),
     );
   }
 }

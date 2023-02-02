@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' show join;
 import 'package:gamer_reflection/modules/database/repository/table.dart'
-    show createTables;
+    show TableSetUp;
 
 /// sqliteの管理
 
@@ -23,7 +23,7 @@ Future<Database> initDatabase() async {
     path,
     version: version,
     onCreate: (Database db, int version) async {
-      await createTables(db);
+      await TableSetUp().createTables(db);
     },
   );
 

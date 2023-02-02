@@ -11,21 +11,13 @@ import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/components/pages/task/task_detail/task_detail.dart'
-    show PageTaskDetail;
-
-/// タスク詳細ページへ移動
-void pushTaskDetail(BuildContext context, int taskId) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => PageTaskDetail(taskId: taskId),
-    ),
-  );
-}
 
 ///
-Widget view(List<DomainReflection> reflections, BuildContext context) {
+Widget view(
+  List<DomainReflection> reflections,
+  BuildContext context,
+  Function(BuildContext context, int taskId) pushTaskDetail,
+) {
   /// データがない場合
   Column noDataAnnotation = Column(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -78,11 +70,21 @@ class TemplateTask extends StatelessWidget {
   const TemplateTask({
     super.key,
     required this.reflections,
+    required this.pushTaskDetail,
   });
+
+  /// 振り返り一覧
   final List<DomainReflection> reflections;
+
+  /// クリックした
+  final void Function(BuildContext context, int taskId) pushTaskDetail;
 
   @override
   Widget build(BuildContext context) {
-    return view(reflections, context);
+    return view(
+      reflections,
+      context,
+      pushTaskDetail,
+    );
   }
 }

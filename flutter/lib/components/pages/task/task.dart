@@ -4,6 +4,8 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show FetchReflection;
+import 'package:gamer_reflection/components/pages/task/task_detail/task_detail.dart'
+    show PageTaskDetail;
 
 /// ページ: タスク一覧
 class PageTask extends StatefulWidget {
@@ -18,6 +20,19 @@ class PageTask extends StatefulWidget {
 class _PageTaskState extends State<PageTask> {
   List<DomainReflection> reflections = [];
 
+  /// タスク詳細ページへ移動
+  void pushTaskDetail(BuildContext context, int taskId) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PageTaskDetail(taskId: taskId),
+      ),
+    ).then((v) {
+      eventRepository();
+    });
+  }
+
+  /// データ取得
   Future<void> eventRepository() async {
     if (!widget.canDC.value) return;
     final r = await FetchReflection().fetchReflections();
@@ -39,6 +54,7 @@ class _PageTaskState extends State<PageTask> {
     return Scaffold(
       body: task.TemplateTask(
         reflections: reflections,
+        pushTaskDetail: pushTaskDetail,
       ),
     );
   }
