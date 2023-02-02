@@ -1,12 +1,17 @@
 import 'package:get_it/get_it.dart';
 import 'package:gamer_reflection/modules/database/repository/reflection.dart'
-    show RepositoryReflection;
+    show IRepositoryReflection;
 import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
     show DBConnection;
 
-/// 新規追加: Reflection
-Future<void> addReflection(String text) async {
-  final db = GetIt.I<DBConnection>().db;
-  final repo = RepositoryReflection(db: db);
-  await repo.insertReflection(text);
+/// Request: Reflection
+class RequestReflection {
+  final IRepositoryReflection repositoryReflection =
+      GetIt.I<IRepositoryReflection>();
+
+  /// 新規追加: Reflection
+  Future<void> addReflection(String text) async {
+    final db = GetIt.I<DBConnection>().db;
+    await repositoryReflection.insertReflection(db, text);
+  }
 }

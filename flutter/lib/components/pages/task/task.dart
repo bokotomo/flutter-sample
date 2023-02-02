@@ -3,7 +3,7 @@ import 'package:gamer_reflection/components/templates/task/task.dart' as task;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
-    show fetchReflections;
+    show FetchReflection;
 
 /// ページ: タスク一覧
 class PageTask extends StatefulWidget {
@@ -20,7 +20,7 @@ class _PageTaskState extends State<PageTask> {
 
   Future<void> eventRepository() async {
     if (!widget.canDC.value) return;
-    final r = await fetchReflections();
+    final r = await FetchReflection().fetchReflections();
 
     setState(() {
       reflections = r;

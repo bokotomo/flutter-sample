@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show TextEditingController;
 import 'package:gamer_reflection/modules/request/reflection.dart'
-    show addReflection;
+    show RequestReflection;
 
 /// handler event
 
@@ -23,7 +23,7 @@ UseReturn useHandler() {
   /// 振り返りの追加を押した
   void onPressedAddReflection() async {
     print(textReflection.text);
-    await addReflection(textReflection.text);
+    await RequestReflection().addReflection(textReflection.text);
     textReflection.clear();
   }
 
