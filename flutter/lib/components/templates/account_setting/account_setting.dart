@@ -33,7 +33,7 @@ Widget view(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
             BasicText(
-              text: '振り返りグループを作成する',
+              text: '新規で振り返りグループを作成する',
               size: "M",
             ),
             SizedBox(height: ConstantSizeUI.l3),

@@ -35,8 +35,8 @@ Widget view(
   final id = reflection?.id ?? 0;
   final detailNotExist = reflection?.detail == "";
   final detailForm = InputTextForm(
-    text: handler.textReflection,
-    hintText: "",
+    text: handler.detail,
+    hintText: "振り返りを書きましょう。",
   );
   final detailBox = isEditMode
       ? detailForm

@@ -8,16 +8,19 @@ class UseReturn {
     required this.onPressedTaskDone,
     required this.onPressedEditDone,
     required this.textReflection,
+    required this.detail,
   });
 
   final void Function(int, BuildContext) onPressedTaskDone;
   final void Function(int) onPressedEditDone;
   final TextEditingController textReflection;
+  final TextEditingController detail;
 }
 
 ///
 UseReturn useHandler() {
   TextEditingController textReflection = TextEditingController();
+  TextEditingController detail = TextEditingController();
 
   /// タスク完了ボタンを押した
   void onPressedTaskDone(int taskId, BuildContext context) async {
@@ -34,5 +37,6 @@ UseReturn useHandler() {
     onPressedTaskDone: onPressedTaskDone,
     onPressedEditDone: onPressedEditDone,
     textReflection: textReflection,
+    detail: detail,
   );
 }
