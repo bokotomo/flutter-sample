@@ -39,6 +39,11 @@ Widget view() {
         onChanged: handler.onChanged,
       ),
       const SizedBox(height: ConstantSizeUI.l4),
+      const BasicText(
+        text: 'もしかして？',
+        size: "M",
+      ),
+      const SizedBox(height: ConstantSizeUI.l4),
       ButtonBasic(
         icon: Icons.add,
         text: '追加する',

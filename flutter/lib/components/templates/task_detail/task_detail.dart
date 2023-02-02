@@ -34,18 +34,18 @@ Widget view(BuildContext context, int taskId, DomainReflection? reflection) {
         size: "M",
       ),
       const SizedBox(height: ConstantSizeUI.l4),
+      ButtonBasic(
+        icon: Icons.edit,
+        text: "編集する",
+        onPressed: () => {},
+      ),
+      const SizedBox(height: ConstantSizeUI.l4),
       ButtonDone(
         text: "このタスクを完了する",
         onPressed: () => {
           handler.onPressedTaskDone(taskId, context),
           Navigator.pop(context)
         },
-      ),
-      const SizedBox(height: ConstantSizeUI.l4),
-      ButtonBasic(
-        icon: Icons.edit,
-        text: "編集する",
-        onPressed: () => {},
       ),
     ],
   );

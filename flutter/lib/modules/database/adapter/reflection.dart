@@ -13,6 +13,7 @@ class AdapterReflection {
       (e) => DomainReflection(
         id: e.id ?? 0,
         text: e.text,
+        detail: e.detail,
         count: e.count,
         reflectionType: ReflectionType.bad,
         createdAt: DateTime.now(),
@@ -26,6 +27,7 @@ class AdapterReflection {
     return DomainReflection(
       id: model.id ?? 0,
       text: model.text,
+      detail: model.detail,
       count: model.count,
       reflectionType: ReflectionType.bad,
       createdAt: DateTime.now(),

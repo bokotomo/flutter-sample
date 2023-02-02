@@ -18,6 +18,6 @@ class RequestReflection {
   /// 削除: Reflection
   Future<void> deleteReflection(int id) async {
     final db = GetIt.I<DBConnection>().db;
-    await repositoryReflection.deleteReflection(db, id);
+    await repositoryReflection.deleteReflectionById(db, id);
   }
 }

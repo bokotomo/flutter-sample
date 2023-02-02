@@ -23,6 +23,7 @@ UseReturn useHandler() {
   /// 振り返りの追加を押した
   void onPressedAddReflection() async {
     print(textReflection.text);
+    if (textReflection.text == "") return;
     await RequestReflection().addReflection(textReflection.text);
     textReflection.clear();
   }

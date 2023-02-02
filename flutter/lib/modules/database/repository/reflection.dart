@@ -10,19 +10,22 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
 /// Interface: RepositoryReflection
 abstract class IRepositoryReflection {
   Future<void> insertReflection(Database db, String text);
-  Future<void> deleteReflection(Database db, int id);
+  Future<void> deleteReflectionById(Database db, int id);
   Future<List<DomainReflection>> getReflections(Database db);
   Future<DomainReflection> getReflectionById(Database db, int id);
 }
 
-/// Repository: Reflection
+/// Repository: 振り返り
 @Injectable(as: IRepositoryReflection)
 class RepositoryReflection extends IRepositoryReflection {
-  /// 追加: 振り返りの
+  /// 追加: 振り返り
   @override
   Future<void> insertReflection(Database db, String text) async {
     final reflection = ModelReflection(
+      reflectionGroupId: 1,
+      reflectionType: 1,
       text: text,
+      detail: "",
       count: 1,
     );
 
@@ -33,9 +36,9 @@ class RepositoryReflection extends IRepositoryReflection {
     );
   }
 
-  /// 追加: 振り返りの
+  /// 削除: 指定したIDの振り返り
   @override
-  Future<void> deleteReflection(Database db, int id) async {
+  Future<void> deleteReflectionById(Database db, int id) async {
     await db.delete(
       tableNameReflection,
       where: 'id = ?',
@@ -46,14 +49,21 @@ class RepositoryReflection extends IRepositoryReflection {
   /// 取得: 振り返り一覧
   @override
   Future<List<DomainReflection>> getReflections(Database db) async {
-    final List<Map<String, Object?>> res =
-        await db.rawQuery('SELECT * FROM reflection LIMIT 100');
+    final List<Map<String, Object?>> res = await db.query(
+      tableNameReflection,
+      columns: ['*'],
+      limit: 100,
+    );
 
-    print(res);
+    print(res.map((e) => e['text']));
+
     final models = List.generate(res.length, (i) {
       return ModelReflection(
         id: res[i]['id'] as int,
+        reflectionGroupId: res[i]['reflection_group_id'] as int,
+        reflectionType: res[i]['reflection_type'] as int,
         text: res[i]['text'] as String,
+        detail: res[i]['detail'] as String,
         count: res[i]['count'] as int,
       );
     });
@@ -61,16 +71,23 @@ class RepositoryReflection extends IRepositoryReflection {
     return AdapterReflection().domainReflections(models);
   }
 
-  /// 取得: 振り返り
+  /// 取得: 指定したIDの振り返り
   @override
   Future<DomainReflection> getReflectionById(Database db, int id) async {
-    final List<Map<String, Object?>> res =
-        await db.rawQuery('SELECT * FROM reflection WHERE id=?', [id]);
+    final List<Map<String, Object?>> res = await db.query(
+      tableNameReflection,
+      columns: ['*'],
+      where: '"id" = ?',
+      whereArgs: [id],
+    );
 
     print(res.first);
     final model = ModelReflection(
       id: res.first['id'] as int,
+      reflectionGroupId: res.first['reflection_group_id'] as int,
+      reflectionType: res.first['reflection_type'] as int,
       text: res.first['text'] as String,
+      detail: res.first['detail'] as String,
       count: res.first['count'] as int,
     );
 

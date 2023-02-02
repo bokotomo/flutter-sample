@@ -6,6 +6,7 @@ class DomainReflection {
   const DomainReflection({
     required this.id,
     required this.text,
+    required this.detail,
     required this.count,
     required this.reflectionType,
     required this.createdAt,
@@ -16,6 +17,9 @@ class DomainReflection {
 
   /// 振り返り内容
   final String text;
+
+  /// 振り返りの対策内容
+  final String detail;
 
   /// 回数
   final int count;

@@ -4,26 +4,41 @@ const String tableNameReflection = "reflection";
 class ModelReflection {
   ModelReflection({
     this.id,
+    required this.reflectionGroupId,
+    required this.reflectionType,
     required this.text,
+    required this.detail,
     required this.count,
-    // required this.createdAt,
+    this.createdAt,
   });
 
   /// ID
   final int? id;
 
+  /// GROUP_ID
+  final int reflectionGroupId;
+
+  /// 振り返りの種類
+  final int reflectionType;
+
   /// 振り返り内容
   final String text;
+
+  /// 振り返りの対策内容
+  final String detail;
 
   /// 回数
   final int count;
 
-  // /// 日付
-  // final DateTime createdAt;
+  /// 日付
+  final DateTime? createdAt;
 
-  Map<String, dynamic> toMap() {
+  Map<String, Object> toMap() {
     return {
+      'reflection_group_id': reflectionGroupId,
+      'reflection_type': reflectionType,
       'text': text,
+      'detail': detail,
       'count': count,
     };
   }
