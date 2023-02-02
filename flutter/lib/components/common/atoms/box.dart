@@ -20,7 +20,7 @@ class Box extends StatelessWidget {
       decoration: BoxDecoration(
         color: ConstantColor.box,
         border: Border.all(color: ConstantColor.boxBorder),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
       ),
       child: child,
     );

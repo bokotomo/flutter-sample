@@ -3,10 +3,10 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/button_task.dart'
     show ButtonTask;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
-    show TextAnnotation;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
+import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
+    show TaskNoDataAnnotation;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
@@ -18,27 +18,6 @@ Widget view(
   BuildContext context,
   Function(BuildContext context, int taskId) pushTaskDetail,
 ) {
-  /// データがない場合
-  SizedBox noDataAnnotation = SizedBox(
-    width: double.infinity,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Icon(
-          Icons.info,
-          color: ConstantColor.textOpacity,
-          size: 56,
-        ),
-        SizedBox(height: ConstantSizeUI.l3),
-        TextAnnotation(
-          text: 'まだタスクがありません。\n振り返りから追加しましょう!',
-          size: "M",
-          textAlign: TextAlign.center,
-        ),
-      ],
-    ),
-  );
-
   /// 振り返り一覧
   ListView reflectionList = ListView(
     children: [
@@ -57,8 +36,10 @@ Widget view(
 
   Padding content = Padding(
     padding: const EdgeInsets.only(
-        left: ConstantSizeUI.l3, right: ConstantSizeUI.l3),
-    child: reflections.isEmpty ? noDataAnnotation : reflectionList,
+      left: ConstantSizeUI.l3,
+      right: ConstantSizeUI.l3,
+    ),
+    child: reflections.isEmpty ? const TaskNoDataAnnotation() : reflectionList,
   );
 
   Scaffold wrapper = Scaffold(

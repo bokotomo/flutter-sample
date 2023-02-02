@@ -3,6 +3,8 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
+import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
+    show InputTextForm;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
@@ -25,17 +27,19 @@ Widget view(
   int taskId,
   DomainReflection? reflection,
   bool isEditMode,
-  Function onPressedEdit,
+  Function toggleEditMode,
 ) {
   final handler = useHandler();
   final isGood = reflection?.reflectionType == ReflectionType.good;
   final count = reflection?.count ?? 0;
+  final id = reflection?.id ?? 0;
   final detailNotExist = reflection?.detail == "";
+  final detailForm = InputTextForm(
+    text: handler.textReflection,
+    hintText: "",
+  );
   final detailBox = isEditMode
-      ? const BasicText(
-          text: "編集モード",
-          size: "M",
-        )
+      ? detailForm
       : Box(
           child: detailNotExist
               ? const TextAnnotation(
@@ -43,7 +47,7 @@ Widget view(
                   size: "M",
                 )
               : BasicText(
-                  text: reflection?.detail ?? "",
+                  text: reflection?.detail ?? "none",
                   size: "M",
                 ),
         );
@@ -79,21 +83,29 @@ Widget view(
       const SizedBox(height: ConstantSizeUI.l4),
       detailBox,
       const SizedBox(height: ConstantSizeUI.l4),
-      ButtonBasic(
-        icon: Icons.edit,
-        text: "編集する",
-        onPressed: () => {
-          onPressedEdit(),
-        },
-      ),
+      isEditMode
+          ? ButtonBasic(
+              icon: Icons.edit,
+              text: "編集を完了する",
+              onPressed: () => {
+                handler.onPressedEditDone(id),
+                toggleEditMode(),
+              },
+            )
+          : ButtonBasic(
+              icon: Icons.edit,
+              text: "編集する",
+              onPressed: () => toggleEditMode(),
+            ),
       const SizedBox(height: ConstantSizeUI.l4),
-      ButtonDone(
-        text: "このタスクを完了する",
-        onPressed: () => {
-          handler.onPressedTaskDone(taskId, context),
-          Navigator.pop(context)
-        },
-      ),
+      if (!isEditMode)
+        ButtonDone(
+          text: "このタスクを完了する",
+          onPressed: () => {
+            handler.onPressedTaskDone(taskId, context),
+            Navigator.pop(context)
+          },
+        ),
     ],
   );
 
@@ -108,7 +120,10 @@ Widget view(
   Scaffold wrapper = Scaffold(
     backgroundColor: ConstantColor.content,
     appBar: const Header(title: "タスク"),
-    body: content,
+    body: GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: content,
+    ),
   );
 
   return wrapper;
@@ -134,7 +149,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
 
   @override
   Widget build(BuildContext context) {
-    void onPressedEdit() {
+    void toggleEditMode() {
       setState(() {
         isEditMode = !isEditMode;
       });
@@ -145,7 +160,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
       widget.taskId,
       widget.reflection,
       isEditMode,
-      onPressedEdit,
+      toggleEditMode,
     );
   }
 }

@@ -12,11 +12,11 @@ import 'package:gamer_reflection/components/templates/reflection_add/handler.dar
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-Widget view() {
+Widget view(BuildContext context) {
   final handler = useHandler();
-  Column cloumn = Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+  ListView cloumn = ListView(
     children: [
+      const SizedBox(height: ConstantSizeUI.l3),
       const BasicText(
         text: '振り返りの種類',
         size: "M",
@@ -52,14 +52,20 @@ Widget view() {
   );
 
   Padding content = Padding(
-    padding: const EdgeInsets.all(ConstantSizeUI.l3),
+    padding: const EdgeInsets.only(
+      left: ConstantSizeUI.l3,
+      right: ConstantSizeUI.l3,
+    ),
     child: cloumn,
   );
 
   Scaffold wrapper = Scaffold(
     backgroundColor: ConstantColor.content,
     appBar: const Header(title: "振り返りの追加"),
-    body: content,
+    body: GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: content,
+    ),
   );
 
   return wrapper;
@@ -71,6 +77,6 @@ class TemplateReflectionAdd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return view();
+    return view(context);
   }
 }
