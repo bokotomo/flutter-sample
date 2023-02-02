@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/components/common/atoms/text.dart'
+    show BasicText;
 import 'package:gamer_reflection/components/common/molecules/button_task.dart'
     show ButtonTask;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
@@ -45,6 +47,8 @@ Widget view(List<DomainReflection> reflections, BuildContext context) {
   /// 振り返り一覧
   ListView reflectionList = ListView(
     children: [
+      const BasicText(text: "振り返り名A", size: "M"),
+      const SizedBox(height: ConstantSizeUI.l3),
       for (int i = 0; i < reflections.length; i++) ...{
         if (i != 0) const SizedBox(height: ConstantSizeUI.l3),
         ButtonTask(

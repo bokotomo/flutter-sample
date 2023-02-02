@@ -4,13 +4,12 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show fetchReflections;
-import 'package:gamer_reflection/modules/database/repositories.dart'
-    show Repositories;
+import 'package:sqflite/sqflite.dart';
 
 /// ページ: タスク一覧
 class PageTask extends StatefulWidget {
-  const PageTask({super.key, required this.repositories});
-  final ValueNotifier<Repositories?> repositories;
+  const PageTask({super.key, required this.dc});
+  final ValueNotifier<Database?> dc;
 
   @override
   State<PageTask> createState() => _PageTaskState();
@@ -21,8 +20,8 @@ class _PageTaskState extends State<PageTask> {
   List<DomainReflection> reflections = [];
 
   Future<void> eventRepository() async {
-    final r =
-        await fetchReflections(widget.repositories.value?.repositoryReflection);
+    if (widget.dc.value == null) return;
+    final r = await fetchReflections();
 
     setState(() {
       reflections = r;
@@ -32,7 +31,7 @@ class _PageTaskState extends State<PageTask> {
   @override
   void initState() {
     super.initState();
-    widget.repositories.addListener(eventRepository);
+    widget.dc.addListener(eventRepository);
     eventRepository();
   }
 

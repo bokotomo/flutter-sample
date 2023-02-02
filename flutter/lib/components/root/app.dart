@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:gamer_reflection/modules/database/sqlite.dart'
-    show initDatabase;
+import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
+    show initDatabase, DBConnection;
 import 'package:gamer_reflection/components/layouts/tabbar.dart' show Tabbar;
-import 'package:gamer_reflection/modules/database/repository/reflection.dart'
-    show RepositoryReflection;
-import 'package:gamer_reflection/modules/database/repositories.dart'
-    show Repositories;
 
 const title = 'Gamer Reflection';
 
@@ -20,21 +17,19 @@ class App extends StatefulWidget {
 
 /// _PageTaskState
 class _AppState extends State<App> {
-  final ValueNotifier<Repositories?> repositories =
-      ValueNotifier<Repositories?>(null);
+  final ValueNotifier<Database?> dc = ValueNotifier<Database?>(null);
 
   /// 初期
   Future<Database> setUp() async {
     Database db = await initDatabase();
+    GetIt.I.registerSingleton<DBConnection>(DBConnection(db: db));
     return db;
   }
 
   Future<void> setData() async {
     final Database db = await setUp();
-    final repo = RepositoryReflection(db: db);
-
     setState(() {
-      repositories.value = Repositories(repositoryReflection: repo);
+      dc.value = db;
     });
   }
 
@@ -52,7 +47,7 @@ class _AppState extends State<App> {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Tabbar(repositories: repositories),
+      home: Tabbar(dc: dc),
     );
   }
 }

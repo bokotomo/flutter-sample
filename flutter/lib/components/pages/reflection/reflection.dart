@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
     as reflection_add;
-import 'package:gamer_reflection/modules/database/repositories.dart'
-    show Repositories;
 
 /// ページ: 振り返りの追加
 class PageReflection extends StatefulWidget {
-  const PageReflection({super.key, required this.repositories});
-  final ValueNotifier<Repositories?> repositories;
+  const PageReflection({super.key});
 
   @override
   State<PageReflection> createState() => _PageReflectionState();
@@ -29,10 +26,8 @@ class _PageReflectionState extends State<PageReflection> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: reflection_add.TemplateReflectionAdd(
-        repositoryReflection: widget.repositories.value?.repositoryReflection,
-      ),
+    return const Scaffold(
+      body: reflection_add.TemplateReflectionAdd(),
     );
   }
 }

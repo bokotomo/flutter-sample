@@ -3,6 +3,8 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
+import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
+    show ButtonBasic;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
@@ -15,10 +17,20 @@ Widget view(BuildContext context, int taskId) {
   final handler = useHandler();
   Column body = Column(
     children: [
+      const Text("タスク詳細"),
+      const SizedBox(height: ConstantSizeUI.l4),
+      const Text("悪かった点の対策"),
+      const SizedBox(height: ConstantSizeUI.l4),
       ButtonDone(
         text: "このタスクを完了する",
         onPressed: () => handler.onPressedTaskDone(taskId),
-      )
+      ),
+      const SizedBox(height: ConstantSizeUI.l4),
+      ButtonBasic(
+        icon: Icons.edit,
+        text: "編集する",
+        onPressed: () => handler.onPressedTaskDone(taskId),
+      ),
     ],
   );
 

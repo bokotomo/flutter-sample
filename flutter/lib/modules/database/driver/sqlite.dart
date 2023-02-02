@@ -5,6 +5,12 @@ import 'package:gamer_reflection/modules/database/repository/table.dart'
 
 /// sqliteの管理
 
+/// DBConnection
+class DBConnection {
+  DBConnection({required this.db});
+  final Database? db;
+}
+
 /// データベースの初期化
 Future<Database> initDatabase() async {
   const databaseName = "app_db";

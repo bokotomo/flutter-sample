@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart' show TextEditingController;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show addReflection;
-import 'package:gamer_reflection/modules/database/repository/reflection.dart'
-    show RepositoryReflection;
 
 /// handler event
 
@@ -13,7 +11,7 @@ class UseReturn {
     required this.textReflection,
   });
 
-  final void Function(RepositoryReflection?) onPressedAddReflection;
+  final void Function() onPressedAddReflection;
   final void Function(String) onChanged;
   final TextEditingController textReflection;
 }
@@ -23,9 +21,9 @@ UseReturn useHandler() {
   TextEditingController textReflection = TextEditingController();
 
   /// 振り返りの追加を押した
-  void onPressedAddReflection(RepositoryReflection? r) async {
+  void onPressedAddReflection() async {
     print(textReflection.text);
-    await addReflection(r, textReflection.text);
+    await addReflection(textReflection.text);
     textReflection.clear();
   }
 

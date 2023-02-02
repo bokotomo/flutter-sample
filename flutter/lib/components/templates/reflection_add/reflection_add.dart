@@ -11,10 +11,8 @@ import 'package:gamer_reflection/components/templates/reflection_add/handler.dar
     show useHandler;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/modules/database/repository/reflection.dart'
-    show RepositoryReflection;
 
-Widget view(RepositoryReflection? repositoryReflection) {
+Widget view() {
   final handler = useHandler();
   Column cloumn = Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +42,7 @@ Widget view(RepositoryReflection? repositoryReflection) {
       ButtonBasic(
         icon: Icons.add,
         text: '追加する',
-        onPressed: () => handler.onPressedAddReflection(repositoryReflection),
+        onPressed: () => handler.onPressedAddReflection(),
       ),
     ],
   );
@@ -65,11 +63,10 @@ Widget view(RepositoryReflection? repositoryReflection) {
 
 /// テンプレート: 振り返りの追加
 class TemplateReflectionAdd extends StatelessWidget {
-  const TemplateReflectionAdd({super.key, required this.repositoryReflection});
-  final RepositoryReflection? repositoryReflection;
+  const TemplateReflectionAdd({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return view(repositoryReflection);
+    return view();
   }
 }

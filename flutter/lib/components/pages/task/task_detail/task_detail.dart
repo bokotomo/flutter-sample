@@ -13,9 +13,19 @@ class PageTaskDetail extends StatefulWidget {
 
 /// _PageTaskDetailState
 class _PageTaskDetailState extends State<PageTaskDetail> {
+  Future<void> eventRepository() async {
+    // final r =
+    //     await fetchReflections(widget.repositories.value?.repositoryReflection);
+
+    setState(() {
+      // reflections = r;
+    });
+  }
+
   @override
   void initState() {
     print("タスク詳細 ${widget.taskId}");
+    eventRepository();
 
     super.initState();
   }
