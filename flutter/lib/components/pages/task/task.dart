@@ -4,12 +4,11 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show fetchReflections;
-import 'package:sqflite/sqflite.dart';
 
 /// ページ: タスク一覧
 class PageTask extends StatefulWidget {
-  const PageTask({super.key, required this.dc});
-  final ValueNotifier<Database?> dc;
+  const PageTask({super.key, required this.canDC});
+  final ValueNotifier<bool> canDC;
 
   @override
   State<PageTask> createState() => _PageTaskState();
@@ -20,7 +19,7 @@ class _PageTaskState extends State<PageTask> {
   List<DomainReflection> reflections = [];
 
   Future<void> eventRepository() async {
-    if (widget.dc.value == null) return;
+    if (!widget.canDC.value) return;
     final r = await fetchReflections();
 
     setState(() {
@@ -31,7 +30,7 @@ class _PageTaskState extends State<PageTask> {
   @override
   void initState() {
     super.initState();
-    widget.dc.addListener(eventRepository);
+    widget.canDC.addListener(eventRepository);
     eventRepository();
   }
 

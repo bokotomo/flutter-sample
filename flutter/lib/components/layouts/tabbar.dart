@@ -8,7 +8,6 @@ import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
     show PageRanking;
 import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
     show PageReflection;
-import 'package:sqflite/sqflite.dart';
 
 /// home
 Widget home(
@@ -27,8 +26,8 @@ Widget home(
 
 /// Tabbar
 class Tabbar extends StatefulWidget {
-  const Tabbar({super.key, required this.dc});
-  final ValueNotifier<Database?> dc;
+  const Tabbar({super.key, required this.canDC});
+  final ValueNotifier<bool> canDC;
 
   @override
   State<Tabbar> createState() => _TabbarState();
@@ -37,9 +36,9 @@ class Tabbar extends StatefulWidget {
 /// _ContentState
 class _TabbarState extends State<Tabbar> {
   /// タブで表示するページ一覧
-  List<Widget> _tabPages(ValueNotifier<Database?> dc) {
+  List<Widget> _tabPages(ValueNotifier<bool> canDC) {
     return [
-      PageTask(dc: dc),
+      PageTask(canDC: canDC),
       const PageReflection(),
       const PageRanking(),
       const PageAccountSetting(),
@@ -60,7 +59,7 @@ class _TabbarState extends State<Tabbar> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: home(
-        _tabPages(widget.dc),
+        _tabPages(widget.canDC),
         _selectedIndex,
         _onItemTapped,
       ),

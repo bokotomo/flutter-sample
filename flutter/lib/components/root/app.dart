@@ -17,19 +17,19 @@ class App extends StatefulWidget {
 
 /// _PageTaskState
 class _AppState extends State<App> {
-  final ValueNotifier<Database?> dc = ValueNotifier<Database?>(null);
+  final ValueNotifier<bool> canDC = ValueNotifier<bool>(false);
 
   /// 初期
-  Future<Database> setUp() async {
+  Future<void> setUp() async {
     Database db = await initDatabase();
     GetIt.I.registerSingleton<DBConnection>(DBConnection(db: db));
-    return db;
   }
 
+  ///
   Future<void> setData() async {
-    final Database db = await setUp();
+    await setUp();
     setState(() {
-      dc.value = db;
+      canDC.value = true;
     });
   }
 
@@ -47,7 +47,7 @@ class _AppState extends State<App> {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Tabbar(dc: dc),
+      home: Tabbar(canDC: canDC),
     );
   }
 }

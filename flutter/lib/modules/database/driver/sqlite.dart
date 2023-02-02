@@ -8,7 +8,7 @@ import 'package:gamer_reflection/modules/database/repository/table.dart'
 /// DBConnection
 class DBConnection {
   DBConnection({required this.db});
-  final Database? db;
+  final Database db;
 }
 
 /// データベースの初期化

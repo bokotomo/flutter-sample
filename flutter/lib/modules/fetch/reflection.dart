@@ -11,7 +11,6 @@ import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
 /// 振り返り一覧取得
 Future<List<DomainReflection>> fetchReflections() async {
   final db = GetIt.I<DBConnection>().db;
-  if (db == null) return [];
   final repo = RepositoryReflection(db: db);
 
   final models = await repo.getReflections();
