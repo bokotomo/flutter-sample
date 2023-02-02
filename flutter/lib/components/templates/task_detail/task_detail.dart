@@ -85,7 +85,7 @@ Widget view(
       const SizedBox(height: ConstantSizeUI.l4),
       isEditMode
           ? ButtonBasic(
-              icon: Icons.edit,
+              icon: Icons.check_circle,
               text: "編集を完了する",
               onPressed: () => {
                 handler.onPressedEditDone(id),

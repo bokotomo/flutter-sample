@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
+import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+    show TextAnnotation;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/components/common/atoms/input_text.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
     show ButtonBasic;
+import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/templates/reflection_add/handler.dart'
     show useHandler;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
@@ -41,6 +44,13 @@ Widget view(BuildContext context) {
       const BasicText(
         text: 'もしかして？',
         size: "M",
+      ),
+      const SizedBox(height: ConstantSizeUI.l4),
+      const Box(
+        child: TextAnnotation(
+          text: 'まだ振り返りを追加していません。',
+          size: "M",
+        ),
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       ButtonBasic(

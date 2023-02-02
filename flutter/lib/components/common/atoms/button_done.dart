@@ -37,7 +37,7 @@ class ButtonDone extends StatelessWidget {
           side: BorderSide(width: 2.0, color: ConstantColor.buttonDoneBorder),
         ),
       ),
-      icon: const Icon(Icons.check),
+      icon: const Icon(Icons.check_circle),
       label: BasicText(text: text, size: "M"),
     );
   }

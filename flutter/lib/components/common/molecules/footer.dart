@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+// import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// Footer
 class Footer extends StatefulWidget {
@@ -46,17 +46,14 @@ class _FooterState extends State<Footer> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: ConstantSizeUI.l13,
-      child: BottomNavigationBar(
-        currentIndex: widget.selectedIndex,
-        backgroundColor: ConstantColor.footer,
-        onTap: _onItemTapped,
-        items: items,
-        selectedItemColor: ConstantColor.text,
-        unselectedItemColor: ConstantColor.textOpacity,
-        type: BottomNavigationBarType.fixed,
-      ),
+    return BottomNavigationBar(
+      currentIndex: widget.selectedIndex,
+      backgroundColor: ConstantColor.footer,
+      onTap: _onItemTapped,
+      items: items,
+      selectedItemColor: ConstantColor.text,
+      unselectedItemColor: ConstantColor.textOpacity,
+      type: BottomNavigationBarType.fixed,
     );
   }
 }

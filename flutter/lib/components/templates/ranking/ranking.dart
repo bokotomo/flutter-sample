@@ -6,25 +6,37 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-///
-Center body = const Center(
-  child: TextAnnotation(
-    text: 'ランキングを使うには、ニックネームを登録する必要があります。',
-    size: "M",
-    textAlign: TextAlign.center,
-  ),
-);
+Widget view(BuildContext context) {
+  ListView cloumn = ListView(
+    children: const [
+      SizedBox(height: ConstantSizeUI.l3),
+      TextAnnotation(
+        text: 'ランキングを使うには、ニックネームを登録する必要があります。',
+        size: "M",
+        textAlign: TextAlign.center,
+      ),
+    ],
+  );
 
-Padding content = Padding(
-  padding: const EdgeInsets.all(ConstantSizeUI.l3),
-  child: body,
-);
+  Padding content = Padding(
+    padding: const EdgeInsets.only(
+      left: ConstantSizeUI.l3,
+      right: ConstantSizeUI.l3,
+    ),
+    child: cloumn,
+  );
 
-Scaffold wrapper = Scaffold(
-  backgroundColor: ConstantColor.content,
-  appBar: const Header(title: "ランキング"),
-  body: content,
-);
+  Scaffold wrapper = Scaffold(
+    backgroundColor: ConstantColor.content,
+    appBar: const Header(title: "ランキング"),
+    body: GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: content,
+    ),
+  );
+
+  return wrapper;
+}
 
 /// テンプレート: ランキング
 class TemplateRanking extends StatelessWidget {
@@ -32,6 +44,6 @@ class TemplateRanking extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return wrapper;
+    return view(context);
   }
 }
