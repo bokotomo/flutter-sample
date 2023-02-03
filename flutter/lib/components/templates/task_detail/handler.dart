@@ -30,7 +30,7 @@ UseReturn useHandler() {
 
   /// 編集完了ボタンを押した
   void onPressedEditDone(int taskId) async {
-    print(taskId);
+    print(detail.text);
   }
 
   return UseReturn(

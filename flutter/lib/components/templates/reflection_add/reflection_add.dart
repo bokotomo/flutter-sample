@@ -15,7 +15,7 @@ import 'package:gamer_reflection/components/templates/reflection_add/handler.dar
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-Widget view(BuildContext context) {
+Widget view(BuildContext context, FocusNode textFieldFocusNode) {
   final handler = useHandler();
   ListView cloumn = ListView(
     children: [
@@ -39,6 +39,7 @@ Widget view(BuildContext context) {
         text: handler.textReflection,
         hintText: '悪かった点を書く(40文字以内)',
         onChanged: handler.onChanged,
+        focusNode: textFieldFocusNode,
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       const BasicText(
@@ -73,7 +74,7 @@ Widget view(BuildContext context) {
     backgroundColor: ConstantColor.content,
     appBar: const Header(title: "振り返りの追加"),
     body: GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => textFieldFocusNode.unfocus(),
       child: content,
     ),
   );
@@ -82,11 +83,19 @@ Widget view(BuildContext context) {
 }
 
 /// テンプレート: 振り返りの追加
-class TemplateReflectionAdd extends StatelessWidget {
+class TemplateReflectionAdd extends StatefulWidget {
   const TemplateReflectionAdd({super.key});
 
   @override
+  State<TemplateReflectionAdd> createState() => TemplateReflectionAddState();
+}
+
+/// テンプレート: タスク詳細
+class TemplateReflectionAddState extends State<TemplateReflectionAdd> {
+  final textFieldFocusNode = FocusNode();
+
+  @override
   Widget build(BuildContext context) {
-    return view(context);
+    return view(context, textFieldFocusNode);
   }
 }

@@ -31,6 +31,7 @@ class InputTextForm extends StatelessWidget {
     required this.text,
     this.autofocus,
     this.onChanged,
+    this.focusNode,
   });
 
   /// プレフィックス
@@ -41,6 +42,9 @@ class InputTextForm extends StatelessWidget {
 
   /// 自動フォーカス
   final bool? autofocus;
+
+  /// フォーカスノード
+  final FocusNode? focusNode;
 
   /// 変更した
   final void Function(String)? onChanged;
@@ -61,6 +65,7 @@ class InputTextForm extends StatelessWidget {
       decoration: decoration(hintText),
       autofocus: autofocus ?? false,
       onChanged: onChanged,
+      focusNode: focusNode,
       maxLines: 6,
     );
   }

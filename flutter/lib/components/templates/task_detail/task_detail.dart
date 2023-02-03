@@ -24,6 +24,7 @@ import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
 ///
 Widget view(
   BuildContext context,
+  FocusNode textFieldFocusNode,
   int taskId,
   DomainReflection? reflection,
   bool isEditMode,
@@ -37,6 +38,7 @@ Widget view(
   final detailForm = InputTextForm(
     text: handler.detail,
     hintText: "振り返りを書きましょう。",
+    focusNode: textFieldFocusNode,
   );
   final detailBox = isEditMode
       ? detailForm
@@ -121,7 +123,7 @@ Widget view(
     backgroundColor: ConstantColor.content,
     appBar: const Header(title: "タスク"),
     body: GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => textFieldFocusNode.unfocus(),
       child: content,
     ),
   );
@@ -146,6 +148,7 @@ class TemplateTaskDetail extends StatefulWidget {
 /// テンプレート: タスク詳細
 class TemplateTaskDetailState extends State<TemplateTaskDetail> {
   bool isEditMode = false;
+  final textFieldFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -157,6 +160,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
 
     return view(
       context,
+      textFieldFocusNode,
       widget.taskId,
       widget.reflection,
       isEditMode,

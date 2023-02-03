@@ -32,6 +32,7 @@ class InputText extends StatelessWidget {
     required this.hintText,
     required this.text,
     this.autofocus,
+    this.focusNode,
     this.onChanged,
   });
 
@@ -43,6 +44,9 @@ class InputText extends StatelessWidget {
 
   /// 自動フォーカス
   final bool? autofocus;
+
+  /// フォーカスノード
+  final FocusNode? focusNode;
 
   /// 変更した
   final void Function(String)? onChanged;
@@ -61,6 +65,7 @@ class InputText extends StatelessWidget {
       style: const TextStyle(color: ConstantColor.text),
       decoration: decoration(hintText),
       autofocus: autofocus ?? false,
+      focusNode: focusNode,
       onChanged: onChanged,
     );
   }
