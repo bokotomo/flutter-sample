@@ -32,10 +32,16 @@ class ButtonTask extends StatelessWidget {
         minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(width: 2.0, color: ConstantColor.buttonTaskBorder),
+          side: BorderSide(
+            width: 2.0,
+            color: ConstantColor.buttonTaskBorder,
+          ),
         ),
       ),
-      child: BasicText(text: text, size: "M"),
+      child: BasicText(
+        text: text,
+        size: "M",
+      ),
     );
   }
 }

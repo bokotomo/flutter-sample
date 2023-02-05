@@ -54,9 +54,7 @@ class InputText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void onChanged(String t) {
-      if (this.onChanged == null) {
-        return;
-      }
+      if (this.onChanged == null) return;
       this.onChanged!(t);
     }
 

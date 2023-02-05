@@ -38,11 +38,17 @@ class ButtonBasic extends StatelessWidget {
         minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(width: 2.0, color: ConstantColor.buttonBorder),
+          side: BorderSide(
+            width: 2.0,
+            color: ConstantColor.buttonBorder,
+          ),
         ),
       ),
       icon: Icon(icon),
-      label: BasicText(text: text, size: "M"),
+      label: BasicText(
+        text: text,
+        size: "M",
+      ),
     );
   }
 }
