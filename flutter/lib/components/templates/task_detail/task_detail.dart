@@ -32,6 +32,7 @@ Widget view(
   DomainReflection? reflection,
   bool isEditMode,
   Function toggleEditMode,
+  Function updateReflection,
 ) {
   final isGood = reflection?.reflectionType == ReflectionType.good;
   final count = reflection?.count ?? 0;
@@ -41,12 +42,12 @@ Widget view(
   final reflectionDetail = reflection?.detail ?? "";
 
   final handler = useHandler(reflectionText, reflectionDetail);
-  final detailForm = InputTextForm(
+  final titleForm = InputText(
     text: handler.title,
     hintText: "振り返り名",
     focusNode: titleTextFieldFocusNode,
   );
-  final titleForm = InputText(
+  final detailForm = InputTextForm(
     text: handler.detail,
     hintText: "振り返りを書きましょう。",
     focusNode: textFieldFocusNode,
@@ -106,6 +107,7 @@ Widget view(
               onPressed: () => {
                 handler.onPressedEditDone(id),
                 toggleEditMode(),
+                updateReflection(),
               },
             )
           : ButtonBasic(
@@ -151,9 +153,11 @@ class TemplateTaskDetail extends StatefulWidget {
     super.key,
     required this.taskId,
     required this.reflection,
+    required this.updateReflection,
   });
   final int taskId;
   final DomainReflection? reflection;
+  final Future<void> Function() updateReflection;
 
   @override
   State<TemplateTaskDetail> createState() => TemplateTaskDetailState();
@@ -181,6 +185,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
       widget.reflection,
       isEditMode,
       toggleEditMode,
+      widget.updateReflection,
     );
   }
 }

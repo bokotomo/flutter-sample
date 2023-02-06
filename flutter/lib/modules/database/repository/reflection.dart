@@ -10,6 +10,7 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
 /// Interface: RepositoryReflection
 abstract class IRepositoryReflection {
   Future<void> insertReflection(Database db, String text);
+  Future<void> updateReflectionById(Database db, int id, ModelReflection model);
   Future<void> deleteReflectionById(Database db, int id);
   Future<List<DomainReflection>> getReflections(Database db);
   Future<DomainReflection> getReflectionById(Database db, int id);
@@ -33,6 +34,25 @@ class RepositoryReflection extends IRepositoryReflection {
       tableNameReflection,
       reflection.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
+    );
+  }
+
+  /// 更新: 指定したIDの振り返り
+  @override
+  Future<void> updateReflectionById(
+    Database db,
+    int id,
+    ModelReflection model,
+  ) async {
+    final Map<String, Object?> map = {}
+      ..addAll(model.toMapText())
+      ..addAll(model.toMapDetail());
+    print(map);
+    await db.update(
+      tableNameReflection,
+      map,
+      where: 'id = ?',
+      whereArgs: [id],
     );
   }
 

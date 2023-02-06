@@ -42,4 +42,34 @@ class ModelReflection {
       'count': count,
     };
   }
+
+  Map<String, Object> toMapReflectionGroupId() {
+    return {
+      'reflection_group_id': reflectionGroupId,
+    };
+  }
+
+  Map<String, Object> toMapReflectionType() {
+    return {
+      'reflection_type': reflectionType,
+    };
+  }
+
+  Map<String, Object> toMapText() {
+    return {
+      'text': text,
+    };
+  }
+
+  Map<String, Object> toMapDetail() {
+    return {
+      'detail': detail,
+    };
+  }
+
+  Map<String, Object> toMapCount() {
+    return {
+      'count': count,
+    };
+  }
 }

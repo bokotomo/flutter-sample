@@ -22,8 +22,8 @@ class UseReturn {
 ///
 UseReturn useHandler(String defaultTitle, String defaultDetail) {
   TextEditingController textReflection = TextEditingController();
-  TextEditingController detail = TextEditingController(text: defaultTitle);
-  TextEditingController title = TextEditingController(text: defaultDetail);
+  TextEditingController title = TextEditingController(text: defaultTitle);
+  TextEditingController detail = TextEditingController(text: defaultDetail);
 
   /// タスク完了ボタンを押した
   void onPressedTaskDone(int taskId, BuildContext context) async {
@@ -33,7 +33,10 @@ UseReturn useHandler(String defaultTitle, String defaultDetail) {
 
   /// 編集完了ボタンを押した
   void onPressedEditDone(int taskId) async {
+    print(taskId);
+    print(title.text);
     print(detail.text);
+    await RequestReflection().updateReflection(taskId, title.text, detail.text);
   }
 
   return UseReturn(

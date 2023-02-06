@@ -27,6 +27,10 @@ class _PageTaskDetailState extends State<PageTaskDetail> {
     });
   }
 
+  Future<void> updateReflection() async {
+    await eventRepository();
+  }
+
   @override
   void initState() {
     print("タスク詳細 ${widget.taskId}");
@@ -41,6 +45,7 @@ class _PageTaskDetailState extends State<PageTaskDetail> {
       body: TemplateTaskDetail(
         taskId: widget.taskId,
         reflection: reflection,
+        updateReflection: updateReflection,
       ),
     );
   }
