@@ -19,28 +19,26 @@ class ReflectionAddCandidate extends StatelessWidget {
     required this.onPressCandidate,
   });
   final List<DomainReflection> reflections;
-  final Function onPressCandidate;
+  final Function(String text) onPressCandidate;
 
   @override
   Widget build(BuildContext context) {
     final candidateTitles = Container(
-      padding: const EdgeInsets.all(ConstantSizeUI.l3),
+      padding: const EdgeInsets.all(ConstantSizeUI.l1),
+      height: 240,
       decoration: BoxDecoration(
         color: ConstantColor.input,
         border: Border.all(color: ConstantColor.inputBorder),
         borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          for (int i = 0; i < reflections.length; i++) ...{
-            if (i != 0) const SizedBox(height: ConstantSizeUI.l2),
-            ButtonCandidate(
-              text: reflections[i].text,
-              onPressed: () => onPressCandidate(),
-            ),
-          }
-        ],
+      child: ListView.builder(
+        itemCount: reflections.length,
+        itemBuilder: (BuildContext context, int i) {
+          return ButtonCandidate(
+            text: reflections[i].text,
+            onPressed: () => onPressCandidate(reflections[i].text),
+          );
+        },
       ),
     );
 

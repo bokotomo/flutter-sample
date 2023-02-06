@@ -50,7 +50,7 @@ Widget view(
       const SizedBox(height: ConstantSizeUI.l4),
       ReflectionAddCandidate(
         reflections: reflections,
-        onPressCandidate: () => {},
+        onPressCandidate: (String text) => handler.onPressedAddCandidate(text),
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       ButtonBasic(
@@ -58,6 +58,7 @@ Widget view(
         text: '追加する',
         onPressed: () => handler.onPressedAddReflection(),
       ),
+      const SizedBox(height: ConstantSizeUI.l4),
     ],
   );
 

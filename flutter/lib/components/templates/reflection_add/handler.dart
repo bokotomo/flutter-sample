@@ -2,16 +2,16 @@ import 'package:flutter/material.dart' show TextEditingController;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 
-/// handler event
-
 class UseReturn {
   const UseReturn({
     required this.onPressedAddReflection,
+    required this.onPressedAddCandidate,
     required this.onChanged,
     required this.textReflection,
   });
 
   final void Function() onPressedAddReflection;
+  final void Function(String) onPressedAddCandidate;
   final void Function(String) onChanged;
   final TextEditingController textReflection;
 }
@@ -28,6 +28,11 @@ UseReturn useHandler() {
     textReflection.clear();
   }
 
+  /// 候補から振り返りの追加を押した
+  void onPressedAddCandidate(String text) async {
+    textReflection.text = text;
+  }
+
   void onChanged(String t) {
     // text = t;
     print(textReflection.text);
@@ -35,6 +40,7 @@ UseReturn useHandler() {
 
   return UseReturn(
     onPressedAddReflection: onPressedAddReflection,
+    onPressedAddCandidate: onPressedAddCandidate,
     onChanged: onChanged,
     textReflection: textReflection,
   );

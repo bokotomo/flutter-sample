@@ -19,12 +19,18 @@ class BasicText extends StatelessWidget {
 
   /// 文字サイズを返す
   double getFontSize() {
-    if (size == "L") {
-      return ConstantSizeFont.l;
-    } else if (size == "M") {
-      return ConstantSizeFont.m;
+    switch (size) {
+      case "L":
+        return ConstantSizeFont.l;
+      case "M":
+        return ConstantSizeFont.m;
+      case "XM":
+        return ConstantSizeFont.xm;
+      case "S":
+        return ConstantSizeFont.s;
+      default:
+        return ConstantSizeFont.s;
     }
-    return ConstantSizeFont.s;
   }
 
   @override

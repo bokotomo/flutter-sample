@@ -35,8 +35,8 @@ Widget view(
       TaskDetailTop(
         reflection: reflection,
         isEditMode: isEditMode,
-        textFieldFocusNode: textFieldFocusNode,
         titleTextFieldFocusNode: titleTextFieldFocusNode,
+        textFieldFocusNode: textFieldFocusNode,
         titleController: handler.title,
         detailController: handler.detail,
       ),
@@ -80,7 +80,10 @@ Widget view(
     backgroundColor: ConstantColor.content,
     appBar: const Header(title: "タスク"),
     body: GestureDetector(
-      onTap: () => textFieldFocusNode.unfocus(),
+      onTap: () => {
+        titleTextFieldFocusNode.unfocus(),
+        textFieldFocusNode.unfocus(),
+      },
       child: content,
     ),
   );
