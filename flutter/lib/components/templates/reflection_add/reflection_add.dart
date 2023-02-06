@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
-    show TextAnnotation;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/components/common/atoms/input_text.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
     show ButtonBasic;
-import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
+import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
+    show ReflectionAddCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/handler.dart'
     show useHandler;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/modules/domain/reflection.dart'
+    show DomainReflection;
 
-Widget view(BuildContext context, FocusNode textFieldFocusNode) {
+///
+Widget view(
+  BuildContext context,
+  FocusNode textFieldFocusNode,
+  List<DomainReflection> reflections,
+) {
   final handler = useHandler();
   ListView cloumn = ListView(
     children: [
@@ -42,16 +48,9 @@ Widget view(BuildContext context, FocusNode textFieldFocusNode) {
         focusNode: textFieldFocusNode,
       ),
       const SizedBox(height: ConstantSizeUI.l4),
-      const BasicText(
-        text: 'もしかして？',
-        size: "M",
-      ),
-      const SizedBox(height: ConstantSizeUI.l4),
-      const Box(
-        child: TextAnnotation(
-          text: 'まだ振り返りを追加していません。',
-          size: "M",
-        ),
+      ReflectionAddCandidate(
+        reflections: reflections,
+        onPressCandidate: () => {},
       ),
       const SizedBox(height: ConstantSizeUI.l4),
       ButtonBasic(
@@ -84,7 +83,11 @@ Widget view(BuildContext context, FocusNode textFieldFocusNode) {
 
 /// テンプレート: 振り返りの追加
 class TemplateReflectionAdd extends StatefulWidget {
-  const TemplateReflectionAdd({super.key});
+  const TemplateReflectionAdd({
+    super.key,
+    required this.reflections,
+  });
+  final List<DomainReflection> reflections;
 
   @override
   State<TemplateReflectionAdd> createState() => TemplateReflectionAddState();
@@ -96,6 +99,10 @@ class TemplateReflectionAddState extends State<TemplateReflectionAdd> {
 
   @override
   Widget build(BuildContext context) {
-    return view(context, textFieldFocusNode);
+    return view(
+      context,
+      textFieldFocusNode,
+      widget.reflections,
+    );
   }
 }
