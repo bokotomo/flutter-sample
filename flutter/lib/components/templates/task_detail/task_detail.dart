@@ -3,6 +3,8 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
+import 'package:gamer_reflection/components/common/atoms/input_text.dart'
+    show InputText;
 import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
     show InputTextForm;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
@@ -24,22 +26,39 @@ import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
 ///
 Widget view(
   BuildContext context,
+  FocusNode titleTextFieldFocusNode,
   FocusNode textFieldFocusNode,
   int taskId,
   DomainReflection? reflection,
   bool isEditMode,
   Function toggleEditMode,
 ) {
-  final handler = useHandler();
   final isGood = reflection?.reflectionType == ReflectionType.good;
   final count = reflection?.count ?? 0;
   final id = reflection?.id ?? 0;
   final detailNotExist = reflection?.detail == "";
+  final reflectionText = reflection?.text ?? "";
+  final reflectionDetail = reflection?.detail ?? "";
+
+  final handler = useHandler(reflectionText, reflectionDetail);
   final detailForm = InputTextForm(
+    text: handler.title,
+    hintText: "振り返り名",
+    focusNode: titleTextFieldFocusNode,
+  );
+  final titleForm = InputText(
     text: handler.detail,
     hintText: "振り返りを書きましょう。",
     focusNode: textFieldFocusNode,
   );
+  final title = isEditMode
+      ? titleForm
+      : Box(
+          child: BasicText(
+            text: reflectionText,
+            size: "M",
+          ),
+        );
   final detailBox = isEditMode
       ? detailForm
       : Box(
@@ -49,7 +68,7 @@ Widget view(
                   size: "M",
                 )
               : BasicText(
-                  text: reflection?.detail ?? "none",
+                  text: reflectionDetail,
                   size: "M",
                 ),
         );
@@ -57,12 +76,7 @@ Widget view(
   ListView body = ListView(
     children: [
       const SizedBox(height: ConstantSizeUI.l4),
-      Box(
-        child: BasicText(
-          text: reflection?.text ?? "none",
-          size: "M",
-        ),
-      ),
+      title,
       const SizedBox(height: ConstantSizeUI.l4),
       Row(
         children: [
@@ -148,6 +162,7 @@ class TemplateTaskDetail extends StatefulWidget {
 /// テンプレート: タスク詳細
 class TemplateTaskDetailState extends State<TemplateTaskDetail> {
   bool isEditMode = false;
+  final titleTextFieldFocusNode = FocusNode();
   final textFieldFocusNode = FocusNode();
 
   @override
@@ -160,6 +175,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
 
     return view(
       context,
+      titleTextFieldFocusNode,
       textFieldFocusNode,
       widget.taskId,
       widget.reflection,
