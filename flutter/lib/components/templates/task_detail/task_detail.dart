@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text.dart'
-    show BasicText;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
-    show TextAnnotation;
-import 'package:gamer_reflection/components/common/atoms/input_text.dart'
-    show InputText;
-import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
-    show InputTextForm;
-import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
+import 'package:gamer_reflection/components/templates/task_detail/organisms/top.dart'
+    show TaskDetailTop;
 import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
@@ -16,8 +9,6 @@ import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/type/reflection.dart'
-    show ReflectionType;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
@@ -34,71 +25,21 @@ Widget view(
   Function toggleEditMode,
   Function updateReflection,
 ) {
-  final isGood = reflection?.reflectionType == ReflectionType.good;
-  final count = reflection?.count ?? 0;
   final id = reflection?.id ?? 0;
-  final detailNotExist = reflection?.detail == "";
   final reflectionText = reflection?.text ?? "";
   final reflectionDetail = reflection?.detail ?? "";
-
   final handler = useHandler(reflectionText, reflectionDetail);
-  final titleForm = InputText(
-    text: handler.title,
-    hintText: "振り返り名",
-    focusNode: titleTextFieldFocusNode,
-  );
-  final detailForm = InputTextForm(
-    text: handler.detail,
-    hintText: "振り返りを書きましょう。",
-    focusNode: textFieldFocusNode,
-  );
-  final title = isEditMode
-      ? titleForm
-      : Box(
-          child: BasicText(
-            text: reflectionText,
-            size: "M",
-          ),
-        );
-  final detailBox = isEditMode
-      ? detailForm
-      : Box(
-          child: detailNotExist
-              ? const TextAnnotation(
-                  text: "まだ追加していません",
-                  size: "M",
-                )
-              : BasicText(
-                  text: reflectionDetail,
-                  size: "M",
-                ),
-        );
 
   ListView body = ListView(
     children: [
-      const SizedBox(height: ConstantSizeUI.l4),
-      title,
-      const SizedBox(height: ConstantSizeUI.l4),
-      Row(
-        children: [
-          BasicText(
-            text: "回数: $count回",
-            size: "M",
-          ),
-          const SizedBox(width: ConstantSizeUI.l4),
-          BasicText(
-            text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
-            size: "M",
-          ),
-        ],
+      TaskDetailTop(
+        reflection: reflection,
+        isEditMode: isEditMode,
+        textFieldFocusNode: textFieldFocusNode,
+        titleTextFieldFocusNode: titleTextFieldFocusNode,
+        titleController: handler.title,
+        detailController: handler.detail,
       ),
-      const SizedBox(height: ConstantSizeUI.l4),
-      BasicText(
-        text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
-        size: "M",
-      ),
-      const SizedBox(height: ConstantSizeUI.l4),
-      detailBox,
       const SizedBox(height: ConstantSizeUI.l4),
       isEditMode
           ? ButtonBasic(
