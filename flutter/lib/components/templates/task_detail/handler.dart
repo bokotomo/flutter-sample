@@ -37,7 +37,11 @@ UseReturn useHandler(String defaultTitle, String defaultDetail) {
     print(title.text);
     print(detail.text);
     if (title.text == "") return;
-    await RequestReflection().updateReflection(taskId, title.text, detail.text);
+    await RequestReflection().updateReflection(
+      taskId,
+      title.text,
+      detail.text,
+    );
   }
 
   return UseReturn(

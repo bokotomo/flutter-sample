@@ -13,6 +13,8 @@ import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
     show useHandler;
+import 'package:gamer_reflection/components/common/atoms/input_text.dart'
+    show InputText;
 
 ///
 Widget view(
@@ -29,9 +31,17 @@ Widget view(
   final reflectionText = reflection?.text ?? "";
   final reflectionDetail = reflection?.detail ?? "";
   final handler = useHandler(reflectionText, reflectionDetail);
+  TextEditingController textR = TextEditingController();
 
   ListView body = ListView(
     children: [
+      const SizedBox(height: ConstantSizeUI.l4),
+      InputText(
+        text: textR,
+        hintText: "振り返り名",
+        // focusNode: titleTextFieldFocusNode,
+        onChanged: (String t) => {print(t)},
+      ),
       TaskDetailTop(
         reflection: reflection,
         isEditMode: isEditMode,
@@ -81,8 +91,8 @@ Widget view(
     appBar: const Header(title: "タスク"),
     body: GestureDetector(
       onTap: () => {
-        titleTextFieldFocusNode.unfocus(),
-        textFieldFocusNode.unfocus(),
+        // titleTextFieldFocusNode.unfocus(),
+        // textFieldFocusNode.unfocus(),
       },
       child: content,
     ),

@@ -48,7 +48,6 @@ class TaskDetailTop extends StatelessWidget {
   Widget build(BuildContext context) {
     final isGood = reflection?.reflectionType == ReflectionType.good;
     final count = reflection?.count ?? 0;
-    final id = reflection?.id ?? 0;
     final detailNotExist = reflection?.detail == "";
     final reflectionText = reflection?.text ?? "";
     final reflectionDetail = reflection?.detail ?? "";
@@ -63,7 +62,7 @@ class TaskDetailTop extends StatelessWidget {
       hintText: "振り返りを書きましょう。",
       focusNode: textFieldFocusNode,
     );
-    final title = isEditMode
+    final title2 = isEditMode
         ? titleForm
         : Box(
             child: BasicText(
@@ -71,6 +70,7 @@ class TaskDetailTop extends StatelessWidget {
               size: "M",
             ),
           );
+
     final detailBox = isEditMode
         ? detailForm
         : Box(
@@ -88,8 +88,12 @@ class TaskDetailTop extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: ConstantSizeUI.l4),
-        title,
+        // title,
+        // InputText(
+        //   text: titleController,
+        //   hintText: "振り返り名",
+        //   focusNode: titleTextFieldFocusNode,
+        // ),
         const SizedBox(height: ConstantSizeUI.l4),
         Row(
           children: [
