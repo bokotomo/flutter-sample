@@ -13,6 +13,8 @@ import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
     show useHandler;
 import 'package:gamer_reflection/components/common/atoms/input_text.dart'
     show InputText;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 ///
 Widget view(
@@ -24,31 +26,31 @@ Widget view(
   bool isEditMode,
   Function toggleEditMode,
   Function updateReflection,
+  title,
 ) {
   final id = reflection?.id ?? 0;
   final reflectionText = reflection?.text ?? "";
   final reflectionDetail = reflection?.detail ?? "";
   final handler = useHandler(reflectionText, reflectionDetail);
-  TextEditingController textR = TextEditingController();
 
   ListView body = ListView(
     children: [
-      const SizedBox(height: ConstantSizeUI.l4),
+      SpacerHeight.l,
       InputText(
-        text: textR,
+        text: title,
         hintText: "振り返り名",
         // focusNode: titleTextFieldFocusNode,
         onChanged: (String t) => {print(t)},
       ),
-      TaskDetailTop(
-        reflection: reflection,
-        isEditMode: isEditMode,
-        titleTextFieldFocusNode: titleTextFieldFocusNode,
-        textFieldFocusNode: textFieldFocusNode,
-        titleController: handler.title,
-        detailController: handler.detail,
-      ),
-      const SizedBox(height: ConstantSizeUI.l4),
+      // TaskDetailTop(
+      //   reflection: reflection,
+      //   isEditMode: isEditMode,
+      //   titleTextFieldFocusNode: titleTextFieldFocusNode,
+      //   textFieldFocusNode: textFieldFocusNode,
+      //   titleController: handler.title,
+      //   detailController: handler.detail,
+      // ),
+      SpacerHeight.m,
       isEditMode
           ? ButtonBasic(
               icon: Icons.check_circle,
@@ -64,7 +66,7 @@ Widget view(
               text: "編集する",
               onPressed: () => toggleEditMode(),
             ),
-      const SizedBox(height: ConstantSizeUI.l4),
+      SpacerHeight.m,
       if (!isEditMode)
         ButtonDone(
           text: "このタスクを完了する",
@@ -107,6 +109,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
   bool isEditMode = false;
   final titleTextFieldFocusNode = FocusNode();
   final textFieldFocusNode = FocusNode();
+  TextEditingController title = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +128,7 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
       isEditMode,
       toggleEditMode,
       widget.updateReflection,
+      title,
     );
   }
 }

@@ -4,11 +4,13 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 Widget view(BuildContext context) {
   ListView cloumn = ListView(
     children: [
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       Box(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -25,7 +27,7 @@ Widget view(BuildContext context) {
           ],
         ),
       ),
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       Box(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -42,7 +44,7 @@ Widget view(BuildContext context) {
           ],
         ),
       ),
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       Box(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
