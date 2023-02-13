@@ -1,28 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/molecules/header.dart'
+    show Header;
 
 /// レイアウト: 基本
 class BaseLayout extends StatelessWidget {
   const BaseLayout({
     super.key,
     required this.child,
+    required this.title,
+    this.onTap,
   });
 
-  /// 文字
+  /// コンテンツ
   final Widget child;
+
+  /// タイトル
+  final String title;
+
+  /// 外部を押した
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(ConstantSizeUI.l3),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: ConstantColor.box,
-        border: Border.all(color: ConstantColor.boxBorder),
-        borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
+    return Scaffold(
+      backgroundColor: ConstantColor.content,
+      appBar: Header(title: title),
+      body: GestureDetector(
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: ConstantSizeUI.l3,
+            right: ConstantSizeUI.l3,
+          ),
+          child: child,
+        ),
       ),
-      child: child,
     );
   }
 }

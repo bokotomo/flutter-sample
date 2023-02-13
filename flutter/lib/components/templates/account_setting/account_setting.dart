@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/molecules/header.dart'
-    show Header;
+import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 Widget view(BuildContext context) {
@@ -64,24 +62,10 @@ Widget view(BuildContext context) {
     ],
   );
 
-  Padding content = Padding(
-    padding: const EdgeInsets.only(
-      left: ConstantSizeUI.l3,
-      right: ConstantSizeUI.l3,
-    ),
+  return BaseLayout(
+    title: "アカウント設定",
     child: cloumn,
   );
-
-  Scaffold wrapper = Scaffold(
-    backgroundColor: ConstantColor.content,
-    appBar: const Header(title: "アカウント設定"),
-    body: GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
-      child: content,
-    ),
-  );
-
-  return wrapper;
 }
 
 /// テンプレート: アカウント設定

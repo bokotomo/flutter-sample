@@ -5,11 +5,9 @@ import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
     show ButtonBasic;
-import 'package:gamer_reflection/components/common/molecules/header.dart'
-    show Header;
+import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
     show useHandler;
@@ -78,27 +76,14 @@ Widget view(
     ],
   );
 
-  Padding content = Padding(
-    padding: const EdgeInsets.only(
-      left: ConstantSizeUI.l3,
-      right: ConstantSizeUI.l3,
-    ),
+  return BaseLayout(
+    title: "タスク詳細",
+    onTap: () => {
+      // titleTextFieldFocusNode.unfocus(),
+      // textFieldFocusNode.unfocus(),
+    },
     child: body,
   );
-
-  Scaffold wrapper = Scaffold(
-    backgroundColor: ConstantColor.content,
-    appBar: const Header(title: "タスク"),
-    body: GestureDetector(
-      onTap: () => {
-        // titleTextFieldFocusNode.unfocus(),
-        // textFieldFocusNode.unfocus(),
-      },
-      child: content,
-    ),
-  );
-
-  return wrapper;
 }
 
 /// ページ: タスク一覧

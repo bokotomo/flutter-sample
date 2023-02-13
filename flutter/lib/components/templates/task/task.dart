@@ -3,11 +3,9 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/button_task.dart'
     show ButtonTask;
-import 'package:gamer_reflection/components/common/molecules/header.dart'
-    show Header;
+import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
@@ -34,21 +32,10 @@ Widget view(
     ],
   );
 
-  Padding content = Padding(
-    padding: const EdgeInsets.only(
-      left: ConstantSizeUI.l3,
-      right: ConstantSizeUI.l3,
-    ),
+  return BaseLayout(
+    title: "タスク",
     child: reflections.isEmpty ? const TaskNoDataAnnotation() : reflectionList,
   );
-
-  Scaffold wrapper = Scaffold(
-    backgroundColor: ConstantColor.content,
-    appBar: const Header(title: "タスク"),
-    body: content,
-  );
-
-  return wrapper;
 }
 
 /// テンプレート: タスク一覧
