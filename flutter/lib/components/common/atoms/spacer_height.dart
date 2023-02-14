@@ -5,21 +5,21 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class SpacerHeight {
   SpacerHeight._();
 
-  /// XS
+  /// XS l1
   static const SizedBox xs = SizedBox(height: ConstantSizeUI.l1);
 
-  /// S
+  /// S l2
   static const SizedBox s = SizedBox(height: ConstantSizeUI.l2);
 
-  /// M
+  /// M l3
   static const SizedBox m = SizedBox(height: ConstantSizeUI.l3);
 
-  /// XM
+  /// XM l4
   static const SizedBox xm = SizedBox(height: ConstantSizeUI.l4);
 
-  /// L
+  /// L l5
   static const SizedBox l = SizedBox(height: ConstantSizeUI.l5);
 
-  /// XL
+  /// XL l6
   static const SizedBox xl = SizedBox(height: ConstantSizeUI.l6);
 }

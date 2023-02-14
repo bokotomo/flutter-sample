@@ -8,19 +8,16 @@ import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
     show useHandler;
-import 'package:gamer_reflection/components/common/atoms/input_text.dart'
-    show InputText;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 
 ///
 Widget view(
   BuildContext context,
-  FocusNode titleTextFieldFocusNode,
-  FocusNode textFieldFocusNode,
+  FocusNode titleFocusNode,
+  FocusNode detailFocusNode,
   int taskId,
   DomainReflection? reflection,
   bool isEditMode,
@@ -35,17 +32,11 @@ Widget view(
   ListView body = ListView(
     children: [
       SpacerHeight.l,
-      // InputText(
-      //   text: titleController,
-      //   hintText: "振り返り名",
-      //   // focusNode: titleTextFieldFocusNode,
-      //   onChanged: (String t) => {print(t)},
-      // ),
       TaskDetailTop(
         reflection: reflection,
         isEditMode: isEditMode,
-        titleTextFieldFocusNode: titleTextFieldFocusNode,
-        textFieldFocusNode: textFieldFocusNode,
+        titleFocusNode: titleFocusNode,
+        detailFocusNode: detailFocusNode,
         titleController: titleController,
         detailController: detailController,
       ),
@@ -80,8 +71,8 @@ Widget view(
   return BaseLayout(
     title: "タスク詳細",
     onTap: () => {
-      titleTextFieldFocusNode.unfocus(),
-      textFieldFocusNode.unfocus(),
+      titleFocusNode.unfocus(),
+      detailFocusNode.unfocus(),
     },
     child: body,
   );
@@ -106,18 +97,26 @@ class TemplateTaskDetail extends StatefulWidget {
 /// テンプレート: タスク詳細
 class TemplateTaskDetailState extends State<TemplateTaskDetail> {
   bool isEditMode = false;
-  final titleTextFieldFocusNode = FocusNode();
-  final textFieldFocusNode = FocusNode();
+  final titleFocusNode = FocusNode();
+  final detailFocusNode = FocusNode();
   TextEditingController titleController = TextEditingController();
   TextEditingController detailController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     final reflectionText = widget.reflection?.text ?? "";
     final reflectionDetail = widget.reflection?.detail ?? "";
     titleController.text = reflectionText;
     detailController.text = reflectionDetail;
+    print("foerijfoerijfoerijfoeirjfoier");
+    print(reflectionText);
+    print(reflectionDetail);
 
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     void toggleEditMode() {
       setState(() {
         isEditMode = !isEditMode;
@@ -126,8 +125,8 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
 
     return view(
       context,
-      titleTextFieldFocusNode,
-      textFieldFocusNode,
+      titleFocusNode,
+      detailFocusNode,
       widget.taskId,
       widget.reflection,
       isEditMode,

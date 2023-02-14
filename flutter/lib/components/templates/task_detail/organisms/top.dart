@@ -8,11 +8,12 @@ import 'package:gamer_reflection/components/common/atoms/input_text.dart'
 import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
     show InputTextForm;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 /// タスク詳細上部
 class TaskDetailTop extends StatelessWidget {
@@ -20,8 +21,8 @@ class TaskDetailTop extends StatelessWidget {
     super.key,
     required this.reflection,
     required this.isEditMode,
-    required this.titleTextFieldFocusNode,
-    required this.textFieldFocusNode,
+    required this.titleFocusNode,
+    required this.detailFocusNode,
     required this.titleController,
     required this.detailController,
   });
@@ -33,10 +34,10 @@ class TaskDetailTop extends StatelessWidget {
   final bool isEditMode;
 
   /// FocusNode title
-  final FocusNode titleTextFieldFocusNode;
+  final FocusNode titleFocusNode;
 
   /// FocusNode detail
-  final FocusNode textFieldFocusNode;
+  final FocusNode detailFocusNode;
 
   /// EditingController: title
   final TextEditingController titleController;
@@ -55,14 +56,14 @@ class TaskDetailTop extends StatelessWidget {
     final titleForm = InputText(
       text: titleController,
       hintText: "振り返り名",
-      focusNode: titleTextFieldFocusNode,
+      focusNode: titleFocusNode,
     );
     final detailForm = InputTextForm(
       text: detailController,
       hintText: "振り返りを書きましょう。",
-      focusNode: textFieldFocusNode,
+      focusNode: detailFocusNode,
     );
-    final title2 = isEditMode
+    final title = isEditMode
         ? titleForm
         : Box(
             child: BasicText(
@@ -88,32 +89,27 @@ class TaskDetailTop extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // title,
-        // InputText(
-        //   text: titleController,
-        //   hintText: "振り返り名",
-        //   focusNode: titleTextFieldFocusNode,
-        // ),
-        const SizedBox(height: ConstantSizeUI.l4),
+        title,
+        SpacerHeight.xm,
         Row(
           children: [
             BasicText(
               text: "回数: $count回",
               size: "M",
             ),
-            const SizedBox(width: ConstantSizeUI.l4),
+            SpacerHeight.xm,
             BasicText(
               text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
               size: "M",
             ),
           ],
         ),
-        const SizedBox(height: ConstantSizeUI.l4),
+        SpacerHeight.xm,
         BasicText(
           text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
           size: "M",
         ),
-        const SizedBox(height: ConstantSizeUI.l4),
+        SpacerHeight.xm,
         detailBox,
       ],
     );
