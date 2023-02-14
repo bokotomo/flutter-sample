@@ -10,9 +10,10 @@ import 'package:gamer_reflection/components/templates/reflection_add/organisms/c
     show ReflectionAddCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/handler.dart'
     show useHandler;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 ///
 Widget view(
@@ -23,40 +24,40 @@ Widget view(
   final handler = useHandler();
   ListView cloumn = ListView(
     children: [
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       const BasicText(
         text: '振り返りの種類',
         size: "M",
       ),
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       const BasicText(
         text: '悪かった/良かった',
         size: "S",
       ),
-      const SizedBox(height: ConstantSizeUI.l4),
+      SpacerHeight.xm,
       const BasicText(
         text: '悪かった点',
         size: "M",
       ),
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       InputText(
         text: handler.textReflection,
         hintText: '悪かった点を書く(40文字以内)',
         onChanged: handler.onChanged,
         focusNode: textFieldFocusNode,
       ),
-      const SizedBox(height: ConstantSizeUI.l4),
+      SpacerHeight.xm,
       ReflectionAddCandidate(
         reflections: reflections,
         onPressCandidate: (String text) => handler.onPressedAddCandidate(text),
       ),
-      const SizedBox(height: ConstantSizeUI.l4),
+      SpacerHeight.xm,
       ButtonBasic(
         icon: Icons.add,
         text: '追加する',
         onPressed: () => handler.onPressedAddReflection(),
       ),
-      const SizedBox(height: ConstantSizeUI.l4),
+      SpacerHeight.xm,
     ],
   );
 

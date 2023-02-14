@@ -26,30 +26,29 @@ Widget view(
   bool isEditMode,
   Function toggleEditMode,
   Function updateReflection,
-  title,
+  TextEditingController titleController,
+  TextEditingController detailController,
 ) {
   final id = reflection?.id ?? 0;
-  final reflectionText = reflection?.text ?? "";
-  final reflectionDetail = reflection?.detail ?? "";
-  final handler = useHandler(reflectionText, reflectionDetail);
+  final handler = useHandler(titleController, detailController);
 
   ListView body = ListView(
     children: [
       SpacerHeight.l,
-      InputText(
-        text: title,
-        hintText: "振り返り名",
-        // focusNode: titleTextFieldFocusNode,
-        onChanged: (String t) => {print(t)},
-      ),
-      // TaskDetailTop(
-      //   reflection: reflection,
-      //   isEditMode: isEditMode,
-      //   titleTextFieldFocusNode: titleTextFieldFocusNode,
-      //   textFieldFocusNode: textFieldFocusNode,
-      //   titleController: handler.title,
-      //   detailController: handler.detail,
+      // InputText(
+      //   text: titleController,
+      //   hintText: "振り返り名",
+      //   // focusNode: titleTextFieldFocusNode,
+      //   onChanged: (String t) => {print(t)},
       // ),
+      TaskDetailTop(
+        reflection: reflection,
+        isEditMode: isEditMode,
+        titleTextFieldFocusNode: titleTextFieldFocusNode,
+        textFieldFocusNode: textFieldFocusNode,
+        titleController: titleController,
+        detailController: detailController,
+      ),
       SpacerHeight.m,
       isEditMode
           ? ButtonBasic(
@@ -81,8 +80,8 @@ Widget view(
   return BaseLayout(
     title: "タスク詳細",
     onTap: () => {
-      // titleTextFieldFocusNode.unfocus(),
-      // textFieldFocusNode.unfocus(),
+      titleTextFieldFocusNode.unfocus(),
+      textFieldFocusNode.unfocus(),
     },
     child: body,
   );
@@ -109,10 +108,16 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
   bool isEditMode = false;
   final titleTextFieldFocusNode = FocusNode();
   final textFieldFocusNode = FocusNode();
-  TextEditingController title = TextEditingController();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController detailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final reflectionText = widget.reflection?.text ?? "";
+    final reflectionDetail = widget.reflection?.detail ?? "";
+    titleController.text = reflectionText;
+    detailController.text = reflectionDetail;
+
     void toggleEditMode() {
       setState(() {
         isEditMode = !isEditMode;
@@ -128,7 +133,8 @@ class TemplateTaskDetailState extends State<TemplateTaskDetail> {
       isEditMode,
       toggleEditMode,
       widget.updateReflection,
-      title,
+      titleController,
+      detailController,
     );
   }
 }

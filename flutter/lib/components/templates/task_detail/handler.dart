@@ -8,22 +8,21 @@ class UseReturn {
     required this.onPressedTaskDone,
     required this.onPressedEditDone,
     required this.textReflection,
-    required this.title,
-    required this.detail,
   });
 
   final void Function(int, BuildContext) onPressedTaskDone;
   final void Function(int) onPressedEditDone;
   final TextEditingController textReflection;
-  final TextEditingController title;
-  final TextEditingController detail;
 }
 
 ///
-UseReturn useHandler(String defaultTitle, String defaultDetail) {
+UseReturn useHandler(
+  TextEditingController titleController,
+  TextEditingController detailController,
+) {
   TextEditingController textReflection = TextEditingController();
-  TextEditingController title = TextEditingController(text: defaultTitle);
-  TextEditingController detail = TextEditingController(text: defaultDetail);
+  // TextEditingController title = TextEditingController(text: defaultTitle);
+  // TextEditingController detail = TextEditingController(text: defaultDetail);
 
   /// タスク完了ボタンを押した
   void onPressedTaskDone(int taskId, BuildContext context) async {
@@ -34,13 +33,13 @@ UseReturn useHandler(String defaultTitle, String defaultDetail) {
   /// 編集完了ボタンを押した
   void onPressedEditDone(int taskId) async {
     print(taskId);
-    print(title.text);
-    print(detail.text);
-    if (title.text == "") return;
+    print(titleController.text);
+    print(detailController.text);
+    if (titleController.text == "") return;
     await RequestReflection().updateReflection(
       taskId,
-      title.text,
-      detail.text,
+      titleController.text,
+      detailController.text,
     );
   }
 
@@ -48,7 +47,5 @@ UseReturn useHandler(String defaultTitle, String defaultDetail) {
     onPressedTaskDone: onPressedTaskDone,
     onPressedEditDone: onPressedEditDone,
     textReflection: textReflection,
-    title: title,
-    detail: detail,
   );
 }
