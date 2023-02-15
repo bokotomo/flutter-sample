@@ -5,6 +5,8 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show FetchReflection;
+import 'package:gamer_reflection/modules/type/data_fetch.dart'
+    show DataFetchState;
 
 /// ページ: タスク詳細
 class PageTaskDetail extends StatefulWidget {
@@ -17,13 +19,16 @@ class PageTaskDetail extends StatefulWidget {
 
 /// _PageTaskDetailState
 class _PageTaskDetailState extends State<PageTaskDetail> {
+  DataFetchState dataFetchState = DataFetchState.none;
   DomainReflection? reflection;
 
   Future<void> eventRepository() async {
+    dataFetchState = DataFetchState.fetching;
     final r = await FetchReflection().fetchReflectionById(widget.taskId);
 
     setState(() {
       reflection = r;
+      dataFetchState = DataFetchState.end;
     });
   }
 
@@ -46,6 +51,7 @@ class _PageTaskDetailState extends State<PageTaskDetail> {
         taskId: widget.taskId,
         reflection: reflection,
         updateReflection: updateReflection,
+        dataFetchState: dataFetchState,
       ),
     );
   }

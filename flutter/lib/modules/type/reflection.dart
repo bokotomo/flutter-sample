@@ -1,2 +1,5 @@
 /// 振り返りの種類
-enum ReflectionType { good, bad }
+enum ReflectionType {
+  good,
+  bad,
+}
