@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 Widget view(BuildContext context) {
   ListView cloumn = ListView(
     children: const [
-      SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       TextAnnotation(
         text: 'ランキングを使うには、ニックネームを登録する必要があります。',
         size: "M",

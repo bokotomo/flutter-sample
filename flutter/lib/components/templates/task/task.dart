@@ -6,9 +6,10 @@ import 'package:gamer_reflection/components/common/molecules/button_task.dart'
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 ///
 Widget view(
@@ -19,11 +20,11 @@ Widget view(
   /// 振り返り一覧
   ListView reflectionList = ListView(
     children: [
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       const BasicText(text: "振り返り名A", size: "M"),
-      const SizedBox(height: ConstantSizeUI.l3),
+      SpacerHeight.m,
       for (int i = 0; i < reflections.length; i++) ...{
-        if (i != 0) const SizedBox(height: ConstantSizeUI.l3),
+        if (i != 0) SpacerHeight.m,
         ButtonTask(
           text: reflections[i].text,
           onPressed: () => pushTaskDetail(context, reflections[i].id),

@@ -3,7 +3,6 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 
@@ -19,7 +18,7 @@ Widget view(BuildContext context) {
               text: '現在の振り返り名',
               size: "M",
             ),
-            SizedBox(height: ConstantSizeUI.l3),
+            SpacerHeight.m,
             BasicText(
               text: '振り返り名A',
               size: "M",
@@ -36,7 +35,7 @@ Widget view(BuildContext context) {
               text: '新規で振り返りグループを作成する',
               size: "M",
             ),
-            SizedBox(height: ConstantSizeUI.l3),
+            SpacerHeight.m,
             BasicText(
               text: '作成する',
               size: "M",
@@ -53,7 +52,7 @@ Widget view(BuildContext context) {
               text: '言語',
               size: "M",
             ),
-            SizedBox(height: ConstantSizeUI.l3),
+            SpacerHeight.m,
             BasicText(
               text: '日本語',
               size: "M",

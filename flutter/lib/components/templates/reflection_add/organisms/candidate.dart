@@ -10,6 +10,8 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 /// 振り返り名候補一覧
 class ReflectionAddCandidate extends StatelessWidget {
@@ -58,7 +60,7 @@ class ReflectionAddCandidate extends StatelessWidget {
           text: 'もしかして？',
           size: "M",
         ),
-        const SizedBox(height: ConstantSizeUI.l4),
+        SpacerHeight.xm,
         candidates,
       ],
     );

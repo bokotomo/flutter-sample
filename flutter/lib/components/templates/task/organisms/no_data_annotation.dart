@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 /// データがまだない
 class TaskNoDataAnnotation extends StatelessWidget {
@@ -20,7 +21,7 @@ class TaskNoDataAnnotation extends StatelessWidget {
             color: ConstantColor.textOpacity,
             size: 56,
           ),
-          SizedBox(height: ConstantSizeUI.l3),
+          SpacerHeight.m,
           TextAnnotation(
             text: 'まだタスクがありません。\n振り返りから追加しましょう!',
             size: "M",
