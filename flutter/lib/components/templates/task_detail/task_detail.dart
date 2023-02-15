@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/templates/task_detail/organisms/top.dart'
     show TaskDetailTop;
+import 'package:gamer_reflection/components/templates/task_detail/organisms/top_edit.dart'
+    show TaskDetailTopEdit;
 import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
@@ -35,35 +37,46 @@ Widget view(
       SpacerHeight.l,
       TaskDetailTop(
         reflection: reflection,
-        isEditMode: isEditMode,
         titleFocusNode: titleFocusNode,
         detailFocusNode: detailFocusNode,
         titleController: titleController,
         detailController: detailController,
       ),
       SpacerHeight.m,
-      isEditMode
-          ? ButtonBasic(
-              icon: Icons.check_circle,
-              text: "編集を完了する",
-              onPressed: () => {
-                onPressedEditDone(),
-              },
-            )
-          : ButtonBasic(
-              icon: Icons.edit,
-              text: "編集する",
-              onPressed: () => toggleEditMode(),
-            ),
+      ButtonBasic(
+        icon: Icons.edit,
+        text: "編集する",
+        onPressed: () => toggleEditMode(),
+      ),
       SpacerHeight.m,
-      if (!isEditMode)
-        ButtonDone(
-          text: "このタスクを完了する",
-          onPressed: () => {
-            onPressedTaskDone(),
-            Navigator.pop(context),
-          },
-        ),
+      ButtonDone(
+        text: "このタスクを完了する",
+        onPressed: () => {
+          onPressedTaskDone(),
+          Navigator.pop(context),
+        },
+      ),
+    ],
+  );
+
+  ListView editContent = ListView(
+    children: [
+      SpacerHeight.l,
+      TaskDetailTopEdit(
+        reflection: reflection,
+        titleFocusNode: titleFocusNode,
+        detailFocusNode: detailFocusNode,
+        titleController: titleController,
+        detailController: detailController,
+      ),
+      SpacerHeight.m,
+      ButtonBasic(
+        icon: Icons.check_circle,
+        text: "編集を完了する",
+        onPressed: () => {
+          onPressedEditDone(),
+        },
+      ),
     ],
   );
 
@@ -73,7 +86,7 @@ Widget view(
       titleFocusNode.unfocus(),
       detailFocusNode.unfocus(),
     },
-    child: body,
+    child: isEditMode ? editContent : body,
   );
 }
 

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
-    show TextAnnotation;
-import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
+import 'package:gamer_reflection/components/common/atoms/input_text.dart'
+    show InputText;
+import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
+    show InputTextForm;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
@@ -11,9 +12,9 @@ import 'package:gamer_reflection/modules/type/reflection.dart'
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 
-/// タスク詳細上部
-class TaskDetailTop extends StatelessWidget {
-  const TaskDetailTop({
+/// タスク詳細上部編集モード
+class TaskDetailTopEdit extends StatelessWidget {
+  const TaskDetailTopEdit({
     super.key,
     required this.reflection,
     required this.titleFocusNode,
@@ -41,19 +42,22 @@ class TaskDetailTop extends StatelessWidget {
   Widget build(BuildContext context) {
     final isGood = reflection?.reflectionType == ReflectionType.good;
     final count = reflection?.count ?? 0;
-    final detailNotExist = reflection?.detail == "";
-    final reflectionText = reflection?.text ?? "";
-    final reflectionDetail = reflection?.detail ?? "";
+
+    final titleForm = InputText(
+      text: titleController,
+      hintText: "振り返り名",
+      focusNode: titleFocusNode,
+    );
+    final detailForm = InputTextForm(
+      text: detailController,
+      hintText: "振り返りを書きましょう。",
+      focusNode: detailFocusNode,
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Box(
-          child: BasicText(
-            text: reflectionText,
-            size: "M",
-          ),
-        ),
+        titleForm,
         SpacerHeight.xm,
         Row(
           children: [
@@ -74,17 +78,7 @@ class TaskDetailTop extends StatelessWidget {
           size: "M",
         ),
         SpacerHeight.xm,
-        Box(
-          child: detailNotExist
-              ? const TextAnnotation(
-                  text: "まだ追加していません",
-                  size: "M",
-                )
-              : BasicText(
-                  text: reflectionDetail,
-                  size: "M",
-                ),
-        ),
+        detailForm,
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/input_text.dart'
@@ -20,8 +21,10 @@ Widget view(
   BuildContext context,
   FocusNode textFieldFocusNode,
   List<DomainReflection> reflections,
+  TextEditingController textReflection,
+  void Function() onPressedAddReflection,
+  void Function(String) onPressedAddCandidate,
 ) {
-  final handler = useHandler();
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
@@ -41,21 +44,20 @@ Widget view(
       ),
       SpacerHeight.m,
       InputText(
-        text: handler.textReflection,
+        text: textReflection,
         hintText: '悪かった点を書く(40文字以内)',
-        onChanged: handler.onChanged,
         focusNode: textFieldFocusNode,
       ),
       SpacerHeight.xm,
       ReflectionAddCandidate(
         reflections: reflections,
-        onPressCandidate: (String text) => handler.onPressedAddCandidate(text),
+        onPressCandidate: (String text) => onPressedAddCandidate(text),
       ),
       SpacerHeight.xm,
       ButtonBasic(
         icon: Icons.add,
         text: '追加する',
-        onPressed: () => handler.onPressedAddReflection(),
+        onPressed: () => onPressedAddReflection(),
       ),
       SpacerHeight.xm,
     ],
@@ -69,7 +71,7 @@ Widget view(
 }
 
 /// テンプレート: 振り返りの追加
-class TemplateReflectionAdd extends StatefulWidget {
+class TemplateReflectionAdd extends HookWidget {
   const TemplateReflectionAdd({
     super.key,
     required this.reflections,
@@ -77,19 +79,16 @@ class TemplateReflectionAdd extends StatefulWidget {
   final List<DomainReflection> reflections;
 
   @override
-  State<TemplateReflectionAdd> createState() => TemplateReflectionAddState();
-}
-
-/// テンプレート: タスク詳細
-class TemplateReflectionAddState extends State<TemplateReflectionAdd> {
-  final textFieldFocusNode = FocusNode();
-
-  @override
   Widget build(BuildContext context) {
+    final handler = useHandler();
+
     return view(
       context,
-      textFieldFocusNode,
-      widget.reflections,
+      handler.textFieldFocusNode,
+      reflections,
+      handler.textReflection,
+      handler.onPressedAddReflection,
+      handler.onPressedAddCandidate,
     );
   }
 }

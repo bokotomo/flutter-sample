@@ -48,7 +48,7 @@ UseReturn useHandler(
 
   useEffect(() {
     if (reflection == null) return;
-    print(reflection);
+    print(reflection.text);
 
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
@@ -66,6 +66,7 @@ UseReturn useHandler(
     print(titleController.value.text);
     print(detailController.value.text);
     if (titleController.value.text == "") return;
+
     await RequestReflection().updateReflection(
       taskId,
       titleController.value.text,
