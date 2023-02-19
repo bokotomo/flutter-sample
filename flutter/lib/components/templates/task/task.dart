@@ -27,6 +27,7 @@ Widget view(
         if (i != 0) SpacerHeight.m,
         ButtonTask(
           text: reflections[i].text,
+          isThin: i % 2 == 0,
           onPressed: () => pushTaskDetail(context, reflections[i].id),
         ),
       }

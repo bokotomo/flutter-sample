@@ -43,11 +43,14 @@ class ConstantColor {
   /// 完了ボタンの枠線色
   static const Color buttonDoneBorder = Color.fromARGB(255, 16, 94, 68);
 
-  /// タスク一覧ボタンの背景色
-  static const Color buttonTask = _grayDark;
+  /// タスク一覧ボタンの背景色: 濃い
+  static const Color buttonTaskList = Color.fromARGB(255, 26, 27, 31);
+
+  /// タスク一覧ボタンの背景色: 薄い
+  static const Color buttonTaskListThin = Color.fromARGB(255, 43, 47, 56);
 
   /// タスク一覧ボタンの枠線色
-  static const Color buttonTaskBorder = _grayLight;
+  static const Color buttonTaskListBorder = Color.fromARGB(255, 70, 74, 88);
 
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);

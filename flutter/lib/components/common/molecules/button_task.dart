@@ -4,16 +4,20 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// ボタン: タスク
+/// ボタン: タスク一覧ページ
 class ButtonTask extends StatelessWidget {
   const ButtonTask({
     super.key,
     required this.text,
+    required this.isThin,
     this.onPressed,
   });
 
   /// 文字
   final String text;
+
+  /// 薄いか
+  final bool isThin;
 
   /// クリックした
   final void Function()? onPressed;
@@ -28,15 +32,10 @@ class ButtonTask extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: ConstantColor.buttonTask,
+        backgroundColor: isThin
+            ? ConstantColor.buttonTaskListThin
+            : ConstantColor.buttonTaskList,
         minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(
-            width: 2.0,
-            color: ConstantColor.buttonTaskBorder,
-          ),
-        ),
       ),
       child: BasicText(
         text: text,
@@ -45,3 +44,5 @@ class ButtonTask extends StatelessWidget {
     );
   }
 }
+
+//ConstantColor.buttonTaskListBorder,
