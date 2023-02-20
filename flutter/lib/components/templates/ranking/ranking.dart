@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
-import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
+import 'package:gamer_reflection/components/layouts/base_padding.dart'
+    show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 
@@ -17,7 +18,7 @@ Widget view(BuildContext context) {
     ],
   );
 
-  return BaseLayout(
+  return BaseLayoutPadding(
     title: "ランキング",
     child: cloumn,
   );

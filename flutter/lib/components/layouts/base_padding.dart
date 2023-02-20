@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
 
-/// レイアウト: 基本
-class BaseLayout extends StatelessWidget {
-  const BaseLayout({
+/// レイアウト: 基本パディング
+class BaseLayoutPadding extends StatelessWidget {
+  const BaseLayoutPadding({
     super.key,
     required this.child,
     required this.title,
@@ -28,7 +29,13 @@ class BaseLayout extends StatelessWidget {
       appBar: Header(title: title),
       body: GestureDetector(
         onTap: onTap,
-        child: child,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: ConstantSizeUI.l3,
+            right: ConstantSizeUI.l3,
+          ),
+          child: child,
+        ),
       ),
     );
   }
