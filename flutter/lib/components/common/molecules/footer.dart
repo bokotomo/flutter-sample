@@ -6,11 +6,11 @@ import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 class Footer extends StatefulWidget {
   const Footer({
     super.key,
-    required this.onItemTapped,
+    required this.onClickTab,
     required this.selectedIndex,
   });
   // タブを押した
-  final void Function(int) onItemTapped;
+  final void Function(int) onClickTab;
   // 選択しているタブ
   final int selectedIndex;
 
@@ -40,8 +40,8 @@ const items = <BottomNavigationBarItem>[
 
 /// _FooterState
 class _FooterState extends State<Footer> {
-  void _onItemTapped(int index) {
-    widget.onItemTapped(index);
+  void _onClickTab(int index) {
+    widget.onClickTab(index);
   }
 
   @override
@@ -49,7 +49,7 @@ class _FooterState extends State<Footer> {
     return BottomNavigationBar(
       currentIndex: widget.selectedIndex,
       backgroundColor: ConstantColor.footer,
-      onTap: _onItemTapped,
+      onTap: _onClickTab,
       items: items,
       selectedItemColor: ConstantColor.text,
       unselectedItemColor: ConstantColor.textOpacity,
