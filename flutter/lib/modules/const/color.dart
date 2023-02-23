@@ -64,3 +64,29 @@ class ConstantColor {
   /// inputの枠線色フォーカス
   static const Color inputBorderFocus = Color.fromARGB(255, 57, 30, 145);
 }
+
+/// 用途ごとに色を定義する
+class ConstantColorTextTag {
+  ConstantColorTextTag._();
+
+  /// タグの背景色
+  static const Color textTagBackground = _darkBlue;
+
+  /// タグの色 red
+  static const Color textTagRedBorder = Color.fromARGB(255, 201, 98, 141);
+
+  /// タグの色 purple
+  static const Color textTagPurpleBorder = Color.fromARGB(255, 152, 83, 194);
+
+  /// タグの色 blue
+  static const Color textTagBlueBorder = Color.fromARGB(255, 88, 111, 186);
+
+  /// タグの色 red
+  static const Color textTagRedText = Color.fromARGB(255, 234, 151, 186);
+
+  /// タグの色 purple
+  static const Color textTagPurpleText = Color.fromARGB(255, 202, 151, 234);
+
+  /// タグの色 blue
+  static const Color textTagBlueText = Color.fromARGB(255, 151, 170, 234);
+}

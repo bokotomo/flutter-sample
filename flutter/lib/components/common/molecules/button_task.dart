@@ -3,6 +3,10 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
+    show TextTag;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
 
 /// ボタン: タスク一覧ページ
 class ButtonTask extends StatelessWidget {
@@ -10,6 +14,8 @@ class ButtonTask extends StatelessWidget {
     super.key,
     required this.text,
     required this.isThin,
+    required this.count,
+    required this.tagTextColor,
     this.onPressed,
   });
 
@@ -18,6 +24,12 @@ class ButtonTask extends StatelessWidget {
 
   /// 薄いか
   final bool isThin;
+
+  /// 回数
+  final int count;
+
+  /// 色
+  final TagTextColor tagTextColor;
 
   /// クリックした
   final void Function()? onPressed;
@@ -30,19 +42,27 @@ class ButtonTask extends StatelessWidget {
     }
 
     return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: isThin
-            ? ConstantColor.buttonTaskListThin
-            : ConstantColor.buttonTaskList,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
-      ),
-      child: BasicText(
-        text: text,
-        size: "M",
-      ),
-    );
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: isThin
+              ? ConstantColor.buttonTaskListThin
+              : ConstantColor.buttonTaskList,
+          minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
+        ),
+        child: Row(
+          children: [
+            TextTag(
+              text: "$count回",
+              colorType: tagTextColor,
+            ),
+            const SizedBox(
+              width: ConstantSizeUI.l3,
+            ),
+            BasicText(
+              text: text,
+              size: "M",
+            ),
+          ],
+        ));
   }
 }
-
-//ConstantColor.buttonTaskListBorder,

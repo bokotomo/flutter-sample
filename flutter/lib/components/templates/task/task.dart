@@ -10,6 +10,8 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
 
 ///
 Widget view(
@@ -28,6 +30,8 @@ Widget view(
         ButtonTask(
           text: reflections[i].text,
           isThin: i % 2 == 0,
+          count: reflections[i].count,
+          tagTextColor: TagTextColor.red,
           onPressed: () => pushTaskDetail(context, reflections[i].id),
         ),
       }
