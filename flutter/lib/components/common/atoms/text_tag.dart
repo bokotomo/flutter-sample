@@ -59,7 +59,7 @@ class TextTag extends StatelessWidget {
           BoxShadow(
             color: getBorderColor(),
             spreadRadius: 0,
-            blurRadius: 2,
+            blurRadius: ConstantSizeUI.l0,
           ),
         ],
       ),

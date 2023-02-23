@@ -6,6 +6,7 @@ import 'package:gamer_reflection/components/common/molecules/button_task.dart'
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
+import 'package:gamer_reflection/modules/const/color.dart';
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
@@ -26,7 +27,11 @@ Widget view(
       const BasicText(text: "振り返り名A", size: "M"),
       SpacerHeight.m,
       for (int i = 0; i < reflections.length; i++) ...{
-        if (i != 0) SpacerHeight.m,
+        const Divider(
+          height: 1,
+          thickness: 1,
+          color: ConstantColor.buttonTaskListBorder,
+        ),
         ButtonTask(
           text: reflections[i].text,
           isThin: i % 2 == 0,
@@ -34,13 +39,21 @@ Widget view(
           tagTextColor: TagTextColor.red,
           onPressed: () => pushTaskDetail(context, reflections[i].id),
         ),
-      }
+      },
+      const Divider(
+        height: 1,
+        thickness: 1,
+        color: ConstantColor.buttonTaskListBorder,
+      ),
     ],
   );
 
+  final layoutChild =
+      reflections.isEmpty ? const TaskNoDataAnnotation() : reflectionList;
+
   return BaseLayout(
     title: "タスク",
-    child: reflections.isEmpty ? const TaskNoDataAnnotation() : reflectionList,
+    child: layoutChild,
   );
 }
 

@@ -50,7 +50,7 @@ class ConstantColor {
   static const Color buttonTaskListThin = Color.fromARGB(255, 43, 47, 56);
 
   /// タスク一覧ボタンの枠線色
-  static const Color buttonTaskListBorder = Color.fromARGB(255, 70, 74, 88);
+  static const Color buttonTaskListBorder = Color.fromARGB(255, 93, 98, 116);
 
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);
