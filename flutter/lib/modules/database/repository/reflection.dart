@@ -22,12 +22,24 @@ class RepositoryReflection extends IRepositoryReflection {
   /// 追加: 振り返り
   @override
   Future<void> insertReflection(Database db, String text) async {
+    /// idにする
+    final List<Map<String, Object?>> res = await db.query(
+      tableNameReflection,
+      columns: ['count'],
+      where: '"text" = ?',
+      whereArgs: [text],
+    );
+
+    /// カウント数を取得
+    final count = res.isEmpty ? 0 : res.first['count'] as int;
+
+    /// 追加する
     final reflection = ModelReflection(
       reflectionGroupId: 1,
       reflectionType: 1,
       text: text,
       detail: "",
-      count: 1,
+      count: count + 1,
     );
 
     await db.insert(
