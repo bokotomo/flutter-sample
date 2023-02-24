@@ -9,6 +9,7 @@ class DomainReflection {
     required this.detail,
     required this.count,
     required this.reflectionType,
+    required this.priority,
     required this.createdAt,
   });
 
@@ -23,6 +24,9 @@ class DomainReflection {
 
   /// 回数
   final int count;
+
+  /// 優先度
+  final int priority;
 
   /// 振り返りの種類
   final ReflectionType reflectionType;

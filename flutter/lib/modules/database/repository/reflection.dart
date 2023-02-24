@@ -47,7 +47,7 @@ class RepositoryReflection extends IRepositoryReflection {
     final Map<String, Object?> map = {}
       ..addAll(model.toMapText())
       ..addAll(model.toMapDetail());
-    print(map);
+
     await db.update(
       tableNameReflection,
       map,
@@ -75,8 +75,6 @@ class RepositoryReflection extends IRepositoryReflection {
       limit: 100,
     );
 
-    print(res.map((e) => e['text']));
-
     final models = List.generate(res.length, (i) {
       return ModelReflection(
         id: res[i]['id'] as int,
@@ -101,7 +99,6 @@ class RepositoryReflection extends IRepositoryReflection {
       whereArgs: [id],
     );
 
-    print(res.first);
     final model = ModelReflection(
       id: res.first['id'] as int,
       reflectionGroupId: res.first['reflection_group_id'] as int,
