@@ -86,6 +86,12 @@ class ConstantColorButton {
   /// 完了ボタンの枠線色
   static const Color buttonDoneBorder = Color.fromARGB(255, 92, 159, 105);
 
+  /// キャンセルボタンの背景色
+  static const Color buttonCancel = Color.fromARGB(255, 94, 94, 103);
+
+  /// キャンセルボタンの枠線色
+  static const Color buttonCancelBorder = Color.fromARGB(255, 117, 121, 163);
+
   /// タスク一覧ボタンの背景色: 濃い
   static const Color buttonTaskList = Color.fromARGB(255, 26, 27, 31);
 

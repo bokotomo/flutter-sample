@@ -8,6 +8,8 @@ import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
     show ButtonBasic;
+import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
+    show ButtonCancel;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
@@ -31,6 +33,7 @@ Widget view(
   TextEditingController detailController,
   void Function() onPressedEditDone,
   void Function() onPressedTaskDone,
+  void Function() onPressedCancel,
 ) {
   ListView body = ListView(
     children: [
@@ -77,6 +80,13 @@ Widget view(
           onPressedEditDone(),
         },
       ),
+      SpacerHeight.m,
+      ButtonCancel(
+        text: "キャンセル",
+        onPressed: () => {
+          onPressedCancel(),
+        },
+      ),
     ],
   );
 
@@ -120,6 +130,7 @@ class TemplateTaskDetail extends HookWidget {
       handler.detailController,
       handler.onPressedEditDone,
       handler.onPressedTaskDone,
+      handler.onPressedCancel,
     );
   }
 }

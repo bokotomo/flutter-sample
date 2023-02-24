@@ -16,6 +16,7 @@ class UseReturn {
     required this.detailController,
     required this.onPressedEditDone,
     required this.onPressedTaskDone,
+    required this.onPressedCancel,
   });
 
   final FocusNode titleFocusNode;
@@ -26,6 +27,7 @@ class UseReturn {
   final TextEditingController detailController;
   final void Function() onPressedEditDone;
   final void Function() onPressedTaskDone;
+  final void Function() onPressedCancel;
 }
 
 ///
@@ -60,6 +62,14 @@ UseReturn useHandler(
     await RequestReflection().deleteReflection(taskId);
   }
 
+  /// キャンセルボタンを押した
+  void onPressedCancel() async {
+    isEditMode.value = false;
+    if (reflection == null) return;
+    titleController.value.text = reflection.text;
+    detailController.value.text = reflection.detail;
+  }
+
   /// 編集完了ボタンを押した
   void onPressedEditDone() async {
     print(taskId);
@@ -79,10 +89,11 @@ UseReturn useHandler(
   return UseReturn(
     onPressedTaskDone: onPressedTaskDone,
     onPressedEditDone: onPressedEditDone,
+    toggleEditMode: toggleEditMode,
+    onPressedCancel: onPressedCancel,
     titleFocusNode: titleFocusNode,
     detailFocusNode: detailFocusNode,
     isEditMode: isEditMode.value,
-    toggleEditMode: toggleEditMode,
     titleController: titleController.value,
     detailController: detailController.value,
   );
