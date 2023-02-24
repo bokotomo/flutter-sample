@@ -14,6 +14,18 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
 
+/// 優先度からTagの色を返す
+TagTextColor getTagColor(int priority) {
+  switch (priority) {
+    case 1:
+      return TagTextColor.red;
+    case 2:
+      return TagTextColor.purple;
+    default:
+      return TagTextColor.blue;
+  }
+}
+
 ///
 Widget view(
   List<DomainReflection> reflections,
@@ -36,7 +48,7 @@ Widget view(
           text: reflections[i].text,
           isThin: i % 2 == 0,
           count: reflections[i].count,
-          tagTextColor: TagTextColor.red,
+          tagTextColor: getTagColor(reflections[i].priority),
           onPressed: () => pushTaskDetail(context, reflections[i].id),
         ),
       },
