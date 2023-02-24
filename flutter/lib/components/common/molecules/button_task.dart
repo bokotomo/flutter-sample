@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/color.dart'
+    show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
     show TextTag;
@@ -45,8 +46,8 @@ class ButtonTask extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: isThin
-              ? ConstantColor.buttonTaskListThin
-              : ConstantColor.buttonTaskList,
+              ? ConstantColorButton.buttonTaskListThin
+              : ConstantColorButton.buttonTaskList,
           minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
         ),
         child: Row(

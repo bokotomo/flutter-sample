@@ -31,27 +31,6 @@ class ConstantColor {
   /// ボックスの枠線色
   static const Color boxBorder = _grayLight;
 
-  /// ボタンの背景色
-  static const Color button = Color.fromARGB(255, 55, 55, 196);
-
-  /// ボタンの枠線色
-  static const Color buttonBorder = Color.fromARGB(255, 93, 93, 228);
-
-  /// 完了ボタンの背景色
-  static const Color buttonDone = Color.fromARGB(255, 43, 115, 93);
-
-  /// 完了ボタンの枠線色
-  static const Color buttonDoneBorder = Color.fromARGB(255, 16, 94, 68);
-
-  /// タスク一覧ボタンの背景色: 濃い
-  static const Color buttonTaskList = Color.fromARGB(255, 26, 27, 31);
-
-  /// タスク一覧ボタンの背景色: 薄い
-  static const Color buttonTaskListThin = Color.fromARGB(255, 43, 47, 56);
-
-  /// タスク一覧ボタンの枠線色
-  static const Color buttonTaskListBorder = Color.fromARGB(255, 93, 98, 116);
-
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);
 
@@ -65,7 +44,7 @@ class ConstantColor {
   static const Color inputBorderFocus = Color.fromARGB(255, 57, 30, 145);
 }
 
-/// 用途ごとに色を定義する
+/// 用途ごとに色を定義する: タグの色
 class ConstantColorTextTag {
   ConstantColorTextTag._();
 
@@ -89,4 +68,30 @@ class ConstantColorTextTag {
 
   /// タグの色 blue
   static const Color textTagBlueText = Color.fromARGB(255, 151, 170, 234);
+}
+
+/// 用途ごとに色を定義する: ボタンの色
+class ConstantColorButton {
+  ConstantColorButton._();
+
+  /// ボタンの背景色
+  static const Color button = Color.fromARGB(255, 65, 71, 132);
+
+  /// ボタンの枠線色
+  static const Color buttonBorder = Color.fromARGB(255, 86, 96, 219);
+
+  /// 完了ボタンの背景色
+  static const Color buttonDone = Color.fromARGB(255, 85, 129, 91);
+
+  /// 完了ボタンの枠線色
+  static const Color buttonDoneBorder = Color.fromARGB(255, 92, 159, 105);
+
+  /// タスク一覧ボタンの背景色: 濃い
+  static const Color buttonTaskList = Color.fromARGB(255, 26, 27, 31);
+
+  /// タスク一覧ボタンの背景色: 薄い
+  static const Color buttonTaskListThin = Color.fromARGB(255, 43, 47, 56);
+
+  /// タスク一覧ボタンの枠線色
+  static const Color buttonTaskListBorder = Color.fromARGB(255, 93, 98, 116);
 }

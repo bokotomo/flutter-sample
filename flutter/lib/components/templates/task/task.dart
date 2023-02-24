@@ -3,6 +3,8 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/molecules/button_task.dart'
     show ButtonTask;
+import 'package:gamer_reflection/modules/const/color.dart'
+    show ConstantColorButton;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
@@ -42,7 +44,7 @@ Widget view(
         const Divider(
           height: 1,
           thickness: 1,
-          color: ConstantColor.buttonTaskListBorder,
+          color: ConstantColorButton.buttonTaskListBorder,
         ),
         ButtonTask(
           text: reflections[i].text,
@@ -55,7 +57,7 @@ Widget view(
       const Divider(
         height: 1,
         thickness: 1,
-        color: ConstantColor.buttonTaskListBorder,
+        color: ConstantColorButton.buttonTaskListBorder,
       ),
     ],
   );
