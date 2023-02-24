@@ -25,28 +25,46 @@ class RepositoryReflection extends IRepositoryReflection {
     /// idにする
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflection,
-      columns: ['count'],
+      columns: ['id', 'count'],
       where: '"text" = ?',
       whereArgs: [text],
     );
 
-    /// カウント数を取得
-    final count = res.isEmpty ? 0 : res.first['count'] as int;
+    if (res.isEmpty) {
+      /// 新規登録
+      final reflection = ModelReflection(
+        reflectionGroupId: 1,
+        reflectionType: 1,
+        text: text,
+        detail: "",
+        count: 1,
+      );
 
-    /// 追加する
-    final reflection = ModelReflection(
-      reflectionGroupId: 1,
-      reflectionType: 1,
-      text: text,
-      detail: "",
-      count: count + 1,
-    );
+      await db.insert(
+        tableNameReflection,
+        reflection.toMap(),
+        conflictAlgorithm: ConflictAlgorithm.replace,
+      );
+    } else {
+      /// まだ登録されてない
+      final id = res.first['id'] as int;
+      final count = res.first['count'] as int;
 
-    await db.insert(
-      tableNameReflection,
-      reflection.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
+      final reflection = ModelReflection(
+        reflectionGroupId: 0,
+        reflectionType: 0,
+        text: "",
+        detail: "",
+        count: count + 1,
+      );
+
+      await db.update(
+        tableNameReflection,
+        reflection.toMapCount(),
+        where: 'id = ?',
+        whereArgs: [id],
+      );
+    }
   }
 
   /// 更新: 指定したIDの振り返り
