@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/ranking/ranking.dart'
-    as ranking;
+    show TemplateRanking;
 
 /// ページ: ランキング
 class PageRanking extends StatefulWidget {
@@ -22,7 +22,7 @@ class _PageRankingState extends State<PageRanking> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: ranking.TemplateRanking(),
+      body: TemplateRanking(),
     );
   }
 }

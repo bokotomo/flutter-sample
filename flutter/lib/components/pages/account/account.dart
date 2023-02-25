@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/account_setting/account_setting.dart'
-    as account_setting;
+    show TemplateAccountSetting;
 
 /// ページ: アカウント設定
 class PageAccountSetting extends StatefulWidget {
@@ -22,7 +22,7 @@ class _PageAccountSettingState extends State<PageAccountSetting> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: account_setting.TemplateAccountSetting(),
+      body: TemplateAccountSetting(),
     );
   }
 }

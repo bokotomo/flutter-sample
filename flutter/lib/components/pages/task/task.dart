@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/components/templates/task/task.dart' as task;
+import 'package:gamer_reflection/components/templates/task/task.dart'
+    show TemplateTask;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
@@ -47,7 +48,7 @@ class PageTask extends HookWidget {
     }, []);
 
     return Scaffold(
-      body: task.TemplateTask(
+      body: TemplateTask(
         reflections: reflections.value,
         pushTaskDetail: pushTaskDetail,
       ),

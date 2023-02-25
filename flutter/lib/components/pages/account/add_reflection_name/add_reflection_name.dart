@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/add_reflection_name/add_reflection_name.dart'
-    as add_reflection_name;
+    show TemplateAddReflectionName;
 
 /// ページ: 振り返り名追加
 class PageAccountAddReflectionName extends StatefulWidget {
@@ -24,7 +24,7 @@ class _PageAccountAddReflectionNameState
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: add_reflection_name.TemplateAddReflectionName(),
+      body: TemplateAddReflectionName(),
     );
   }
 }

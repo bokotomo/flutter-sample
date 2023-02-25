@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
-    as reflection_add;
+    show TemplateReflectionAdd;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
@@ -37,7 +37,7 @@ class _PageReflectionState extends State<PageReflection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: reflection_add.TemplateReflectionAdd(
+      body: TemplateReflectionAdd(
         reflections: reflections,
       ),
     );
