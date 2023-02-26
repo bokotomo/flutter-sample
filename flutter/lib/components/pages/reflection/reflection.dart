@@ -18,6 +18,7 @@ class PageReflection extends StatefulWidget {
 class _PageReflectionState extends State<PageReflection> {
   List<DomainReflection> reflections = [];
 
+  /// データの取得
   Future<void> getData() async {
     final r = await FetchReflection().fetchReflections();
 

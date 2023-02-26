@@ -40,6 +40,7 @@ const items = <BottomNavigationBarItem>[
 
 /// _FooterState
 class _FooterState extends State<Footer> {
+  /// タブがクリックされた
   void _onClickTab(int index) {
     widget.onClickTab(index);
   }

@@ -12,6 +12,7 @@ class ButtonCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// クリックされた
     void onPressed() {
       if (this.onPressed == null) return;
       this.onPressed!();
