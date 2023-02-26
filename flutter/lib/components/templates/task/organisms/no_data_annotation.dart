@@ -5,7 +5,7 @@ import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 
-/// データがまだない
+/// タスク一覧: データがまだない
 class TaskNoDataAnnotation extends StatelessWidget {
   const TaskNoDataAnnotation({super.key});
 

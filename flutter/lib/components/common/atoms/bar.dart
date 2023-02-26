@@ -7,7 +7,7 @@ class Bar extends StatelessWidget {
     required this.color,
   });
 
-  /// 文字
+  /// 色
   final Color color;
 
   @override
