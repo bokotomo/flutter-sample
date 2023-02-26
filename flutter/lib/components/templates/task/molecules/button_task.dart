@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
@@ -45,27 +44,30 @@ class ButtonTask extends StatelessWidget {
     }
 
     return ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: isThin
-              ? ConstantColorButton.buttonTaskListThin
-              : ConstantColorButton.buttonTaskList,
-          minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
-        ),
-        child: Row(
-          children: [
-            TextTag(
-              text: "$count回",
-              colorType: tagTextColor,
-            ),
-            const SizedBox(
-              width: ConstantSizeUI.l3,
-            ),
-            BasicText(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: isThin
+            ? ConstantColorButton.buttonTaskListThin
+            : ConstantColorButton.buttonTaskList,
+        minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
+      ),
+      child: Row(
+        children: [
+          TextTag(
+            text: "$count回",
+            colorType: tagTextColor,
+          ),
+          const SizedBox(
+            width: ConstantSizeUI.l3,
+          ),
+          Expanded(
+            child: BasicText(
               text: text,
               size: "M",
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
