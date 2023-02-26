@@ -8,8 +8,13 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
+    show TextTag;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// タスク詳細上部
 class TaskDetailTop extends StatelessWidget {
@@ -44,6 +49,7 @@ class TaskDetailTop extends StatelessWidget {
     final detailNotExist = reflection?.detail == "";
     final reflectionText = reflection?.text ?? "";
     final reflectionDetail = reflection?.detail ?? "";
+    final reflectionTagColor = reflection?.tagColor ?? TagTextColor.red;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,11 +63,11 @@ class TaskDetailTop extends StatelessWidget {
         SpacerHeight.xm,
         Row(
           children: [
-            BasicText(
+            TextTag(
               text: "回数: $count回",
-              size: "M",
+              colorType: reflectionTagColor,
             ),
-            SpacerHeight.xm,
+            const SizedBox(width: ConstantSizeUI.l3),
             BasicText(
               text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
               size: "M",

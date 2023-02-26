@@ -1,5 +1,7 @@
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
 
 /// ドメイン: 振り返り
 class DomainReflection {
@@ -10,6 +12,7 @@ class DomainReflection {
     required this.count,
     required this.reflectionType,
     required this.priority,
+    required this.tagColor,
     required this.createdAt,
   });
 
@@ -27,6 +30,9 @@ class DomainReflection {
 
   /// 優先度
   final int priority;
+
+  /// 優先度の色
+  final TagTextColor tagColor;
 
   /// 振り返りの種類
   final ReflectionType reflectionType;

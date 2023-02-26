@@ -4,9 +4,23 @@ import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/modules/database/model/reflection.dart'
     show ModelReflection;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
 
 /// Adapter Domain: Reflection
 class AdapterReflection {
+  /// 優先度からTagの色を返す
+  TagTextColor getTagColor(int priority) {
+    switch (priority) {
+      case 1:
+        return TagTextColor.red;
+      case 2:
+        return TagTextColor.purple;
+      default:
+        return TagTextColor.blue;
+    }
+  }
+
   /// countを重複なしで大きい順に返す
   List<int> getHighPriorityIds(List<ModelReflection> models) {
     final counts = models.map((e) => e.count);
@@ -33,21 +47,25 @@ class AdapterReflection {
 
     /// ドメインに変換
     final domain = models.map(
-      (e) => DomainReflection(
-        id: e.id ?? 0,
-        text: e.text,
-        detail: e.detail,
-        count: e.count,
-        reflectionType: ReflectionType.bad,
-        priority: getPriority(countDistincts, e.count),
-        createdAt: DateTime.now(),
-      ),
+      (e) {
+        final priority = getPriority(countDistincts, e.count);
+        return DomainReflection(
+          id: e.id ?? 0,
+          text: e.text,
+          detail: e.detail,
+          count: e.count,
+          reflectionType: ReflectionType.bad,
+          priority: getPriority(countDistincts, e.count),
+          tagColor: getTagColor(priority),
+          createdAt: DateTime.now(),
+        );
+      },
     );
 
     return domain.toList();
   }
 
-  /// 振り返り取得
+  /// 振り返り詳細取得
   DomainReflection domainReflection(ModelReflection model) {
     return DomainReflection(
       id: model.id ?? 0,
@@ -55,7 +73,8 @@ class AdapterReflection {
       detail: model.detail,
       count: model.count,
       reflectionType: ReflectionType.bad,
-      priority: 1,
+      priority: 0,
+      tagColor: getTagColor(0),
       createdAt: DateTime.now(),
     );
   }
