@@ -8,6 +8,8 @@ class ButtonCircle extends StatelessWidget {
     super.key,
     required this.onPressed,
   });
+
+  /// クリックした
   final void Function()? onPressed;
 
   @override

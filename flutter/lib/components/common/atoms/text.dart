@@ -10,11 +10,14 @@ class BasicText extends StatelessWidget {
     required this.size,
     this.textAlign,
   });
-  // 文字
+
+  /// 文字
   final String text;
-  // サイズ
+
+  /// サイズ
   final String size;
-  // 寄せる方向
+
+  /// 寄せる方向
   final TextAlign? textAlign;
 
   /// 文字サイズを返す

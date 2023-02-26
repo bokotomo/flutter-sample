@@ -14,10 +14,10 @@ class TextTag extends StatelessWidget {
     required this.colorType,
   });
 
-  // 文字
+  /// 文字
   final String text;
 
-  // 色の種類
+  /// 色の種類
   final TagTextColor colorType;
 
   /// タグの枠線色を取得
@@ -66,8 +66,8 @@ class TextTag extends StatelessWidget {
       padding: const EdgeInsets.only(
         top: ConstantSizeUI.l1,
         bottom: ConstantSizeUI.l1,
-        left: ConstantSizeUI.l4,
-        right: ConstantSizeUI.l4,
+        left: ConstantSizeUI.l3,
+        right: ConstantSizeUI.l3,
       ),
       child: Text(
         text,

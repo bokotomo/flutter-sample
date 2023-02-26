@@ -43,6 +43,7 @@ class TaskList extends StatelessWidget {
           ),
         },
         const Bar(color: ConstantColorButton.buttonTaskListBorder),
+        SpacerHeight.xm,
       ],
     );
   }

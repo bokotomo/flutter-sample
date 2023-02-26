@@ -9,9 +9,11 @@ class Footer extends StatefulWidget {
     required this.onClickTab,
     required this.selectedIndex,
   });
-  // タブを押した
+
+  /// タブを押した
   final void Function(int) onClickTab;
-  // 選択しているタブ
+
+  /// 選択しているタブ
   final int selectedIndex;
 
   @override

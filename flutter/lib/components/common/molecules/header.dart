@@ -10,6 +10,8 @@ class Header extends StatelessWidget with PreferredSizeWidget {
     super.key,
     required this.title,
   });
+
+  /// ヘッダータイトル
   final String title;
 
   /// 高さのサイズ

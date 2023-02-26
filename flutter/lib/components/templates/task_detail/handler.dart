@@ -44,13 +44,13 @@ UseReturn useHandler(
   ValueNotifier<TextEditingController> detailController =
       useState<TextEditingController>(TextEditingController());
 
+  /// 編集モード切り替え
   void toggleEditMode() {
     isEditMode.value = !isEditMode.value;
   }
 
   useEffect(() {
     if (reflection == null) return;
-    print(reflection.text);
 
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
@@ -58,7 +58,6 @@ UseReturn useHandler(
 
   /// タスク完了ボタンを押した
   void onPressedTaskDone() async {
-    print(taskId);
     await RequestReflection().deleteReflection(taskId);
   }
 
@@ -72,9 +71,6 @@ UseReturn useHandler(
 
   /// 編集完了ボタンを押した
   void onPressedEditDone() async {
-    print(taskId);
-    print(titleController.value.text);
-    print(detailController.value.text);
     if (titleController.value.text == "") return;
 
     await RequestReflection().updateReflection(
