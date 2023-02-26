@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
+import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/common/molecules/button_task.dart'
     show ButtonTask;
 import 'package:gamer_reflection/modules/const/color.dart'
@@ -41,11 +42,7 @@ Widget view(
       const BasicText(text: "振り返り名A", size: "M"),
       SpacerHeight.m,
       for (int i = 0; i < reflections.length; i++) ...{
-        const Divider(
-          height: 1,
-          thickness: 1,
-          color: ConstantColorButton.buttonTaskListBorder,
-        ),
+        const Bar(color: ConstantColorButton.buttonTaskListBorder),
         ButtonTask(
           text: reflections[i].text,
           isThin: i % 2 == 0,
@@ -54,11 +51,7 @@ Widget view(
           onPressed: () => pushTaskDetail(context, reflections[i].id),
         ),
       },
-      const Divider(
-        height: 1,
-        thickness: 1,
-        color: ConstantColorButton.buttonTaskListBorder,
-      ),
+      const Bar(color: ConstantColorButton.buttonTaskListBorder),
     ],
   );
 
