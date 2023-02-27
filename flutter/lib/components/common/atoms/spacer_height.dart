@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// スペーサー
+/// スペーサー: 縦
 class SpacerHeight {
   SpacerHeight._();
 

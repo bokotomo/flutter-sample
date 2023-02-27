@@ -3,6 +3,8 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColorButton;
+import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
+    show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
     show TextTag;
@@ -57,9 +59,7 @@ class ButtonTask extends StatelessWidget {
             text: "$count回",
             colorType: tagTextColor,
           ),
-          const SizedBox(
-            width: ConstantSizeUI.l3,
-          ),
+          SpacerWidth.m,
           Expanded(
             child: BasicText(
               text: text,

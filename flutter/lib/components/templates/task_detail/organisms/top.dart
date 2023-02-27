@@ -12,9 +12,10 @@ import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
     show TextTag;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
+    show SpacerWidth;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// タスク詳細上部
 class TaskDetailTop extends StatelessWidget {
@@ -67,7 +68,7 @@ class TaskDetailTop extends StatelessWidget {
               text: "回数: $count回",
               colorType: reflectionTagColor,
             ),
-            const SizedBox(width: ConstantSizeUI.l3),
+            SpacerWidth.m,
             BasicText(
               text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
               size: "M",
