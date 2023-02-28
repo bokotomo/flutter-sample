@@ -3,4 +3,5 @@ enum TagTextColor {
   red,
   purple,
   blue,
+  gray,
 }

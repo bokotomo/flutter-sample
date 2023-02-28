@@ -29,6 +29,8 @@ class TextTag extends StatelessWidget {
         return ConstantColorTextTag.textTagPurpleBorder;
       case TagTextColor.blue:
         return ConstantColorTextTag.textTagBlueBorder;
+      case TagTextColor.gray:
+        return ConstantColorTextTag.textTagGrayBorder;
       default:
         return ConstantColorTextTag.textTagBlueBorder;
     }
@@ -43,8 +45,20 @@ class TextTag extends StatelessWidget {
         return ConstantColorTextTag.textTagPurpleText;
       case TagTextColor.blue:
         return ConstantColorTextTag.textTagBlueText;
+      case TagTextColor.gray:
+        return ConstantColorTextTag.textTagGrayText;
       default:
         return ConstantColorTextTag.textTagBlueText;
+    }
+  }
+
+  /// タグのテキスト色を取得
+  Color getBackGroundColor() {
+    switch (colorType) {
+      case TagTextColor.gray:
+        return ConstantColorTextTag.textTagGrayBackGround;
+      default:
+        return ConstantColorTextTag.textTagBackground;
     }
   }
 
@@ -52,7 +66,7 @@ class TextTag extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: ConstantColorTextTag.textTagBackground,
+        color: getBackGroundColor(),
         borderRadius: BorderRadius.circular(40),
         border: Border.all(color: getBorderColor()),
         boxShadow: [

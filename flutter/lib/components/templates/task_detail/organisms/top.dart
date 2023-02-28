@@ -69,9 +69,9 @@ class TaskDetailTop extends StatelessWidget {
               colorType: reflectionTagColor,
             ),
             SpacerWidth.m,
-            BasicText(
+            TextTag(
               text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
-              size: "M",
+              colorType: TagTextColor.gray,
             ),
           ],
         ),
