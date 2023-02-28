@@ -59,13 +59,25 @@ class InputText extends StatelessWidget {
       this.onChanged!(t);
     }
 
-    return TextField(
-      controller: text,
-      style: const TextStyle(color: ConstantColor.text),
-      decoration: decoration(hintText),
-      autofocus: autofocus ?? false,
-      focusNode: focusNode,
-      onChanged: onChanged,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        boxShadow: const [
+          BoxShadow(
+            color: ConstantColor.inputBorder,
+            spreadRadius: 0,
+            blurRadius: ConstantSizeUI.l1,
+          ),
+        ],
+      ),
+      child: TextField(
+        controller: text,
+        style: const TextStyle(color: ConstantColor.text),
+        decoration: decoration(hintText),
+        autofocus: autofocus ?? false,
+        focusNode: focusNode,
+        onChanged: onChanged,
+      ),
     );
   }
 }

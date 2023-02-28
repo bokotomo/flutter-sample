@@ -7,11 +7,17 @@ InputDecoration decoration(String hintText) {
   return InputDecoration(
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
-      borderSide: BorderSide(color: ConstantColor.inputBorderFocus, width: 2.0),
+      borderSide: BorderSide(
+        color: ConstantColor.inputBorderFocus,
+        width: 2.0,
+      ),
     ),
     enabledBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
-      borderSide: BorderSide(color: ConstantColor.inputBorder, width: 2.0),
+      borderSide: BorderSide(
+        color: ConstantColor.inputBorder,
+        width: 2.0,
+      ),
     ),
     filled: true,
     fillColor: ConstantColor.input,
@@ -57,15 +63,26 @@ class InputTextForm extends StatelessWidget {
       this.onChanged!(t);
     }
 
-    return TextFormField(
-      keyboardType: TextInputType.multiline,
-      controller: text,
-      style: const TextStyle(color: ConstantColor.text),
-      decoration: decoration(hintText),
-      autofocus: autofocus ?? false,
-      onChanged: onChanged,
-      focusNode: focusNode,
-      maxLines: 6,
+    return Container(
+      decoration: const BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: ConstantColor.inputBorder,
+            spreadRadius: 0,
+            blurRadius: ConstantSizeUI.l1,
+          ),
+        ],
+      ),
+      child: TextFormField(
+        keyboardType: TextInputType.multiline,
+        controller: text,
+        style: const TextStyle(color: ConstantColor.text),
+        decoration: decoration(hintText),
+        autofocus: autofocus ?? false,
+        onChanged: onChanged,
+        focusNode: focusNode,
+        maxLines: 6,
+      ),
     );
   }
 }

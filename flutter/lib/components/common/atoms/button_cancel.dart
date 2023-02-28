@@ -32,6 +32,8 @@ class ButtonCancel extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: ConstantColorButton.buttonCancel,
         minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+        elevation: 4,
+        shadowColor: ConstantColorButton.buttonCancelBorder,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(100)),
           side: BorderSide(
