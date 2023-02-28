@@ -50,7 +50,6 @@ class TaskDetailTop extends StatelessWidget {
     final detailNotExist = reflection?.detail == "";
     final reflectionText = reflection?.text ?? "";
     final reflectionDetail = reflection?.detail ?? "";
-    final reflectionTagColor = reflection?.tagColor ?? TagTextColor.red;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +65,7 @@ class TaskDetailTop extends StatelessWidget {
           children: [
             TextTag(
               text: "回数: $count回",
-              colorType: reflectionTagColor,
+              colorType: TagTextColor.gray,
             ),
             SpacerWidth.m,
             TextTag(
@@ -80,7 +79,7 @@ class TaskDetailTop extends StatelessWidget {
           text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
           size: "M",
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         Box(
           child: detailNotExist
               ? const TextAnnotation(

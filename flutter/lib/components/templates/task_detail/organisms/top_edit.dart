@@ -9,8 +9,14 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
+    show TextTag;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
+    show SpacerWidth;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
 
 /// タスク詳細上部編集モード
 class TaskDetailTopEdit extends StatelessWidget {
@@ -61,14 +67,14 @@ class TaskDetailTopEdit extends StatelessWidget {
         SpacerHeight.xm,
         Row(
           children: [
-            BasicText(
+            TextTag(
               text: "回数: $count回",
-              size: "M",
+              colorType: TagTextColor.gray,
             ),
-            SpacerHeight.xm,
-            BasicText(
+            SpacerWidth.m,
+            TextTag(
               text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
-              size: "M",
+              colorType: TagTextColor.gray,
             ),
           ],
         ),
@@ -77,7 +83,7 @@ class TaskDetailTopEdit extends StatelessWidget {
           text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
           size: "M",
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         detailForm,
       ],
     );

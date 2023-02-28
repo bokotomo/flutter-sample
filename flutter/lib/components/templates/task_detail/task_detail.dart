@@ -45,13 +45,13 @@ Widget view(
         titleController: titleController,
         detailController: detailController,
       ),
-      SpacerHeight.m,
+      SpacerHeight.xm,
       ButtonBasic(
         icon: Icons.edit,
         text: "編集する",
         onPressed: () => toggleEditMode(),
       ),
-      SpacerHeight.m,
+      SpacerHeight.xm,
       ButtonDone(
         text: "このタスクを完了する",
         onPressed: () => {
@@ -72,7 +72,7 @@ Widget view(
         titleController: titleController,
         detailController: detailController,
       ),
-      SpacerHeight.m,
+      SpacerHeight.xm,
       ButtonBasic(
         icon: Icons.check_circle,
         text: "編集を完了する",
@@ -80,7 +80,7 @@ Widget view(
           onPressedEditDone(),
         },
       ),
-      SpacerHeight.m,
+      SpacerHeight.xm,
       ButtonCancel(
         text: "キャンセル",
         onPressed: () => {
