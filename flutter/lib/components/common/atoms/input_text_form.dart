@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/color.dart'
+    show ConstantColor, ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// inputのスタイル
@@ -8,22 +9,22 @@ InputDecoration decoration(String hintText) {
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
       borderSide: BorderSide(
-        color: ConstantColor.inputBorderFocus,
+        color: ConstantColorInput.inputBorderFocus,
         width: 2.0,
       ),
     ),
     enabledBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
       borderSide: BorderSide(
-        color: ConstantColor.inputBorder,
+        color: ConstantColorInput.inputBorder,
         width: 2.0,
       ),
     ),
     filled: true,
-    fillColor: ConstantColor.input,
+    fillColor: ConstantColorInput.input,
     hintText: hintText,
     hintStyle: const TextStyle(
-      color: ConstantColor.inputHintText,
+      color: ConstantColorInput.inputHintText,
     ),
     contentPadding: const EdgeInsets.all(ConstantSizeUI.l4),
   );
@@ -67,7 +68,7 @@ class InputTextForm extends StatelessWidget {
       decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: ConstantColor.inputBorder,
+            color: ConstantColorInput.inputBorder,
             spreadRadius: 0,
             blurRadius: ConstantSizeUI.l0,
           ),

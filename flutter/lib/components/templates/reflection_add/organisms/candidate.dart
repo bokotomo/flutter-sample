@@ -9,7 +9,8 @@ import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/color.dart'
+    show ConstantColorInput;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 
@@ -29,8 +30,8 @@ class ReflectionAddCandidate extends StatelessWidget {
       padding: const EdgeInsets.all(ConstantSizeUI.l1),
       height: 240,
       decoration: BoxDecoration(
-        color: ConstantColor.input,
-        border: Border.all(color: ConstantColor.inputBorder),
+        color: ConstantColorInput.input,
+        border: Border.all(color: ConstantColorInput.inputBorder),
         borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
       ),
       child: ListView.builder(

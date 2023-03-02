@@ -33,6 +33,11 @@ class ConstantColor {
 
   /// タスクリストの矢印の色
   static const Color taskListArrow = Color.fromARGB(55, 255, 255, 255);
+}
+
+/// 用途ごとに色を定義する: input
+class ConstantColorInput {
+  ConstantColorInput._();
 
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);

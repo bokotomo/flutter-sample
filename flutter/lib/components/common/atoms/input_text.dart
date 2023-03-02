@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/color.dart'
+    show ConstantColor, ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// inputのスタイル
@@ -7,17 +8,23 @@ InputDecoration decoration(String hintText) {
   return InputDecoration(
     focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(100)),
-      borderSide: BorderSide(color: ConstantColor.inputBorderFocus, width: 2.0),
+      borderSide: BorderSide(
+        color: ConstantColorInput.inputBorderFocus,
+        width: 2.0,
+      ),
     ),
     enabledBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(100)),
-      borderSide: BorderSide(color: ConstantColor.inputBorder, width: 2.0),
+      borderSide: BorderSide(
+        color: ConstantColorInput.inputBorder,
+        width: 2.0,
+      ),
     ),
     filled: true,
-    fillColor: ConstantColor.input,
+    fillColor: ConstantColorInput.input,
     hintText: hintText,
     hintStyle: const TextStyle(
-      color: ConstantColor.inputHintText,
+      color: ConstantColorInput.inputHintText,
     ),
     contentPadding: const EdgeInsets.symmetric(
       horizontal: ConstantSizeUI.l4,
@@ -64,7 +71,7 @@ class InputText extends StatelessWidget {
         borderRadius: BorderRadius.circular(40),
         boxShadow: const [
           BoxShadow(
-            color: ConstantColor.inputBorder,
+            color: ConstantColorInput.inputBorder,
             spreadRadius: 0,
             blurRadius: ConstantSizeUI.l0,
           ),
