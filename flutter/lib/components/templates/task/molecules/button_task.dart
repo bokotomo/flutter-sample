@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color.dart'
-    show ConstantColorButton;
+    show ConstantColorButton, ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -52,6 +52,10 @@ class ButtonTask extends StatelessWidget {
             ? ConstantColorButton.buttonTaskListThin
             : ConstantColorButton.buttonTaskList,
         minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
+        padding: const EdgeInsets.only(
+          left: ConstantSizeUI.l3,
+          right: 0,
+        ),
       ),
       child: Row(
         children: [
@@ -65,6 +69,12 @@ class ButtonTask extends StatelessWidget {
               text: text,
               size: "M",
             ),
+          ),
+          SpacerWidth.s,
+          const Icon(
+            Icons.arrow_right,
+            color: ConstantColor.taskListArrow,
+            size: 40.0,
           ),
         ],
       ),

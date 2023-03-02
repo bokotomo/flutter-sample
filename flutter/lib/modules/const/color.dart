@@ -31,6 +31,9 @@ class ConstantColor {
   /// ボックスの枠線色
   static const Color boxBorder = _grayLight;
 
+  /// タスクリストの矢印の色
+  static const Color taskListArrow = Color.fromARGB(55, 255, 255, 255);
+
   /// inputの背景色
   static const Color input = Color.fromARGB(255, 24, 25, 31);
 

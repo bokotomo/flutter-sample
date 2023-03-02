@@ -69,7 +69,7 @@ class InputTextForm extends StatelessWidget {
           BoxShadow(
             color: ConstantColor.inputBorder,
             spreadRadius: 0,
-            blurRadius: ConstantSizeUI.l1,
+            blurRadius: ConstantSizeUI.l0,
           ),
         ],
       ),
