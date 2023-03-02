@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text.dart'
-    show BasicText;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/task/molecules/button_task.dart'
     show ButtonTask;
@@ -27,11 +25,8 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
-        SpacerHeight.m,
-        const BasicText(text: "振り返り名A", size: "M"),
-        SpacerHeight.m,
         for (int i = 0; i < reflections.length; i++) ...{
           const Bar(color: ConstantColorButton.buttonTaskListBorder),
           ButtonTask(

@@ -78,15 +78,15 @@ class TextTag extends StatelessWidget {
         ],
       ),
       padding: const EdgeInsets.only(
-        top: ConstantSizeUI.l1,
-        bottom: ConstantSizeUI.l1,
+        top: ConstantSizeUI.l0,
+        bottom: ConstantSizeUI.l0,
         left: ConstantSizeUI.l3,
         right: ConstantSizeUI.l3,
       ),
       child: Text(
         text,
         style: TextStyle(
-          fontSize: ConstantSizeFont.s,
+          fontSize: ConstantSizeFont.xs,
           color: getTextColor(),
         ),
       ),
