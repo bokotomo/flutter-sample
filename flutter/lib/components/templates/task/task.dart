@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
@@ -12,12 +13,16 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
     show ButtonPeriodFilter;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/components/templates/task/hooks.dart'
+    show useHooks;
 
 ///
 Widget view(
   List<DomainReflection> reflections,
   BuildContext context,
-  Function(BuildContext context, int taskId) pushTaskDetail,
+  Function(BuildContext, int) pushTaskDetail,
+  int periodIndex,
+  Function(int) changePeriodIndex,
 ) {
   final layoutChild = reflections.isEmpty
       ? const TaskNoDataAnnotation()
@@ -27,22 +32,29 @@ Widget view(
               pushTaskDetail(context, reflections[index].id),
         );
 
+  final body = ListView(
+    children: [
+      const BasicText(text: "振り返り名A", size: "M"),
+      SpacerHeight.s,
+      ButtonPeriodFilter(
+        index: periodIndex,
+        onPressedAll: () => {changePeriodIndex(0)},
+        onPressedThreeMonth: () => {changePeriodIndex(1)},
+        onPressedMonth: () => {changePeriodIndex(2)},
+      ),
+      SpacerHeight.s,
+      layoutChild,
+    ],
+  );
+
   return BaseLayout(
     title: "タスク",
-    child: ListView(
-      children: [
-        const BasicText(text: "振り返り名A", size: "M"),
-        SpacerHeight.s,
-        const ButtonPeriodFilter(index: 0),
-        SpacerHeight.s,
-        layoutChild,
-      ],
-    ),
+    child: body,
   );
 }
 
 /// テンプレート: タスク一覧
-class TemplateTask extends StatelessWidget {
+class TemplateTask extends HookWidget {
   const TemplateTask({
     super.key,
     required this.reflections,
@@ -57,10 +69,14 @@ class TemplateTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final hooks = useHooks(reflections);
+
     return view(
-      reflections,
+      hooks.filteredReflections,
       context,
       pushTaskDetail,
+      hooks.periodIndex,
+      hooks.changePeriodIndex,
     );
   }
 }

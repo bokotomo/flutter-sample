@@ -49,6 +49,7 @@ class AdapterReflection {
     final domain = models.map(
       (e) {
         final priority = getPriority(countDistincts, e.count);
+
         return DomainReflection(
           id: e.id ?? 0,
           text: e.text,
@@ -57,7 +58,7 @@ class AdapterReflection {
           reflectionType: ReflectionType.bad,
           priority: getPriority(countDistincts, e.count),
           tagColor: getTagColor(priority),
-          createdAt: DateTime.now(),
+          updatedAt: e.updatedAt,
         );
       },
     );
@@ -75,7 +76,7 @@ class AdapterReflection {
       reflectionType: ReflectionType.bad,
       priority: 0,
       tagColor: getTagColor(0),
-      createdAt: DateTime.now(),
+      updatedAt: model.updatedAt,
     );
   }
 }

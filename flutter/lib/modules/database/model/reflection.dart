@@ -9,7 +9,8 @@ class ModelReflection {
     required this.text,
     required this.detail,
     required this.count,
-    this.createdAt,
+    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// ID
@@ -30,8 +31,11 @@ class ModelReflection {
   /// 回数
   final int count;
 
-  /// 日付
-  final DateTime? createdAt;
+  /// 追加日
+  final DateTime createdAt;
+
+  /// 更新日
+  final DateTime updatedAt;
 
   Map<String, Object> toMap() {
     return {

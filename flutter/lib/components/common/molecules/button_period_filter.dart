@@ -52,19 +52,19 @@ class ButtonPeriodFilter extends StatelessWidget {
         ButtonPeriod(
           text: "全期間",
           isActive: index == 0,
-          onPressed: () => onPressedAll,
+          onPressed: onPressedAll,
         ),
         SpacerWidth.s,
         ButtonPeriod(
           text: "3ヶ月",
           isActive: index == 1,
-          onPressed: () => onPressedThreeMonth,
+          onPressed: onPressedThreeMonth,
         ),
         SpacerWidth.s,
         ButtonPeriod(
           text: "1ヶ月",
           isActive: index == 2,
-          onPressed: () => onPressedMonth,
+          onPressed: onPressedMonth,
         ),
       ],
     );

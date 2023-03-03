@@ -37,8 +37,13 @@ class ButtonPeriod extends StatelessWidget {
         backgroundColor: isActive
             ? ConstantColorButton.buttonPeriodActive
             : ConstantColorButton.buttonPeriod,
-        // minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
         elevation: 4,
+        padding: const EdgeInsets.only(
+          left: ConstantSizeUI.l4,
+          right: ConstantSizeUI.l4,
+          top: ConstantSizeUI.l1,
+          bottom: ConstantSizeUI.l1,
+        ),
         shadowColor: ConstantColorButton.buttonPeriodBorder,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(100)),

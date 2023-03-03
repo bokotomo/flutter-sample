@@ -27,6 +27,8 @@ class RequestReflection {
       reflectionGroupId: 0,
       reflectionType: 0,
       count: 0,
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
     );
     await repositoryReflection.updateReflectionById(db, id, model);
   }

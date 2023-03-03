@@ -13,7 +13,7 @@ class DomainReflection {
     required this.reflectionType,
     required this.priority,
     required this.tagColor,
-    required this.createdAt,
+    required this.updatedAt,
   });
 
   /// ID
@@ -38,5 +38,5 @@ class DomainReflection {
   final ReflectionType reflectionType;
 
   /// 日付
-  final DateTime createdAt;
+  final DateTime updatedAt;
 }

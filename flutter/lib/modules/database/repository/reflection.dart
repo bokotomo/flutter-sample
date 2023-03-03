@@ -38,6 +38,8 @@ class RepositoryReflection extends IRepositoryReflection {
         text: text,
         detail: "",
         count: 1,
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       );
 
       await db.insert(
@@ -56,6 +58,8 @@ class RepositoryReflection extends IRepositoryReflection {
         text: "",
         detail: "",
         count: count + 1,
+        createdAt: DateTime.now(),
+        updatedAt: DateTime.now(),
       );
 
       await db.update(
@@ -106,6 +110,8 @@ class RepositoryReflection extends IRepositoryReflection {
     );
 
     final models = List.generate(res.length, (i) {
+      final a =
+          DateTime.tryParse(res[i]['created_at'] as String) ?? DateTime.now();
       return ModelReflection(
         id: res[i]['id'] as int,
         reflectionGroupId: res[i]['reflection_group_id'] as int,
@@ -113,6 +119,10 @@ class RepositoryReflection extends IRepositoryReflection {
         text: res[i]['text'] as String,
         detail: res[i]['detail'] as String,
         count: res[i]['count'] as int,
+        createdAt:
+            DateTime.tryParse(res[i]['created_at'] as String) ?? DateTime.now(),
+        updatedAt:
+            DateTime.tryParse(res[i]['updated_at'] as String) ?? DateTime.now(),
       );
     });
 
@@ -136,6 +146,10 @@ class RepositoryReflection extends IRepositoryReflection {
       text: res.first['text'] as String,
       detail: res.first['detail'] as String,
       count: res.first['count'] as int,
+      createdAt: DateTime.tryParse(res.first['created_at'] as String) ??
+          DateTime.now(),
+      updatedAt: DateTime.tryParse(res.first['updated_at'] as String) ??
+          DateTime.now(),
     );
 
     return AdapterReflection().domainReflection(model);
