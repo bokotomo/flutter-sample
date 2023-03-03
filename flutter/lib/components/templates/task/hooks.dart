@@ -17,7 +17,7 @@ class UseReturn {
 
 ///
 UseReturn useHooks(List<DomainReflection> reflections) {
-  ValueNotifier<int> periodIndex = useState<int>(0);
+  ValueNotifier<int> periodIndex = useState<int>(1);
   ValueNotifier<List<DomainReflection>> filteredReflections =
       useState<List<DomainReflection>>([]);
 
@@ -36,30 +36,33 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     );
   }
 
+  /// 期間でフィルターする
+  List<DomainReflection> filteredMonth(int month) {
+    final DateTime monthAgo = getMonthAgo(DateTime.now(), month);
+    return reflections.where((e) => e.updatedAt.isAfter(monthAgo)).toList();
+  }
+
   /// 期間変更
-  void changePeriodIndex(int index) async {
+  void changePeriodIndex(int index) {
     periodIndex.value = index;
     switch (index) {
       case 0:
         filteredReflections.value = reflections;
         return;
       case 1:
-        final DateTime threeMonthAgo = getMonthAgo(DateTime.now(), 3);
-        filteredReflections.value = reflections
-            .where((e) => e.updatedAt.isAfter(threeMonthAgo))
-            .toList();
+        filteredReflections.value = filteredMonth(3);
         return;
       case 2:
-        final DateTime oneMonthAgo = getMonthAgo(DateTime.now(), 1);
-        filteredReflections.value =
-            reflections.where((e) => e.updatedAt.isAfter(oneMonthAgo)).toList();
+        filteredReflections.value = filteredMonth(1);
         return;
     }
   }
 
   useEffect(() {
     if (reflections.isEmpty) return;
-    filteredReflections.value = reflections;
+
+    periodIndex.value = 1;
+    changePeriodIndex(1);
   }, [reflections]);
 
   return UseReturn(

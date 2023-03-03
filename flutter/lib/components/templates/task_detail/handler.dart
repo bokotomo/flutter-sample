@@ -65,6 +65,7 @@ UseReturn useHandler(
   void onPressedCancel() async {
     isEditMode.value = false;
     if (reflection == null) return;
+
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
   }
