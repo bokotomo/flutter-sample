@@ -45,6 +45,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   /// 期間変更
   void changePeriodIndex(int index) {
     periodIndex.value = index;
+
     switch (index) {
       case 0:
         filteredReflections.value = reflections;

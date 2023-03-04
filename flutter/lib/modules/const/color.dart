@@ -125,5 +125,5 @@ class ConstantColorButton {
   static const Color buttonTaskListThin = Color.fromARGB(255, 43, 47, 56);
 
   /// タスク一覧ボタンの枠線色
-  static const Color buttonTaskListBorder = Color.fromARGB(255, 93, 98, 116);
+  static const Color buttonTaskListBorder = Color.fromARGB(255, 81, 85, 101);
 }
