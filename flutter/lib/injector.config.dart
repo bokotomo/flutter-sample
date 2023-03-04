@@ -5,8 +5,10 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:gamer_reflection/modules/database/repository/reflection.dart'
+import 'package:gamer_reflection/modules/database/repository/command/reflection.dart'
     as _i3;
+import 'package:gamer_reflection/modules/database/repository/query/reflection.dart'
+    as _i4;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -23,6 +25,9 @@ _i1.GetIt init(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.IRepositoryReflection>(() => _i3.RepositoryReflection());
+  gh.factory<_i3.IRepositoryReflectionCommand>(
+      () => _i3.RepositoryReflectionCommand());
+  gh.factory<_i4.IRepositoryReflectionQuery>(
+      () => _i4.RepositoryReflectionQuery());
   return getIt;
 }

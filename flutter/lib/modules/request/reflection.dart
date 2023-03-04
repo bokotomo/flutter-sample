@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:gamer_reflection/modules/database/repository/reflection.dart'
-    show IRepositoryReflection;
+import 'package:gamer_reflection/modules/database/repository/command/reflection.dart'
+    show IRepositoryReflectionCommand;
 import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
     show DBConnection;
 import 'package:gamer_reflection/modules/database/model/reflection.dart'
@@ -8,8 +8,8 @@ import 'package:gamer_reflection/modules/database/model/reflection.dart'
 
 /// Request: Reflection
 class RequestReflection {
-  final IRepositoryReflection repositoryReflection =
-      GetIt.I<IRepositoryReflection>();
+  final IRepositoryReflectionCommand repositoryReflection =
+      GetIt.I<IRepositoryReflectionCommand>();
 
   /// 新規追加: Reflection
   Future<void> addReflection(String text) async {
