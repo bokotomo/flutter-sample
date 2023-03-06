@@ -24,6 +24,8 @@ class TextAnnotation extends StatelessWidget {
   double getFontSize() {
     if (size == "L") {
       return ConstantSizeFont.l;
+    } else if (size == "XM") {
+      return ConstantSizeFont.xm;
     } else if (size == "M") {
       return ConstantSizeFont.m;
     }

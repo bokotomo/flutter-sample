@@ -16,6 +16,7 @@ class TaskNoDataAnnotation extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
+          SpacerHeight.xl,
           Icon(
             Icons.info,
             color: ConstantColor.textOpacity,
@@ -23,8 +24,8 @@ class TaskNoDataAnnotation extends StatelessWidget {
           ),
           SpacerHeight.m,
           TextAnnotation(
-            text: 'まだタスクがありません。\n振り返りから追加しましょう!',
-            size: "M",
+            text: 'タスクがありません。\n振り返りから追加しましょう!',
+            size: "XM",
             textAlign: TextAlign.center,
           ),
         ],
