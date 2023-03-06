@@ -19,6 +19,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/type/data_fetch.dart'
     show DataFetchState;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 ///
 Widget view(
@@ -63,6 +64,7 @@ Widget view(
   );
 
   ListView editContent = ListView(
+    padding: const EdgeInsets.all(ConstantSizeUI.l2),
     children: [
       SpacerHeight.l,
       TaskDetailTopEdit(
