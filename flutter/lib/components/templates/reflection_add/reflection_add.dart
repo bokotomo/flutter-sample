@@ -21,6 +21,7 @@ Widget view(
   BuildContext context,
   FocusNode textFieldFocusNode,
   List<DomainReflection> reflections,
+  GlobalKey<FormState> formKey,
   TextEditingController textReflection,
   void Function() onPressedAddReflection,
   void Function(String) onPressedAddCandidate,
@@ -45,8 +46,10 @@ Widget view(
       SpacerHeight.m,
       InputText(
         text: textReflection,
-        hintText: '悪かった点を書く(40文字以内)',
+        hintText: '振り返りを書く(30文字以内)',
         focusNode: textFieldFocusNode,
+        formKey: formKey,
+        maxLength: 30,
       ),
       SpacerHeight.xm,
       ReflectionAddCandidate(
@@ -66,7 +69,10 @@ Widget view(
   return BaseLayout(
     title: "振り返りの追加",
     onTap: () => textFieldFocusNode.unfocus(),
-    child: cloumn,
+    child: Form(
+      key: formKey,
+      child: cloumn,
+    ),
   );
 }
 
@@ -86,6 +92,7 @@ class TemplateReflectionAdd extends HookWidget {
       context,
       handler.textFieldFocusNode,
       reflections,
+      handler.formKey,
       handler.textReflection,
       handler.onPressedAddReflection,
       handler.onPressedAddCandidate,

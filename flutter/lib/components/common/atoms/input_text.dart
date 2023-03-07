@@ -41,6 +41,8 @@ class InputText extends StatelessWidget {
     this.autofocus,
     this.focusNode,
     this.onChanged,
+    this.formKey,
+    this.maxLength,
   });
 
   /// プレフィックス
@@ -48,6 +50,9 @@ class InputText extends StatelessWidget {
 
   /// プレフィックス
   final String hintText;
+
+  /// 文字数
+  final int? maxLength;
 
   /// 自動フォーカス
   final bool? autofocus;
@@ -58,12 +63,23 @@ class InputText extends StatelessWidget {
   /// 変更した
   final void Function(String)? onChanged;
 
+  ///
+  final GlobalKey<FormState>? formKey;
+
   @override
   Widget build(BuildContext context) {
     /// 変更された
     void onChanged(String t) {
       if (this.onChanged == null) return;
       this.onChanged!(t);
+    }
+
+    /// バリデーション
+    String? validateForm(String? v) {
+      if (v == null || v.isEmpty) return "入力されていません。";
+      if (maxLength != null && v.length > maxLength!) return "文字数が超えています。";
+
+      return null;
     }
 
     return Container(
@@ -77,13 +93,16 @@ class InputText extends StatelessWidget {
           ),
         ],
       ),
-      child: TextField(
+      child: TextFormField(
         controller: text,
         style: const TextStyle(color: ConstantColor.text),
         decoration: decoration(hintText),
         autofocus: autofocus ?? false,
         focusNode: focusNode,
         onChanged: onChanged,
+        maxLines: 1,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        validator: validateForm,
       ),
     );
   }
