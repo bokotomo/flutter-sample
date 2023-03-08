@@ -43,7 +43,7 @@ InputDecoration decoration(String hintText) {
     hintStyle: const TextStyle(
       color: ConstantColorInput.inputHintText,
     ),
-    contentPadding: const EdgeInsets.all(ConstantSizeUI.l4),
+    contentPadding: const EdgeInsets.all(ConstantSizeUI.l3),
   );
 }
 

@@ -44,7 +44,7 @@ InputDecoration decoration(String hintText) {
       color: ConstantColorInput.inputHintText,
     ),
     contentPadding: const EdgeInsets.symmetric(
-      horizontal: ConstantSizeUI.l4,
+      horizontal: ConstantSizeUI.l3,
     ),
   );
 }

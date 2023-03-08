@@ -34,7 +34,10 @@ Widget view(
 
   final body = ListView(
     children: [
-      const BasicText(text: "振り返り名A", size: "M"),
+      SpacerHeight.m,
+      const Center(
+        child: BasicText(text: "振り返り名A", size: "M"),
+      ),
       SpacerHeight.s,
       ButtonPeriodFilter(
         index: periodIndex,

@@ -25,7 +25,7 @@ class TaskNoDataAnnotation extends StatelessWidget {
           SpacerHeight.m,
           TextAnnotation(
             text: 'タスクがありません。\n振り返りから追加しましょう!',
-            size: "XM",
+            size: "M",
             textAlign: TextAlign.center,
           ),
         ],
