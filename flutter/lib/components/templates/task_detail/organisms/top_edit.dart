@@ -48,10 +48,12 @@ class TaskDetailTopEdit extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isGood = reflection?.reflectionType == ReflectionType.good;
     final int count = reflection?.count ?? 0;
+    final String countText = "回数: $count回";
+    final String reflectionTypeText = isGood ? "種類: 良かった点" : "種類: 悪かった点";
 
     final InputText titleForm = InputText(
       text: titleController,
-      hintText: "振り返り名",
+      hintText: "振り返り名(30文字以内)",
       focusNode: titleFocusNode,
       maxLength: 30,
     );
@@ -70,12 +72,12 @@ class TaskDetailTopEdit extends StatelessWidget {
         Row(
           children: [
             TextTag(
-              text: "回数: $count回",
+              text: countText,
               colorType: TagTextColor.gray,
             ),
             SpacerWidth.m,
             TextTag(
-              text: isGood ? "種類: 良かった点" : "種類: 悪かった点",
+              text: reflectionTypeText,
               colorType: TagTextColor.gray,
             ),
           ],

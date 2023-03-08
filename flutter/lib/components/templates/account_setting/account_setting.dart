@@ -6,6 +6,8 @@ import 'package:gamer_reflection/components/layouts/base_padding.dart'
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/components/common/atoms/input_select.dart'
+    show InputSelect;
 
 Widget view(BuildContext context) {
   ListView cloumn = ListView(
@@ -54,10 +56,7 @@ Widget view(BuildContext context) {
               size: "M",
             ),
             SpacerHeight.m,
-            BasicText(
-              text: '日本語',
-              size: "M",
-            ),
+            InputSelect(),
           ],
         ),
       ),
