@@ -9,8 +9,8 @@ import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
     show ReflectionAddCandidate;
-import 'package:gamer_reflection/components/templates/reflection_add/handler.dart'
-    show useHandler;
+import 'package:gamer_reflection/components/templates/reflection_add/hooks.dart'
+    show useHooks;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
@@ -48,7 +48,6 @@ Widget view(
         text: textReflection,
         hintText: '振り返りを書く(30文字以内)',
         focusNode: textFieldFocusNode,
-        formKey: formKey,
         maxLength: 30,
       ),
       SpacerHeight.xm,
@@ -86,16 +85,16 @@ class TemplateReflectionAdd extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final handler = useHandler();
+    final hooks = useHooks();
 
     return view(
       context,
-      handler.textFieldFocusNode,
+      hooks.textFieldFocusNode,
       reflections,
-      handler.formKey,
-      handler.textReflection,
-      handler.onPressedAddReflection,
-      handler.onPressedAddCandidate,
+      hooks.formKey,
+      hooks.textReflection,
+      hooks.onPressedAddReflection,
+      hooks.onPressedAddCandidate,
     );
   }
 }

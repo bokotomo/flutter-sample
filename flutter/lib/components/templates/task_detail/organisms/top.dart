@@ -16,7 +16,6 @@ import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// タスク詳細上部
 class TaskDetailTop extends StatelessWidget {

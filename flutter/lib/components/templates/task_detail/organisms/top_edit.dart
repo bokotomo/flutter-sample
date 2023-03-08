@@ -53,10 +53,11 @@ class TaskDetailTopEdit extends StatelessWidget {
       text: titleController,
       hintText: "振り返り名",
       focusNode: titleFocusNode,
+      maxLength: 30,
     );
     final detailForm = InputTextForm(
       text: detailController,
-      hintText: "振り返りを書きましょう。",
+      hintText: "対策方法を書きましょう。",
       focusNode: detailFocusNode,
     );
 

@@ -32,10 +32,11 @@ class PageTask extends HookWidget {
 
     /// タスク詳細ページへ移動
     void pushTaskDetail(BuildContext context, int taskId) {
+      final page = PageTaskDetail(taskId: taskId);
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => PageTaskDetail(taskId: taskId),
+          builder: (c) => page,
         ),
       ).then((v) {
         eventRepository();

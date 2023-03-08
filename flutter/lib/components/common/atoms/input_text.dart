@@ -41,7 +41,6 @@ class InputText extends StatelessWidget {
     this.autofocus,
     this.focusNode,
     this.onChanged,
-    this.formKey,
     this.maxLength,
   });
 
@@ -62,9 +61,6 @@ class InputText extends StatelessWidget {
 
   /// 変更した
   final void Function(String)? onChanged;
-
-  ///
-  final GlobalKey<FormState>? formKey;
 
   @override
   Widget build(BuildContext context) {

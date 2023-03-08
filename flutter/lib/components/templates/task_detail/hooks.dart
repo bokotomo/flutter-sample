@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show FocusNode, TextEditingController, ValueNotifier, GlobalKey, FormState;
 import 'package:flutter_hooks/flutter_hooks.dart'
-    show useEffect, useState, useFocusNode;
+    show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
@@ -14,6 +15,7 @@ class UseReturn {
     required this.toggleEditMode,
     required this.titleController,
     required this.detailController,
+    required this.formKey,
     required this.onPressedEditDone,
     required this.onPressedTaskDone,
     required this.onPressedCancel,
@@ -25,13 +27,14 @@ class UseReturn {
   final void Function() toggleEditMode;
   final TextEditingController titleController;
   final TextEditingController detailController;
+  final GlobalKey<FormState> formKey;
   final void Function() onPressedEditDone;
   final void Function() onPressedTaskDone;
   final void Function() onPressedCancel;
 }
 
 ///
-UseReturn useHandler(
+UseReturn useHooks(
   int taskId,
   DomainReflection? reflection,
   Future<void> Function() updateReflection,
@@ -43,6 +46,7 @@ UseReturn useHandler(
       useState<TextEditingController>(TextEditingController());
   ValueNotifier<TextEditingController> detailController =
       useState<TextEditingController>(TextEditingController());
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   /// 編集モード切り替え
   void toggleEditMode() {
@@ -72,6 +76,7 @@ UseReturn useHandler(
 
   /// 編集完了ボタンを押した
   void onPressedEditDone() async {
+    if (!formKey.currentState!.validate()) return;
     if (titleController.value.text == "") return;
 
     await RequestReflection().updateReflection(
@@ -93,5 +98,6 @@ UseReturn useHandler(
     isEditMode: isEditMode.value,
     titleController: titleController.value,
     detailController: detailController.value,
+    formKey: formKey,
   );
 }

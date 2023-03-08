@@ -13,8 +13,8 @@ import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/components/templates/task_detail/handler.dart'
-    show useHandler;
+import 'package:gamer_reflection/components/templates/task_detail/hooks.dart'
+    show useHooks;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/type/data_fetch.dart'
@@ -32,11 +32,12 @@ Widget view(
   Function toggleEditMode,
   TextEditingController titleController,
   TextEditingController detailController,
+  GlobalKey<FormState> formKey,
   void Function() onPressedEditDone,
   void Function() onPressedTaskDone,
   void Function() onPressedCancel,
 ) {
-  ListView body = ListView(
+  ListView content = ListView(
     children: [
       SpacerHeight.l,
       TaskDetailTop(
@@ -78,18 +79,19 @@ Widget view(
       ButtonBasic(
         icon: Icons.check_circle,
         text: "編集を完了する",
-        onPressed: () => {
-          onPressedEditDone(),
-        },
+        onPressed: () => onPressedEditDone(),
       ),
       SpacerHeight.xm,
       ButtonCancel(
         text: "キャンセル",
-        onPressed: () => {
-          onPressedCancel(),
-        },
+        onPressed: () => onPressedCancel(),
       ),
     ],
+  );
+
+  Form form = Form(
+    key: formKey,
+    child: editContent,
   );
 
   return BaseLayout(
@@ -98,7 +100,7 @@ Widget view(
       titleFocusNode.unfocus(),
       detailFocusNode.unfocus(),
     },
-    child: isEditMode ? editContent : body,
+    child: isEditMode ? form : content,
   );
 }
 
@@ -118,21 +120,22 @@ class TemplateTaskDetail extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final handler = useHandler(taskId, reflection, updateReflection);
+    final hooks = useHooks(taskId, reflection, updateReflection);
 
     return view(
       context,
-      handler.titleFocusNode,
-      handler.detailFocusNode,
+      hooks.titleFocusNode,
+      hooks.detailFocusNode,
       taskId,
       reflection,
-      handler.isEditMode,
-      handler.toggleEditMode,
-      handler.titleController,
-      handler.detailController,
-      handler.onPressedEditDone,
-      handler.onPressedTaskDone,
-      handler.onPressedCancel,
+      hooks.isEditMode,
+      hooks.toggleEditMode,
+      hooks.titleController,
+      hooks.detailController,
+      hooks.formKey,
+      hooks.onPressedEditDone,
+      hooks.onPressedTaskDone,
+      hooks.onPressedCancel,
     );
   }
 }

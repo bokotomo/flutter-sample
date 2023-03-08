@@ -21,7 +21,7 @@ class UseReturn {
 }
 
 ///
-UseReturn useHandler() {
+UseReturn useHooks() {
   final textFieldFocusNode = useFocusNode();
   ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
@@ -30,12 +30,9 @@ UseReturn useHandler() {
   /// 振り返りの追加を押した
   void onPressedAddReflection() async {
     print(textReflection.value.text);
-    if (!formKey.currentState!.validate()) {
-      print(formKey.toString());
-      return;
-    }
-
+    if (!formKey.currentState!.validate()) return;
     if (textReflection.value.text == "") return;
+
     await RequestReflection().addReflection(textReflection.value.text);
     textReflection.value.clear();
   }
