@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
-// import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// Footer
 class Footer extends StatefulWidget {

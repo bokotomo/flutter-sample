@@ -32,16 +32,20 @@ InputDecoration decoration() {
 class InputSelect extends StatelessWidget {
   const InputSelect({
     super.key,
-    // required this.text,
+    required this.value,
+    required this.items,
     this.focusNode,
     this.onChanged,
   });
 
-  /// プレフィックス
-  // final TextEditingController text;
-
   /// フォーカスノード
   final FocusNode? focusNode;
+
+  /// 値
+  final String value;
+
+  /// 一覧
+  final List<DropdownMenuItem<String>> items;
 
   /// 変更した
   final void Function(String?)? onChanged;
@@ -54,25 +58,13 @@ class InputSelect extends StatelessWidget {
       this.onChanged!(t);
     }
 
-    const List<DropdownMenuItem<String>> items = [
-      DropdownMenuItem(
-        value: 'ja',
-        child: Text('日本語'),
-      ),
-      DropdownMenuItem(
-        value: 'en',
-        child: Text('英語'),
-      ),
-    ];
-    const value = "ja";
-
     return DropdownButtonFormField(
       items: items,
       decoration: decoration(),
       style: const TextStyle(color: ConstantColor.text),
       dropdownColor: ConstantColorInput.input,
       value: value,
-      isExpanded: true,
+      focusNode: focusNode,
       onChanged: onChanged,
     );
   }
