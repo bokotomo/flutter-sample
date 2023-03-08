@@ -74,6 +74,8 @@ class InputText extends StatelessWidget {
     String? validateForm(String? v) {
       if (v == null || v.isEmpty) return "入力されていません。";
       if (maxLength != null && v.length > maxLength!) return "文字数が超えています。";
+      final String noSpaceStr = v.replaceAll(RegExp(r"\s+"), '');
+      if (noSpaceStr.isEmpty) return "全て空白です。";
 
       return null;
     }

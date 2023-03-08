@@ -38,6 +38,7 @@ Widget view(
   void Function() onPressedCancel,
 ) {
   ListView content = ListView(
+    padding: const EdgeInsets.all(ConstantSizeUI.l2),
     children: [
       SpacerHeight.l,
       TaskDetailTop(
