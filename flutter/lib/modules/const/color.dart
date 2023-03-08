@@ -50,6 +50,12 @@ class ConstantColorInput {
 
   /// inputの枠線色フォーカス
   static const Color inputBorderFocus = Color.fromARGB(255, 57, 30, 145);
+
+  /// inputの枠線色エラーテキスト
+  static const Color inputBorderError = Color.fromARGB(255, 118, 63, 63);
+
+  /// inputのエラーテキスト色
+  static const Color inputErrorText = Color.fromARGB(255, 255, 223, 223);
 }
 
 /// 用途ごとに色を定義する: タグの色
