@@ -25,7 +25,7 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
       limit: 100,
     );
 
-    final models = List.generate(res.length, (i) {
+    final List<ModelReflection> models = List.generate(res.length, (i) {
       return ModelReflection(
         id: res[i]['id'] as int,
         reflectionGroupId: res[i]['reflection_group_id'] as int,
@@ -53,7 +53,7 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
       whereArgs: [id],
     );
 
-    final model = ModelReflection(
+    final ModelReflection model = ModelReflection(
       id: res.first['id'] as int,
       reflectionGroupId: res.first['reflection_group_id'] as int,
       reflectionType: res.first['reflection_type'] as int,

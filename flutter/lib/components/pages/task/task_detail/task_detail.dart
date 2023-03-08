@@ -28,7 +28,8 @@ class PageTaskDetail extends HookWidget {
     ///
     Future<void> eventRepository() async {
       dataFetchState.value = DataFetchState.fetching;
-      final r = await FetchReflection().fetchReflectionById(taskId);
+      final DomainReflection r =
+          await FetchReflection().fetchReflectionById(taskId);
 
       reflection.value = r;
       dataFetchState.value = DataFetchState.end;

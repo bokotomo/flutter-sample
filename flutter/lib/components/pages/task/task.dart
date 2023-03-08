@@ -26,13 +26,14 @@ class PageTask extends HookWidget {
     /// データ取得
     Future<void> eventRepository() async {
       if (!canDC.value) return;
-      final r = await FetchReflection().fetchReflections();
+      final List<DomainReflection> r =
+          await FetchReflection().fetchReflections();
       reflections.value = r;
     }
 
     /// タスク詳細ページへ移動
     void pushTaskDetail(BuildContext context, int taskId) {
-      final page = PageTaskDetail(taskId: taskId);
+      final PageTaskDetail page = PageTaskDetail(taskId: taskId);
       Navigator.push(
         context,
         MaterialPageRoute(

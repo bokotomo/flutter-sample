@@ -45,11 +45,11 @@ class TaskDetailTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isGood = reflection?.reflectionType == ReflectionType.good;
-    final count = reflection?.count ?? 0;
-    final detailNotExist = reflection?.detail == "";
-    final reflectionText = reflection?.text ?? "";
-    final reflectionDetail = reflection?.detail ?? "";
+    final bool isGood = reflection?.reflectionType == ReflectionType.good;
+    final int count = reflection?.count ?? 0;
+    final bool detailNotExist = reflection?.detail == "";
+    final String reflectionText = reflection?.text ?? "";
+    final String reflectionDetail = reflection?.detail ?? "";
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -40,8 +40,8 @@ UseReturn useHooks(
   Future<void> Function() updateReflection,
 ) {
   ValueNotifier<bool> isEditMode = useState<bool>(false);
-  final titleFocusNode = useFocusNode();
-  final detailFocusNode = useFocusNode();
+  final FocusNode titleFocusNode = useFocusNode();
+  final FocusNode detailFocusNode = useFocusNode();
   ValueNotifier<TextEditingController> titleController =
       useState<TextEditingController>(TextEditingController());
   ValueNotifier<TextEditingController> detailController =

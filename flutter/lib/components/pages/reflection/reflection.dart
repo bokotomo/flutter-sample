@@ -21,7 +21,8 @@ class PageReflection extends HookWidget {
 
     /// データの取得
     Future<void> getData() async {
-      final r = await FetchReflection().fetchReflections();
+      final List<DomainReflection> r =
+          await FetchReflection().fetchReflections();
       reflections.value = r;
     }
 

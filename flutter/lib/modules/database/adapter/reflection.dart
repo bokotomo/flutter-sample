@@ -23,15 +23,15 @@ class AdapterReflection {
 
   /// countを重複なしで大きい順に返す
   List<int> getHighPriorityIds(List<ModelReflection> models) {
-    final counts = models.map((e) => e.count);
-    final countDistincts = counts.toSet().toList();
+    final Iterable<int> counts = models.map((e) => e.count);
+    final List<int> countDistincts = counts.toSet().toList();
     countDistincts.sort(((a, b) => b.compareTo(a)));
     return countDistincts;
   }
 
   /// 3位まで優先度を返す
   int getPriority(List<int> counts, int count) {
-    final size = counts.length;
+    final int size = counts.length;
     if (size > 0 && counts[0] == count) return 1;
     if (size > 1 && counts[1] == count) return 2;
     return 3;
@@ -43,7 +43,7 @@ class AdapterReflection {
     models.sort(((a, b) => b.count.compareTo(a.count)));
 
     /// 重複しないCount一覧
-    final countDistincts = getHighPriorityIds(models);
+    final List<int> countDistincts = getHighPriorityIds(models);
 
     /// ドメインに変換
     final domain = models.map(

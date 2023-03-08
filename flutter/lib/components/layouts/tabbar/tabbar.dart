@@ -30,7 +30,7 @@ class Tabbar extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = Hooks();
+    final Hooks hooks = Hooks();
 
     return MaterialApp(
       home: view(

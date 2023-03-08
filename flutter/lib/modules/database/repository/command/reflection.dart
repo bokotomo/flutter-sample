@@ -26,7 +26,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
 
     if (res.isEmpty) {
       /// 新規登録
-      final reflection = ModelReflection(
+      final ModelReflection reflection = ModelReflection(
         reflectionGroupId: 1,
         reflectionType: 1,
         text: text,
@@ -43,10 +43,10 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
       );
     } else {
       /// まだ登録されてない
-      final id = res.first['id'] as int;
-      final count = res.first['count'] as int;
+      final int id = res.first['id'] as int;
+      final int count = res.first['count'] as int;
 
-      final reflection = ModelReflection(
+      final ModelReflection reflection = ModelReflection(
         reflectionGroupId: 0,
         reflectionType: 0,
         text: "",

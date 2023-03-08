@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:sqflite/sqflite.dart' show Database;
 import 'package:gamer_reflection/modules/database/repository/command/reflection.dart'
     show IRepositoryReflectionCommand;
 import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
@@ -13,13 +14,13 @@ class RequestReflection {
 
   /// 新規追加: Reflection
   Future<void> addReflection(String text) async {
-    final db = GetIt.I<DBConnection>().db;
+    final Database db = GetIt.I<DBConnection>().db;
     await repositoryReflection.insertReflection(db, text);
   }
 
   /// 更新: Reflection
   Future<void> updateReflection(int id, String title, String detail) async {
-    final db = GetIt.I<DBConnection>().db;
+    final Database db = GetIt.I<DBConnection>().db;
     // todo
     final model = ModelReflection(
       text: title,
@@ -35,7 +36,7 @@ class RequestReflection {
 
   /// 削除: Reflection
   Future<void> deleteReflection(int id) async {
-    final db = GetIt.I<DBConnection>().db;
+    final Database db = GetIt.I<DBConnection>().db;
     await repositoryReflection.deleteReflectionById(db, id);
   }
 }

@@ -46,16 +46,16 @@ class TaskDetailTopEdit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isGood = reflection?.reflectionType == ReflectionType.good;
-    final count = reflection?.count ?? 0;
+    final bool isGood = reflection?.reflectionType == ReflectionType.good;
+    final int count = reflection?.count ?? 0;
 
-    final titleForm = InputText(
+    final InputText titleForm = InputText(
       text: titleController,
       hintText: "振り返り名",
       focusNode: titleFocusNode,
       maxLength: 30,
     );
-    final detailForm = InputTextForm(
+    final InputTextForm detailForm = InputTextForm(
       text: detailController,
       hintText: "対策方法を書きましょう。",
       focusNode: detailFocusNode,

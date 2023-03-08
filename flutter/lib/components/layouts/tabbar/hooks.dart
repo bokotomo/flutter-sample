@@ -21,7 +21,7 @@ class Hooks {
   Widget tabPage(
     ValueNotifier<bool> canDC,
   ) {
-    final pages = [
+    final List<Widget> pages = [
       PageTask(canDC: canDC),
       const PageReflection(),
       const PageRanking(),
