@@ -20,6 +20,23 @@ InputDecoration decoration(String hintText) {
         width: 2.0,
       ),
     ),
+    errorBorder: const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+      borderSide: BorderSide(
+        color: ConstantColorInput.inputBorderError,
+        width: 2.0,
+      ),
+    ),
+    focusedErrorBorder: const OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+      borderSide: BorderSide(
+        color: ConstantColorInput.inputBorderError,
+        width: 2.0,
+      ),
+    ),
+    errorStyle: const TextStyle(
+      color: ConstantColorInput.inputErrorText,
+    ),
     filled: true,
     fillColor: ConstantColorInput.input,
     hintText: hintText,
@@ -39,6 +56,7 @@ class InputTextForm extends StatelessWidget {
     this.autofocus,
     this.onChanged,
     this.focusNode,
+    this.maxLength,
   });
 
   /// プレフィックス
@@ -53,6 +71,9 @@ class InputTextForm extends StatelessWidget {
   /// フォーカスノード
   final FocusNode? focusNode;
 
+  /// 文字数
+  final int? maxLength;
+
   /// 変更した
   final void Function(String)? onChanged;
 
@@ -64,26 +85,25 @@ class InputTextForm extends StatelessWidget {
       this.onChanged!(t);
     }
 
-    return Container(
-      decoration: const BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: ConstantColorInput.inputBorder,
-            spreadRadius: 0,
-            blurRadius: ConstantSizeUI.l0,
-          ),
-        ],
-      ),
-      child: TextFormField(
-        keyboardType: TextInputType.multiline,
-        controller: text,
-        style: const TextStyle(color: ConstantColor.text),
-        decoration: decoration(hintText),
-        autofocus: autofocus ?? false,
-        onChanged: onChanged,
-        focusNode: focusNode,
-        maxLines: 6,
-      ),
+    /// バリデーション
+    String? validateForm(String? v) {
+      if (maxLength != null && v != null && v.length > maxLength!) {
+        return "※文字数が超えています。";
+      }
+      return null;
+    }
+
+    return TextFormField(
+      keyboardType: TextInputType.multiline,
+      controller: text,
+      style: const TextStyle(color: ConstantColor.text),
+      decoration: decoration(hintText),
+      autofocus: autofocus ?? false,
+      onChanged: onChanged,
+      focusNode: focusNode,
+      maxLines: 6,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: validateForm,
     );
   }
 }

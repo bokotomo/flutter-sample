@@ -57,8 +57,9 @@ class TaskDetailTopEdit extends StatelessWidget {
     );
     final InputTextForm detailForm = InputTextForm(
       text: detailController,
-      hintText: "対策方法を書きましょう。",
+      hintText: "対策方法を書きましょう。(1000文字以内)",
       focusNode: detailFocusNode,
+      maxLength: 50, // TODO デバックで50
     );
 
     return Column(
