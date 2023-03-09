@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart' show DateFormat;
+
 const String tableNameReflection = "reflection";
 
 /// Model: Reflection
@@ -74,6 +76,14 @@ class ModelReflection {
   Map<String, Object> toMapCount() {
     return {
       'count': count,
+    };
+  }
+
+  Map<String, Object> toMapUpdatedAt() {
+    final DateFormat formatter = DateFormat('yyyy/MM/dd(E) HH:mm');
+    final String formatted = formatter.format(updatedAt);
+    return {
+      'updated_at': formatted,
     };
   }
 }

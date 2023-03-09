@@ -42,26 +42,30 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     return reflections.where((e) => e.updatedAt.isAfter(monthAgo)).toList();
   }
 
+  /// フィルターされた一覧を取得
+  List<DomainReflection> getfilteredReflections(int index) {
+    switch (index) {
+      case 0:
+        return reflections;
+      case 1:
+        return filteredMonth(3);
+      case 2:
+        return filteredMonth(1);
+      default:
+        return [];
+    }
+  }
+
   /// 期間変更
   void changePeriodIndex(int index) {
     periodIndex.value = index;
-
-    switch (index) {
-      case 0:
-        filteredReflections.value = reflections;
-        return;
-      case 1:
-        filteredReflections.value = filteredMonth(3);
-        return;
-      case 2:
-        filteredReflections.value = filteredMonth(1);
-        return;
-    }
+    filteredReflections.value = getfilteredReflections(index);
   }
 
   useEffect(() {
     if (reflections.isEmpty) return;
 
+    /// 初期値は３ヶ月
     periodIndex.value = 1;
     changePeriodIndex(1);
   }, [reflections]);

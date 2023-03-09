@@ -42,7 +42,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
         conflictAlgorithm: ConflictAlgorithm.replace,
       );
     } else {
-      /// まだ登録されてない
+      /// 登録済み
       final int id = res.first['id'] as int;
       final int count = res.first['count'] as int;
 
@@ -56,9 +56,13 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
         updatedAt: DateTime.now(),
       );
 
+      final Map<String, Object?> map = {}
+        ..addAll(reflection.toMapCount())
+        ..addAll(reflection.toMapUpdatedAt());
+
       await db.update(
         tableNameReflection,
-        reflection.toMapCount(),
+        map,
         where: 'id = ?',
         whereArgs: [id],
       );
