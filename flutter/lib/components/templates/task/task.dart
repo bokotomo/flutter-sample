@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
-    show BasicText;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
 import 'package:gamer_reflection/components/templates/task/organisms/task_list.dart'
@@ -11,8 +9,11 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter.dart'
     show ButtonPeriodFilter;
+import 'package:gamer_reflection/components/common/molecules/select_reflection_group.dart'
+    show SelectReflectionGroup;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/templates/task/hooks.dart'
     show useHooks;
 
@@ -35,8 +36,11 @@ Widget view(
   final body = ListView(
     children: [
       SpacerHeight.m,
-      const Center(
-        child: BasicText(text: "振り返り名A", size: "M"),
+      const Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: ConstantSizeUI.l3,
+        ),
+        child: SelectReflectionGroup(),
       ),
       SpacerHeight.s,
       ButtonPeriodFilter(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/input_select.dart'
     show InputSelect;
+import 'package:gamer_reflection/components/common/atoms/text.dart'
+    show BasicText;
 
 /// 振り返りのグループ選択
 class SelectReflectionGroup extends StatelessWidget {
@@ -27,11 +29,17 @@ class SelectReflectionGroup extends StatelessWidget {
     const List<DropdownMenuItem<String>> items = [
       DropdownMenuItem(
         value: '1',
-        child: Text('振り返り名A'),
+        child: BasicText(
+          size: "M",
+          text: "振り返り名A",
+        ),
       ),
       DropdownMenuItem(
         value: '2',
-        child: Text('振り返り名B'),
+        child: BasicText(
+          size: "M",
+          text: "振り返り名B",
+        ),
       ),
     ];
     const value = "1";

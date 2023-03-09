@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/input_select.dart'
     show InputSelect;
+import 'package:gamer_reflection/components/common/atoms/text.dart'
+    show BasicText;
 
 /// 言語選択
 class SelectLanguage extends StatelessWidget {
@@ -27,37 +29,55 @@ class SelectLanguage extends StatelessWidget {
     const List<DropdownMenuItem<String>> items = [
       DropdownMenuItem(
         value: 'ja',
-        child: Text('日本語'),
+        child: BasicText(
+          size: "M",
+          text: "日本語",
+        ),
       ),
 
       /// 英語
       DropdownMenuItem(
         value: 'en',
-        child: Text('English'),
+        child: BasicText(
+          size: "M",
+          text: "English",
+        ),
       ),
 
       /// ドイツ語
       DropdownMenuItem(
         value: 'de',
-        child: Text('German'),
+        child: BasicText(
+          size: "M",
+          text: "German",
+        ),
       ),
 
       /// イタリア語
       DropdownMenuItem(
         value: 'it',
-        child: Text('Italian'),
+        child: BasicText(
+          size: "M",
+          text: "Italian",
+        ),
       ),
 
       /// 韓国語
       DropdownMenuItem(
         value: 'ko',
-        child: Text('한국어'),
+        child: BasicText(
+          size: "M",
+          text: "한국어",
+        ),
       ),
 
       /// フランス語
       DropdownMenuItem(
         value: 'fr',
-        child: Text('Français'),
+        child: BasicText(
+          size: "M",
+          text: "Français",
+        ),
       ),
     ];
     const value = "ja";

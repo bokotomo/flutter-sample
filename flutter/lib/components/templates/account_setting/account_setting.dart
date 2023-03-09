@@ -19,7 +19,7 @@ Widget view(BuildContext context) {
       SpacerHeight.m,
       Box(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             BasicText(
               text: '現在選択中の振り返り名',
@@ -33,7 +33,30 @@ Widget view(BuildContext context) {
       SpacerHeight.m,
       Box(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            BasicText(
+              text: '振り返り名の変更',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            BasicText(
+              text: '振り返り名A',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            ButtonBasic(
+              icon: Icons.edit,
+              text: "編集する",
+              // onPressed: () => {},
+            )
+          ],
+        ),
+      ),
+      SpacerHeight.m,
+      Box(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             BasicText(
               text: '振り返りグループの追加',
@@ -51,7 +74,7 @@ Widget view(BuildContext context) {
       SpacerHeight.m,
       Box(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             BasicText(
               text: '言語',
