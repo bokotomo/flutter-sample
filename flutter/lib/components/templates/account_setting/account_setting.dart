@@ -8,6 +8,10 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/molecules/select_language.dart'
     show SelectLanguage;
+import 'package:gamer_reflection/components/common/molecules/select_reflection_group.dart'
+    show SelectReflectionGroup;
+import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
+    show ButtonBasic;
 
 Widget view(BuildContext context) {
   ListView cloumn = ListView(
@@ -18,14 +22,11 @@ Widget view(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
             BasicText(
-              text: '現在の振り返り名',
+              text: '現在選択中の振り返り名',
               size: "M",
             ),
             SpacerHeight.m,
-            BasicText(
-              text: '振り返り名A',
-              size: "M",
-            ),
+            SelectReflectionGroup(),
           ],
         ),
       ),
@@ -35,14 +36,15 @@ Widget view(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
             BasicText(
-              text: '新規で振り返りグループを作成する',
+              text: '振り返りグループの追加',
               size: "M",
             ),
             SpacerHeight.m,
-            BasicText(
-              text: '作成する',
-              size: "M",
-            ),
+            ButtonBasic(
+              icon: Icons.add,
+              text: "新規で作成する",
+              // onPressed: () => {},
+            )
           ],
         ),
       ),
