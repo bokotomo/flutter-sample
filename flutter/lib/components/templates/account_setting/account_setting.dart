@@ -85,6 +85,7 @@ Widget view(BuildContext context) {
           ],
         ),
       ),
+      SpacerHeight.m,
     ],
   );
 

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/modules/type/tag_text_color.dart'
+    show TagTextColor;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 
 class UseReturn {
   const UseReturn({
@@ -56,10 +60,69 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     }
   }
 
+  /// 優先度からTagの色を返す
+  TagTextColor getTagColor(int priority) {
+    switch (priority) {
+      case 1:
+        return TagTextColor.red;
+      case 2:
+        return TagTextColor.purple;
+      default:
+        return TagTextColor.blue;
+    }
+  }
+
+  /// countを重複なしで大きい順に返す
+  List<int> getHighPriorityIds(List<DomainReflection> domains) {
+    final Iterable<int> counts = domains.map((e) => e.count);
+    final List<int> countDistincts = counts.toSet().toList();
+    countDistincts.sort(((a, b) => b.compareTo(a)));
+    return countDistincts;
+  }
+
+  /// 3位まで優先度を返す
+  int getPriority(List<int> counts, int count) {
+    final int size = counts.length;
+    if (size > 0 && counts[0] == count) return 1;
+    if (size > 1 && counts[1] == count) return 2;
+    return 3;
+  }
+
+  /// 振り返り一覧取得
+  List<DomainReflection> domainReflections(List<DomainReflection> domains) {
+    /// 大きい順にソート
+    domains.sort(((a, b) => b.count.compareTo(a.count)));
+
+    /// 重複しないCount一覧
+    final List<int> countDistincts = getHighPriorityIds(domains);
+
+    /// ドメインに変換
+    final domain = domains.map(
+      (e) {
+        final priority = getPriority(countDistincts, e.count);
+
+        return DomainReflection(
+          id: e.id,
+          text: e.text,
+          detail: e.detail,
+          count: e.count,
+          reflectionType: ReflectionType.bad,
+          priority: getPriority(countDistincts, e.count),
+          tagColor: getTagColor(priority),
+          updatedAt: e.updatedAt,
+        );
+      },
+    );
+
+    return domain.toList();
+  }
+
   /// 期間変更
   void changePeriodIndex(int index) {
     periodIndex.value = index;
-    filteredReflections.value = getfilteredReflections(index);
+    final List<DomainReflection> filteredPeriodReflections =
+        getfilteredReflections(index);
+    filteredReflections.value = domainReflections(filteredPeriodReflections);
   }
 
   useEffect(() {
