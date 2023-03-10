@@ -12,8 +12,10 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
     show SelectReflectionGroup;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
     show ButtonBasic;
+import 'package:gamer_reflection/components/templates/account_setting/hooks.dart'
+    show useHooks;
 
-Widget view(BuildContext context) {
+Widget view(BuildContext context, Function() onPressedEdit) {
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
@@ -22,7 +24,7 @@ Widget view(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             BasicText(
-              text: '現在選択中の振り返り名',
+              text: '選択中の振り返りグループ',
               size: "M",
             ),
             SpacerHeight.m,
@@ -34,13 +36,13 @@ Widget view(BuildContext context) {
       Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            BasicText(
-              text: '振り返り名の変更',
+          children: [
+            const BasicText(
+              text: '振り返りグループ名の変更',
               size: "M",
             ),
             SpacerHeight.m,
-            BasicText(
+            const BasicText(
               text: '振り返り名A',
               size: "M",
             ),
@@ -48,7 +50,7 @@ Widget view(BuildContext context) {
             ButtonBasic(
               icon: Icons.edit,
               text: "編集する",
-              // onPressed: () => {},
+              onPressed: () => onPressedEdit(),
             )
           ],
         ),
@@ -101,6 +103,11 @@ class TemplateAccountSetting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return view(context);
+    final hooks = useHooks();
+
+    return view(
+      context,
+      hooks.onPressedEdit,
+    );
   }
 }
