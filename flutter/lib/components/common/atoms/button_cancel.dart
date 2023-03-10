@@ -27,21 +27,23 @@ class ButtonCancel extends StatelessWidget {
       this.onPressed!();
     }
 
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: ConstantColorButton.buttonCancel,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
-        elevation: 4,
-        shadowColor: ConstantColorButton.buttonCancelBorder,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(
-            width: 2.0,
-            color: ConstantColorButton.buttonCancelBorder,
-          ),
+    final style = ElevatedButton.styleFrom(
+      backgroundColor: ConstantColorButton.buttonCancel,
+      minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+      elevation: 4,
+      shadowColor: ConstantColorButton.buttonCancelBorder,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
+        side: BorderSide(
+          width: 2.0,
+          color: ConstantColorButton.buttonCancelBorder,
         ),
       ),
+    );
+
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: style,
       child: BasicText(
         text: text,
         size: "M",

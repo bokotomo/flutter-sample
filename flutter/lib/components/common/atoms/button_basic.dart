@@ -31,21 +31,23 @@ class ButtonBasic extends StatelessWidget {
       this.onPressed!();
     }
 
-    return ElevatedButton.icon(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: ConstantColorButton.button,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
-        elevation: 2,
-        shadowColor: ConstantColorButton.buttonBorder,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(
-            width: 2.0,
-            color: ConstantColorButton.buttonBorder,
-          ),
+    final style = ElevatedButton.styleFrom(
+      backgroundColor: ConstantColorButton.button,
+      minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+      elevation: 2,
+      shadowColor: ConstantColorButton.buttonBorder,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
+        side: BorderSide(
+          width: 2.0,
+          color: ConstantColorButton.buttonBorder,
         ),
       ),
+    );
+
+    return ElevatedButton.icon(
+      onPressed: onPressed,
+      style: style,
       icon: Icon(icon),
       label: BasicText(
         text: text,

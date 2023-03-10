@@ -4,6 +4,7 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:path/path.dart';
 
 /// ボタン: 候補
 class ButtonCandidate extends StatelessWidget {
@@ -27,19 +28,21 @@ class ButtonCandidate extends StatelessWidget {
       this.onPressed!();
     }
 
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: ConstantColorButton.button,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l5),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(
-            width: 2.0,
-            color: ConstantColorButton.buttonBorder,
-          ),
+    final style = ElevatedButton.styleFrom(
+      backgroundColor: ConstantColorButton.button,
+      minimumSize: const Size.fromHeight(ConstantSizeUI.l5),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
+        side: BorderSide(
+          width: 2.0,
+          color: ConstantColorButton.buttonBorder,
         ),
       ),
+    );
+
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: style,
       child: BasicText(
         text: text,
         size: "S",

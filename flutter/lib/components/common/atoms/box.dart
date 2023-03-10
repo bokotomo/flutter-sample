@@ -14,14 +14,16 @@ class Box extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final decoration = BoxDecoration(
+      color: ConstantColor.box,
+      border: Border.all(color: ConstantColor.boxBorder),
+      borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
+    );
+
     return Container(
       padding: const EdgeInsets.all(ConstantSizeUI.l3),
       width: double.infinity,
-      decoration: BoxDecoration(
-        color: ConstantColor.box,
-        border: Border.all(color: ConstantColor.boxBorder),
-        borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
-      ),
+      decoration: decoration,
       child: child,
     );
   }
