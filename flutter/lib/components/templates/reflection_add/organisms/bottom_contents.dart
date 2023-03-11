@@ -63,10 +63,9 @@ class BottomContents extends StatelessWidget {
               ),
               SpacerWidth.m,
               SizedBox(
-                width: 100,
+                width: 80,
                 child: ButtonBasic(
-                  icon: Icons.add,
-                  text: '追加する',
+                  text: '追加',
                   onPressed: () => onPressedAddReflection(),
                 ),
               ),

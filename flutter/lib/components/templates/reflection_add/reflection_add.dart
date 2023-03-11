@@ -50,6 +50,7 @@ Widget view(
     title: "振り返りの追加",
     onTap: () => textFieldFocusNode.unfocus(),
     child: Form(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       key: formKey,
       child: content,
     ),

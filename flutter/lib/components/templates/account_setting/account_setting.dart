@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
@@ -98,7 +99,7 @@ Widget view(BuildContext context, Function() onPressedEdit) {
 }
 
 /// テンプレート: アカウント設定
-class TemplateAccountSetting extends StatelessWidget {
+class TemplateAccountSetting extends HookWidget {
   const TemplateAccountSetting({super.key});
 
   @override

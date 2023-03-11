@@ -10,15 +10,11 @@ class ButtonBasic extends StatelessWidget {
   const ButtonBasic({
     super.key,
     required this.text,
-    required this.icon,
     this.onPressed,
   });
 
   /// 文字
   final String text;
-
-  /// アイコン
-  final IconData icon;
 
   /// クリックした
   final void Function()? onPressed;

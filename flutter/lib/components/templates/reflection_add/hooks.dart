@@ -32,10 +32,9 @@ UseReturn useHooks() {
   /// 振り返りの追加を押した
   void onPressedAddReflection() async {
     if (!formKey.currentState!.validate()) return;
-    if (textReflection.value.text == "") return;
 
     await RequestReflection().addReflection(textReflection.value.text);
-    textReflection.value.clear();
+    formKey.currentState?.reset();
   }
 
   /// 候補から振り返りの追加を押した
