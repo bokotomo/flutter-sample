@@ -23,12 +23,14 @@ class PageReflection extends HookWidget {
     Future<void> getData() async {
       final List<DomainReflection> r =
           await FetchReflection().fetchReflections();
+
+      /// 大きい順にソート
+      r.sort(((a, b) => b.count.compareTo(a.count)));
+
       reflections.value = r;
     }
 
     useEffect(() {
-      print("PageReflection");
-
       getData();
     }, []);
 

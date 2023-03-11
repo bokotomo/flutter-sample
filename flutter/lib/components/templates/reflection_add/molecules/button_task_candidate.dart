@@ -37,7 +37,7 @@ class ButtonTaskCandidate extends StatelessWidget {
         backgroundColor: isThin
             ? ConstantColorButton.buttonTaskListThin
             : ConstantColorButton.buttonTaskList,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l8),
+        fixedSize: const Size.fromHeight(ConstantSizeUI.l7),
       ),
       child: Align(
         alignment: Alignment.centerLeft,

@@ -56,11 +56,11 @@ class ReflectionAddCandidate extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const BasicText(
-          text: '振り返り候補',
-          size: "M",
-        ),
-        SpacerHeight.xm,
+        // const BasicText(
+        //   text: '振り返り候補',
+        //   size: "M",
+        // ),
+        // SpacerHeight.xm,
         candidates,
       ],
     );

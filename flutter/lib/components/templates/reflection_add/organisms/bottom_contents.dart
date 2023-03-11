@@ -41,7 +41,9 @@ class BottomContents extends StatelessWidget {
       children: [
         SpacerHeight.s,
         Padding(
-          padding: const EdgeInsets.all(ConstantSizeUI.l2),
+          padding: const EdgeInsets.symmetric(
+            horizontal: ConstantSizeUI.l2,
+          ),
           child: ButtonDone(
             text: '振り返りを終える',
             onPressed: () => onPressedReflectionDone(),

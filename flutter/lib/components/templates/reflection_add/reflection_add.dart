@@ -25,7 +25,7 @@ Widget view(
 ) {
   ListView cloumn = ListView(
     children: [
-      SpacerHeight.m,
+      // SpacerHeight.m,
       ReflectionAddCandidate(
         reflections: reflections,
         onPressCandidate: (String text) => onPressedAddCandidate(text),
