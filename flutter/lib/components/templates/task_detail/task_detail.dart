@@ -6,8 +6,8 @@ import 'package:gamer_reflection/components/templates/task_detail/organisms/top_
     show TaskDetailTopEdit;
 import 'package:gamer_reflection/components/common/atoms/button_done.dart'
     show ButtonDone;
-import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
-    show ButtonBasic;
+import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
+    show ButtonIcon;
 import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
@@ -49,7 +49,7 @@ Widget view(
         detailController: detailController,
       ),
       SpacerHeight.xm,
-      ButtonBasic(
+      ButtonIcon(
         icon: Icons.edit,
         text: "編集する",
         onPressed: () => toggleEditMode(),
@@ -77,7 +77,7 @@ Widget view(
         detailController: detailController,
       ),
       SpacerHeight.xm,
-      ButtonBasic(
+      ButtonIcon(
         icon: Icons.check_circle,
         text: "編集を完了する",
         onPressed: () => onPressedEditDone(),

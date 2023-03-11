@@ -24,18 +24,20 @@ class BaseLayoutPadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final padding = Padding(
+      padding: const EdgeInsets.only(
+        left: ConstantSizeUI.l3,
+        right: ConstantSizeUI.l3,
+      ),
+      child: child,
+    );
+
     return Scaffold(
       backgroundColor: ConstantColor.content,
       appBar: Header(title: title),
       body: GestureDetector(
         onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: ConstantSizeUI.l3,
-            right: ConstantSizeUI.l3,
-          ),
-          child: child,
-        ),
+        child: padding,
       ),
     );
   }

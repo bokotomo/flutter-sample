@@ -8,6 +8,7 @@ class UseReturn {
   const UseReturn({
     required this.onPressedAddReflection,
     required this.onPressedAddCandidate,
+    required this.onPressedReflectionDone,
     required this.textReflection,
     required this.textFieldFocusNode,
     required this.formKey,
@@ -15,6 +16,7 @@ class UseReturn {
 
   final void Function() onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
+  final void Function() onPressedReflectionDone;
   final TextEditingController textReflection;
   final FocusNode textFieldFocusNode;
   final GlobalKey<FormState> formKey;
@@ -41,9 +43,13 @@ UseReturn useHooks() {
     textReflection.value.text = text;
   }
 
+  /// 振り返りの終了を押した
+  void onPressedReflectionDone() async {}
+
   return UseReturn(
     onPressedAddReflection: onPressedAddReflection,
     onPressedAddCandidate: onPressedAddCandidate,
+    onPressedReflectionDone: onPressedReflectionDone,
     textReflection: textReflection.value,
     textFieldFocusNode: textFieldFocusNode,
     formKey: formKey,

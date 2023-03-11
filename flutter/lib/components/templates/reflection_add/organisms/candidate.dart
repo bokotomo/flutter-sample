@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/button_candidate.dart'
-    show ButtonCandidate;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
+import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_task_candidate.dart'
     show ButtonTaskCandidate;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/const/color.dart'
-    show ConstantColorInput;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/modules/const/color.dart'
+    show ConstantColorButton;
 
 /// 振り返り名候補一覧
 class ReflectionAddCandidate extends StatelessWidget {
@@ -28,23 +26,22 @@ class ReflectionAddCandidate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final candidateTitles = Container(
-      height: 240,
-      decoration: BoxDecoration(
-        color: ConstantColorInput.input,
-        border: Border.all(color: ConstantColorInput.inputBorder),
-        borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
-      ),
-      child: ListView.builder(
-        itemCount: reflections.length,
-        itemBuilder: (BuildContext context, int i) {
-          return ButtonTaskCandidate(
+    final Column candidateTitles = Column(
+      children: [
+        for (int i = 0; i < reflections.length; i++) ...{
+          const Bar(
+            color: ConstantColorButton.buttonTaskListBorder,
+          ),
+          ButtonTaskCandidate(
             text: reflections[i].text,
             isThin: i % 2 == 0,
             onPressed: () => onPressCandidate(reflections[i].text),
-          );
+          ),
         },
-      ),
+        const Bar(
+          color: ConstantColorButton.buttonTaskListBorder,
+        )
+      ],
     );
 
     const candidatesNone = Box(
@@ -60,7 +57,7 @@ class ReflectionAddCandidate extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const BasicText(
-          text: 'もしかして？',
+          text: '振り返り候補',
           size: "M",
         ),
         SpacerHeight.xm,

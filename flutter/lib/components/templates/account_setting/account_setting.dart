@@ -10,8 +10,8 @@ import 'package:gamer_reflection/components/common/molecules/select_language.dar
     show SelectLanguage;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group.dart'
     show SelectReflectionGroup;
-import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
-    show ButtonBasic;
+import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
+    show ButtonIcon;
 import 'package:gamer_reflection/components/templates/account_setting/hooks.dart'
     show useHooks;
 
@@ -47,7 +47,7 @@ Widget view(BuildContext context, Function() onPressedEdit) {
               size: "M",
             ),
             SpacerHeight.m,
-            ButtonBasic(
+            ButtonIcon(
               icon: Icons.edit,
               text: "編集する",
               onPressed: () => onPressedEdit(),
@@ -65,7 +65,7 @@ Widget view(BuildContext context, Function() onPressedEdit) {
               size: "M",
             ),
             SpacerHeight.m,
-            ButtonBasic(
+            ButtonIcon(
               icon: Icons.add,
               text: "新規で作成する",
               // onPressed: () => {},

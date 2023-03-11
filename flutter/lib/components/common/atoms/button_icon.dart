@@ -5,9 +5,9 @@ import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// ボタン
-class ButtonBasic extends StatelessWidget {
-  const ButtonBasic({
+/// ボタン: アイコン付き
+class ButtonIcon extends StatelessWidget {
+  const ButtonIcon({
     super.key,
     required this.text,
     required this.icon,
@@ -45,10 +45,11 @@ class ButtonBasic extends StatelessWidget {
       ),
     );
 
-    return ElevatedButton(
+    return ElevatedButton.icon(
       onPressed: onPressed,
       style: style,
-      child: BasicText(
+      icon: Icon(icon),
+      label: BasicText(
         text: text,
         size: "M",
       ),
