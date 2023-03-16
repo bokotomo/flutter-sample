@@ -4,6 +4,16 @@ import 'package:gamer_reflection/components/common/atoms/input_select.dart'
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 
+/// セレクトアイテム
+class SelectItem {
+  const SelectItem({
+    required this.value,
+    required this.text,
+  });
+  final String value;
+  final String text;
+}
+
 /// 言語選択
 class SelectLanguage extends StatelessWidget {
   const SelectLanguage({
@@ -26,60 +36,38 @@ class SelectLanguage extends StatelessWidget {
       this.onChanged!(t);
     }
 
-    const List<DropdownMenuItem<String>> items = [
-      DropdownMenuItem(
-        value: 'ja',
-        child: BasicText(
-          size: "M",
-          text: "日本語",
-        ),
-      ),
+    const List<SelectItem> laguages = [
+      SelectItem(text: '日本語', value: 'ja'),
 
       /// 英語
-      DropdownMenuItem(
-        value: 'en',
-        child: BasicText(
-          size: "M",
-          text: "English",
-        ),
-      ),
+      SelectItem(text: 'English', value: 'en'),
 
       /// ドイツ語
-      DropdownMenuItem(
-        value: 'de',
-        child: BasicText(
-          size: "M",
-          text: "German",
-        ),
-      ),
+      SelectItem(text: 'German', value: 'de'),
 
       /// イタリア語
-      DropdownMenuItem(
-        value: 'it',
-        child: BasicText(
-          size: "M",
-          text: "Italian",
-        ),
-      ),
+      SelectItem(text: 'Italian', value: 'it'),
 
       /// 韓国語
-      DropdownMenuItem(
-        value: 'ko',
-        child: BasicText(
-          size: "M",
-          text: "한국어",
-        ),
-      ),
+      SelectItem(text: '한국어', value: 'ko'),
 
       /// フランス語
-      DropdownMenuItem(
-        value: 'fr',
-        child: BasicText(
-          size: "M",
-          text: "Français",
-        ),
-      ),
+      SelectItem(text: 'Français', value: 'fr'),
     ];
+
+    /// DropdownMenuItem配列に変換
+    final List<DropdownMenuItem<String>> items = laguages
+        .map(
+          (item) => DropdownMenuItem(
+            value: item.value,
+            child: BasicText(
+              size: "M",
+              text: item.text,
+            ),
+          ),
+        )
+        .toList();
+
     const value = "ja";
 
     return InputSelect(
