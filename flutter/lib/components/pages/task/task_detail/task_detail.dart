@@ -41,7 +41,6 @@ class PageTaskDetail extends HookWidget {
     }
 
     useEffect(() {
-      print("タスク詳細 $taskId");
       eventRepository();
     }, []);
 

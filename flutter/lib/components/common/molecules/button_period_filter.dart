@@ -28,19 +28,19 @@ class ButtonPeriodFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// クリックされた
+    /// 全期間が、クリックされた
     void onPressedAll() {
       if (this.onPressedAll == null) return;
       this.onPressedAll!();
     }
 
-    /// クリックされた
+    /// 3ヶ月が、クリックされた
     void onPressedThreeMonth() {
       if (this.onPressedThreeMonth == null) return;
       this.onPressedThreeMonth!();
     }
 
-    /// クリックされた
+    /// 1ヶ月が、クリックされた
     void onPressedMonth() {
       if (this.onPressedMonth == null) return;
       this.onPressedMonth!();
