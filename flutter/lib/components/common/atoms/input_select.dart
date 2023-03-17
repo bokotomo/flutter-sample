@@ -2,30 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColor, ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/atoms/text.dart'
+    show BasicText;
 
-/// decoration
-InputDecoration decoration() {
-  return const InputDecoration(
-    filled: true,
-    fillColor: ConstantColorInput.input,
-    focusedBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(100)),
-      borderSide: BorderSide(
-        color: ConstantColorInput.inputBorderFocus,
-        width: 2.0,
-      ),
-    ),
-    enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(100)),
-      borderSide: BorderSide(
-        color: ConstantColorInput.inputBorder,
-        width: 2.0,
-      ),
-    ),
-    contentPadding: EdgeInsets.symmetric(
-      horizontal: ConstantSizeUI.l3,
-    ),
-  );
+/// セレクトアイテム
+class SelectItem {
+  const SelectItem({
+    required this.value,
+    required this.text,
+  });
+  final String value;
+  final String text;
 }
 
 /// input: select
@@ -45,7 +32,7 @@ class InputSelect extends StatelessWidget {
   final String value;
 
   /// 一覧
-  final List<DropdownMenuItem<String>> items;
+  final List<SelectItem> items;
 
   /// 変更した
   final void Function(String?)? onChanged;
@@ -58,8 +45,46 @@ class InputSelect extends StatelessWidget {
       this.onChanged!(t);
     }
 
+    /// decoration
+    InputDecoration decoration() {
+      return const InputDecoration(
+        filled: true,
+        fillColor: ConstantColorInput.input,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(100)),
+          borderSide: BorderSide(
+            color: ConstantColorInput.inputBorderFocus,
+            width: 2.0,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(100)),
+          borderSide: BorderSide(
+            color: ConstantColorInput.inputBorder,
+            width: 2.0,
+          ),
+        ),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: ConstantSizeUI.l3,
+        ),
+      );
+    }
+
+    /// DropdownMenuItem配列に変換
+    final List<DropdownMenuItem<String>> menuItems = items
+        .map(
+          (item) => DropdownMenuItem(
+            value: item.value,
+            child: BasicText(
+              size: "M",
+              text: item.text,
+            ),
+          ),
+        )
+        .toList();
+
     return DropdownButtonFormField(
-      items: items,
+      items: menuItems,
       decoration: decoration(),
       style: const TextStyle(color: ConstantColor.text),
       dropdownColor: ConstantColorInput.input,

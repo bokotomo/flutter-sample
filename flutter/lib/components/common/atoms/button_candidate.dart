@@ -4,7 +4,6 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:path/path.dart';
 
 /// ボタン: 候補
 class ButtonCandidate extends StatelessWidget {

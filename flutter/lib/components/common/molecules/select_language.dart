@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/input_select.dart'
-    show InputSelect;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
-    show BasicText;
-
-/// セレクトアイテム
-class SelectItem {
-  const SelectItem({
-    required this.value,
-    required this.text,
-  });
-  final String value;
-  final String text;
-}
+    show InputSelect, SelectItem;
 
 /// 言語選択
 class SelectLanguage extends StatelessWidget {
@@ -30,12 +18,13 @@ class SelectLanguage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// 変更された
+    /// 変更を押した
     void onChanged(String? t) {
       if (this.onChanged == null) return;
       this.onChanged!(t);
     }
 
+    /// 表示言語一覧
     const List<SelectItem> laguages = [
       SelectItem(text: '日本語', value: 'ja'),
 
@@ -55,23 +44,11 @@ class SelectLanguage extends StatelessWidget {
       SelectItem(text: 'Français', value: 'fr'),
     ];
 
-    /// DropdownMenuItem配列に変換
-    final List<DropdownMenuItem<String>> items = laguages
-        .map(
-          (item) => DropdownMenuItem(
-            value: item.value,
-            child: BasicText(
-              size: "M",
-              text: item.text,
-            ),
-          ),
-        )
-        .toList();
-
+    /// 初期選択言語
     const value = "ja";
 
     return InputSelect(
-      items: items,
+      items: laguages,
       value: value,
       onChanged: onChanged,
       focusNode: focusNode,

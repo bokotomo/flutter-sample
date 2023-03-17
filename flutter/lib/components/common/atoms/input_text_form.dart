@@ -3,50 +3,6 @@ import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColor, ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// inputのスタイル
-InputDecoration decoration(String hintText) {
-  return InputDecoration(
-    focusedBorder: const OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
-      borderSide: BorderSide(
-        color: ConstantColorInput.inputBorderFocus,
-        width: 2.0,
-      ),
-    ),
-    enabledBorder: const OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
-      borderSide: BorderSide(
-        color: ConstantColorInput.inputBorder,
-        width: 2.0,
-      ),
-    ),
-    errorBorder: const OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
-      borderSide: BorderSide(
-        color: ConstantColorInput.inputBorderError,
-        width: 2.0,
-      ),
-    ),
-    focusedErrorBorder: const OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
-      borderSide: BorderSide(
-        color: ConstantColorInput.inputBorderError,
-        width: 2.0,
-      ),
-    ),
-    errorStyle: const TextStyle(
-      color: ConstantColorInput.inputErrorText,
-    ),
-    filled: true,
-    fillColor: ConstantColorInput.input,
-    hintText: hintText,
-    hintStyle: const TextStyle(
-      color: ConstantColorInput.inputHintText,
-    ),
-    contentPadding: const EdgeInsets.all(ConstantSizeUI.l3),
-  );
-}
-
 /// input: textForm
 class InputTextForm extends StatelessWidget {
   const InputTextForm({
@@ -83,6 +39,50 @@ class InputTextForm extends StatelessWidget {
     void onChanged(String t) {
       if (this.onChanged == null) return;
       this.onChanged!(t);
+    }
+
+    /// inputのスタイル
+    InputDecoration decoration(String hintText) {
+      return InputDecoration(
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+          borderSide: BorderSide(
+            color: ConstantColorInput.inputBorderFocus,
+            width: 2.0,
+          ),
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+          borderSide: BorderSide(
+            color: ConstantColorInput.inputBorder,
+            width: 2.0,
+          ),
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+          borderSide: BorderSide(
+            color: ConstantColorInput.inputBorderError,
+            width: 2.0,
+          ),
+        ),
+        focusedErrorBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+          borderSide: BorderSide(
+            color: ConstantColorInput.inputBorderError,
+            width: 2.0,
+          ),
+        ),
+        errorStyle: const TextStyle(
+          color: ConstantColorInput.inputErrorText,
+        ),
+        filled: true,
+        fillColor: ConstantColorInput.input,
+        hintText: hintText,
+        hintStyle: const TextStyle(
+          color: ConstantColorInput.inputHintText,
+        ),
+        contentPadding: const EdgeInsets.all(ConstantSizeUI.l3),
+      );
     }
 
     /// バリデーション
