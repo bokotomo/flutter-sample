@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
+import 'package:flutter/material.dart'
+    show Widget, BuildContext, ListView, Padding, EdgeInsets;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
@@ -14,24 +14,24 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/components/templates/task/hooks.dart'
-    show useHooks;
 
 ///
 Widget view(
-  List<DomainReflection> reflections,
   BuildContext context,
-  Function(BuildContext, int) pushTaskDetail,
-  int periodIndex,
-  Function(int) changePeriodIndex,
+  void Function(BuildContext context, int taskId) pushTaskDetail,
+  List<DomainReflection> reflections,
+  final int periodIndex,
+  final List<DomainReflection> filteredReflections,
+  final void Function(int) changePeriodIndex,
 ) {
-  final layoutChild = reflections.isEmpty
-      ? const TaskNoDataAnnotation()
-      : TaskList(
-          reflections: reflections,
-          onPressedTask: (int index) =>
-              pushTaskDetail(context, reflections[index].id),
-        );
+  final list = TaskList(
+    reflections: reflections,
+    onPressedTask: (int index) => pushTaskDetail(
+      context,
+      reflections[index].id,
+    ),
+  );
+  final layoutChild = reflections.isEmpty ? const TaskNoDataAnnotation() : list;
 
   final body = ListView(
     children: [
@@ -58,32 +58,4 @@ Widget view(
     title: "タスク",
     child: body,
   );
-}
-
-/// テンプレート: タスク一覧
-class TemplateTask extends HookWidget {
-  const TemplateTask({
-    super.key,
-    required this.reflections,
-    required this.pushTaskDetail,
-  });
-
-  /// 振り返り一覧
-  final List<DomainReflection> reflections;
-
-  /// クリックした
-  final void Function(BuildContext context, int taskId) pushTaskDetail;
-
-  @override
-  Widget build(BuildContext context) {
-    final hooks = useHooks(reflections);
-
-    return view(
-      hooks.filteredReflections,
-      context,
-      pushTaskDetail,
-      hooks.periodIndex,
-      hooks.changePeriodIndex,
-    );
-  }
 }

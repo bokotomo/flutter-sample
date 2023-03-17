@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/components/templates/task/task.dart'
+import 'package:gamer_reflection/components/templates/task/widget.dart'
     show TemplateTask;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
