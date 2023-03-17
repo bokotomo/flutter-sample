@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/components/common/molecules/footer.dart'
+import 'package:gamer_reflection/components/common/molecules/footer/widget.dart'
     show Footer;
 import 'package:gamer_reflection/components/layouts/tabbar/hooks.dart'
     show Hooks;
