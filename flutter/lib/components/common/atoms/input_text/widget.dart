@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/color.dart'
     show ConstantColor, ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/components/common/atoms/input_text/validate.dart'
+    show useValidate;
 
 /// input: text
 class InputText extends StatelessWidget {
@@ -35,11 +37,7 @@ class InputText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// 変更された
-    void onChanged(String t) {
-      if (this.onChanged == null) return;
-      this.onChanged!(t);
-    }
+    final v = useValidate(maxLength);
 
     /// inputのスタイル
     InputDecoration decoration(String hintText) {
@@ -87,18 +85,6 @@ class InputText extends StatelessWidget {
       );
     }
 
-    /// バリデーション
-    String? validateForm(String? v) {
-      if (v == null || v.isEmpty) return "※文字が未入力です。";
-      if (maxLength != null && v.length > maxLength!) return "※文字数が超えています。";
-      final String noSpaceStr = v.replaceAll(RegExp(r'\s+'), '');
-      if (noSpaceStr.isEmpty) return "※全て空白では追加できません。";
-      if (RegExp(r'^\s+').hasMatch(v)) return "※先頭に空白は入れられません。";
-      if (RegExp(r'\s+$').hasMatch(v)) return "※末尾に空白は入れられません。";
-
-      return null;
-    }
-
     return TextFormField(
       controller: text,
       style: const TextStyle(color: ConstantColor.text),
@@ -108,7 +94,7 @@ class InputText extends StatelessWidget {
       onChanged: onChanged,
       maxLines: 1,
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: validateForm,
+      validator: v.validateForm,
     );
   }
 }

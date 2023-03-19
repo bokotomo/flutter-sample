@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/input_text.dart'
+import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
     show InputTextForm;

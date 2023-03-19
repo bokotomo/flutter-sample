@@ -18,12 +18,6 @@ class SelectReflectionGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// 変更された
-    void onChanged(String? t) {
-      if (this.onChanged == null) return;
-      this.onChanged!(t);
-    }
-
     /// 振り返りグループ名一覧
     const List<SelectItem> reflectionNames = [
       SelectItem(text: '振り返り名A', value: '1'),

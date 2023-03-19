@@ -39,12 +39,6 @@ class InputSelect extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// 変更された
-    void onChanged(String? t) {
-      if (this.onChanged == null) return;
-      this.onChanged!(t);
-    }
-
     /// decoration
     InputDecoration decoration() {
       return const InputDecoration(
