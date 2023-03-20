@@ -1,12 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
+import 'package:flutter/material.dart'
+    show
+        Widget,
+        BuildContext,
+        FocusNode,
+        GlobalKey,
+        FormState,
+        TextEditingController,
+        ListView,
+        Column,
+        Expanded,
+        Form,
+        AutovalidateMode;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
     show ReflectionAddCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/bottom_contents.dart'
     show BottomContents;
-import 'package:gamer_reflection/components/templates/reflection_add/hooks.dart'
-    show useHooks;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
@@ -55,29 +64,4 @@ Widget view(
       child: content,
     ),
   );
-}
-
-/// テンプレート: 振り返りの追加
-class TemplateReflectionAdd extends HookWidget {
-  const TemplateReflectionAdd({
-    super.key,
-    required this.reflections,
-  });
-  final List<DomainReflection> reflections;
-
-  @override
-  Widget build(BuildContext context) {
-    final hooks = useHooks();
-
-    return view(
-      context,
-      hooks.textFieldFocusNode,
-      reflections,
-      hooks.formKey,
-      hooks.textReflection,
-      hooks.onPressedAddReflection,
-      hooks.onPressedAddCandidate,
-      hooks.onPressedReflectionDone,
-    );
-  }
 }

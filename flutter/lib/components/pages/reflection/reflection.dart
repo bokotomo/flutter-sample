@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/components/templates/reflection_add/reflection_add.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/widget.dart'
     show TemplateReflectionAdd;
 import 'package:gamer_reflection/components/pages/reflection/fetch.dart'
     show useFetch;

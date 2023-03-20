@@ -20,9 +20,9 @@ Widget view(
   BuildContext context,
   void Function(BuildContext context, int taskId) pushTaskDetail,
   List<DomainReflection> reflections,
-  final int periodIndex,
-  final List<DomainReflection> filteredReflections,
-  final void Function(int) changePeriodIndex,
+  int periodIndex,
+  List<DomainReflection> filteredReflections,
+  void Function(int) changePeriodIndex,
 ) {
   final list = TaskList(
     reflections: reflections,
