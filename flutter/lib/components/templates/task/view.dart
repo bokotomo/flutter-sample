@@ -19,37 +19,45 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 Widget view(
   BuildContext context,
   void Function(BuildContext context, int taskId) pushTaskDetail,
-  List<DomainReflection> reflections,
   int periodIndex,
   List<DomainReflection> filteredReflections,
   void Function(int) changePeriodIndex,
 ) {
   final list = TaskList(
-    reflections: reflections,
+    reflections: filteredReflections,
     onPressedTask: (int index) => pushTaskDetail(
       context,
-      reflections[index].id,
+      filteredReflections[index].id,
     ),
   );
-  final layoutChild = reflections.isEmpty ? const TaskNoDataAnnotation() : list;
+  final layoutChild =
+      filteredReflections.isEmpty ? const TaskNoDataAnnotation() : list;
 
   final body = ListView(
     children: [
       SpacerHeight.m,
+
+      /// 振り返りグループ選択ボタン
       const Padding(
         padding: EdgeInsets.symmetric(
           horizontal: ConstantSizeUI.l3,
         ),
         child: SelectReflectionGroup(),
       ),
+
       SpacerHeight.s,
+
+      /// 期間選択ボタン
       ButtonPeriodFilter(
         index: periodIndex,
         onPressedAll: () => {changePeriodIndex(0)},
         onPressedThreeMonth: () => {changePeriodIndex(1)},
         onPressedMonth: () => {changePeriodIndex(2)},
       ),
+
       SpacerHeight.s,
+
+      /// 振り返り一覧
       layoutChild,
     ],
   );

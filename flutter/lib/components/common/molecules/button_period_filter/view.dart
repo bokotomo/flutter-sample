@@ -8,9 +8,9 @@ import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
 ///
 Widget view(
   int index,
-  Function()? onPressedAll,
-  Function()? onPressedThreeMonth,
-  Function()? onPressedMonth,
+  Function() onPressedAll,
+  Function() onPressedThreeMonth,
+  Function() onPressedMonth,
 ) {
   return ButtonBar(
     alignment: MainAxisAlignment.center,

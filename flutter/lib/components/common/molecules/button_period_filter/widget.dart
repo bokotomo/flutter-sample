@@ -26,6 +26,24 @@ class ButtonPeriodFilter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// 全期間
+    void onPressedAll() {
+      if (this.onPressedAll == null) return;
+      this.onPressedAll!();
+    }
+
+    /// 3ヶ月
+    void onPressedThreeMonth() {
+      if (this.onPressedThreeMonth == null) return;
+      this.onPressedThreeMonth!();
+    }
+
+    /// 1ヶ月
+    void onPressedMonth() {
+      if (this.onPressedMonth == null) return;
+      this.onPressedMonth!();
+    }
+
     return view(
       index,
       onPressedAll,

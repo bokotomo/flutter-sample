@@ -33,11 +33,17 @@ class InputText extends StatelessWidget {
   final FocusNode? focusNode;
 
   /// 変更した
-  final void Function(String)? onChanged;
+  final void Function(String?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     final v = useValidate(maxLength);
+
+    /// 変更された
+    void onChanged(String? t) {
+      if (this.onChanged == null) return;
+      this.onChanged!(t);
+    }
 
     /// inputのスタイル
     InputDecoration decoration(String hintText) {

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/type/tag_text_color.dart'
-    show TagTextColor;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/components/templates/task/filter.dart'
+    show filteredMonth, getTagColor, getPriority, getHighPriorityIds;
 
 class UseReturn {
   const UseReturn({
@@ -25,67 +25,18 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   ValueNotifier<List<DomainReflection>> filteredReflections =
       useState<List<DomainReflection>>([]);
 
-  /// month前の日付を返す
-  DateTime getMonthAgo(DateTime d, int month) {
-    return DateTime(
-      d.year,
-      d.month,
-
-      /// デバックのため日付にする。debug
-      d.day - month,
-      d.hour,
-      d.minute,
-      d.second,
-      d.millisecond,
-    );
-  }
-
-  /// 期間でフィルターする
-  List<DomainReflection> filteredMonth(int month) {
-    final DateTime monthAgo = getMonthAgo(DateTime.now(), month);
-    return reflections.where((e) => e.updatedAt.isAfter(monthAgo)).toList();
-  }
-
   /// フィルターされた一覧を取得
   List<DomainReflection> getfilteredReflections(int index) {
     switch (index) {
       case 0:
         return reflections;
       case 1:
-        return filteredMonth(3);
+        return filteredMonth(3, reflections);
       case 2:
-        return filteredMonth(1);
+        return filteredMonth(1, reflections);
       default:
         return [];
     }
-  }
-
-  /// 優先度からTagの色を返す
-  TagTextColor getTagColor(int priority) {
-    switch (priority) {
-      case 1:
-        return TagTextColor.red;
-      case 2:
-        return TagTextColor.purple;
-      default:
-        return TagTextColor.blue;
-    }
-  }
-
-  /// countを重複なしで大きい順に返す
-  List<int> getHighPriorityIds(List<DomainReflection> domains) {
-    final Iterable<int> counts = domains.map((e) => e.count);
-    final List<int> countDistincts = counts.toSet().toList();
-    countDistincts.sort(((a, b) => b.compareTo(a)));
-    return countDistincts;
-  }
-
-  /// 3位まで優先度を返す
-  int getPriority(List<int> counts, int count) {
-    final int size = counts.length;
-    if (size > 0 && counts[0] == count) return 1;
-    if (size > 1 && counts[1] == count) return 2;
-    return 3;
   }
 
   /// 振り返り一覧取得
@@ -117,9 +68,11 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     return domain.toList();
   }
 
-  /// 期間変更
+  /// 期間変更をする。
+  /// 振り返り一覧も更新される。
   void changePeriodIndex(int index) {
     periodIndex.value = index;
+
     final List<DomainReflection> filteredPeriodReflections =
         getfilteredReflections(index);
     filteredReflections.value = domainReflections(filteredPeriodReflections);

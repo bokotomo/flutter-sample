@@ -27,7 +27,6 @@ class TemplateTask extends HookWidget {
     return view(
       context,
       pushTaskDetail,
-      reflections,
       hooks.periodIndex,
       hooks.filteredReflections,
       hooks.changePeriodIndex,

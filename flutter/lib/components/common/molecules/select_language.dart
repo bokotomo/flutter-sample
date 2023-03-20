@@ -18,6 +18,12 @@ class SelectLanguage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// 変更を押した
+    void onChanged(String? t) {
+      if (this.onChanged == null) return;
+      this.onChanged!(t);
+    }
+
     /// 表示言語一覧
     const List<SelectItem> laguages = [
       SelectItem(text: '日本語', value: 'ja'),
