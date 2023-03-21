@@ -80,7 +80,7 @@ class ModelReflection {
   }
 
   Map<String, Object> toMapUpdatedAt() {
-    final DateFormat formatter = DateFormat('yyyy/MM/dd(E) HH:mm');
+    final DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
     final String formatted = formatter.format(updatedAt);
     return {
       'updated_at': formatted,

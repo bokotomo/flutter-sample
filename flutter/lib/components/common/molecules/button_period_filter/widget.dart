@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/view.dart'
     show view;
+import 'package:gamer_reflection/components/common/molecules/button_period_filter/type.dart'
+    show Period;
 
 /// 期間を選択するボタンの一覧
 class ButtonPeriodFilter extends StatelessWidget {
   const ButtonPeriodFilter({
     super.key,
-    required this.index,
+    required this.period,
     this.onPressedAll,
     this.onPressedThreeMonth,
     this.onPressedMonth,
   });
 
   /// 選択しているボタン
-  final int index;
+  final Period period;
 
   /// 全期間をクリックした
   final void Function()? onPressedAll;
@@ -45,7 +47,7 @@ class ButtonPeriodFilter extends StatelessWidget {
     }
 
     return view(
-      index,
+      period,
       onPressedAll,
       onPressedThreeMonth,
       onPressedMonth,

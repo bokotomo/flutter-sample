@@ -2,21 +2,8 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
-
-/// 指定したmonth分の前の日付を返す
-DateTime getMonthAgo(DateTime d, int month) {
-  return DateTime(
-    d.year,
-    d.month,
-
-    /// デバックのため日付にする。debug
-    d.day - month,
-    d.hour,
-    d.minute,
-    d.second,
-    d.millisecond,
-  );
-}
+import 'package:gamer_reflection/components/templates/task/date.dart'
+    show getMonthAgo;
 
 /// 優先度からTagの色を返す
 TagTextColor getTagColor(int priority) {
@@ -32,7 +19,10 @@ TagTextColor getTagColor(int priority) {
 
 /// 一覧からcountを取得し、重複なしで大きい順に返す
 List<int> getHighPriorityIds(List<DomainReflection> domains) {
+  /// カウントのみの配列
   final Iterable<int> counts = domains.map((e) => e.count);
+
+  /// 重複を消す
   final List<int> countDistincts = counts.toSet().toList();
 
   countDistincts.sort(((a, b) => b.compareTo(a)));
@@ -45,7 +35,6 @@ List<int> getHighPriorityIds(List<DomainReflection> domains) {
 List<DomainReflection> filteredMonth(int month, List<DomainReflection> rs) {
   /// 現在からmonth前の日付を返す
   final DateTime monthAgo = getMonthAgo(DateTime.now(), month);
-
   return rs.where((e) => e.updatedAt.isAfter(monthAgo)).toList();
 }
 

@@ -4,10 +4,12 @@ import 'package:gamer_reflection/components/common/atoms/button_period.dart'
     show ButtonPeriod;
 import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
     show SpacerWidth;
+import 'package:gamer_reflection/components/common/molecules/button_period_filter/type.dart'
+    show Period;
 
 ///
 Widget view(
-  int index,
+  Period period,
   Function() onPressedAll,
   Function() onPressedThreeMonth,
   Function() onPressedMonth,
@@ -17,19 +19,19 @@ Widget view(
     children: [
       ButtonPeriod(
         text: "全期間",
-        isActive: index == 0,
+        isActive: period == Period.all,
         onPressed: onPressedAll,
       ),
       SpacerWidth.s,
       ButtonPeriod(
         text: "3ヶ月",
-        isActive: index == 1,
+        isActive: period == Period.threeMonth,
         onPressed: onPressedThreeMonth,
       ),
       SpacerWidth.s,
       ButtonPeriod(
         text: "1ヶ月",
-        isActive: index == 2,
+        isActive: period == Period.oneMonth,
         onPressed: onPressedMonth,
       ),
     ],
