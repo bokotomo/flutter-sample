@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show Widget, BuildContext, Scaffold;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/templates/add_reflection_name/add_reflection_name.dart'
     show TemplateAddReflectionName;

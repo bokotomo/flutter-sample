@@ -1,4 +1,5 @@
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqflite.dart'
+    show Database, getDatabasesPath, openDatabase;
 import 'package:path/path.dart' show join;
 import 'package:gamer_reflection/modules/database/repository/table.dart'
     show TableSetUp;

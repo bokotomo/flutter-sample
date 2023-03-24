@@ -1,4 +1,4 @@
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/modules/database/model/reflection.dart'
     show ModelReflection, tableNameReflection;

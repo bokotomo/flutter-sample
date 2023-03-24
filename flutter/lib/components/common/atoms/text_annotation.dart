@@ -23,14 +23,16 @@ class TextAnnotation extends StatelessWidget {
 
   /// 文字サイズを返す
   double getFontSize() {
-    if (size == "L") {
-      return ConstantSizeFont.l;
-    } else if (size == "XM") {
-      return ConstantSizeFont.xm;
-    } else if (size == "M") {
-      return ConstantSizeFont.m;
+    switch (size) {
+      case "L":
+        return ConstantSizeFont.l;
+      case "XM":
+        return ConstantSizeFont.xm;
+      case "M":
+        return ConstantSizeFont.m;
+      default:
+        return ConstantSizeFont.s;
     }
-    return ConstantSizeFont.s;
   }
 
   @override

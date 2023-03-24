@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show StatelessWidget, Widget, BuildContext, FocusNode;
 import 'package:gamer_reflection/components/common/atoms/input_select.dart'
     show InputSelect, SelectItem;
 

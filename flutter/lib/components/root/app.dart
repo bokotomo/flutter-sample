@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show Widget, BuildContext, MaterialApp, ThemeData, VisualDensity;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/layouts/tabbar/tabbar.dart'
     show Tabbar;

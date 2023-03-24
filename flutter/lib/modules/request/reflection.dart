@@ -1,4 +1,4 @@
-import 'package:get_it/get_it.dart';
+import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:gamer_reflection/modules/database/repository/command/reflection.dart'
     show IRepositoryReflectionCommand;
