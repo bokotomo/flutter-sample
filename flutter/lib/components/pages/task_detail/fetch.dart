@@ -26,9 +26,10 @@ UseReturn useFetch(int taskId) {
   ValueNotifier<DataFetchState> dataFetchState =
       useState<DataFetchState>(DataFetchState.none);
 
-  ///
+  /// データ取得
   Future<void> eventRepository() async {
     dataFetchState.value = DataFetchState.fetching;
+
     final DomainReflection r =
         await FetchReflection().fetchReflectionById(taskId);
 

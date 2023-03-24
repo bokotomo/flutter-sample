@@ -13,6 +13,54 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 
+Widget view(
+  FocusNode textFieldFocusNode,
+  TextEditingController textReflection,
+  void Function() onPressedReflectionDone,
+  void Function() onPressedAddReflection,
+) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      SpacerHeight.s,
+      Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: ConstantSizeUI.l2,
+        ),
+        child: ButtonDone(
+          text: '振り返りを終える',
+          onPressed: () => onPressedReflectionDone(),
+        ),
+      ),
+      SpacerHeight.s,
+      Container(
+        color: ConstantColor.footer,
+        padding: const EdgeInsets.all(ConstantSizeUI.l2),
+        child: Row(
+          children: [
+            Expanded(
+              child: InputText(
+                text: textReflection,
+                hintText: '振り返りを書く(30文字以内)',
+                focusNode: textFieldFocusNode,
+                maxLength: 30,
+              ),
+            ),
+            SpacerWidth.m,
+            SizedBox(
+              width: 80,
+              child: ButtonBasic(
+                text: '追加',
+                onPressed: () => onPressedAddReflection(),
+              ),
+            ),
+          ],
+        ),
+      )
+    ],
+  );
+}
+
 /// 振り返り名候補一覧
 class BottomContents extends StatelessWidget {
   const BottomContents({
@@ -37,45 +85,11 @@ class BottomContents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SpacerHeight.s,
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: ConstantSizeUI.l2,
-          ),
-          child: ButtonDone(
-            text: '振り返りを終える',
-            onPressed: () => onPressedReflectionDone(),
-          ),
-        ),
-        SpacerHeight.s,
-        Container(
-          color: ConstantColor.footer,
-          padding: const EdgeInsets.all(ConstantSizeUI.l2),
-          child: Row(
-            children: [
-              Expanded(
-                child: InputText(
-                  text: textReflection,
-                  hintText: '振り返りを書く(30文字以内)',
-                  focusNode: textFieldFocusNode,
-                  maxLength: 30,
-                ),
-              ),
-              SpacerWidth.m,
-              SizedBox(
-                width: 80,
-                child: ButtonBasic(
-                  text: '追加',
-                  onPressed: () => onPressedAddReflection(),
-                ),
-              ),
-            ],
-          ),
-        )
-      ],
+    return view(
+      textFieldFocusNode,
+      textReflection,
+      onPressedReflectionDone,
+      onPressedAddReflection,
     );
   }
 }

@@ -10,6 +10,48 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
 
+/// 振り返りがない場合
+Widget candidatesNone() {
+  return const Box(
+    child: TextAnnotation(
+      text: 'まだ振り返りを追加していません。',
+      size: "M",
+    ),
+  );
+}
+
+Widget view(
+  List<DomainReflection> reflections,
+  Function(String text) onPressCandidate,
+) {
+  final Column candidateTitles = Column(
+    children: [
+      for (int i = 0; i < reflections.length; i++) ...{
+        const Bar(
+          color: ConstantColorButton.buttonTaskListBorder,
+        ),
+        ButtonTaskCandidate(
+          text: reflections[i].text,
+          isThin: i % 2 == 0,
+          onPressed: () => onPressCandidate(reflections[i].text),
+        ),
+      },
+      const Bar(
+        color: ConstantColorButton.buttonTaskListBorder,
+      )
+    ],
+  );
+
+  final candidates = reflections.isEmpty ? candidatesNone() : candidateTitles;
+
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      candidates,
+    ],
+  );
+}
+
 /// 振り返り名候補一覧
 class ReflectionAddCandidate extends StatelessWidget {
   const ReflectionAddCandidate({
@@ -22,43 +64,9 @@ class ReflectionAddCandidate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Column candidateTitles = Column(
-      children: [
-        for (int i = 0; i < reflections.length; i++) ...{
-          const Bar(
-            color: ConstantColorButton.buttonTaskListBorder,
-          ),
-          ButtonTaskCandidate(
-            text: reflections[i].text,
-            isThin: i % 2 == 0,
-            onPressed: () => onPressCandidate(reflections[i].text),
-          ),
-        },
-        const Bar(
-          color: ConstantColorButton.buttonTaskListBorder,
-        )
-      ],
-    );
-
-    const candidatesNone = Box(
-      child: TextAnnotation(
-        text: 'まだ振り返りを追加していません。',
-        size: "M",
-      ),
-    );
-
-    final candidates = reflections.isEmpty ? candidatesNone : candidateTitles;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // const BasicText(
-        //   text: '振り返り候補',
-        //   size: "M",
-        // ),
-        // SpacerHeight.xm,
-        candidates,
-      ],
+    return view(
+      reflections,
+      onPressCandidate,
     );
   }
 }
