@@ -6,7 +6,8 @@ import 'package:flutter/material.dart'
         Icons,
         BottomNavigationBar,
         BottomNavigationBarType;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 
 ///
 Widget view(

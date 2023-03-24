@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
-import 'package:gamer_reflection/modules/const/color.dart'
+import 'package:gamer_reflection/modules/const/color/text_tag.dart'
     show ConstantColorTextTag;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;

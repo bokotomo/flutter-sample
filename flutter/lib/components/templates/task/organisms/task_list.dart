@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/task/molecules/button_task.dart'
     show ButtonTask;
-import 'package:gamer_reflection/modules/const/color.dart'
+import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;

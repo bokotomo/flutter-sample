@@ -10,7 +10,8 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
 import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/modules/const/color.dart' show ConstantColor;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 
 /// 振り返り名候補一覧
 class BottomContents extends StatelessWidget {

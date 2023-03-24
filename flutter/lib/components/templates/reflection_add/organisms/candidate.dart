@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text.dart'
-    show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
@@ -9,9 +7,7 @@ import 'package:gamer_reflection/components/templates/reflection_add/molecules/b
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
-    show SpacerHeight;
-import 'package:gamer_reflection/modules/const/color.dart'
+import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
 
 /// 振り返り名候補一覧

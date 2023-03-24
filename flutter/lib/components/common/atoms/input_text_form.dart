@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color.dart'
-    show ConstantColor, ConstantColorInput;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
+import 'package:gamer_reflection/modules/const/color/input.dart'
+    show ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// input: textForm
