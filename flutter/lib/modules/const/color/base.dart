@@ -30,6 +30,6 @@ class ConstantColor {
   /// タスクリストの矢印の色
   static const Color taskListArrow = Color.fromARGB(55, 255, 255, 255);
 
-  /// 基本的な文字色
-  static const Color icon = Color.fromARGB(195, 255, 255, 255);
+  /// アイコンの色
+  static const Color icon = Color.fromARGB(180, 255, 255, 255);
 }

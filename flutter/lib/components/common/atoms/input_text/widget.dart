@@ -97,8 +97,11 @@ class InputText extends StatelessWidget {
         hintStyle: const TextStyle(
           color: ConstantColorInput.inputHintText,
         ),
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: ConstantSizeUI.l3,
+        contentPadding: EdgeInsets.only(
+          left: ConstantSizeUI.l3,
+          right: this.onPressedRemove == null
+              ? ConstantSizeUI.l3
+              : ConstantSizeUI.l6,
         ),
       );
     }
