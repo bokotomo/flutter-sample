@@ -2,8 +2,7 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
-import 'package:gamer_reflection/components/templates/task/date.dart'
-    show getMonthAgo;
+import 'package:gamer_reflection/modules/date/date.dart' show getMonthAgo;
 
 /// 優先度からTagの色を返す
 TagTextColor getTagColor(int priority) {
