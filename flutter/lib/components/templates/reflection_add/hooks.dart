@@ -40,6 +40,7 @@ UseReturn useHooks() {
   /// 候補から振り返りの追加を押した
   void onPressedAddCandidate(String text) async {
     textReflection.value.text = text;
+    textFieldFocusNode.unfocus();
   }
 
   /// 振り返りの終了を押した
