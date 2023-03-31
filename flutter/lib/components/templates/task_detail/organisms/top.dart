@@ -1,4 +1,13 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        FocusNode,
+        TextEditingController,
+        Widget,
+        BuildContext,
+        Column,
+        Row,
+        CrossAxisAlignment;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
@@ -16,6 +25,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
+import 'package:intl/intl.dart' show DateFormat;
 
 /// タスク詳細上部
 class TaskDetailTop extends StatelessWidget {
@@ -52,6 +62,9 @@ class TaskDetailTop extends StatelessWidget {
     final String reflectionDetail = reflection?.detail ?? "";
     final String countText = "回数: $count回";
     final String reflectionTypeText = isGood ? "種類: 良かった点" : "種類: 悪かった点";
+    final String updateAtText = DateFormat("yyyy/MM/dd")
+        .format(reflection?.updatedAt ?? DateTime.now());
+    final String reflectionUpdateAtText = "更新日: $updateAtText";
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,6 +88,11 @@ class TaskDetailTop extends StatelessWidget {
               colorType: TagTextColor.gray,
             ),
           ],
+        ),
+        SpacerHeight.xm,
+        TextTag(
+          text: reflectionUpdateAtText,
+          colorType: TagTextColor.gray,
         ),
         SpacerHeight.xm,
         BasicText(

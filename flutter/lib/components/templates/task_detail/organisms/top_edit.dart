@@ -69,18 +69,14 @@ class TaskDetailTopEdit extends StatelessWidget {
       children: [
         titleForm,
         SpacerHeight.xm,
-        Row(
-          children: [
-            TextTag(
-              text: countText,
-              colorType: TagTextColor.gray,
-            ),
-            SpacerWidth.m,
-            TextTag(
-              text: reflectionTypeText,
-              colorType: TagTextColor.gray,
-            ),
-          ],
+        TextTag(
+          text: countText,
+          colorType: TagTextColor.gray,
+        ),
+        SpacerHeight.xm,
+        TextTag(
+          text: reflectionTypeText,
+          colorType: TagTextColor.gray,
         ),
         SpacerHeight.xm,
         BasicText(
