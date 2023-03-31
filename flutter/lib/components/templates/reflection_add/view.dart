@@ -31,10 +31,10 @@ Widget view(
   void Function() onPressedAddReflection,
   void Function(String) onPressedAddCandidate,
   void Function() onPressedReflectionDone,
+  void Function() onPressedRemoveText,
 ) {
   ListView cloumn = ListView(
     children: [
-      // SpacerHeight.m,
       ReflectionAddCandidate(
         reflections: reflections,
         onPressCandidate: (String text) => onPressedAddCandidate(text),
@@ -51,6 +51,7 @@ Widget view(
         textFieldFocusNode: textFieldFocusNode,
         onPressedReflectionDone: onPressedReflectionDone,
         onPressedAddReflection: onPressedAddReflection,
+        onPressedRemoveText: onPressedRemoveText,
       ),
     ],
   );

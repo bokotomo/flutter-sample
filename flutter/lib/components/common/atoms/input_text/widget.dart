@@ -17,6 +17,7 @@ class InputText extends StatelessWidget {
     this.focusNode,
     this.onChanged,
     this.maxLength,
+    this.onPressedRemove,
   });
 
   /// プレフィックス
@@ -37,6 +38,9 @@ class InputText extends StatelessWidget {
   /// 変更した
   final void Function(String?)? onChanged;
 
+  /// 削除する
+  final void Function()? onPressedRemove;
+
   @override
   Widget build(BuildContext context) {
     final v = useValidate(maxLength);
@@ -45,6 +49,12 @@ class InputText extends StatelessWidget {
     void onChanged(String? t) {
       if (this.onChanged == null) return;
       this.onChanged!(t);
+    }
+
+    /// 削除を押した
+    void onPressedRemove() {
+      if (this.onPressedRemove == null) return;
+      this.onPressedRemove!();
     }
 
     /// inputのスタイル
@@ -93,16 +103,30 @@ class InputText extends StatelessWidget {
       );
     }
 
-    return TextFormField(
-      controller: text,
-      style: const TextStyle(color: ConstantColor.text),
-      decoration: decoration(hintText),
-      autofocus: autofocus ?? false,
-      focusNode: focusNode,
-      onChanged: onChanged,
-      maxLines: 1,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      validator: v.validateForm,
+    return Stack(
+      children: [
+        TextFormField(
+          controller: text,
+          style: const TextStyle(color: ConstantColor.text),
+          decoration: decoration(hintText),
+          autofocus: autofocus ?? false,
+          focusNode: focusNode,
+          onChanged: onChanged,
+          maxLines: 1,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          validator: v.validateForm,
+        ),
+        if (this.onPressedRemove != null)
+          Align(
+            alignment: Alignment.centerRight,
+            child: IconButton(
+              color: ConstantColor.icon,
+              iconSize: 24,
+              icon: const Icon(Icons.highlight_off),
+              onPressed: onPressedRemove,
+            ),
+          ),
+      ],
     );
   }
 }

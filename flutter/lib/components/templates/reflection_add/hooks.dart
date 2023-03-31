@@ -11,12 +11,14 @@ class UseReturn {
     required this.onPressedReflectionDone,
     required this.textReflection,
     required this.textFieldFocusNode,
+    required this.onPressedRemoveText,
     required this.formKey,
   });
 
   final void Function() onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
   final void Function() onPressedReflectionDone;
+  final void Function() onPressedRemoveText;
   final TextEditingController textReflection;
   final FocusNode textFieldFocusNode;
   final GlobalKey<FormState> formKey;
@@ -43,6 +45,11 @@ UseReturn useHooks() {
     textFieldFocusNode.unfocus();
   }
 
+  /// 振り返りの入力文字を削除
+  void onPressedRemoveText() {
+    formKey.currentState?.reset();
+  }
+
   /// 振り返りの終了を押した
   void onPressedReflectionDone() async {}
 
@@ -50,6 +57,7 @@ UseReturn useHooks() {
     onPressedAddReflection: onPressedAddReflection,
     onPressedAddCandidate: onPressedAddCandidate,
     onPressedReflectionDone: onPressedReflectionDone,
+    onPressedRemoveText: onPressedRemoveText,
     textReflection: textReflection.value,
     textFieldFocusNode: textFieldFocusNode,
     formKey: formKey,

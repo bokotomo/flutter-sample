@@ -28,6 +28,7 @@ class TemplateReflectionAdd extends HookWidget {
       hooks.onPressedAddReflection,
       hooks.onPressedAddCandidate,
       hooks.onPressedReflectionDone,
+      hooks.onPressedRemoveText,
     );
   }
 }
