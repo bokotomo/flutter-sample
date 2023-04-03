@@ -42,7 +42,7 @@ Widget view(
             Expanded(
               child: InputText(
                 text: textReflection,
-                hintText: '振り返りを書く(30文字以内)',
+                hintText: '振り返りを書く',
                 focusNode: textFieldFocusNode,
                 maxLength: 30,
                 onPressedRemove: () => onPressedRemoveText(),
