@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart'
-    show StatelessWidget, Widget, BuildContext, FocusNode;
+    show Widget, BuildContext, FocusNode, ValueNotifier;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget, useState;
 import 'package:gamer_reflection/components/common/atoms/input_select.dart'
     show InputSelect, SelectItem;
 
 /// 振り返りのグループ選択
-class SelectReflectionGroup extends StatelessWidget {
+class SelectReflectionGroup extends HookWidget {
   const SelectReflectionGroup({
     super.key,
     this.focusNode,
@@ -19,6 +20,9 @@ class SelectReflectionGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// 選択グループID
+    ValueNotifier<String> reflectionName = useState<String>("1");
+
     /// 変更を押した
     void onChanged(String? t) {
       if (this.onChanged == null) return;
@@ -31,12 +35,9 @@ class SelectReflectionGroup extends StatelessWidget {
       SelectItem(text: '振り返り名B', value: '2'),
     ];
 
-    /// 初期選択ID
-    const value = "1";
-
     return InputSelect(
       items: reflectionNames,
-      value: value,
+      value: reflectionName.value,
       onChanged: onChanged,
       focusNode: focusNode,
     );

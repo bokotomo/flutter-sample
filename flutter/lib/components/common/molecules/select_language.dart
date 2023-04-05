@@ -1,28 +1,36 @@
 import 'package:flutter/material.dart'
-    show StatelessWidget, Widget, BuildContext, FocusNode;
+    show Widget, BuildContext, FocusNode, AsyncSnapshot, ValueNotifier;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget, useState;
 import 'package:gamer_reflection/components/common/atoms/input_select.dart'
     show InputSelect, SelectItem;
+import 'package:flutter_hooks/flutter_hooks.dart'
+    show useEffect, useMemoized, useFuture;
+import 'package:gamer_reflection/modules/strage/selected_language.dart'
+    show selectLanguage;
 
 /// 言語選択
-class SelectLanguage extends StatelessWidget {
+class SelectLanguage extends HookWidget {
   const SelectLanguage({
     super.key,
     this.focusNode,
-    this.onChanged,
   });
 
   /// フォーカスノード
   final FocusNode? focusNode;
 
-  /// 変更した
-  final void Function(String?)? onChanged;
-
   @override
   Widget build(BuildContext context) {
+    /// 選択している期間
+    final Future<String?> memoedLanguage =
+        useMemoized(() => selectLanguage.get());
+    final AsyncSnapshot<String?> futuredLanguage = useFuture(memoedLanguage);
+
+    /// 選択言語
+    ValueNotifier<String> language = useState<String>("ja");
+
     /// 変更を押した
     void onChanged(String? t) {
-      if (this.onChanged == null) return;
-      this.onChanged!(t);
+      selectLanguage.save(t ?? "ja");
     }
 
     /// 表示言語一覧
@@ -45,12 +53,16 @@ class SelectLanguage extends StatelessWidget {
       SelectItem(text: 'Français', value: 'fr'),
     ];
 
-    /// 初期選択言語
-    const value = "ja";
+    useEffect(() {
+      if (futuredLanguage.data == null) return;
+
+      /// 初期選択言語
+      language.value = futuredLanguage.data ?? "ja";
+    }, [futuredLanguage.data]);
 
     return InputSelect(
       items: laguages,
-      value: value,
+      value: language.value,
       onChanged: onChanged,
       focusNode: focusNode,
     );

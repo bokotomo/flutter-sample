@@ -6,9 +6,9 @@ class StrageKVS {
   String key = "";
   StrageKVS(this.key);
 
-  Future<String> get() async {
+  Future<String?> get() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(key) ?? "";
+    return prefs.getString(key);
   }
 
   void save(String v) async {
@@ -22,9 +22,9 @@ class StrageKVSNumber {
   String key = "";
   StrageKVSNumber(this.key);
 
-  Future<int> get() async {
+  Future<int?> get() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getInt(key) ?? 0;
+    return prefs.getInt(key);
   }
 
   void save(int v) async {

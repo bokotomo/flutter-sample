@@ -31,9 +31,9 @@ class UseReturn {
 ///
 UseReturn useHooks(List<DomainReflection> reflections) {
   /// 選択している期間
-  final Future<String> memoedPeriod =
+  final Future<String?> memoedPeriod =
       useMemoized(() => selectedTaskPagePeriod.get());
-  final AsyncSnapshot<String> futuredPeriod = useFuture(memoedPeriod);
+  final AsyncSnapshot<String?> futuredPeriod = useFuture(memoedPeriod);
 
   /// 期間: 初期値は3ヶ月
   ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
@@ -135,7 +135,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   useEffect(() {
     if (futuredPeriod.data == null) return;
-    Period p = getPeriodBySVG(futuredPeriod.data!);
+    Period p = getPeriodBySVG(futuredPeriod.data ?? "");
     period.value = p;
 
     /// データがなければ実行しない
