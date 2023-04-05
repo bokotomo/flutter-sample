@@ -16,3 +16,19 @@ class StrageKVS {
     prefs.setString(key, v);
   }
 }
+
+/// KVS
+class StrageKVSNumber {
+  String key = "";
+  StrageKVSNumber(this.key);
+
+  Future<int> get() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(key) ?? 0;
+  }
+
+  void save(int v) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt(key, v);
+  }
+}
