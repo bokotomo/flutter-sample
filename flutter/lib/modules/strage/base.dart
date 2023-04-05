@@ -6,15 +6,13 @@ class StrageKVS {
   String key = "";
   StrageKVS(this.key);
 
-  Future<int> get() async {
+  Future<String> get() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getInt(key) ?? 0;
+    return prefs.getString(key) ?? "";
   }
 
-  void save(int v) async {
+  void save(String v) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt(key, v);
+    prefs.setString(key, v);
   }
 }
-
-final selectedTaskpagePeriod = StrageKVS("selected_taskpage_period");
