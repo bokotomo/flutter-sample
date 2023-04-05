@@ -7,7 +7,7 @@ import 'package:gamer_reflection/components/layouts/base_padding.dart'
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/molecules/select_language.dart'
+import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
     show SelectLanguage;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group.dart'
     show SelectReflectionGroup;
