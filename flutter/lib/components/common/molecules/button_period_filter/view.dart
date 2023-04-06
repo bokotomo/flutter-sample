@@ -10,9 +10,9 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
 ///
 Widget view(
   Period period,
-  Function() onPressedAll,
-  Function() onPressedThreeMonth,
-  Function() onPressedMonth,
+  void Function() onPressedAll,
+  void Function() onPressedThreeMonth,
+  void Function() onPressedMonth,
 ) {
   return ButtonBar(
     alignment: MainAxisAlignment.center,
