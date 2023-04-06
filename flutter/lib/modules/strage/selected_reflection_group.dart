@@ -1,5 +1,4 @@
-import 'package:gamer_reflection/modules/strage/base.dart' show StrageKVSNumber;
+import 'package:gamer_reflection/modules/strage/base.dart' show StrageKVS;
 
 /// 選択している振り返りグループ
-final StrageKVSNumber selectReflectionGroup =
-    StrageKVSNumber("selected_reflection_group");
+final StrageKVS selectReflectionGroup = StrageKVS("selected_reflection_group");

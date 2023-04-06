@@ -9,7 +9,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
     show SelectLanguage;
-import 'package:gamer_reflection/components/common/molecules/select_reflection_group.dart'
+import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
 import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
     show ButtonIcon;
