@@ -96,27 +96,27 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   }
 
   /// 期間変更をクリック：全期間
-  void onPressedAll() {
+  void onPressedAll() async {
     updateReflectionsByPeriodIndex(Period.all);
 
     /// 端末に保存
-    selectedTaskPagePeriod.save("period-all");
+    await selectedTaskPagePeriod.save("period-all");
   }
 
-  /// 期間変更をクリック：３ヶ月
-  void onPressedThreeMonth() {
+  /// 期間変更をクリック：3ヶ月
+  void onPressedThreeMonth() async {
     updateReflectionsByPeriodIndex(Period.threeMonth);
 
     /// 端末に保存
-    selectedTaskPagePeriod.save("period-three-month");
+    await selectedTaskPagePeriod.save("period-three-month");
   }
 
-  /// 期間変更をクリック：１ヶ月
-  void onPressedMonth() {
+  /// 期間変更をクリック：1ヶ月
+  void onPressedMonth() async {
     updateReflectionsByPeriodIndex(Period.oneMonth);
 
     /// 端末に保存
-    selectedTaskPagePeriod.save("period-one-month");
+    await selectedTaskPagePeriod.save("period-one-month");
   }
 
   /// 端末に保存されてる選択している期間を取得
@@ -141,7 +141,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     /// データがなければ実行しない
     if (reflections.isEmpty) return;
 
-    /// 初期値は３ヶ月でフィルターする
+    /// 初期値は3ヶ月でフィルターする
     updateReflectionsByPeriodIndex(p);
   }, [reflections, futuredPeriod]);
 

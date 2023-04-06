@@ -11,9 +11,9 @@ class StrageKVS {
     return prefs.getString(key);
   }
 
-  void save(String v) async {
+  Future<void> save(String v) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(key, v);
+    await prefs.setString(key, v);
   }
 }
 
@@ -27,8 +27,8 @@ class StrageKVSNumber {
     return prefs.getInt(key);
   }
 
-  void save(int v) async {
+  Future<void> save(int v) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt(key, v);
+    await prefs.setInt(key, v);
   }
 }
