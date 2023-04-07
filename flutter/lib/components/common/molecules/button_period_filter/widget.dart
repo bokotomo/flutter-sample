@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show StatelessWidget, Widget, BuildContext;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/view.dart'
     show view;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/type.dart'

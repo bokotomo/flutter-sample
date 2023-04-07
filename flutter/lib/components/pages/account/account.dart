@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show Widget, BuildContext, Scaffold;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/components/templates/account_setting/account_setting.dart'
+import 'package:gamer_reflection/components/templates/account_setting/widget.dart'
     show TemplateAccountSetting;
 
 /// ページ: アカウント設定

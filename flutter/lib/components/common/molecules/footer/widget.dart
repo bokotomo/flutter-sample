@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show StatelessWidget, Widget, BuildContext;
 import 'package:gamer_reflection/components/common/molecules/footer/view.dart'
     show view;
 
