@@ -26,11 +26,11 @@ class ConstantColorButton {
   /// 期間選択ボタンの背景色
   static const Color buttonPeriod = darkBlue;
 
-  /// 期間選択ボタンの背景色
-  static const Color buttonPeriodActive = Color.fromARGB(255, 53, 60, 144);
+  /// 期間選択ボタンの背景色 アクティブ時
+  static const Color buttonPeriodActive = Color.fromARGB(255, 35, 35, 106);
 
   /// 期間選択ボタンの枠線色
-  static const Color buttonPeriodBorder = Color.fromARGB(255, 69, 78, 177);
+  static const Color buttonPeriodBorder = Color.fromARGB(255, 40, 49, 145);
 
   /// タスク一覧ボタンの背景色: 濃い
   static const Color buttonTaskList = Color.fromARGB(255, 26, 27, 31);

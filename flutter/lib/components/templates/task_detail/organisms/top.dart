@@ -62,7 +62,7 @@ class TaskDetailTop extends StatelessWidget {
     final String reflectionDetail = reflection?.detail ?? "";
     final String countText = "回数: $count回";
     final String reflectionTypeText = isGood ? "種類: 良かった点" : "種類: 悪かった点";
-    final String updateAtText = DateFormat("yyyy/MM/dd")
+    final String updateAtText = DateFormat("yyyy.MM.dd")
         .format(reflection?.updatedAt ?? DateTime.now());
     final String reflectionUpdateAtText = "更新日: $updateAtText";
 
@@ -96,7 +96,7 @@ class TaskDetailTop extends StatelessWidget {
         ),
         SpacerHeight.m,
         BasicText(
-          text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
+          text: isGood ? "良かった点を伸ばすには" : "対策方法",
           size: "M",
         ),
         SpacerHeight.m,

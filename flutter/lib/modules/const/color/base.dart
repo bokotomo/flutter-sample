@@ -31,5 +31,8 @@ class ConstantColor {
   static const Color taskListArrow = Color.fromARGB(55, 255, 255, 255);
 
   /// アイコンの色
-  static const Color icon = Color.fromARGB(160, 255, 255, 255);
+  static const Color icon = Color.fromARGB(200, 255, 255, 255);
+
+  /// 薄いアイコンの色
+  static const Color iconThin = Color.fromARGB(160, 255, 255, 255);
 }

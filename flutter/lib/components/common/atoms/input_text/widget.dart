@@ -127,7 +127,7 @@ class InputText extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerRight,
               child: IconButton(
-                color: ConstantColor.icon,
+                color: ConstantColor.iconThin,
                 padding: const EdgeInsets.only(right: ConstantSizeUI.l2),
                 constraints: const BoxConstraints(),
                 iconSize: 24,

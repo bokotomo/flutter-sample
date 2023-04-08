@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart'
-    show ValueNotifier, TextEditingController, FocusNode;
+    show ValueNotifier, TextEditingController, FocusNode, BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
+import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
+    show showModal;
 
 class UseReturn {
   const UseReturn({
@@ -14,7 +16,7 @@ class UseReturn {
   });
 
   final void Function() onPressedEdit;
-  final void Function() onPressedNewName;
+  final void Function(BuildContext context) onPressedNewName;
   final TextEditingController textReflectionName;
   final FocusNode textReflectionNameFocusNode;
   final TextEditingController textReflectionNewName;
@@ -35,9 +37,15 @@ UseReturn useHooks() {
     print("変更");
   }
 
-  /// 新規フル帰り名の追加を押した
-  void onPressedNewName() {
+  /// 新規振り返り名の追加を押した
+  void onPressedNewName(BuildContext context) {
     print("追加");
+    showModal(
+      context,
+      () => {
+        print("追加した"),
+      },
+    );
   }
 
   useEffect(() {

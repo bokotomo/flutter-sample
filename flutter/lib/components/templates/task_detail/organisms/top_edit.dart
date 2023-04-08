@@ -78,7 +78,7 @@ class TaskDetailTopEdit extends StatelessWidget {
         ),
         SpacerHeight.m,
         BasicText(
-          text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
+          text: isGood ? "良かった点を伸ばすには" : "対策方法",
           size: "M",
         ),
         SpacerHeight.m,

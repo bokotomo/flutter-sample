@@ -3,6 +3,8 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ボタン: 完了
@@ -44,8 +46,14 @@ class ButtonDone extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onPressed,
       style: style,
-      icon: const Icon(Icons.check_circle),
-      label: BasicText(text: text, size: "M"),
+      icon: const Icon(
+        Icons.check_circle,
+        color: ConstantColor.icon,
+      ),
+      label: BasicText(
+        text: text,
+        size: "M",
+      ),
     );
   }
 }

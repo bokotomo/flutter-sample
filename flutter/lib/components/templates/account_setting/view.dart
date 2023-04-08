@@ -25,9 +25,8 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
 
 /// アカウント設定
 Widget view(
-  BuildContext context,
   Function() onPressedEdit,
-  Function() onPressedNewName,
+  Function(BuildContext context) onPressedNewName,
   TextEditingController textReflectionName,
   FocusNode textReflectionNameFocusNode,
   TextEditingController textReflectionNewName,
