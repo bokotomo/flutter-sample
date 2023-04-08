@@ -11,7 +11,9 @@ UseReturn useValidate(int? maxLength) {
   /// バリデーション
   String? validateForm(String? v) {
     if (v == null || v.isEmpty) return "※文字が未入力です。";
-    if (maxLength != null && v.length > maxLength!) return "※文字数が超えています。";
+    if (maxLength != null && v.length > maxLength) {
+      return "※文字数は$maxLength以内です。";
+    }
     final String noSpaceStr = v.replaceAll(RegExp(r'\s+'), '');
     if (noSpaceStr.isEmpty) return "※全て空白では追加できません。";
     if (RegExp(r'^\s+').hasMatch(v)) return "※先頭に空白は入れられません。";
