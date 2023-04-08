@@ -76,6 +76,23 @@ Widget view(
         ),
       ),
       SpacerHeight.m,
+      Box(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            BasicText(
+              text: '利用規約',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            BasicText(
+              text: 'プライバシーポリシー',
+              size: "M",
+            ),
+          ],
+        ),
+      ),
+      SpacerHeight.m,
     ],
   );
 

@@ -48,7 +48,7 @@ Widget view(
         SpacerHeight.m,
         ButtonIcon(
           icon: Icons.edit,
-          text: "編集する",
+          text: "変更する",
           onPressed: () => onPressedEdit(),
         )
       ],

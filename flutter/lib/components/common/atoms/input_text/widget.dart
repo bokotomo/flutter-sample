@@ -119,16 +119,23 @@ class InputText extends StatelessWidget {
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: v.validateForm,
         ),
+
+        /// 内容を消すバツボタン
         if (this.onPressedRemove != null)
-          Align(
-            alignment: Alignment.centerRight,
-            child: IconButton(
-              color: ConstantColor.icon,
-              iconSize: 24,
-              icon: const Icon(Icons.highlight_off),
-              onPressed: onPressedRemove,
+          SizedBox(
+            height: 45,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                color: ConstantColor.icon,
+                padding: const EdgeInsets.only(right: ConstantSizeUI.l2),
+                constraints: const BoxConstraints(),
+                iconSize: 24,
+                icon: const Icon(Icons.highlight_off),
+                onPressed: onPressedRemove,
+              ),
             ),
-          ),
+          )
       ],
     );
   }

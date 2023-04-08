@@ -45,8 +45,9 @@ Widget view(
   void Function() onPressedCancel,
 ) {
   ListView content = ListView(
-    padding: const EdgeInsets.all(ConstantSizeUI.l2),
+    padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
     children: [
+      SpacerHeight.m,
       TaskDetailTop(
         reflection: reflection,
         titleFocusNode: titleFocusNode,
@@ -72,8 +73,9 @@ Widget view(
   );
 
   ListView editContent = ListView(
-    padding: const EdgeInsets.all(ConstantSizeUI.l2),
+    padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
     children: [
+      SpacerHeight.m,
       TaskDetailTopEdit(
         reflection: reflection,
         titleFocusNode: titleFocusNode,
