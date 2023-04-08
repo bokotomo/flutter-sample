@@ -12,14 +12,10 @@ import 'package:flutter/material.dart'
         Form,
         AutovalidateMode;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
-    show ReflectionAddCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/bottom_contents.dart'
     show BottomContents;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
-    show SpacerHeight;
 
 ///
 Widget view(
@@ -34,13 +30,7 @@ Widget view(
   void Function() onPressedRemoveText,
 ) {
   ListView cloumn = ListView(
-    children: [
-      ReflectionAddCandidate(
-        reflections: reflections,
-        onPressCandidate: (String text) => onPressedAddCandidate(text),
-      ),
-      SpacerHeight.xl,
-    ],
+    children: [],
   );
 
   final content = Column(

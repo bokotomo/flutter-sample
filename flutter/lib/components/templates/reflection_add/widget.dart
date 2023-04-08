@@ -17,12 +17,12 @@ class TemplateReflectionAdd extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks();
+    final hooks = useHooks(reflections);
 
     return view(
       context,
       hooks.textFieldFocusNode,
-      reflections,
+      hooks.candidates,
       hooks.formKey,
       hooks.textReflection,
       hooks.onPressedAddReflection,

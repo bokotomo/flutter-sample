@@ -1,3 +1,6 @@
+import 'package:gamer_reflection/modules/validate/text.dart'
+    show fisrtSpace, lastSpace, allSpace, maxLengthOver;
+
 class UseReturn {
   const UseReturn({
     required this.validateForm,
@@ -11,13 +14,10 @@ UseReturn useValidate(int? maxLength) {
   /// バリデーション
   String? validateForm(String? v) {
     if (v == null || v.isEmpty) return "※文字が未入力です。";
-    if (maxLength != null && v.length > maxLength) {
-      return "※文字数は$maxLength以内です。";
-    }
-    final String noSpaceStr = v.replaceAll(RegExp(r'\s+'), '');
-    if (noSpaceStr.isEmpty) return "※全て空白では追加できません。";
-    if (RegExp(r'^\s+').hasMatch(v)) return "※先頭に空白は入れられません。";
-    if (RegExp(r'\s+$').hasMatch(v)) return "※末尾に空白は入れられません。";
+    if (maxLengthOver(v, maxLength)) return "※文字数は$maxLength以内です。";
+    if (allSpace(v)) return "※全て空白では追加できません。";
+    if (fisrtSpace(v)) return "※先頭に空白は入れられません。";
+    if (lastSpace(v)) return "※末尾に空白は入れられません。";
 
     return null;
   }

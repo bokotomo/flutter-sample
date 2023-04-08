@@ -4,24 +4,30 @@ import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_task_candidate.dart'
     show ButtonTaskCandidate;
-import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
-    show DomainReflection;
+import 'package:gamer_reflection/modules/domain/reflection_add.dart'
+    show DomainCandidate;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
+import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+    show SpacerHeight;
 
 /// 振り返りがない場合
 Widget candidatesNone() {
-  return const Box(
-    child: TextAnnotation(
-      text: 'まだ振り返りを追加していません。',
-      size: "M",
-    ),
+  return Column(
+    children: const [
+      SpacerHeight.xm,
+      Center(
+        child: TextAnnotation(
+          text: 'まだ振り返りを追加していません。',
+          size: "M",
+        ),
+      )
+    ],
   );
 }
 
 Widget view(
-  List<DomainReflection> reflections,
+  List<DomainCandidate> reflections,
   Function(String text) onPressCandidate,
 ) {
   final Column candidateTitles = Column(
@@ -59,7 +65,7 @@ class ReflectionAddCandidate extends StatelessWidget {
     required this.reflections,
     required this.onPressCandidate,
   });
-  final List<DomainReflection> reflections;
+  final List<DomainCandidate> reflections;
   final Function(String text) onPressCandidate;
 
   @override
