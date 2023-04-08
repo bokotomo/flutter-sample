@@ -23,6 +23,7 @@ import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
 Widget view(
   TextEditingController textReflectionNewName,
   FocusNode textReflectionNewNameFocusNode,
+  Function() onPressedNewName,
 ) {
   return Box(
     child: Column(
@@ -45,10 +46,10 @@ Widget view(
           maxLength: 20,
         ),
         SpacerHeight.m,
-        const ButtonIcon(
+        ButtonIcon(
           icon: Icons.add,
           text: "新規で作成する",
-          // onPressed: () => {},
+          onPressed: () => onPressedNewName(),
         )
       ],
     ),
@@ -61,6 +62,7 @@ class NewReflectionName extends StatelessWidget {
     super.key,
     required this.textReflectionNewNameFocusNode,
     required this.textReflectionNewName,
+    required this.onPressedNewName,
   });
 
   ///
@@ -69,11 +71,15 @@ class NewReflectionName extends StatelessWidget {
   ///
   final TextEditingController textReflectionNewName;
 
+  ///
+  final Function() onPressedNewName;
+
   @override
   Widget build(BuildContext context) {
     return view(
       textReflectionNewName,
       textReflectionNewNameFocusNode,
+      onPressedNewName,
     );
   }
 }

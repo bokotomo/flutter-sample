@@ -6,6 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart'
 class UseReturn {
   const UseReturn({
     required this.onPressedEdit,
+    required this.onPressedNewName,
     required this.textReflectionName,
     required this.textReflectionNameFocusNode,
     required this.textReflectionNewName,
@@ -13,13 +14,14 @@ class UseReturn {
   });
 
   final void Function() onPressedEdit;
+  final void Function() onPressedNewName;
   final TextEditingController textReflectionName;
   final FocusNode textReflectionNameFocusNode;
   final TextEditingController textReflectionNewName;
   final FocusNode textReflectionNewNameFocusNode;
 }
 
-///
+/// ロジック
 UseReturn useHooks() {
   ValueNotifier<TextEditingController> textReflectionName =
       useState<TextEditingController>(TextEditingController());
@@ -27,11 +29,15 @@ UseReturn useHooks() {
   ValueNotifier<TextEditingController> textReflectionNewName =
       useState<TextEditingController>(TextEditingController());
   FocusNode textReflectionNewNameFocusNode = useFocusNode();
-  ValueNotifier<bool> isEditMode = useState<bool>(false);
 
-  /// 振り返りの追加を押した
+  /// 振り返り名の変更を押した
   void onPressedEdit() {
-    isEditMode.value = true;
+    print("変更");
+  }
+
+  /// 新規フル帰り名の追加を押した
+  void onPressedNewName() {
+    print("追加");
   }
 
   useEffect(() {
@@ -40,6 +46,7 @@ UseReturn useHooks() {
 
   return UseReturn(
     onPressedEdit: onPressedEdit,
+    onPressedNewName: onPressedNewName,
     textReflectionName: textReflectionName.value,
     textReflectionNameFocusNode: textReflectionNameFocusNode,
     textReflectionNewName: textReflectionNewName.value,

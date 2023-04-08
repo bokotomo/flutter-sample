@@ -27,6 +27,7 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
 Widget view(
   BuildContext context,
   Function() onPressedEdit,
+  Function() onPressedNewName,
   TextEditingController textReflectionName,
   FocusNode textReflectionNameFocusNode,
   TextEditingController textReflectionNewName,
@@ -58,6 +59,7 @@ Widget view(
       NewReflectionName(
         textReflectionNewName: textReflectionNewName,
         textReflectionNewNameFocusNode: textReflectionNewNameFocusNode,
+        onPressedNewName: onPressedNewName,
       ),
       SpacerHeight.m,
       Box(

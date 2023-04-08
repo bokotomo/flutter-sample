@@ -75,7 +75,7 @@ class TaskDetailTop extends StatelessWidget {
             size: "M",
           ),
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         Row(
           children: [
             TextTag(
@@ -89,12 +89,12 @@ class TaskDetailTop extends StatelessWidget {
             ),
           ],
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         TextTag(
           text: reflectionUpdateAtText,
           colorType: TagTextColor.gray,
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         BasicText(
           text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
           size: "M",

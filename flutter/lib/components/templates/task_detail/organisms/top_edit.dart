@@ -13,8 +13,6 @@ import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
     show TextTag;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
-    show SpacerWidth;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
 
@@ -68,17 +66,17 @@ class TaskDetailTopEdit extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         titleForm,
-        SpacerHeight.xm,
+        SpacerHeight.m,
         TextTag(
           text: countText,
           colorType: TagTextColor.gray,
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         TextTag(
           text: reflectionTypeText,
           colorType: TagTextColor.gray,
         ),
-        SpacerHeight.xm,
+        SpacerHeight.m,
         BasicText(
           text: isGood ? "良かった点を伸ばすには" : "悪かった点の対策",
           size: "M",

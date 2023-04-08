@@ -47,7 +47,6 @@ Widget view(
   ListView content = ListView(
     padding: const EdgeInsets.all(ConstantSizeUI.l2),
     children: [
-      SpacerHeight.l,
       TaskDetailTop(
         reflection: reflection,
         titleFocusNode: titleFocusNode,
@@ -75,7 +74,6 @@ Widget view(
   ListView editContent = ListView(
     padding: const EdgeInsets.all(ConstantSizeUI.l2),
     children: [
-      SpacerHeight.l,
       TaskDetailTopEdit(
         reflection: reflection,
         titleFocusNode: titleFocusNode,
