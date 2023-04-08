@@ -6,10 +6,10 @@ class ConstantColorButton {
   ConstantColorButton._();
 
   /// ボタンの背景色
-  static const Color button = Color.fromARGB(255, 65, 71, 132);
+  static const Color button = Color.fromARGB(255, 37, 39, 93);
 
   /// ボタンの枠線色
-  static const Color buttonBorder = Color.fromARGB(255, 86, 96, 219);
+  static const Color buttonBorder = Color.fromARGB(255, 49, 60, 199);
 
   /// 完了ボタンの背景色
   static const Color buttonDone = Color.fromARGB(255, 85, 129, 91);
@@ -39,5 +39,5 @@ class ConstantColorButton {
   static const Color buttonTaskListThin = Color.fromARGB(255, 43, 47, 56);
 
   /// タスク一覧ボタンの枠線色
-  static const Color buttonTaskListBorder = Color.fromARGB(255, 81, 85, 101);
+  static const Color buttonTaskListBorder = Color.fromARGB(255, 67, 69, 82);
 }

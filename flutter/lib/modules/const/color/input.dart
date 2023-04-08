@@ -8,13 +8,13 @@ class ConstantColorInput {
   static const Color input = Color.fromARGB(255, 24, 25, 31);
 
   /// inputの枠線色
-  static const Color inputBorder = Color.fromARGB(255, 45, 24, 114);
+  static const Color inputBorder = Color.fromARGB(255, 41, 48, 134);
 
   /// prefixの文字色
   static const Color inputHintText = Color.fromARGB(70, 255, 255, 255);
 
   /// inputの枠線色フォーカス
-  static const Color inputBorderFocus = Color.fromARGB(255, 57, 30, 145);
+  static const Color inputBorderFocus = Color.fromARGB(255, 41, 48, 134);
 
   /// inputの枠線色エラーテキスト
   static const Color inputBorderError = Color.fromARGB(255, 118, 63, 63);

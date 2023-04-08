@@ -6,7 +6,7 @@ import 'package:gamer_reflection/modules/const/color/colors.dart'
 class ConstantColor {
   ConstantColor._();
 
-  /// バーの背景色
+  /// ヘッダーの背景色
   static const Color header = darkBlueLittle;
 
   /// フッターの背景色
