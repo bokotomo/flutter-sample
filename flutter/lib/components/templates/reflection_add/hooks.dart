@@ -5,7 +5,8 @@ import 'package:flutter/material.dart'
         FocusNode,
         BuildContext,
         GlobalKey,
-        FormState;
+        FormState,
+        Navigator;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
@@ -47,11 +48,15 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   ValueNotifier<List<DomainCandidate>> candidates =
       useState<List<DomainCandidate>>([]);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  ValueNotifier<bool?> isGood = useState<bool?>(true);
 
   /// 振り返りの追加
-  Future<void> addReflection() async {
+  Future<void> addReflection(bool v) async {
     /// DBに保存する
-    await RequestReflection().addReflection(textReflection.value.text);
+    await RequestReflection().addReflection(
+      textReflection.value.text,
+      v,
+    );
 
     /// 重複しない場合は候補一覧に追加する
     if (candidates.value.every((e) => e.text != textReflection.value.text)) {
@@ -67,14 +72,29 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     formKey.currentState?.reset();
   }
 
+  /// モーダルで追加を押した
+  void onPressedAdd(BuildContext c, bool textExist) {
+    if (isGood.value == null && !textExist) return;
+    addReflection(isGood.value!);
+    Navigator.pop(c);
+  }
+
   /// 振り返りの追加を押した
   void onPressedAddReflection(BuildContext context) async {
     if (!formKey.currentState!.validate()) return;
+    final text = textReflection.value.text;
+    final textExist = !candidates.value.every((e) => e.text != text);
+
     showModal(
       context,
-      textReflection.value.text,
+      text,
+      textExist,
+      (BuildContext c) => onPressedAdd(c, textExist),
       () => {
-        addReflection(),
+        isGood.value = true,
+      },
+      () => {
+        isGood.value = false,
       },
     );
   }

@@ -5,7 +5,7 @@ import 'package:gamer_reflection/modules/database/model/reflection.dart'
 
 /// Interface: RepositoryReflectionCommand
 abstract class IRepositoryReflectionCommand {
-  Future<void> insertReflection(Database db, String text);
+  Future<void> insertReflection(Database db, String text, bool isGood);
   Future<void> updateReflectionById(Database db, int id, ModelReflection model);
   Future<void> deleteReflectionById(Database db, int id);
 }
@@ -15,7 +15,7 @@ abstract class IRepositoryReflectionCommand {
 class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
   /// 追加: 振り返り
   @override
-  Future<void> insertReflection(Database db, String text) async {
+  Future<void> insertReflection(Database db, String text, bool isGood) async {
     /// idにする
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflection,
@@ -28,7 +28,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
       /// 新規登録
       final ModelReflection reflection = ModelReflection(
         reflectionGroupId: 1,
-        reflectionType: 1,
+        reflectionType: isGood ? 1 : 2,
         text: text,
         detail: "",
         count: 1,
@@ -48,7 +48,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
 
       final ModelReflection reflection = ModelReflection(
         reflectionGroupId: 0,
-        reflectionType: 0,
+        reflectionType: isGood ? 1 : 2,
         text: "",
         detail: "",
         count: count + 1,

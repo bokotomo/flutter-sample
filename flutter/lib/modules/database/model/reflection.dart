@@ -21,7 +21,7 @@ class ModelReflection {
   /// GROUP_ID
   final int reflectionGroupId;
 
-  /// 振り返りの種類
+  /// 振り返りの種類 1: Good, 2: Bad
   final int reflectionType;
 
   /// 振り返り内容

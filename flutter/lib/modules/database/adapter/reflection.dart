@@ -32,12 +32,14 @@ class AdapterReflection {
 
   /// 振り返り詳細取得
   DomainReflection domainReflection(ModelReflection model) {
+    final reflectionType =
+        model.reflectionType == 1 ? ReflectionType.good : ReflectionType.bad;
     return DomainReflection(
       id: model.id ?? 0,
       text: model.text,
       detail: model.detail,
       count: model.count,
-      reflectionType: ReflectionType.bad,
+      reflectionType: reflectionType,
       priority: 0,
       tagColor: TagTextColor.gray,
       updatedAt: model.updatedAt,
