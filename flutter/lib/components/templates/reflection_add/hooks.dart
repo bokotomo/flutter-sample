@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart'
-    show TextEditingController, ValueNotifier, FocusNode, GlobalKey, FormState;
+    show
+        TextEditingController,
+        ValueNotifier,
+        FocusNode,
+        BuildContext,
+        GlobalKey,
+        FormState;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
@@ -8,6 +14,8 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/domain/reflection_add/candidate.dart'
     show DomainCandidate;
+import 'package:gamer_reflection/components/templates/reflection_add/modal/add.dart'
+    show showModal;
 
 class UseReturn {
   const UseReturn({
@@ -21,7 +29,7 @@ class UseReturn {
     required this.formKey,
   });
 
-  final void Function() onPressedAddReflection;
+  final void Function(BuildContext) onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
   final void Function() onPressedReflectionDone;
   final void Function() onPressedRemoveText;
@@ -40,10 +48,8 @@ UseReturn useHooks(List<DomainReflection> reflections) {
       useState<List<DomainCandidate>>([]);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  /// 振り返りの追加を押した
-  void onPressedAddReflection() async {
-    if (!formKey.currentState!.validate()) return;
-
+  /// 振り返りの追加
+  Future<void> addReflection() async {
     /// DBに保存する
     await RequestReflection().addReflection(textReflection.value.text);
 
@@ -57,7 +63,20 @@ UseReturn useHooks(List<DomainReflection> reflections) {
         ...candidates.value,
       ];
     }
+
     formKey.currentState?.reset();
+  }
+
+  /// 振り返りの追加を押した
+  void onPressedAddReflection(BuildContext context) async {
+    if (!formKey.currentState!.validate()) return;
+    showModal(
+      context,
+      textReflection.value.text,
+      () => {
+        addReflection(),
+      },
+    );
   }
 
   /// 候補から振り返りの追加を押した

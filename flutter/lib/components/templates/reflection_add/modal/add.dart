@@ -14,7 +14,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
 ///
 void showModal(
   BuildContext context,
-  String text,
+  String title,
   void Function() onPressed,
 ) {
   showDialog(
@@ -22,16 +22,21 @@ void showModal(
     context: context,
     builder: (context) {
       return ModalBase(
-        title: "振り返りの新規作成",
+        title: title,
         children: [
-          BasicText(
-            text: text,
+          const BasicText(
+            text: "種類",
+            size: "M",
+          ),
+          SpacerHeight.m,
+          const BasicText(
+            text: "良かったこと悪かったこと",
             size: "M",
           ),
           SpacerHeight.m,
           ButtonIcon(
             icon: Icons.add,
-            text: "新規で作成する",
+            text: "追加する",
             onPressed: () => {
               onPressed(),
               Navigator.pop(context),

@@ -27,7 +27,7 @@ import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
 Widget view(
   TextEditingController textReflectionName,
   FocusNode textReflectionNameFocusNode,
-  Function() onPressedEdit,
+  void Function() onPressedEdit,
   GlobalKey<FormState> formKeyEditName,
 ) {
   return Form(

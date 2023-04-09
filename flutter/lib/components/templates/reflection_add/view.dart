@@ -23,12 +23,11 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
 
 ///
 Widget view(
-  BuildContext context,
   FocusNode textFieldFocusNode,
   List<DomainCandidate> candidates,
   GlobalKey<FormState> formKey,
   TextEditingController textReflection,
-  void Function() onPressedAddReflection,
+  void Function(BuildContext) onPressedAddReflection,
   void Function(String) onPressedAddCandidate,
   void Function() onPressedReflectionDone,
   void Function() onPressedRemoveText,

@@ -28,10 +28,11 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 
 Widget view(
+  BuildContext context,
   FocusNode textFieldFocusNode,
   TextEditingController textReflection,
   void Function() onPressedReflectionDone,
-  void Function() onPressedAddReflection,
+  void Function(BuildContext) onPressedAddReflection,
   void Function() onPressedRemoveText,
 ) {
   return Column(
@@ -67,7 +68,7 @@ Widget view(
               width: 80,
               child: ButtonBasic(
                 text: '追加',
-                onPressed: () => onPressedAddReflection(),
+                onPressed: () => onPressedAddReflection(context),
               ),
             ),
           ],
@@ -98,7 +99,7 @@ class BottomContents extends StatelessWidget {
   final void Function() onPressedReflectionDone;
 
   /// 振り返りの追加を押した
-  final void Function() onPressedAddReflection;
+  final void Function(BuildContext) onPressedAddReflection;
 
   /// 振り返りの入力文字を削除
   final void Function() onPressedRemoveText;
@@ -106,6 +107,7 @@ class BottomContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return view(
+      context,
       textFieldFocusNode,
       textReflection,
       onPressedReflectionDone,
