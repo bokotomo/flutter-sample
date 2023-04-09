@@ -20,6 +20,8 @@ class TemplateAccountSetting extends HookWidget {
       hooks.textReflectionNameFocusNode,
       hooks.textReflectionNewName,
       hooks.textReflectionNewNameFocusNode,
+      hooks.formKeyNewName,
+      hooks.formKeyEditName,
     );
   }
 }

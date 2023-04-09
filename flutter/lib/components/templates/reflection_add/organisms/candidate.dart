@@ -4,7 +4,7 @@ import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_task_candidate.dart'
     show ButtonTaskCandidate;
-import 'package:gamer_reflection/modules/domain/reflection_add.dart'
+import 'package:gamer_reflection/modules/domain/reflection_add/candidate.dart'
     show DomainCandidate;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;

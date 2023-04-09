@@ -7,7 +7,11 @@ import 'package:flutter/material.dart'
         Column,
         CrossAxisAlignment,
         BuildContext,
-        Icons;
+        Icons,
+        Form,
+        GlobalKey,
+        FormState,
+        AutovalidateMode;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
@@ -24,34 +28,39 @@ Widget view(
   TextEditingController textReflectionName,
   FocusNode textReflectionNameFocusNode,
   Function() onPressedEdit,
+  GlobalKey<FormState> formKeyEditName,
 ) {
-  return Box(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const BasicText(
-          text: '振り返り名の変更',
-          size: "M",
-        ),
-        SpacerHeight.xs,
-        const TextAnnotation(
-          text: "※20文字まで",
-          size: "S",
-        ),
-        SpacerHeight.m,
-        InputText(
-          text: textReflectionName,
-          hintText: 'ゲーム名+キャラ名など',
-          focusNode: textReflectionNameFocusNode,
-          maxLength: 20,
-        ),
-        SpacerHeight.m,
-        ButtonIcon(
-          icon: Icons.edit,
-          text: "変更する",
-          onPressed: () => onPressedEdit(),
-        )
-      ],
+  return Form(
+    autovalidateMode: AutovalidateMode.onUserInteraction,
+    key: formKeyEditName,
+    child: Box(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const BasicText(
+            text: '振り返り名の変更',
+            size: "M",
+          ),
+          SpacerHeight.xs,
+          const TextAnnotation(
+            text: "※20文字まで",
+            size: "S",
+          ),
+          SpacerHeight.m,
+          InputText(
+            text: textReflectionName,
+            hintText: 'ゲーム名+キャラ名など',
+            focusNode: textReflectionNameFocusNode,
+            maxLength: 20,
+          ),
+          SpacerHeight.m,
+          ButtonIcon(
+            icon: Icons.edit,
+            text: "変更する",
+            onPressed: () => onPressedEdit(),
+          )
+        ],
+      ),
     ),
   );
 }
@@ -63,6 +72,7 @@ class EditReflectionName extends StatelessWidget {
     required this.textReflectionNameFocusNode,
     required this.textReflectionName,
     required this.onPressedEdit,
+    required this.formKeyEditName,
   });
 
   ///
@@ -74,12 +84,16 @@ class EditReflectionName extends StatelessWidget {
   ///
   final Function() onPressedEdit;
 
+  ///
+  final GlobalKey<FormState> formKeyEditName;
+
   @override
   Widget build(BuildContext context) {
     return view(
       textReflectionName,
       textReflectionNameFocusNode,
       onPressedEdit,
+      formKeyEditName,
     );
   }
 }

@@ -6,7 +6,9 @@ import 'package:flutter/material.dart'
         FocusNode,
         ListView,
         Column,
-        CrossAxisAlignment;
+        CrossAxisAlignment,
+        GlobalKey,
+        FormState;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
@@ -31,6 +33,8 @@ Widget view(
   FocusNode textReflectionNameFocusNode,
   TextEditingController textReflectionNewName,
   FocusNode textReflectionNewNameFocusNode,
+  GlobalKey<FormState> formKeyNewName,
+  GlobalKey<FormState> formKeyEditName,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -53,12 +57,14 @@ Widget view(
         textReflectionName: textReflectionName,
         textReflectionNameFocusNode: textReflectionNameFocusNode,
         onPressedEdit: onPressedEdit,
+        formKeyEditName: formKeyEditName,
       ),
       SpacerHeight.m,
       NewReflectionName(
         textReflectionNewName: textReflectionNewName,
         textReflectionNewNameFocusNode: textReflectionNewNameFocusNode,
         onPressedNewName: onPressedNewName,
+        formKeyNewName: formKeyNewName,
       ),
       SpacerHeight.m,
       Box(

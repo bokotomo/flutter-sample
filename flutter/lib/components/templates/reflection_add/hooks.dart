@@ -6,7 +6,7 @@ import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/domain/reflection_add.dart'
+import 'package:gamer_reflection/modules/domain/reflection_add/candidate.dart'
     show DomainCandidate;
 
 class UseReturn {

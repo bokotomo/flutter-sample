@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart'
-    show ValueNotifier, TextEditingController, FocusNode, BuildContext;
+    show
+        ValueNotifier,
+        TextEditingController,
+        FocusNode,
+        BuildContext,
+        GlobalKey,
+        FormState;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
@@ -13,6 +19,8 @@ class UseReturn {
     required this.textReflectionNameFocusNode,
     required this.textReflectionNewName,
     required this.textReflectionNewNameFocusNode,
+    required this.formKeyNewName,
+    required this.formKeyEditName,
   });
 
   final void Function() onPressedEdit;
@@ -21,6 +29,8 @@ class UseReturn {
   final FocusNode textReflectionNameFocusNode;
   final TextEditingController textReflectionNewName;
   final FocusNode textReflectionNewNameFocusNode;
+  final GlobalKey<FormState> formKeyNewName;
+  final GlobalKey<FormState> formKeyEditName;
 }
 
 /// ロジック
@@ -31,17 +41,23 @@ UseReturn useHooks() {
   ValueNotifier<TextEditingController> textReflectionNewName =
       useState<TextEditingController>(TextEditingController());
   FocusNode textReflectionNewNameFocusNode = useFocusNode();
+  final GlobalKey<FormState> formKeyNewName = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
 
   /// 振り返り名の変更を押した
   void onPressedEdit() {
+    if (!formKeyEditName.currentState!.validate()) return;
     print("変更");
   }
 
   /// 新規振り返り名の追加を押した
   void onPressedNewName(BuildContext context) {
+    if (!formKeyNewName.currentState!.validate()) return;
+
     print("追加");
     showModal(
       context,
+      textReflectionNewName.value.text,
       () => {
         print("追加した"),
       },
@@ -55,6 +71,8 @@ UseReturn useHooks() {
   return UseReturn(
     onPressedEdit: onPressedEdit,
     onPressedNewName: onPressedNewName,
+    formKeyNewName: formKeyNewName,
+    formKeyEditName: formKeyEditName,
     textReflectionName: textReflectionName.value,
     textReflectionNameFocusNode: textReflectionNameFocusNode,
     textReflectionNewName: textReflectionNewName.value,

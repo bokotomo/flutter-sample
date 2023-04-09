@@ -7,7 +7,11 @@ import 'package:flutter/material.dart'
         Column,
         CrossAxisAlignment,
         BuildContext,
-        Icons;
+        Icons,
+        Form,
+        GlobalKey,
+        FormState,
+        AutovalidateMode;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
@@ -25,34 +29,39 @@ Widget view(
   TextEditingController textReflectionNewName,
   FocusNode textReflectionNewNameFocusNode,
   Function(BuildContext context) onPressedNewName,
+  GlobalKey<FormState> formKeyNewName,
 ) {
-  return Box(
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const BasicText(
-          text: '振り返り名の新規作成',
-          size: "M",
-        ),
-        SpacerHeight.xs,
-        const TextAnnotation(
-          text: "※20文字まで",
-          size: "S",
-        ),
-        SpacerHeight.m,
-        InputText(
-          text: textReflectionNewName,
-          hintText: 'ゲーム名+キャラ名など',
-          focusNode: textReflectionNewNameFocusNode,
-          maxLength: 20,
-        ),
-        SpacerHeight.m,
-        ButtonIcon(
-          icon: Icons.add,
-          text: "新規で作成する",
-          onPressed: () => onPressedNewName(context),
-        )
-      ],
+  return Form(
+    autovalidateMode: AutovalidateMode.onUserInteraction,
+    key: formKeyNewName,
+    child: Box(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const BasicText(
+            text: '振り返りの新規作成',
+            size: "M",
+          ),
+          SpacerHeight.xs,
+          const TextAnnotation(
+            text: "※20文字まで",
+            size: "S",
+          ),
+          SpacerHeight.m,
+          InputText(
+            text: textReflectionNewName,
+            hintText: 'ゲーム名+キャラ名など',
+            focusNode: textReflectionNewNameFocusNode,
+            maxLength: 20,
+          ),
+          SpacerHeight.m,
+          ButtonIcon(
+            icon: Icons.add,
+            text: "新規で作成する",
+            onPressed: () => onPressedNewName(context),
+          )
+        ],
+      ),
     ),
   );
 }
@@ -64,6 +73,7 @@ class NewReflectionName extends StatelessWidget {
     required this.textReflectionNewNameFocusNode,
     required this.textReflectionNewName,
     required this.onPressedNewName,
+    required this.formKeyNewName,
   });
 
   ///
@@ -75,6 +85,9 @@ class NewReflectionName extends StatelessWidget {
   ///
   final Function(BuildContext context) onPressedNewName;
 
+  ///
+  final GlobalKey<FormState> formKeyNewName;
+
   @override
   Widget build(BuildContext context) {
     return view(
@@ -82,6 +95,7 @@ class NewReflectionName extends StatelessWidget {
       textReflectionNewName,
       textReflectionNewNameFocusNode,
       onPressedNewName,
+      formKeyNewName,
     );
   }
 }
