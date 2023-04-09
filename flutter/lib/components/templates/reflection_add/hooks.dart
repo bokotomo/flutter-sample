@@ -69,13 +69,15 @@ UseReturn useHooks(List<DomainReflection> reflections) {
       ];
     }
 
-    formKey.currentState?.reset();
+    textReflection.value.text = "";
+    // formKey.currentState?.reset();
   }
 
   /// モーダルで追加を押した
   void onPressedAdd(BuildContext c, bool textExist) {
     if (isGood.value == null && !textExist) return;
     addReflection(isGood.value!);
+
     Navigator.pop(c);
   }
 

@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart'
-    show BuildContext, Color, Icons, showDialog, Navigator, StatefulBuilder;
+    show
+        BuildContext,
+        Color,
+        Icons,
+        showDialog,
+        Navigator,
+        StatefulBuilder,
+        Widget,
+        Column,
+        CrossAxisAlignment;
 import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
@@ -13,6 +22,29 @@ import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
 import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
 
+Widget reflectionTypeButton(
+  String groupValue,
+  void Function(String?) onChangedGood,
+  void Function(String?) onChangedBad,
+) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      const BasicText(
+        text: "分類",
+        size: "M",
+      ),
+      SpacerHeight.m,
+      RadioGoodBadButton(
+        groupValue: groupValue,
+        onChangedGood: onChangedGood,
+        onChangedBad: onChangedBad,
+      ),
+      SpacerHeight.m,
+    ],
+  );
+}
+
 ///
 void showModal(
   BuildContext context,
@@ -25,35 +57,33 @@ void showModal(
   showDialog(
     barrierColor: const Color.fromARGB(170, 0, 0, 0),
     context: context,
-    builder: (contextBuilder) {
+    builder: (BuildContext contextBuilder) {
       String groupValue = "good";
 
       return StatefulBuilder(
-        builder: (contextStatefulBuilder, setState) => ModalBase(
+        builder: (
+          BuildContext contextStatefulBuilder,
+          void Function(void Function()) setState,
+        ) =>
+            ModalBase(
           title: title,
           children: [
-            const BasicText(
-              text: "分類",
-              size: "M",
-            ),
-            if (!textExist) SpacerHeight.m,
             if (!textExist)
-              RadioGoodBadButton(
-                groupValue: groupValue,
-                onChangedGood: (v) => {
+              reflectionTypeButton(
+                groupValue,
+                (v) => {
                   setState(() {
                     groupValue = v ?? "";
                   }),
                   onChangedGood(),
                 },
-                onChangedBad: (v) => {
+                (v) => {
                   setState(() {
                     groupValue = v ?? "";
                   }),
                   onChangedBad(),
                 },
               ),
-            SpacerHeight.m,
             ButtonIcon(
               icon: Icons.add,
               text: "追加する",
