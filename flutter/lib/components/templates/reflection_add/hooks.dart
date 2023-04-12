@@ -62,20 +62,19 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     if (candidates.value.every((e) => e.text != textReflection.value.text)) {
       candidates.value = [
         DomainCandidate(
-          id: 0,
           text: textReflection.value.text,
+          count: 1,
         ),
         ...candidates.value,
       ];
     }
 
-    textReflection.value.text = "";
-    // formKey.currentState?.reset();
+    formKey.currentState?.reset();
   }
 
   /// モーダルで追加を押した
-  void onPressedAdd(BuildContext c, bool textExist) {
-    if (isGood.value == null && !textExist) return;
+  void onPressedAdd(BuildContext c, bool candidateExist) {
+    if (isGood.value == null && !candidateExist) return;
     addReflection(isGood.value!);
 
     Navigator.pop(c);
@@ -85,13 +84,21 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   void onPressedAddReflection(BuildContext context) async {
     if (!formKey.currentState!.validate()) return;
     final text = textReflection.value.text;
-    final textExist = !candidates.value.every((e) => e.text != text);
+    final candidateExist = !candidates.value.every((e) => e.text != text);
+    int count = 1;
+    if (candidateExist) {
+      final DomainCandidate domain = candidates.value.firstWhere(
+        (c) => c.text == text,
+      );
+      count = domain.count + 1;
+    }
 
     showModal(
       context,
       text,
-      textExist,
-      (BuildContext c) => onPressedAdd(c, textExist),
+      candidateExist,
+      count,
+      (BuildContext c) => onPressedAdd(c, candidateExist),
       () => {
         isGood.value = true,
       },
@@ -122,8 +129,8 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     candidates.value = reflections
         .map(
           (d) => DomainCandidate(
-            id: d.id,
             text: d.text,
+            count: d.count,
           ),
         )
         .toList();
