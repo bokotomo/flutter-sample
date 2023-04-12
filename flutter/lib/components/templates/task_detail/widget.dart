@@ -46,9 +46,12 @@ class TemplateTaskDetail extends HookWidget {
       hooks.titleController,
       hooks.detailController,
       hooks.formKey,
+      hooks.groupValue,
       hooks.onPressedEditDone,
       hooks.onPressedTaskDone,
       hooks.onPressedCancel,
+      hooks.onChangedGood,
+      hooks.onChangedBad,
     );
   }
 }

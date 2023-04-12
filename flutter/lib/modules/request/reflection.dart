@@ -6,6 +6,8 @@ import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
     show DBConnection;
 import 'package:gamer_reflection/modules/database/model/reflection.dart'
     show ModelReflection;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 
 /// Request: Reflection
 class RequestReflection {
@@ -19,14 +21,19 @@ class RequestReflection {
   }
 
   /// 更新: Reflection
-  Future<void> updateReflection(int id, String title, String detail) async {
+  Future<void> updateReflection(
+    int id,
+    String title,
+    String detail,
+    ReflectionType reflectionType,
+  ) async {
     final Database db = GetIt.I<DBConnection>().db;
     // todo
     final model = ModelReflection(
       text: title,
       detail: detail,
       reflectionGroupId: 0,
-      reflectionType: 0,
+      reflectionType: reflectionType == ReflectionType.good ? 1 : 2,
       count: 0,
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),

@@ -12,6 +12,8 @@ import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 import 'package:gamer_reflection/components/templates/task_detail/modal/check_done.dart'
     show showModal;
 
@@ -24,9 +26,12 @@ class UseReturn {
     required this.titleController,
     required this.detailController,
     required this.formKey,
+    required this.groupValue,
     required this.onPressedEditDone,
     required this.onPressedTaskDone,
     required this.onPressedCancel,
+    required this.onChangedGood,
+    required this.onChangedBad,
   });
 
   final FocusNode titleFocusNode;
@@ -36,9 +41,12 @@ class UseReturn {
   final TextEditingController titleController;
   final TextEditingController detailController;
   final GlobalKey<FormState> formKey;
+  final String groupValue;
   final void Function() onPressedEditDone;
   final void Function(BuildContext) onPressedTaskDone;
   final void Function() onPressedCancel;
+  final Function(String?) onChangedGood;
+  final Function(String?) onChangedBad;
 }
 
 ///
@@ -55,6 +63,7 @@ UseReturn useHooks(
   ValueNotifier<TextEditingController> detailController =
       useState<TextEditingController>(TextEditingController());
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  ValueNotifier<String> groupValue = useState<String>("");
 
   /// 編集モード切り替え
   void toggleEditMode() {
@@ -66,6 +75,8 @@ UseReturn useHooks(
 
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
+    final bool isGood = reflection.reflectionType == ReflectionType.good;
+    groupValue.value = isGood ? "good" : "bad";
   }, [reflection]);
 
   /// タスク完了ボタンを押した
@@ -85,6 +96,8 @@ UseReturn useHooks(
 
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
+    final bool isGood = reflection.reflectionType == ReflectionType.good;
+    groupValue.value = isGood ? "good" : "bad";
   }
 
   /// 編集完了ボタンを押した
@@ -96,9 +109,20 @@ UseReturn useHooks(
       taskId,
       titleController.value.text,
       detailController.value.text,
+      groupValue.value == "good" ? ReflectionType.good : ReflectionType.bad,
     );
     toggleEditMode();
     updateReflection();
+  }
+
+  /// 良いを押した
+  void onChangedGood(String? t) {
+    groupValue.value = t ?? "";
+  }
+
+  /// 悪いを押した
+  void onChangedBad(String? t) {
+    groupValue.value = t ?? "";
   }
 
   return UseReturn(
@@ -112,5 +136,8 @@ UseReturn useHooks(
     titleController: titleController.value,
     detailController: detailController.value,
     formKey: formKey,
+    groupValue: groupValue.value,
+    onChangedGood: onChangedGood,
+    onChangedBad: onChangedBad,
   );
 }

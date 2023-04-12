@@ -78,7 +78,8 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
   ) async {
     final Map<String, Object?> map = {}
       ..addAll(model.toMapText())
-      ..addAll(model.toMapDetail());
+      ..addAll(model.toMapDetail())
+      ..addAll(model.toMapReflectionType());
 
     await db.update(
       tableNameReflection,

@@ -39,9 +39,12 @@ Widget view(
   TextEditingController titleController,
   TextEditingController detailController,
   GlobalKey<FormState> formKey,
+  final String groupValue,
   void Function() onPressedEditDone,
   void Function(BuildContext) onPressedTaskDone,
   void Function() onPressedCancel,
+  final Function(String?) onChangedGood,
+  final Function(String?) onChangedBad,
 ) {
   ListView content = ListView(
     padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
@@ -78,8 +81,11 @@ Widget view(
         reflection: reflection,
         titleFocusNode: titleFocusNode,
         detailFocusNode: detailFocusNode,
+        groupValue: groupValue,
         titleController: titleController,
         detailController: detailController,
+        onChangedGood: onChangedGood,
+        onChangedBad: onChangedBad,
       ),
       SpacerHeight.xm,
       ButtonIcon(
