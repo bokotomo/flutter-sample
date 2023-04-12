@@ -55,15 +55,15 @@ UseReturn useHooks(
   DomainReflection? reflection,
   Future<void> Function() updateReflection,
 ) {
-  ValueNotifier<bool> isEditMode = useState<bool>(false);
+  final ValueNotifier<bool> isEditMode = useState<bool>(false);
   final FocusNode titleFocusNode = useFocusNode();
   final FocusNode detailFocusNode = useFocusNode();
-  ValueNotifier<TextEditingController> titleController =
+  final ValueNotifier<TextEditingController> titleController =
       useState<TextEditingController>(TextEditingController());
-  ValueNotifier<TextEditingController> detailController =
+  final ValueNotifier<TextEditingController> detailController =
       useState<TextEditingController>(TextEditingController());
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  ValueNotifier<String> groupValue = useState<String>("");
+  final ValueNotifier<String> groupValue = useState<String>("");
 
   /// 編集モード切り替え
   void toggleEditMode() {

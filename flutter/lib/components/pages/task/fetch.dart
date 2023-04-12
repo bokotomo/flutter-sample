@@ -20,7 +20,7 @@ class UseReturn {
 
 /// データ取得: タスク一覧
 UseReturn useFetch(ValueNotifier<bool> canDC) {
-  ValueNotifier<List<DomainReflection>> reflections =
+  final ValueNotifier<List<DomainReflection>> reflections =
       useState<List<DomainReflection>>([]);
 
   /// データ取得

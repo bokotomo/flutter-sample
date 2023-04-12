@@ -14,7 +14,7 @@ class UseReturn {
 }
 
 UseReturn useHooks() {
-  ValueNotifier<bool> canDC = useState<bool>(false);
+  final ValueNotifier<bool> canDC = useState<bool>(false);
 
   /// 初期
   Future<void> setUp() async {

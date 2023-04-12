@@ -21,9 +21,9 @@ class UseReturn {
 
 /// データ取得: タスク詳細
 UseReturn useFetch(int taskId) {
-  ValueNotifier<DomainReflection?> reflection =
+  final ValueNotifier<DomainReflection?> reflection =
       useState<DomainReflection?>(null);
-  ValueNotifier<DataFetchState> dataFetchState =
+  final ValueNotifier<DataFetchState> dataFetchState =
       useState<DataFetchState>(DataFetchState.none);
 
   /// データ取得

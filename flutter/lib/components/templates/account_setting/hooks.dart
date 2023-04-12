@@ -35,12 +35,12 @@ class UseReturn {
 
 /// ロジック
 UseReturn useHooks() {
-  ValueNotifier<TextEditingController> textReflectionName =
+  final ValueNotifier<TextEditingController> textReflectionName =
       useState<TextEditingController>(TextEditingController());
-  FocusNode textReflectionNameFocusNode = useFocusNode();
-  ValueNotifier<TextEditingController> textReflectionNewName =
+  final FocusNode textReflectionNameFocusNode = useFocusNode();
+  final ValueNotifier<TextEditingController> textReflectionNewName =
       useState<TextEditingController>(TextEditingController());
-  FocusNode textReflectionNewNameFocusNode = useFocusNode();
+  final FocusNode textReflectionNewNameFocusNode = useFocusNode();
   final GlobalKey<FormState> formKeyNewName = GlobalKey<FormState>();
   final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
 

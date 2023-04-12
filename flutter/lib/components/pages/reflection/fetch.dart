@@ -15,7 +15,7 @@ class UseReturn {
 
 /// データ取得: 振り返り追加
 UseReturn useFetch() {
-  ValueNotifier<List<DomainReflection>> reflections =
+  final ValueNotifier<List<DomainReflection>> reflections =
       useState<List<DomainReflection>>([]);
 
   /// データの取得

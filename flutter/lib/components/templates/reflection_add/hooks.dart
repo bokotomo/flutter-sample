@@ -43,12 +43,12 @@ class UseReturn {
 ///
 UseReturn useHooks(List<DomainReflection> reflections) {
   final FocusNode textFieldFocusNode = useFocusNode();
-  ValueNotifier<TextEditingController> textReflection =
+  final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
-  ValueNotifier<List<DomainCandidate>> candidates =
+  final ValueNotifier<List<DomainCandidate>> candidates =
       useState<List<DomainCandidate>>([]);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  ValueNotifier<bool?> isGood = useState<bool?>(true);
+  final ValueNotifier<bool?> isGood = useState<bool?>(true);
 
   /// 入力欄をリセットする
   void resetInput() {

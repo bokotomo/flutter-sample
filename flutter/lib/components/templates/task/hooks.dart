@@ -31,15 +31,15 @@ class UseReturn {
 ///
 UseReturn useHooks(List<DomainReflection> reflections) {
   /// 期間: 初期値は3ヶ月
-  ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
+  final ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
 
   /// 選択している期間
-  Future<String?> memoedPeriod =
+  final Future<String?> memoedPeriod =
       useMemoized(() => selectedTaskPagePeriod.get(), [period.value]);
-  AsyncSnapshot<String?> futuredPeriod = useFuture(memoedPeriod);
+  final AsyncSnapshot<String?> futuredPeriod = useFuture(memoedPeriod);
 
   /// フィルターされた振り返り一覧
-  ValueNotifier<List<DomainReflection>> filteredReflections =
+  final ValueNotifier<List<DomainReflection>> filteredReflections =
       useState<List<DomainReflection>>([]);
 
   /// 期間でフィルターされた一覧を取得
