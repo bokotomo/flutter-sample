@@ -17,6 +17,8 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/atoms/radio_good_bad_button.dart'
     show RadioGoodBadButton;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
     show ButtonIcon;
 import 'package:gamer_reflection/components/common/modal/base.dart'
@@ -74,7 +76,7 @@ void showModal(
   void Function() onChangedBad,
 ) {
   showDialog(
-    barrierColor: const Color.fromARGB(170, 0, 0, 0),
+    barrierColor: ConstantColor.modalBackground,
     context: context,
     builder: (BuildContext contextBuilder) {
       String groupValue = "good";

@@ -35,4 +35,7 @@ class ConstantColor {
 
   /// 薄いアイコンの色
   static const Color iconThin = Color.fromARGB(160, 255, 255, 255);
+
+  /// モーダルのコンテンツ後ろの背景
+  static const Color modalBackground = Color.fromARGB(180, 0, 0, 0);
 }
