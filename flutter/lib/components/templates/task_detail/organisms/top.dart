@@ -64,7 +64,7 @@ class TaskDetailTop extends StatelessWidget {
     final String reflectionTypeText = isGood ? "種類: 良かった点" : "種類: 悪かった点";
     final String updateAtText = DateFormat("yyyy.MM.dd")
         .format(reflection?.updatedAt ?? DateTime.now());
-    final String reflectionUpdateAtText = "更新日: $updateAtText";
+    final String reflectionUpdateAtText = "最終発生日: $updateAtText";
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -52,28 +52,42 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   /// 振り返りの追加
   Future<void> addReflection(bool v) async {
+    final String text = textReflection.value.text;
+
     /// DBに保存する
     await RequestReflection().addReflection(
-      textReflection.value.text,
+      text,
       v,
     );
 
-    /// 重複しない場合は候補一覧に追加する
-    if (candidates.value.every((e) => e.text != textReflection.value.text)) {
+    final candidateNotExist = candidates.value.every((e) => e.text != text);
+    if (candidateNotExist) {
+      /// 重複しない場合は候補一覧に追加する
       candidates.value = [
         DomainCandidate(
-          text: textReflection.value.text,
+          text: text,
           count: 1,
         ),
         ...candidates.value,
       ];
+    } else {
+      /// 重複する場合はcountを加算する
+      candidates.value = candidates.value
+          .map(
+            (c) => DomainCandidate(
+              count: text == c.text ? c.count + 1 : c.count,
+              text: c.text,
+            ),
+          )
+          .toList();
     }
 
+    /// 入力欄をリセットする
     formKey.currentState?.reset();
   }
 
   /// モーダルで追加を押した
-  void onPressedAdd(BuildContext c, bool candidateExist) {
+  void onPressedAddModal(BuildContext c, bool candidateExist) {
     if (isGood.value == null && !candidateExist) return;
     addReflection(isGood.value!);
 
@@ -93,12 +107,13 @@ UseReturn useHooks(List<DomainReflection> reflections) {
       count = domain.count + 1;
     }
 
+    /// 追加するモーダルを表示する
     showModal(
       context,
       text,
       candidateExist,
       count,
-      (BuildContext c) => onPressedAdd(c, candidateExist),
+      (BuildContext c) => onPressedAddModal(c, candidateExist),
       () => {
         isGood.value = true,
       },
@@ -116,6 +131,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   /// 振り返りの入力文字を削除
   void onPressedRemoveText() {
+    /// 入力欄をリセットする
     formKey.currentState?.reset();
   }
 

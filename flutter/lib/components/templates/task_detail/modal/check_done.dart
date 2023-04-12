@@ -24,7 +24,7 @@ void showModal(
     builder: (BuildContext contextBuilder) {
       return StatefulBuilder(
         builder: (BuildContext contextStatefulBuilder, _) => ModalBase(
-          title: "タスクを完了しますか？",
+          title: "このタスクを完了しますか？",
           children: [
             const TextAnnotation(
               text: "一覧から削除されます。",
@@ -32,7 +32,7 @@ void showModal(
             ),
             SpacerHeight.m,
             ButtonDone(
-              text: "このタスクを完了する",
+              text: "完了する",
               onPressed: () => {
                 onPressedTaskDone(),
                 Navigator.pop(contextStatefulBuilder),
