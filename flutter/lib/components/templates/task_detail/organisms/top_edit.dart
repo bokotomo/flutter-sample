@@ -1,5 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget, useState;
+import 'package:flutter/material.dart'
+    show
+        FocusNode,
+        TextEditingController,
+        Column,
+        Widget,
+        BuildContext,
+        CrossAxisAlignment;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'

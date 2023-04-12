@@ -30,13 +30,13 @@ class UseReturn {
 
 ///
 UseReturn useHooks(List<DomainReflection> reflections) {
-  /// 選択している期間
-  final Future<String?> memoedPeriod =
-      useMemoized(() => selectedTaskPagePeriod.get());
-  final AsyncSnapshot<String?> futuredPeriod = useFuture(memoedPeriod);
-
   /// 期間: 初期値は3ヶ月
   ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
+
+  /// 選択している期間
+  Future<String?> memoedPeriod =
+      useMemoized(() => selectedTaskPagePeriod.get(), [period.value]);
+  AsyncSnapshot<String?> futuredPeriod = useFuture(memoedPeriod);
 
   /// フィルターされた振り返り一覧
   ValueNotifier<List<DomainReflection>> filteredReflections =
@@ -120,7 +120,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   }
 
   /// 端末に保存されてる選択している期間を取得
-  Period getPeriodBySVG(String kvsString) {
+  Period getPeriodByKVS(String kvsString) {
     switch (kvsString) {
       case "period-all":
         return Period.all;
@@ -135,7 +135,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   useEffect(() {
     if (futuredPeriod.data == null) return;
-    Period p = getPeriodBySVG(futuredPeriod.data ?? "");
+    Period p = getPeriodByKVS(futuredPeriod.data ?? "period-three-month");
     period.value = p;
 
     /// データがなければ実行しない
@@ -143,7 +143,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
     /// 初期値は3ヶ月でフィルターする
     updateReflectionsByPeriodIndex(p);
-  }, [reflections, futuredPeriod]);
+  }, [reflections]);
 
   return UseReturn(
     period: period.value,
