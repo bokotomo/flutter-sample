@@ -50,6 +50,12 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   ValueNotifier<bool?> isGood = useState<bool?>(true);
 
+  /// 入力欄をリセットする
+  void resetInput() {
+    formKey.currentState?.reset();
+    textReflection.value.text = "";
+  }
+
   /// 振り返りの追加
   Future<void> addReflection(bool v) async {
     final String text = textReflection.value.text;
@@ -81,16 +87,19 @@ UseReturn useHooks(List<DomainReflection> reflections) {
           )
           .toList();
     }
-
-    /// 入力欄をリセットする
-    formKey.currentState?.reset();
   }
 
   /// モーダルで追加を押した
   void onPressedAddModal(BuildContext c, bool candidateExist) {
     if (isGood.value == null && !candidateExist) return;
+
+    /// 振り返りの追加
     addReflection(isGood.value!);
 
+    /// 入力欄をリセットする
+    resetInput();
+
+    /// モーダルを消す
     Navigator.pop(c);
   }
 
@@ -132,7 +141,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   /// 振り返りの入力文字を削除
   void onPressedRemoveText() {
     /// 入力欄をリセットする
-    formKey.currentState?.reset();
+    resetInput();
   }
 
   /// 振り返りの終了を押した
