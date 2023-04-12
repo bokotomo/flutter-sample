@@ -9,7 +9,6 @@ import 'package:flutter/material.dart'
         ListView,
         EdgeInsets,
         Icons,
-        Navigator,
         Form;
 import 'package:gamer_reflection/components/templates/task_detail/organisms/top.dart'
     show TaskDetailTop;
@@ -41,7 +40,7 @@ Widget view(
   TextEditingController detailController,
   GlobalKey<FormState> formKey,
   void Function() onPressedEditDone,
-  void Function() onPressedTaskDone,
+  void Function(BuildContext) onPressedTaskDone,
   void Function() onPressedCancel,
 ) {
   ListView content = ListView(
@@ -65,8 +64,7 @@ Widget view(
       ButtonDone(
         text: "このタスクを完了する",
         onPressed: () => {
-          onPressedTaskDone(),
-          Navigator.pop(context),
+          onPressedTaskDone(context),
         },
       ),
     ],

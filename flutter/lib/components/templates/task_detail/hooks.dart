@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart'
-    show FocusNode, TextEditingController, ValueNotifier, GlobalKey, FormState;
+    show
+        FocusNode,
+        TextEditingController,
+        ValueNotifier,
+        GlobalKey,
+        FormState,
+        BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/components/templates/task_detail/modal/check_done.dart'
+    show showModal;
 
 class UseReturn {
   const UseReturn({
@@ -29,7 +37,7 @@ class UseReturn {
   final TextEditingController detailController;
   final GlobalKey<FormState> formKey;
   final void Function() onPressedEditDone;
-  final void Function() onPressedTaskDone;
+  final void Function(BuildContext) onPressedTaskDone;
   final void Function() onPressedCancel;
 }
 
@@ -61,8 +69,13 @@ UseReturn useHooks(
   }, [reflection]);
 
   /// タスク完了ボタンを押した
-  void onPressedTaskDone() async {
-    await RequestReflection().deleteReflection(taskId);
+  void onPressedTaskDone(BuildContext context) async {
+    showModal(
+      context,
+      () async => {
+        await RequestReflection().deleteReflection(taskId),
+      },
+    );
   }
 
   /// キャンセルボタンを押した
