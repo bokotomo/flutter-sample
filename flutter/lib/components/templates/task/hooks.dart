@@ -8,9 +8,16 @@ import 'package:gamer_reflection/modules/type/reflection.dart'
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/type.dart'
     show Period;
 import 'package:gamer_reflection/components/templates/task/filter.dart'
-    show filteredMonth, getTagColor, getPriority, getHighPriorityIds;
+    show
+        getFilteredPeriod,
+        getFilteredReflectionType,
+        getTagColor,
+        getPriority,
+        getHighPriorityIds;
 import 'package:gamer_reflection/modules/storage/selected_period.dart'
     show selectedTaskPagePeriod;
+import 'package:gamer_reflection/modules/storage/selected_reflection_type.dart'
+    show selectReflectionType;
 
 class UseReturn {
   const UseReturn({
@@ -47,26 +54,15 @@ UseReturn useHooks(List<DomainReflection> reflections) {
       useMemoized(() => selectedTaskPagePeriod.get(), [period.value]);
   final AsyncSnapshot<String?> futuredPeriod = useFuture(memoedPeriod);
 
+  /// 選択している振り返り種類
+  final Future<String?> memoedReflectionType =
+      useMemoized(() => selectReflectionType.get(), [isSelectedGood.value]);
+  final AsyncSnapshot<String?> futuredReflectionType =
+      useFuture(memoedReflectionType);
+
   /// フィルターされた振り返り一覧
   final ValueNotifier<List<DomainReflection>> filteredReflections =
       useState<List<DomainReflection>>([]);
-
-  /// 期間でフィルターされた一覧を取得
-  List<DomainReflection> getFilteredReflections(
-    Period p,
-    List<DomainReflection> domains,
-  ) {
-    switch (p) {
-      case Period.all:
-        return domains;
-      case Period.threeMonth:
-        return filteredMonth(3, domains);
-      case Period.oneMonth:
-        return filteredMonth(1, domains);
-      default:
-        return [];
-    }
-  }
 
   /// 振り返り一覧取得
   List<DomainReflection> adapterReflections(List<DomainReflection> domains) {
@@ -102,11 +98,11 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     /// 良かった悪かったでフィルターする
     final reflectionType = isGood ? ReflectionType.good : ReflectionType.bad;
     final List<DomainReflection> filteredReflectionTypeReflections =
-        reflections.where((r) => r.reflectionType == reflectionType).toList();
+        getFilteredReflectionType(reflections, reflectionType);
 
     /// 期間でフィルターする
     final List<DomainReflection> filteredPeriodReflections =
-        getFilteredReflections(p, filteredReflectionTypeReflections);
+        getFilteredPeriod(p, filteredReflectionTypeReflections);
     filteredReflections.value = adapterReflections(filteredPeriodReflections);
   }
 
@@ -138,15 +134,21 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   }
 
   /// 改善することボタンを押した
-  void onPressedBad() {
+  void onPressedBad() async {
     isSelectedGood.value = false;
     updateFilteredReflections(period.value, false);
+
+    /// 端末に保存
+    await selectReflectionType.save("bad");
   }
 
   /// 伸ばすことボタンを押した
-  void onPressedGood() {
+  void onPressedGood() async {
     isSelectedGood.value = true;
     updateFilteredReflections(period.value, true);
+
+    /// 端末に保存
+    await selectReflectionType.save("good");
   }
 
   /// 端末に保存されてる選択している期間を取得
@@ -165,14 +167,23 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   useEffect(() {
     if (futuredPeriod.data == null) return;
-    Period p = getPeriodByKVS(futuredPeriod.data ?? "period-three-month");
-    period.value = p;
+    if (futuredReflectionType.data == null) return;
+
+    /// ローカルデータ: 選択期間
+    final Period kvsPeriod =
+        getPeriodByKVS(futuredPeriod.data ?? "period-three-month");
+    period.value = kvsPeriod;
+
+    /// ローカルデータ: 振り返り種類
+    final String kvsReflectionType = futuredReflectionType.data ?? "bad";
+    final bool isGood = kvsReflectionType == "good";
+    isSelectedGood.value = isGood;
 
     /// データがなければ実行しない
     if (reflections.isEmpty) return;
 
-    /// 初期値は3ヶ月でフィルターする
-    updateFilteredReflections(p, false);
+    /// 初期値は「3ヶ月,改善点」でフィルターする
+    updateFilteredReflections(kvsPeriod, isGood);
   }, [reflections]);
 
   return UseReturn(
