@@ -36,8 +36,8 @@ UseReturn useHooks() {
 
   /// カラーモード
   const List<SelectItem> colors = [
-    SelectItem(text: 'ダークモード', value: 'dark'),
-    SelectItem(text: 'ライトモード', value: 'light'),
+    SelectItem(text: 'ダーク', value: 'dark'),
+    SelectItem(text: 'ライト', value: 'light'),
   ];
 
   useEffect(() {

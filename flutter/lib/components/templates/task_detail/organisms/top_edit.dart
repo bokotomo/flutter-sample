@@ -69,6 +69,9 @@ class TaskDetailTopEdit extends HookWidget {
     final bool isGood = reflection?.reflectionType == ReflectionType.good;
     final int count = reflection?.count ?? 0;
     final String countText = "回数: $count回";
+    final String detailTitle = isGood ? "良かった点を伸ばす方法" : "対策方法";
+    final String detailHintText =
+        isGood ? "良かった点を伸ばす方法を書きましょう。(1000文字以内)" : "対策方法を書きましょう。(1000文字以内)";
 
     final InputText titleForm = InputText(
       text: titleController,
@@ -78,7 +81,7 @@ class TaskDetailTopEdit extends HookWidget {
     );
     final InputTextForm detailForm = InputTextForm(
       text: detailController,
-      hintText: "対策方法を書きましょう。(1000文字以内)",
+      hintText: detailHintText,
       focusNode: detailFocusNode,
       maxLength: 50, // TODO デバックで50
     );
@@ -100,7 +103,7 @@ class TaskDetailTopEdit extends HookWidget {
         ),
         SpacerHeight.m,
         BasicText(
-          text: isGood ? "良かった点を伸ばすには" : "対策方法",
+          text: detailTitle,
           size: "M",
         ),
         SpacerHeight.m,
