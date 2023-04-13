@@ -11,6 +11,18 @@ class ConstantColorButton {
   /// ボタンの枠線色
   static const Color buttonBorder = Color.fromARGB(255, 49, 60, 199);
 
+  /// 薄いボタンの背景色
+  static const Color buttonThin = Color.fromARGB(255, 8, 8, 13);
+
+  /// 薄いボタンの枠線色
+  static const Color buttonThinBorder = Color.fromARGB(255, 51, 54, 85);
+
+  /// 薄いボタンのアクティブ状態の背景色
+  static const Color buttonThinActive = Color.fromARGB(255, 43, 47, 56);
+
+  /// 薄いボタンの状態の枠線色
+  static const Color buttonThinActiveBorder = Color.fromARGB(255, 68, 79, 118);
+
   /// 完了ボタンの背景色
   static const Color buttonDone = Color.fromARGB(255, 85, 129, 91);
 

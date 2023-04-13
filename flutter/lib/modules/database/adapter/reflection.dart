@@ -13,16 +13,17 @@ class AdapterReflection {
   List<DomainReflection> domainReflections(List<ModelReflection> models) {
     /// ドメインに変換
     final domain = models.map(
-      (e) {
+      (m) {
         return DomainReflection(
-          id: e.id ?? 0,
-          text: e.text,
-          detail: e.detail,
-          count: e.count,
-          reflectionType: ReflectionType.bad,
+          id: m.id ?? 0,
+          text: m.text,
+          detail: m.detail,
+          count: m.count,
+          reflectionType:
+              m.reflectionType == 1 ? ReflectionType.good : ReflectionType.bad,
           priority: 1,
           tagColor: TagTextColor.gray,
-          updatedAt: e.updatedAt,
+          updatedAt: m.updatedAt,
         );
       },
     );

@@ -29,9 +29,12 @@ class TemplateTask extends HookWidget {
       pushTaskDetail,
       hooks.period,
       hooks.filteredReflections,
+      hooks.isSelectedGood,
       hooks.onPressedAll,
       hooks.onPressedThreeMonth,
       hooks.onPressedMonth,
+      hooks.onPressedBad,
+      hooks.onPressedGood,
     );
   }
 }

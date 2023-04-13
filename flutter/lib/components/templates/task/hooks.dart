@@ -9,29 +9,38 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
     show Period;
 import 'package:gamer_reflection/components/templates/task/filter.dart'
     show filteredMonth, getTagColor, getPriority, getHighPriorityIds;
-import 'package:gamer_reflection/modules/strage/selected_period.dart'
+import 'package:gamer_reflection/modules/storage/selected_period.dart'
     show selectedTaskPagePeriod;
 
 class UseReturn {
   const UseReturn({
     required this.period,
     required this.filteredReflections,
+    required this.isSelectedGood,
     required this.onPressedAll,
     required this.onPressedThreeMonth,
     required this.onPressedMonth,
+    required this.onPressedBad,
+    required this.onPressedGood,
   });
 
   final Period period;
   final List<DomainReflection> filteredReflections;
+  final bool isSelectedGood;
   final void Function() onPressedAll;
   final void Function() onPressedThreeMonth;
   final void Function() onPressedMonth;
+  final void Function() onPressedBad;
+  final void Function() onPressedGood;
 }
 
 ///
 UseReturn useHooks(List<DomainReflection> reflections) {
   /// 期間: 初期値は3ヶ月
   final ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
+
+  /// 改善すること伸ばすことを選択
+  final ValueNotifier<bool> isSelectedGood = useState<bool>(false);
 
   /// 選択している期間
   final Future<String?> memoedPeriod =
@@ -43,14 +52,17 @@ UseReturn useHooks(List<DomainReflection> reflections) {
       useState<List<DomainReflection>>([]);
 
   /// 期間でフィルターされた一覧を取得
-  List<DomainReflection> getFilteredReflections(Period p) {
+  List<DomainReflection> getFilteredReflections(
+    Period p,
+    List<DomainReflection> domains,
+  ) {
     switch (p) {
       case Period.all:
-        return reflections;
+        return domains;
       case Period.threeMonth:
-        return filteredMonth(3, reflections);
+        return filteredMonth(3, domains);
       case Period.oneMonth:
-        return filteredMonth(1, reflections);
+        return filteredMonth(1, domains);
       default:
         return [];
     }
@@ -85,19 +97,23 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     return domain.toList();
   }
 
-  /// 期間変更をする。
-  /// 振り返り一覧も更新される。
-  void updateReflectionsByPeriodIndex(Period p) {
-    period.value = p;
+  /// 振り返り一覧を更新
+  void updateFilteredReflections(Period p, bool isGood) {
+    /// 良かった悪かったでフィルターする
+    final reflectionType = isGood ? ReflectionType.good : ReflectionType.bad;
+    final List<DomainReflection> filteredReflectionTypeReflections =
+        reflections.where((r) => r.reflectionType == reflectionType).toList();
 
+    /// 期間でフィルターする
     final List<DomainReflection> filteredPeriodReflections =
-        getFilteredReflections(p);
+        getFilteredReflections(p, filteredReflectionTypeReflections);
     filteredReflections.value = adapterReflections(filteredPeriodReflections);
   }
 
   /// 期間変更をクリック：全期間
   void onPressedAll() async {
-    updateReflectionsByPeriodIndex(Period.all);
+    period.value = Period.all;
+    updateFilteredReflections(Period.all, isSelectedGood.value);
 
     /// 端末に保存
     await selectedTaskPagePeriod.save("period-all");
@@ -105,7 +121,8 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   /// 期間変更をクリック：3ヶ月
   void onPressedThreeMonth() async {
-    updateReflectionsByPeriodIndex(Period.threeMonth);
+    period.value = Period.threeMonth;
+    updateFilteredReflections(Period.threeMonth, isSelectedGood.value);
 
     /// 端末に保存
     await selectedTaskPagePeriod.save("period-three-month");
@@ -113,10 +130,23 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   /// 期間変更をクリック：1ヶ月
   void onPressedMonth() async {
-    updateReflectionsByPeriodIndex(Period.oneMonth);
+    period.value = Period.oneMonth;
+    updateFilteredReflections(Period.oneMonth, isSelectedGood.value);
 
     /// 端末に保存
     await selectedTaskPagePeriod.save("period-one-month");
+  }
+
+  /// 改善することボタンを押した
+  void onPressedBad() {
+    isSelectedGood.value = false;
+    updateFilteredReflections(period.value, false);
+  }
+
+  /// 伸ばすことボタンを押した
+  void onPressedGood() {
+    isSelectedGood.value = true;
+    updateFilteredReflections(period.value, true);
   }
 
   /// 端末に保存されてる選択している期間を取得
@@ -142,14 +172,17 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     if (reflections.isEmpty) return;
 
     /// 初期値は3ヶ月でフィルターする
-    updateReflectionsByPeriodIndex(p);
+    updateFilteredReflections(p, false);
   }, [reflections]);
 
   return UseReturn(
     period: period.value,
     filteredReflections: filteredReflections.value,
+    isSelectedGood: isSelectedGood.value,
     onPressedAll: onPressedAll,
     onPressedThreeMonth: onPressedThreeMonth,
     onPressedMonth: onPressedMonth,
+    onPressedBad: onPressedBad,
+    onPressedGood: onPressedGood,
   );
 }

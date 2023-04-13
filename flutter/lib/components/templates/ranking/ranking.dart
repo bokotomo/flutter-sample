@@ -21,6 +21,7 @@ Widget view(BuildContext context) {
 
   return BaseLayoutPadding(
     title: "ランキング",
+    isBackGround: true,
     child: cloumn,
   );
 }

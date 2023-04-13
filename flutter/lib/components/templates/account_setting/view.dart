@@ -18,6 +18,8 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
     show SelectLanguage;
+import 'package:gamer_reflection/components/common/molecules/select_color_mode/widget.dart'
+    show SelectColorMode;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
 import 'package:gamer_reflection/components/templates/account_setting/organisms/new_reflection_name.dart'
@@ -86,6 +88,20 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
             BasicText(
+              text: 'カラーモードの変更',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            SelectColorMode(),
+          ],
+        ),
+      ),
+      SpacerHeight.m,
+      Box(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            BasicText(
               text: '利用規約',
               size: "M",
             ),
@@ -103,6 +119,7 @@ Widget view(
 
   return BaseLayoutPadding(
     title: "アカウント設定",
+    isBackGround: true,
     child: cloumn,
   );
 }

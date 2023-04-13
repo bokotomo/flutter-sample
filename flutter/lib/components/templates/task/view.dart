@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart'
-    show Widget, BuildContext, ListView, Padding, EdgeInsets;
+    show Widget, BuildContext, ListView, Padding, EdgeInsets, Column, Expanded;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/task/organisms/no_data_annotation.dart'
     show TaskNoDataAnnotation;
 import 'package:gamer_reflection/components/templates/task/organisms/task_list.dart'
     show TaskList;
+import 'package:gamer_reflection/components/templates/task/organisms/bottom_buttons.dart'
+    show BottomButtons;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/widget.dart'
@@ -23,9 +25,12 @@ Widget view(
   void Function(BuildContext context, int taskId) pushTaskDetail,
   Period period,
   List<DomainReflection> filteredReflections,
+  bool isSelectedGood,
   void Function() onPressedAll,
   void Function() onPressedThreeMonth,
   void Function() onPressedMonth,
+  void Function() onPressedBad,
+  void Function() onPressedGood,
 ) {
   final tasklist = TaskList(
     reflections: filteredReflections,
@@ -66,8 +71,19 @@ Widget view(
     ],
   );
 
+  final content = Column(
+    children: <Widget>[
+      Expanded(child: body),
+      BottomButtons(
+        isSelectedGood: isSelectedGood,
+        onPressedBad: () => onPressedBad(),
+        onPressedGood: () => onPressedGood(),
+      ),
+    ],
+  );
+
   return BaseLayout(
     title: "タスク",
-    child: body,
+    child: content,
   );
 }

@@ -1,4 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Widget,
+        BuildContext,
+        Padding,
+        EdgeInsets,
+        Scaffold,
+        GestureDetector,
+        Container,
+        BoxDecoration,
+        DecorationImage,
+        AssetImage,
+        BoxFit;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -11,6 +24,7 @@ class BaseLayoutPadding extends StatelessWidget {
     super.key,
     required this.child,
     required this.title,
+    required this.isBackGround,
     this.onTap,
   });
 
@@ -19,6 +33,9 @@ class BaseLayoutPadding extends StatelessWidget {
 
   /// タイトル
   final String title;
+
+  /// 背景あり
+  final bool isBackGround;
 
   /// 外部を押した
   final void Function()? onTap;
@@ -32,13 +49,22 @@ class BaseLayoutPadding extends StatelessWidget {
       ),
       child: child,
     );
+    final backGroundBody = Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('images/backGroundIcons.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: padding,
+    );
 
     return Scaffold(
       backgroundColor: ConstantColor.content,
       appBar: Header(title: title),
       body: GestureDetector(
         onTap: onTap,
-        child: padding,
+        child: isBackGround ? backGroundBody : padding,
       ),
     );
   }
