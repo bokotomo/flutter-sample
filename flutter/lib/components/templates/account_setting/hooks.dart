@@ -6,6 +6,8 @@ import 'package:flutter/material.dart'
         BuildContext,
         GlobalKey,
         FormState;
+import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+    show DomainReflectionGroup;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
@@ -34,7 +36,7 @@ class UseReturn {
 }
 
 /// ロジック
-UseReturn useHooks() {
+UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   final ValueNotifier<TextEditingController> textReflectionName =
       useState<TextEditingController>(TextEditingController());
   final FocusNode textReflectionNameFocusNode = useFocusNode();

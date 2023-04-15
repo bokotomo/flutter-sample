@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart' show Database;
 
-///
+/// DB: テーブルのセットアップ
 class TableSetUp {
   /// テーブルの作成
   /// 後でマイグレーションファイルに合わせるので一時的
@@ -22,8 +22,7 @@ CREATE TABLE IF NOT EXISTS reflection(
 CREATE TABLE IF NOT EXISTS reflection_group(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
-  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime')),
-  updated_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime'))
+  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime'))
 )
 ''');
     } catch (e) {
