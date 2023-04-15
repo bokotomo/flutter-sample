@@ -31,6 +31,7 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
 
 /// アカウント設定
 Widget view(
+  BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   void Function() onPressedEdit,
   void Function(BuildContext context) onPressedNewName,

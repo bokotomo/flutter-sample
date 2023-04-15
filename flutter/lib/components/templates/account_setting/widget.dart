@@ -22,6 +22,7 @@ class TemplateAccountSetting extends HookWidget {
     final hooks = useHooks(reflectionGroups);
 
     return view(
+      context,
       reflectionGroups,
       hooks.onPressedEdit,
       hooks.onPressedNewName,
