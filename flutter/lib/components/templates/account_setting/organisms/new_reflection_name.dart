@@ -29,11 +29,11 @@ Widget view(
   TextEditingController textReflectionNewName,
   FocusNode textReflectionNewNameFocusNode,
   Function(BuildContext context) onPressedNewName,
-  GlobalKey<FormState> formKeyNewName,
+  GlobalKey<FormState> formKey,
 ) {
   return Form(
     autovalidateMode: AutovalidateMode.onUserInteraction,
-    key: formKeyNewName,
+    key: formKey,
     child: Box(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +73,7 @@ class NewReflectionName extends StatelessWidget {
     required this.textReflectionNewNameFocusNode,
     required this.textReflectionNewName,
     required this.onPressedNewName,
-    required this.formKeyNewName,
+    required this.formKey,
   });
 
   ///
@@ -86,7 +86,7 @@ class NewReflectionName extends StatelessWidget {
   final Function(BuildContext context) onPressedNewName;
 
   ///
-  final GlobalKey<FormState> formKeyNewName;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class NewReflectionName extends StatelessWidget {
       textReflectionNewName,
       textReflectionNewNameFocusNode,
       onPressedNewName,
-      formKeyNewName,
+      formKey,
     );
   }
 }

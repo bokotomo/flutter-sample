@@ -57,8 +57,18 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
 
   /// 振り返り名の変更を押した
-  void onPressedEdit() {
+  Future<void> onPressedEdit() async {
     if (!formKeyEditName.currentState!.validate()) return;
+
+    final int id = int.parse(futuredReflectionGroup.data.toString());
+    final String name = textReflectionName.value.text;
+
+    /// 入力欄をリセットする
+    formKeyEditName.currentState?.reset();
+    textReflectionName.value.text = name;
+
+    /// DB更新
+    await RequestReflectionGroup().updateReflectionGroup(id, name);
   }
 
   /// 新規振り返り名の追加を押した
@@ -67,14 +77,14 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
     if (name.isEmpty) return;
 
     /// DBに追加
-    final id = await RequestReflectionGroup().addReflectionGroup(name);
+    final int id = await RequestReflectionGroup().addReflectionGroup(name);
 
     /// 選択しているキャッシュに保存
     selectReflectionGroup.save(id.toString());
 
     /// 入力欄をリセットする
-    formKeyNewName.currentState!.reset();
     textReflectionNewName.value.text = "";
+    formKeyNewName.currentState?.reset();
   }
 
   /// 新規振り返り名の追加を押した
@@ -91,7 +101,7 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   useEffect(() {
     if (futuredReflectionGroup.data == null) return;
 
-    final id = int.parse(futuredReflectionGroup.data.toString());
+    final int id = int.parse(futuredReflectionGroup.data.toString());
     final DomainReflectionGroup d = reflectionGroups.firstWhere(
       (r) => r.id == id,
       orElse: () => const DomainReflectionGroup(id: 0, name: ""),
