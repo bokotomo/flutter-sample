@@ -12,14 +12,17 @@ class TemplateReflectionAdd extends HookWidget {
   const TemplateReflectionAdd({
     super.key,
     required this.reflections,
+    required this.title,
   });
   final List<DomainReflection> reflections;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     final hooks = useHooks(reflections);
 
     return view(
+      title,
       hooks.textFieldFocusNode,
       hooks.candidates,
       hooks.formKey,

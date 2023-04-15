@@ -23,6 +23,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
 
 ///
 Widget view(
+  String title,
   FocusNode textFieldFocusNode,
   List<DomainCandidate> candidates,
   GlobalKey<FormState> formKey,
@@ -56,7 +57,7 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "振り返りの追加",
+    title: title,
     onTap: () => textFieldFocusNode.unfocus(),
     child: Form(
       autovalidateMode: AutovalidateMode.onUserInteraction,
