@@ -21,6 +21,7 @@ class PageTask extends HookWidget {
     return Scaffold(
       body: TemplateTask(
         reflections: d.reflections,
+        reflectionGroups: d.reflectionGroups,
         pushTaskDetail: d.pushTaskDetail,
       ),
     );

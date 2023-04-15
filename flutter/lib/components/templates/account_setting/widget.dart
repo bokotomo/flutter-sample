@@ -13,6 +13,8 @@ class TemplateAccountSetting extends HookWidget {
     super.key,
     required this.reflectionGroups,
   });
+
+  /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;
 
   @override
@@ -20,6 +22,7 @@ class TemplateAccountSetting extends HookWidget {
     final hooks = useHooks(reflectionGroups);
 
     return view(
+      reflectionGroups,
       hooks.onPressedEdit,
       hooks.onPressedNewName,
       hooks.textReflectionName,

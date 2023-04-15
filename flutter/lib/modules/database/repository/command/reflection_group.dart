@@ -5,7 +5,7 @@ import 'package:gamer_reflection/modules/database/model/reflection_group.dart'
 
 /// Interface: IRepositoryReflectionGroupCommand
 abstract class IRepositoryReflectionGroupCommand {
-  Future<void> insertReflection(Database db, String name);
+  Future<int> insertReflectionGroup(Database db, String name);
   Future<void> updateReflectionGroupNameById(Database db, int id, String name);
   // Future<void> deleteReflectionById(Database db, int id);
 }
@@ -16,18 +16,20 @@ class RepositoryReflectionGroupCommand
     extends IRepositoryReflectionGroupCommand {
   /// 追加: 振り返りグループ
   @override
-  Future<void> insertReflection(Database db, String name) async {
+  Future<int> insertReflectionGroup(Database db, String name) async {
     /// 新規登録
     final ModelReflectionGroup reflectionGroup = ModelReflectionGroup(
       name: name,
       createdAt: DateTime.now(),
     );
 
-    await db.insert(
+    final id = await db.insert(
       tableNameReflection,
       reflectionGroup.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
+
+    return id;
   }
 
   /// 更新: 振り返りグループ名

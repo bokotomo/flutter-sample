@@ -15,6 +15,8 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
     show Period;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
+import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+    show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -22,6 +24,7 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 ///
 Widget view(
   BuildContext context,
+  List<DomainReflectionGroup> reflectionGroups,
   void Function(BuildContext context, int taskId) pushTaskDetail,
   Period period,
   List<DomainReflection> filteredReflections,
@@ -47,11 +50,13 @@ Widget view(
       SpacerHeight.m,
 
       /// 振り返りグループ選択ボタン
-      const Padding(
-        padding: EdgeInsets.symmetric(
+      Padding(
+        padding: const EdgeInsets.symmetric(
           horizontal: ConstantSizeUI.l3,
         ),
-        child: SelectReflectionGroup(),
+        child: SelectReflectionGroup(
+          reflectionGroups: reflectionGroups,
+        ),
       ),
 
       SpacerHeight.s,

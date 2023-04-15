@@ -22,6 +22,8 @@ import 'package:gamer_reflection/components/common/molecules/select_color_mode/w
     show SelectColorMode;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
+import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+    show DomainReflectionGroup;
 import 'package:gamer_reflection/components/templates/account_setting/organisms/new_reflection_name.dart'
     show NewReflectionName;
 import 'package:gamer_reflection/components/templates/account_setting/organisms/edit_reflection_name.dart'
@@ -29,6 +31,7 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
 
 /// アカウント設定
 Widget view(
+  List<DomainReflectionGroup> reflectionGroups,
   void Function() onPressedEdit,
   void Function(BuildContext context) onPressedNewName,
   TextEditingController textReflectionName,
@@ -44,13 +47,15 @@ Widget view(
       Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            BasicText(
+          children: [
+            const BasicText(
               text: '選択中の振り返り名',
               size: "M",
             ),
             SpacerHeight.m,
-            SelectReflectionGroup(),
+            SelectReflectionGroup(
+              reflectionGroups: reflectionGroups,
+            ),
           ],
         ),
       ),
@@ -113,6 +118,41 @@ Widget view(
           ],
         ),
       ),
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
+      SpacerHeight.m,
       SpacerHeight.m,
     ],
   );

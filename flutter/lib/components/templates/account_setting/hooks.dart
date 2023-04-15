@@ -5,11 +5,16 @@ import 'package:flutter/material.dart'
         FocusNode,
         BuildContext,
         GlobalKey,
-        FormState;
+        FormState,
+        AsyncSnapshot;
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
+import 'package:gamer_reflection/modules/request/reflection_group.dart'
+    show RequestReflectionGroup;
+import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+    show selectReflectionGroup;
 import 'package:flutter_hooks/flutter_hooks.dart'
-    show useState, useFocusNode, useEffect;
+    show useState, useFocusNode, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
     show showModal;
 
@@ -37,6 +42,11 @@ class UseReturn {
 
 /// ロジック
 UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
+  /// 選択している期間
+  final Future<String?> memoedReflectionGroup =
+      useMemoized(() => selectReflectionGroup.get());
+  final AsyncSnapshot<String?> futuredReflectionGroup =
+      useFuture(memoedReflectionGroup);
   final ValueNotifier<TextEditingController> textReflectionName =
       useState<TextEditingController>(TextEditingController());
   final FocusNode textReflectionNameFocusNode = useFocusNode();
@@ -49,26 +59,46 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   /// 振り返り名の変更を押した
   void onPressedEdit() {
     if (!formKeyEditName.currentState!.validate()) return;
-    print("変更");
+  }
+
+  /// 新規振り返り名の追加を押した
+  Future<void> onPressedAddRefletionGroup() async {
+    final String name = textReflectionNewName.value.text;
+    if (name.isEmpty) return;
+
+    /// DBに追加
+    final id = await RequestReflectionGroup().addReflectionGroup(name);
+
+    /// 選択しているキャッシュに保存
+    selectReflectionGroup.save(id.toString());
+
+    /// 入力欄をリセットする
+    formKeyNewName.currentState!.reset();
+    textReflectionNewName.value.text = "";
   }
 
   /// 新規振り返り名の追加を押した
   void onPressedNewName(BuildContext context) {
     if (!formKeyNewName.currentState!.validate()) return;
 
-    print("追加");
     showModal(
       context,
       textReflectionNewName.value.text,
-      () => {
-        print("追加した"),
-      },
+      onPressedAddRefletionGroup,
     );
   }
 
   useEffect(() {
-    textReflectionName.value.text = "振り返り名A";
-  }, []);
+    if (futuredReflectionGroup.data == null) return;
+
+    final id = int.parse(futuredReflectionGroup.data.toString());
+    final DomainReflectionGroup d = reflectionGroups.firstWhere(
+      (r) => r.id == id,
+      orElse: () => const DomainReflectionGroup(id: 0, name: ""),
+    );
+
+    textReflectionName.value.text = d.name;
+  }, [futuredReflectionGroup.data]);
 
   return UseReturn(
     onPressedEdit: onPressedEdit,

@@ -90,7 +90,7 @@ Widget view(
       SpacerHeight.xm,
       ButtonIcon(
         icon: Icons.check_circle,
-        text: "編集を完了する",
+        text: "編集を完了",
         onPressed: () => onPressedEditDone(),
       ),
       SpacerHeight.xm,

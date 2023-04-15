@@ -9,18 +9,23 @@ import 'package:gamer_reflection/components/common/atoms/text.dart'
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
+import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+    show DomainReflectionGroup;
 import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
     show ButtonBasic;
 
 ///
 Widget view(
   BuildContext context,
+  List<DomainReflectionGroup> reflectionGroups,
   Function(BuildContext) onPressedStart,
 ) {
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
-      const SelectReflectionGroup(),
+      SelectReflectionGroup(
+        reflectionGroups: reflectionGroups,
+      ),
       SpacerHeight.m,
       Box(
         child: Column(
