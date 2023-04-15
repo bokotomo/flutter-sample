@@ -3,13 +3,13 @@ const String tableNameReflection = "reflection_group";
 /// Model: ReflectionGroup
 class ModelReflectionGroup {
   ModelReflectionGroup({
-    required this.id,
+    this.id,
     required this.name,
     required this.createdAt,
   });
 
   /// ID
-  final int id;
+  final int? id;
 
   /// グループ名
   final String name;
@@ -19,7 +19,6 @@ class ModelReflectionGroup {
 
   Map<String, Object> toMap() {
     return {
-      'id': id,
       'name': name,
     };
   }

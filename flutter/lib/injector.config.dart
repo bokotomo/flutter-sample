@@ -13,8 +13,9 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import 'modules/database/repository/command/reflection.dart' as _i3;
-import 'modules/database/repository/query/reflection.dart' as _i5;
-import 'modules/database/repository/query/reflection_group.dart' as _i4;
+import 'modules/database/repository/command/reflection_group.dart' as _i4;
+import 'modules/database/repository/query/reflection.dart' as _i6;
+import 'modules/database/repository/query/reflection_group.dart' as _i5;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -31,9 +32,11 @@ _i1.GetIt init(
   );
   gh.factory<_i3.IRepositoryReflectionCommand>(
       () => _i3.RepositoryReflectionCommand());
-  gh.factory<_i4.IRepositoryReflectionGroupQuery>(
-      () => _i4.RepositoryReflectionQuery());
-  gh.factory<_i5.IRepositoryReflectionQuery>(
+  gh.factory<_i4.IRepositoryReflectionGroupCommand>(
+      () => _i4.RepositoryReflectionGroupCommand());
+  gh.factory<_i5.IRepositoryReflectionGroupQuery>(
       () => _i5.RepositoryReflectionQuery());
+  gh.factory<_i6.IRepositoryReflectionQuery>(
+      () => _i6.RepositoryReflectionQuery());
   return getIt;
 }

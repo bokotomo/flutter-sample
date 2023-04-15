@@ -12,7 +12,7 @@ class AdapterReflectionGroup {
     final domain = models.map(
       (m) {
         return DomainReflectionGroup(
-          id: m.id,
+          id: m.id ?? 0,
           name: m.name,
         );
       },
