@@ -41,6 +41,9 @@ class ConstantColorButton {
   /// ラジオボタン: 枠線色
   static const Color buttonRadioBorder = Color.fromARGB(255, 40, 44, 98);
 
+  /// ラジオボタン: 枠線色アクティブ
+  static const Color buttonRadioBorderActive = Color.fromARGB(255, 54, 51, 140);
+
   /// 削除ボタン: 背景色
   static const Color buttonDelete = Color.fromARGB(255, 132, 51, 51);
 

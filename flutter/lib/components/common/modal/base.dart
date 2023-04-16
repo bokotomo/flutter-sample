@@ -36,6 +36,7 @@ class ModalBase extends StatelessWidget {
           size: "M",
         ),
       ),
+      insetPadding: const EdgeInsets.all(ConstantSizeUI.l4),
       titlePadding: const EdgeInsets.all(ConstantSizeUI.l3),
       contentPadding: const EdgeInsets.symmetric(
         horizontal: ConstantSizeUI.l3,
