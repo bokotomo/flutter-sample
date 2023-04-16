@@ -14,14 +14,12 @@ import 'package:flutter/material.dart'
         AutovalidateMode;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
-    show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
+import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;
 
 Widget view(

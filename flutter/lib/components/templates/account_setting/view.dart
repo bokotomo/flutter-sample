@@ -16,10 +16,10 @@ import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
-    show ButtonBasic;
+import 'package:gamer_reflection/components/common/atoms/button/delete.dart'
+    show ButtonDelete;
 import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
     show SelectLanguage;
 import 'package:gamer_reflection/components/common/molecules/select_color_mode/widget.dart'
@@ -115,7 +115,7 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const BasicText(
-              text: '振り返りの削除',
+              text: 'この振り返りの削除',
               size: "M",
             ),
             SpacerHeight.xs,
@@ -124,7 +124,7 @@ Widget view(
               size: "S",
             ),
             SpacerHeight.m,
-            ButtonBasic(
+            ButtonDelete(
               text: "削除する",
               onPressed: () => onPressedDelete(context),
             ),

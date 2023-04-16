@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart'
-    show BuildContext, Color, Icons, showDialog, Navigator;
-import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
-    show ButtonCancel;
+    show BuildContext, Color, showDialog, Navigator;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
     show TextAnnotation;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
-    show ButtonIcon;
+import 'package:gamer_reflection/components/common/atoms/button/delete.dart'
+    show ButtonDelete;
+import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
+    show ButtonCancel;
 import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
 
@@ -36,8 +36,7 @@ void showDeleteModal(
             size: "S",
           ),
           SpacerHeight.m,
-          ButtonIcon(
-            icon: Icons.delete,
+          ButtonDelete(
             text: "削除する",
             onPressed: () => onPressed(contextDialog),
           ),

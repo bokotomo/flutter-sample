@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 
 /// ラジオボタン: 良かったこと悪かったこと

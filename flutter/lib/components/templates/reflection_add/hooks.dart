@@ -152,7 +152,9 @@ UseReturn useHooks(
   }
 
   /// 振り返りの終了を押した
-  void onPressedReflectionDone() async {}
+  void onPressedReflectionDone() async {
+    /// モーダルを消す
+  }
 
   useEffect(() {
     if (reflections.isEmpty) return;

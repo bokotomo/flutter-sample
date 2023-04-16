@@ -15,13 +15,13 @@ import 'package:flutter/material.dart'
         StatelessWidget;
 import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'
     show InputText;
-import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
+import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
-import 'package:gamer_reflection/components/common/atoms/button_done.dart'
+import 'package:gamer_reflection/components/common/atoms/button/done.dart'
     show ButtonDone;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/modules/const/color/base.dart'

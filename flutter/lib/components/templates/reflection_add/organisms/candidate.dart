@@ -8,7 +8,7 @@ import 'package:gamer_reflection/modules/domain/reflection_add/candidate.dart'
     show DomainCandidate;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
 /// 振り返りがない場合

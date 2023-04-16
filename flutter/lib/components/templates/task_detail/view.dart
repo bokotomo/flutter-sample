@@ -14,16 +14,16 @@ import 'package:gamer_reflection/components/templates/task_detail/organisms/top.
     show TaskDetailTop;
 import 'package:gamer_reflection/components/templates/task_detail/organisms/top_edit.dart'
     show TaskDetailTopEdit;
-import 'package:gamer_reflection/components/common/atoms/button_done.dart'
+import 'package:gamer_reflection/components/common/atoms/button/done.dart'
     show ButtonDone;
-import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
+import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;
-import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
+import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 

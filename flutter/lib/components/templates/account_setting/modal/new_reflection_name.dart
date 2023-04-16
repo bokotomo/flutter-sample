@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart'
     show BuildContext, Color, Icons, showDialog, Navigator;
-import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
+import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
+import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;
 import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;

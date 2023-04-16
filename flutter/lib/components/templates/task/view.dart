@@ -7,7 +7,7 @@ import 'package:gamer_reflection/components/templates/task/organisms/task_list.d
     show TaskList;
 import 'package:gamer_reflection/components/templates/task/organisms/bottom_buttons.dart'
     show BottomButtons;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/widget.dart'
     show ButtonPeriodFilter;

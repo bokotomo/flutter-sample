@@ -2,7 +2,7 @@ import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, Column;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
@@ -11,7 +11,7 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
     show SelectReflectionGroup;
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
+import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
 
 ///

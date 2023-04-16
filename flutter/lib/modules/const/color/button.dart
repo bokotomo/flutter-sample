@@ -35,6 +35,12 @@ class ConstantColorButton {
   /// キャンセルボタンの枠線色
   static const Color buttonCancelBorder = Color.fromARGB(255, 117, 121, 163);
 
+  /// 削除ボタンの背景色
+  static const Color buttonDelete = Color.fromARGB(255, 132, 51, 51);
+
+  /// 削除ボタンの枠線色
+  static const Color buttonDeleteBorder = Color.fromARGB(255, 157, 87, 87);
+
   /// 期間選択ボタンの背景色
   static const Color buttonPeriod = darkBlue;
 

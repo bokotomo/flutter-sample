@@ -5,7 +5,7 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
-import 'package:gamer_reflection/components/common/atoms/spacer_width.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/text_tag.dart'

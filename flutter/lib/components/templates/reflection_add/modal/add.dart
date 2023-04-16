@@ -8,18 +8,18 @@ import 'package:flutter/material.dart'
         Widget,
         Column,
         CrossAxisAlignment;
-import 'package:gamer_reflection/components/common/atoms/button_cancel.dart'
-    show ButtonCancel;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/atoms/radio_good_bad_button.dart'
     show RadioGoodBadButton;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
-import 'package:gamer_reflection/components/common/atoms/button_icon.dart'
+import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;
+import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
+    show ButtonCancel;
 import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
 
