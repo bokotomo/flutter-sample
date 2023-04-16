@@ -42,20 +42,20 @@ class ButtonRadio extends StatelessWidget {
         : const Color.fromARGB(255, 40, 40, 40);
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.buttonRadio,
+      backgroundColor: ConstantColorButton.radio,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       padding: const EdgeInsets.only(left: ConstantSizeUI.l2),
       elevation: 2,
       shadowColor: isActive
-          ? ConstantColorButton.buttonRadioBorderActive
-          : ConstantColorButton.buttonRadioBorder,
+          ? ConstantColorButton.radioBorderActive
+          : ConstantColorButton.radioBorder,
       shape: RoundedRectangleBorder(
         borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
           color: isActive
-              ? ConstantColorButton.buttonRadioBorderActive
-              : ConstantColorButton.buttonRadioBorder,
+              ? ConstantColorButton.radioBorderActive
+              : ConstantColorButton.radioBorder,
         ),
       ),
     );

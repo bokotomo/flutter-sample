@@ -33,8 +33,8 @@ class ButtonPeriod extends StatelessWidget {
 
     final style = ElevatedButton.styleFrom(
       backgroundColor: isActive
-          ? ConstantColorButton.buttonPeriodActive
-          : ConstantColorButton.buttonPeriod,
+          ? ConstantColorButton.periodActive
+          : ConstantColorButton.period,
       elevation: 4,
       padding: const EdgeInsets.only(
         left: ConstantSizeUI.l4,
@@ -42,12 +42,12 @@ class ButtonPeriod extends StatelessWidget {
         top: ConstantSizeUI.l1,
         bottom: ConstantSizeUI.l1,
       ),
-      shadowColor: ConstantColorButton.buttonPeriodBorder,
+      shadowColor: ConstantColorButton.periodBorder,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.buttonPeriodBorder,
+          color: ConstantColorButton.periodBorder,
         ),
       ),
     );

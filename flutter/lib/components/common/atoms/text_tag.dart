@@ -24,15 +24,15 @@ class TextTag extends StatelessWidget {
   Color getBorderColor() {
     switch (colorType) {
       case TagTextColor.red:
-        return ConstantColorTextTag.textTagRedBorder;
+        return ConstantColorTextTag.redBorder;
       case TagTextColor.purple:
-        return ConstantColorTextTag.textTagPurpleBorder;
+        return ConstantColorTextTag.purpleBorder;
       case TagTextColor.blue:
-        return ConstantColorTextTag.textTagBlueBorder;
+        return ConstantColorTextTag.blueBorder;
       case TagTextColor.gray:
-        return ConstantColorTextTag.textTagGrayBorder;
+        return ConstantColorTextTag.grayBorder;
       default:
-        return ConstantColorTextTag.textTagBlueBorder;
+        return ConstantColorTextTag.blueBorder;
     }
   }
 
@@ -40,15 +40,15 @@ class TextTag extends StatelessWidget {
   Color getTextColor() {
     switch (colorType) {
       case TagTextColor.red:
-        return ConstantColorTextTag.textTagRedText;
+        return ConstantColorTextTag.redText;
       case TagTextColor.purple:
-        return ConstantColorTextTag.textTagPurpleText;
+        return ConstantColorTextTag.purpleText;
       case TagTextColor.blue:
-        return ConstantColorTextTag.textTagBlueText;
+        return ConstantColorTextTag.blueText;
       case TagTextColor.gray:
-        return ConstantColorTextTag.textTagGrayText;
+        return ConstantColorTextTag.grayText;
       default:
-        return ConstantColorTextTag.textTagBlueText;
+        return ConstantColorTextTag.blueText;
     }
   }
 
@@ -56,9 +56,9 @@ class TextTag extends StatelessWidget {
   Color getBackGroundColor() {
     switch (colorType) {
       case TagTextColor.gray:
-        return ConstantColorTextTag.textTagGrayBackGround;
+        return ConstantColorTextTag.grayBackGround;
       default:
-        return ConstantColorTextTag.textTagBackground;
+        return ConstantColorTextTag.background;
     }
   }
 

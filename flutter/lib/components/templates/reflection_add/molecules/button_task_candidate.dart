@@ -43,8 +43,8 @@ class ButtonTaskCandidate extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: isThin
-            ? ConstantColorButton.buttonTaskListThin
-            : ConstantColorButton.buttonTaskList,
+            ? ConstantColorButton.taskListThin
+            : ConstantColorButton.taskList,
         fixedSize: const Size.fromHeight(ConstantSizeUI.l7),
       ),
       child: Align(

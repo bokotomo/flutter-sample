@@ -34,7 +34,7 @@ Widget view(
     children: [
       for (int i = 0; i < reflections.length; i++) ...{
         const Bar(
-          color: ConstantColorButton.buttonTaskListBorder,
+          color: ConstantColorButton.taskListBorder,
         ),
         ButtonTaskCandidate(
           text: reflections[i].text,
@@ -43,7 +43,7 @@ Widget view(
         ),
       },
       const Bar(
-        color: ConstantColorButton.buttonTaskListBorder,
+        color: ConstantColorButton.taskListBorder,
       )
     ],
   );

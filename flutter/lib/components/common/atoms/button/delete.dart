@@ -41,15 +41,15 @@ class ButtonDelete extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.buttonDelete,
+      backgroundColor: ConstantColorButton.delete,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.buttonDeleteBorder,
+      shadowColor: ConstantColorButton.deleteBorder,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.buttonDeleteBorder,
+          color: ConstantColorButton.deleteBorder,
         ),
       ),
     );

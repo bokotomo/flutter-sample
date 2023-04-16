@@ -31,21 +31,20 @@ class ButtonThin extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: isActive
-          ? ConstantColorButton.buttonThinActive
-          : ConstantColorButton.buttonThin,
+      backgroundColor:
+          isActive ? ConstantColorButton.thinActive : ConstantColorButton.thin,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
       shadowColor: isActive
-          ? ConstantColorButton.buttonThinActiveBorder
-          : ConstantColorButton.buttonThinBorder,
+          ? ConstantColorButton.thinActiveBorder
+          : ConstantColorButton.thinBorder,
       shape: RoundedRectangleBorder(
         borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
           color: isActive
-              ? ConstantColorButton.buttonThinActiveBorder
-              : ConstantColorButton.buttonThinBorder,
+              ? ConstantColorButton.thinActiveBorder
+              : ConstantColorButton.thinBorder,
         ),
       ),
     );

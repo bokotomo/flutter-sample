@@ -30,15 +30,15 @@ class ButtonDone extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.buttonDone,
+      backgroundColor: ConstantColorButton.done,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.buttonDoneBorder,
+      shadowColor: ConstantColorButton.doneBorder,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.buttonDoneBorder,
+          color: ConstantColorButton.doneBorder,
         ),
       ),
     );

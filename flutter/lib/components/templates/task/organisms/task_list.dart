@@ -28,7 +28,7 @@ class TaskList extends StatelessWidget {
     return Column(
       children: [
         for (int i = 0; i < reflections.length; i++) ...{
-          const Bar(color: ConstantColorButton.buttonTaskListBorder),
+          const Bar(color: ConstantColorButton.taskListBorder),
           ButtonTask(
             text: reflections[i].text,
             isThin: i % 2 == 0,
@@ -37,7 +37,7 @@ class TaskList extends StatelessWidget {
             onPressed: () => onPressedTask(i),
           ),
         },
-        const Bar(color: ConstantColorButton.buttonTaskListBorder),
+        const Bar(color: ConstantColorButton.taskListBorder),
         SpacerHeight.m,
       ],
     );

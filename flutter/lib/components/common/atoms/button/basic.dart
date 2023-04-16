@@ -28,15 +28,15 @@ class ButtonBasic extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.button,
+      backgroundColor: ConstantColorButton.basic,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.buttonBorder,
+      shadowColor: ConstantColorButton.basicBorder,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.buttonBorder,
+          color: ConstantColorButton.basicBorder,
         ),
       ),
     );
