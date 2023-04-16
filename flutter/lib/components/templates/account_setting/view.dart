@@ -115,7 +115,7 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const BasicText(
-              text: 'この振り返りの削除',
+              text: '選択中の振り返りの削除',
               size: "M",
             ),
             SpacerHeight.xs,
