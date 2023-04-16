@@ -29,6 +29,7 @@ class TemplateAccountSetting extends HookWidget {
       context,
       reflectionGroups,
       hooks.onPressedEdit,
+      hooks.onPressedDelete,
       hooks.onPressedNewName,
       hooks.onChangeReflectionGroup,
       hooks.textReflectionName,

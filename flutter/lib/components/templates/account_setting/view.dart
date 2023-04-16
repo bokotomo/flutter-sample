@@ -38,6 +38,7 @@ Widget view(
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   void Function() onPressedEdit,
+  void Function(BuildContext context) onPressedDelete,
   void Function(BuildContext context) onPressedNewName,
   void Function(String?) onChangeReflectionGroup,
   TextEditingController textReflectionName,
@@ -114,7 +115,7 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const BasicText(
-              text: '振り返り名の削除',
+              text: '振り返りの削除',
               size: "M",
             ),
             SpacerHeight.xs,
@@ -125,7 +126,7 @@ Widget view(
             SpacerHeight.m,
             ButtonBasic(
               text: "削除する",
-              onPressed: () => {},
+              onPressed: () => onPressedDelete(context),
             ),
           ],
         ),

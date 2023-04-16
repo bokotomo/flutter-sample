@@ -17,12 +17,18 @@ class RequestReflectionGroup {
     return id;
   }
 
-  /// 更新: Reflection
+  /// 更新: ReflectionGroup
   Future<void> updateReflectionGroup(
     int id,
     String name,
   ) async {
     final Database db = GetIt.I<DBConnection>().db;
     await repositoryReflectionGroup.updateReflectionGroupNameById(db, id, name);
+  }
+
+  /// 削除: ReflectionGroup
+  Future<void> deleteReflection(int id) async {
+    final Database db = GetIt.I<DBConnection>().db;
+    await repositoryReflectionGroup.deleteReflectionGroupById(db, id);
   }
 }

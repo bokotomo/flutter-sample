@@ -18,10 +18,13 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
     show showModal;
+import 'package:gamer_reflection/components/templates/account_setting/modal/delete_reflection_group.dart'
+    show showDeleteModal;
 
 class UseReturn {
   const UseReturn({
     required this.onPressedEdit,
+    required this.onPressedDelete,
     required this.onPressedNewName,
     required this.onChangeReflectionGroup,
     required this.textReflectionName,
@@ -33,6 +36,7 @@ class UseReturn {
   });
 
   final void Function() onPressedEdit;
+  final void Function(BuildContext context) onPressedDelete;
   final void Function(BuildContext context) onPressedNewName;
   final void Function(String?) onChangeReflectionGroup;
   final TextEditingController textReflectionName;
@@ -144,6 +148,55 @@ UseReturn useHooks(
     fetchReflectionGroups();
   }
 
+  /// 振り返りグループを削除する
+  void deleteRefletionGroup(String? id) async {
+    if (id == null) return;
+
+    /// グループが1個なら削除できない
+    if (reflectionGroups.length <= 1) return;
+
+    /// DB削除
+    await RequestReflectionGroup().deleteReflection(int.parse(id));
+
+    /// キャッシュを先頭のグループにする
+    final int groupId = reflectionGroups.isEmpty ? 1 : reflectionGroups[0].id;
+    selectReflectionGroupId.save(groupId.toString());
+
+    /// 振り返りグループ再読み込み
+    fetchReflectionGroups();
+
+    /// 振り返りグループの取得
+    final DomainReflectionGroup d = reflectionGroups.firstWhere(
+      (r) => r.id == groupId,
+      orElse: () => const DomainReflectionGroup(id: 0, name: ""),
+    );
+
+    /// 名前の更新
+    textReflectionName.value.text = d.name;
+  }
+
+  /// 削除を押した
+  Future<void> onPressedDelete(BuildContext context) async {
+    final id = await selectReflectionGroupId.get();
+    final int groupId = getReflectionGroupId(id);
+
+    /// 振り返りグループの取得
+    final DomainReflectionGroup d = reflectionGroups.firstWhere(
+      (r) => r.id == groupId,
+      orElse: () => const DomainReflectionGroup(id: 0, name: ""),
+    );
+    if (context.mounted) {
+      showDeleteModal(
+        context,
+        d.name,
+        (context) {
+          deleteRefletionGroup(id);
+          Navigator.pop(context);
+        },
+      );
+    }
+  }
+
   useEffect(() {
     if (futuredReflectionGroupId.data == null) return;
     updateReflectionName(futuredReflectionGroupId.data);
@@ -151,6 +204,7 @@ UseReturn useHooks(
 
   return UseReturn(
     onPressedEdit: onPressedEdit,
+    onPressedDelete: onPressedDelete,
     onPressedNewName: onPressedNewName,
     onChangeReflectionGroup: onChangeReflectionGroup,
     formKeyNewName: formKeyNewName,

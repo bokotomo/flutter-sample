@@ -26,8 +26,8 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflection,
       columns: ['id', 'count'],
-      where: '"text" = ?',
-      whereArgs: [text],
+      where: '"text" = ? and "reflection_group_id" = ?',
+      whereArgs: [text, groupId],
     );
 
     if (res.isEmpty) {

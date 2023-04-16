@@ -2,12 +2,14 @@ import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/modules/database/model/reflection_group.dart'
     show ModelReflectionGroup, tableNameReflectionGroup;
+import 'package:gamer_reflection/modules/database/model/reflection.dart'
+    show tableNameReflection;
 
 /// Interface: IRepositoryReflectionGroupCommand
 abstract class IRepositoryReflectionGroupCommand {
   Future<int> insertReflectionGroup(Database db, String name);
   Future<void> updateReflectionGroupNameById(Database db, int id, String name);
-  Future<void> deleteReflectionById(Database db, int id);
+  Future<void> deleteReflectionGroupById(Database db, int id);
 }
 
 /// Repository: 振り返りグループ
@@ -55,10 +57,18 @@ class RepositoryReflectionGroupCommand
 
   /// 削除: 指定したIDの振り返り
   @override
-  Future<void> deleteReflectionById(Database db, int id) async {
+  Future<void> deleteReflectionGroupById(Database db, int id) async {
+    /// 振り返りグループの削除
     await db.delete(
       tableNameReflectionGroup,
       where: 'id = ?',
+      whereArgs: [id],
+    );
+
+    /// 振り返り内容も全て削除する
+    await db.delete(
+      tableNameReflection,
+      where: 'reflection_group_id = ?',
       whereArgs: [id],
     );
   }
