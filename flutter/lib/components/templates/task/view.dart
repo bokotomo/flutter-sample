@@ -34,6 +34,7 @@ Widget view(
   void Function() onPressedMonth,
   void Function() onPressedBad,
   void Function() onPressedGood,
+  void Function(String?) onChangeReflectionGroup,
 ) {
   final tasklist = TaskList(
     reflections: filteredReflections,
@@ -56,6 +57,7 @@ Widget view(
         ),
         child: SelectReflectionGroup(
           reflectionGroups: reflectionGroups,
+          onChanged: onChangeReflectionGroup,
         ),
       ),
 

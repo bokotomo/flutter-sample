@@ -19,12 +19,14 @@ Widget view(
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   Function(BuildContext) onPressedStart,
+  void Function(String?) onChangeReflectionGroup,
 ) {
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
       SelectReflectionGroup(
         reflectionGroups: reflectionGroups,
+        onChanged: onChangeReflectionGroup,
       ),
       SpacerHeight.m,
       Box(

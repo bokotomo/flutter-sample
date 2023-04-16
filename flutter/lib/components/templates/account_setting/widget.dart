@@ -12,20 +12,25 @@ class TemplateAccountSetting extends HookWidget {
   const TemplateAccountSetting({
     super.key,
     required this.reflectionGroups,
+    required this.fetchReflectionGroups,
   });
 
   /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;
 
+  ///
+  final Future<void> Function() fetchReflectionGroups;
+
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflectionGroups);
+    final hooks = useHooks(reflectionGroups, fetchReflectionGroups);
 
     return view(
       context,
       reflectionGroups,
       hooks.onPressedEdit,
       hooks.onPressedNewName,
+      hooks.onChangeReflectionGroup,
       hooks.textReflectionName,
       hooks.textReflectionNameFocusNode,
       hooks.textReflectionNewName,

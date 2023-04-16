@@ -12,16 +12,22 @@ class SelectReflectionGroup extends HookWidget {
   const SelectReflectionGroup({
     super.key,
     required this.reflectionGroups,
+    required this.onChanged,
     this.focusNode,
   });
 
   /// フォーカスノード
   final FocusNode? focusNode;
+
+  ///
   final List<DomainReflectionGroup> reflectionGroups;
+
+  ///
+  final void Function(String?) onChanged;
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflectionGroups);
+    final hooks = useHooks(reflectionGroups, onChanged);
 
     return InputSelect(
       items: hooks.reflectionNames,

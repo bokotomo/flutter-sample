@@ -6,13 +6,14 @@ import 'package:flutter/material.dart'
         BuildContext,
         GlobalKey,
         FormState,
-        AsyncSnapshot;
+        AsyncSnapshot,
+        Navigator;
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/request/reflection_group.dart'
     show RequestReflectionGroup;
 import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
-    show selectReflectionGroup;
+    show selectReflectionGroupId;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
@@ -22,6 +23,7 @@ class UseReturn {
   const UseReturn({
     required this.onPressedEdit,
     required this.onPressedNewName,
+    required this.onChangeReflectionGroup,
     required this.textReflectionName,
     required this.textReflectionNameFocusNode,
     required this.textReflectionNewName,
@@ -32,6 +34,7 @@ class UseReturn {
 
   final void Function() onPressedEdit;
   final void Function(BuildContext context) onPressedNewName;
+  final void Function(String?) onChangeReflectionGroup;
   final TextEditingController textReflectionName;
   final FocusNode textReflectionNameFocusNode;
   final TextEditingController textReflectionNewName;
@@ -41,12 +44,15 @@ class UseReturn {
 }
 
 /// ロジック
-UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
+UseReturn useHooks(
+  List<DomainReflectionGroup> reflectionGroups,
+  Future<void> Function() fetchReflectionGroups,
+) {
   /// 選択している期間
-  final Future<String?> memoedReflectionGroup =
-      useMemoized(() => selectReflectionGroup.get());
-  final AsyncSnapshot<String?> futuredReflectionGroup =
-      useFuture(memoedReflectionGroup);
+  final Future<String?> memoedReflectionGroupId =
+      useMemoized(() => selectReflectionGroupId.get());
+  final AsyncSnapshot<String?> futuredReflectionGroupId =
+      useFuture(memoedReflectionGroupId);
   final ValueNotifier<TextEditingController> textReflectionName =
       useState<TextEditingController>(TextEditingController());
   final FocusNode textReflectionNameFocusNode = useFocusNode();
@@ -56,11 +62,17 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   final GlobalKey<FormState> formKeyNewName = GlobalKey<FormState>();
   final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
 
+  /// 振り返りグループIDの取得
+  int getReflectionGroupId(String? id) {
+    if (id != null) return int.parse(id);
+    return reflectionGroups.isEmpty ? 0 : reflectionGroups[0].id;
+  }
+
   /// 振り返り名の変更を押した
   Future<void> onPressedEdit() async {
     if (!formKeyEditName.currentState!.validate()) return;
-
-    final int id = int.parse(futuredReflectionGroup.data.toString());
+    final groupId = await selectReflectionGroupId.get();
+    final int id = getReflectionGroupId(groupId);
     final String name = textReflectionName.value.text;
 
     /// 入力欄をリセットする
@@ -69,10 +81,13 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
 
     /// DB更新
     await RequestReflectionGroup().updateReflectionGroup(id, name);
+
+    /// 振り返りグループ再読み込み
+    fetchReflectionGroups();
   }
 
   /// 新規振り返り名の追加を押した
-  Future<void> onPressedAddRefletionGroup() async {
+  Future<void> onPressedAddRefletionGroup(BuildContext context) async {
     final String name = textReflectionNewName.value.text;
     if (name.isEmpty) return;
 
@@ -80,11 +95,20 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
     final int id = await RequestReflectionGroup().addReflectionGroup(name);
 
     /// 選択しているキャッシュに保存
-    selectReflectionGroup.save(id.toString());
+    selectReflectionGroupId.save(id.toString());
 
     /// 入力欄をリセットする
     textReflectionNewName.value.text = "";
     formKeyNewName.currentState?.reset();
+
+    /// 振り返りグループ再読み込み
+    fetchReflectionGroups();
+
+    ///
+    textReflectionName.value.text = name;
+
+    ///
+    if (context.mounted) Navigator.pop(context);
   }
 
   /// 新規振り返り名の追加を押した
@@ -98,21 +122,37 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
     );
   }
 
-  useEffect(() {
-    if (futuredReflectionGroup.data == null) return;
+  /// 振り返り名入力の更新
+  void updateReflectionName(String? id) {
+    final int groupId = getReflectionGroupId(id);
 
-    final int id = int.parse(futuredReflectionGroup.data.toString());
+    /// 振り返りグループの取得
     final DomainReflectionGroup d = reflectionGroups.firstWhere(
-      (r) => r.id == id,
+      (r) => r.id == groupId,
       orElse: () => const DomainReflectionGroup(id: 0, name: ""),
     );
 
+    /// 選択振り返り名の更新
     textReflectionName.value.text = d.name;
-  }, [futuredReflectionGroup.data]);
+  }
+
+  /// 振り返りグループを変更した
+  void onChangeReflectionGroup(String? id) {
+    updateReflectionName(id);
+
+    /// 振り返りグループ再読み込み
+    fetchReflectionGroups();
+  }
+
+  useEffect(() {
+    if (futuredReflectionGroupId.data == null) return;
+    updateReflectionName(futuredReflectionGroupId.data);
+  }, [futuredReflectionGroupId.data]);
 
   return UseReturn(
     onPressedEdit: onPressedEdit,
     onPressedNewName: onPressedNewName,
+    onChangeReflectionGroup: onChangeReflectionGroup,
     formKeyNewName: formKeyNewName,
     formKeyEditName: formKeyEditName,
     textReflectionName: textReflectionName.value,

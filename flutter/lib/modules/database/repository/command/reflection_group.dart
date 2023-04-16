@@ -1,13 +1,13 @@
 import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/modules/database/model/reflection_group.dart'
-    show ModelReflectionGroup, tableNameReflection;
+    show ModelReflectionGroup, tableNameReflectionGroup;
 
 /// Interface: IRepositoryReflectionGroupCommand
 abstract class IRepositoryReflectionGroupCommand {
   Future<int> insertReflectionGroup(Database db, String name);
   Future<void> updateReflectionGroupNameById(Database db, int id, String name);
-  // Future<void> deleteReflectionById(Database db, int id);
+  Future<void> deleteReflectionById(Database db, int id);
 }
 
 /// Repository: 振り返りグループ
@@ -24,7 +24,7 @@ class RepositoryReflectionGroupCommand
     );
 
     final id = await db.insert(
-      tableNameReflection,
+      tableNameReflectionGroup,
       reflectionGroup.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
@@ -46,20 +46,20 @@ class RepositoryReflectionGroupCommand
     final Map<String, Object?> map = {}..addAll(reflectionGroup.toMap());
 
     await db.update(
-      tableNameReflection,
+      tableNameReflectionGroup,
       map,
       where: 'id = ?',
       whereArgs: [id],
     );
   }
 
-  // /// 削除: 指定したIDの振り返り
-  // @override
-  // Future<void> deleteReflectionById(Database db, int id) async {
-  //   await db.delete(
-  //     tableNameReflection,
-  //     where: 'id = ?',
-  //     whereArgs: [id],
-  //   );
-  // }
+  /// 削除: 指定したIDの振り返り
+  @override
+  Future<void> deleteReflectionById(Database db, int id) async {
+    await db.delete(
+      tableNameReflectionGroup,
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
 }

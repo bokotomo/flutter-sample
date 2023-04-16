@@ -15,12 +15,12 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
 void showModal(
   BuildContext context,
   String text,
-  void Function() onPressed,
+  void Function(BuildContext) onPressed,
 ) {
   showDialog(
     barrierColor: const Color.fromARGB(170, 0, 0, 0),
     context: context,
-    builder: (context) {
+    builder: (contextDialog) {
       return ModalBase(
         title: "振り返りの新規作成",
         children: [
@@ -32,17 +32,12 @@ void showModal(
           ButtonIcon(
             icon: Icons.add,
             text: "新規で作成する",
-            onPressed: () => {
-              onPressed(),
-              Navigator.pop(context),
-            },
+            onPressed: () => onPressed(contextDialog),
           ),
           SpacerHeight.m,
           ButtonCancel(
             text: "キャンセル",
-            onPressed: () => {
-              Navigator.pop(context),
-            },
+            onPressed: () => Navigator.pop(contextDialog),
           ),
           SpacerHeight.m,
         ],

@@ -16,6 +16,7 @@ class PageAccountSetting extends HookWidget {
     return Scaffold(
       body: TemplateAccountSetting(
         reflectionGroups: d.reflectionGroups,
+        fetchReflectionGroups: d.fetchReflectionGroups,
       ),
     );
   }

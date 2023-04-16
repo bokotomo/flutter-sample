@@ -11,11 +11,15 @@ import 'package:flutter/material.dart'
         FormState;
 import 'package:gamer_reflection/components/common/atoms/text.dart'
     show BasicText;
+import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+    show TextAnnotation;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/atoms/spacer_height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/components/common/atoms/button_basic.dart'
+    show ButtonBasic;
 import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
     show SelectLanguage;
 import 'package:gamer_reflection/components/common/molecules/select_color_mode/widget.dart'
@@ -35,6 +39,7 @@ Widget view(
   List<DomainReflectionGroup> reflectionGroups,
   void Function() onPressedEdit,
   void Function(BuildContext context) onPressedNewName,
+  void Function(String?) onChangeReflectionGroup,
   TextEditingController textReflectionName,
   FocusNode textReflectionNameFocusNode,
   TextEditingController textReflectionNewName,
@@ -56,6 +61,7 @@ Widget view(
             SpacerHeight.m,
             SelectReflectionGroup(
               reflectionGroups: reflectionGroups,
+              onChanged: onChangeReflectionGroup,
             ),
           ],
         ),
@@ -99,6 +105,28 @@ Widget view(
             ),
             SpacerHeight.m,
             SelectColorMode(),
+          ],
+        ),
+      ),
+      SpacerHeight.m,
+      Box(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const BasicText(
+              text: '振り返り名の削除',
+              size: "M",
+            ),
+            SpacerHeight.xs,
+            const TextAnnotation(
+              text: "振り返りした内容も削除されます。",
+              size: "S",
+            ),
+            SpacerHeight.m,
+            ButtonBasic(
+              text: "削除する",
+              onPressed: () => {},
+            ),
           ],
         ),
       ),

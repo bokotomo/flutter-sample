@@ -42,6 +42,7 @@ class TemplateTask extends HookWidget {
       hooks.onPressedMonth,
       hooks.onPressedBad,
       hooks.onPressedGood,
+      hooks.onChangeReflectionGroup,
     );
   }
 }

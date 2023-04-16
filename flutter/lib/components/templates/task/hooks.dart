@@ -29,6 +29,7 @@ class UseReturn {
     required this.onPressedMonth,
     required this.onPressedBad,
     required this.onPressedGood,
+    required this.onChangeReflectionGroup,
   });
 
   final Period period;
@@ -39,6 +40,7 @@ class UseReturn {
   final void Function() onPressedMonth;
   final void Function() onPressedBad;
   final void Function() onPressedGood;
+  final void Function(String?) onChangeReflectionGroup;
 }
 
 ///
@@ -151,6 +153,11 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     await selectReflectionType.save("good");
   }
 
+  /// 振り返りグループ
+  void onChangeReflectionGroup(String? id) {
+    print(id);
+  }
+
   /// 端末に保存されてる選択している期間を取得
   Period getPeriodByKVS(String kvsString) {
     switch (kvsString) {
@@ -195,5 +202,6 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     onPressedMonth: onPressedMonth,
     onPressedBad: onPressedBad,
     onPressedGood: onPressedGood,
+    onChangeReflectionGroup: onChangeReflectionGroup,
   );
 }

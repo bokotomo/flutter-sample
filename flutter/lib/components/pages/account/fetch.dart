@@ -8,9 +8,11 @@ import 'package:gamer_reflection/modules/fetch/reflection_group.dart'
 class UseReturn {
   const UseReturn({
     required this.reflectionGroups,
+    required this.fetchReflectionGroups,
   });
 
   final List<DomainReflectionGroup> reflectionGroups;
+  final Future<void> Function() fetchReflectionGroups;
 }
 
 /// データ取得: 振り返りグループ一覧
@@ -25,6 +27,11 @@ UseReturn useFetch() {
     reflectionGroups.value = r;
   }
 
+  /// 振り返りグループの更新
+  Future<void> fetchReflectionGroups() async {
+    fetch();
+  }
+
   useEffect(() {
     fetch();
     return;
@@ -32,5 +39,6 @@ UseReturn useFetch() {
 
   return UseReturn(
     reflectionGroups: reflectionGroups.value,
+    fetchReflectionGroups: fetchReflectionGroups,
   );
 }

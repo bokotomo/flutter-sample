@@ -6,7 +6,7 @@ import 'package:gamer_reflection/components/common/atoms/input_select.dart'
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
-    show selectReflectionGroup;
+    show selectReflectionGroupId;
 
 class UseReturn {
   const UseReturn({
@@ -20,12 +20,15 @@ class UseReturn {
 }
 
 ///
-UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
+UseReturn useHooks(
+  List<DomainReflectionGroup> reflectionGroups,
+  final void Function(String?) onChanged,
+) {
   /// 選択している期間
-  final Future<String?> memoedReflectionGroup =
-      useMemoized(() => selectReflectionGroup.get());
-  final AsyncSnapshot<String?> futuredReflectionGroup =
-      useFuture(memoedReflectionGroup);
+  final Future<String?> memoedReflectionGroupId =
+      useMemoized(() => selectReflectionGroupId.get(), [reflectionGroups]);
+  final AsyncSnapshot<String?> futuredReflectionGroupId =
+      useFuture(memoedReflectionGroupId);
 
   /// 選択グループID
   ValueNotifier<String> reflectionId = useState<String>(
@@ -33,8 +36,15 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   );
 
   /// 変更を押した
-  void onChanged(String? t) {
-    selectReflectionGroup.save(t ?? '');
+  void onChangedSelect(String? t) {
+    selectReflectionGroupId.save(t ?? '');
+    onChanged(t);
+  }
+
+  /// 選択IDの更新
+  void updateReflectionId(String? id) {
+    reflectionId.value = id ??
+        (reflectionGroups.isEmpty ? "0" : reflectionGroups[0].id.toString());
   }
 
   /// 振り返りグループ名一覧
@@ -48,16 +58,15 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
       .toList();
 
   useEffect(() {
-    if (futuredReflectionGroup.data == null) return;
+    if (futuredReflectionGroupId.data == null) return;
 
     /// 初期選択グループ
-    reflectionId.value = futuredReflectionGroup.data ??
-        (reflectionGroups.isEmpty ? "0" : reflectionGroups[0].id.toString());
-  }, [futuredReflectionGroup.data]);
+    updateReflectionId(futuredReflectionGroupId.data);
+  }, [futuredReflectionGroupId.data]);
 
   return UseReturn(
     reflectionNames: reflectionNames,
     reflectionId: reflectionId.value,
-    onChanged: onChanged,
+    onChanged: onChangedSelect,
   );
 }

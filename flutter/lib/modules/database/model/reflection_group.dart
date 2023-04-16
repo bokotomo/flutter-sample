@@ -1,4 +1,4 @@
-const String tableNameReflection = "reflection_group";
+const String tableNameReflectionGroup = "reflection_group";
 
 /// Model: ReflectionGroup
 class ModelReflectionGroup {

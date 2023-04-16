@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/modules/database/model/reflection_group.dart'
-    show ModelReflectionGroup, tableNameReflection;
+    show ModelReflectionGroup, tableNameReflectionGroup;
 import 'package:gamer_reflection/modules/database/adapter/reflection_group.dart'
     show AdapterReflectionGroup;
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
@@ -19,7 +19,7 @@ class RepositoryReflectionQuery extends IRepositoryReflectionGroupQuery {
   @override
   Future<List<DomainReflectionGroup>> getReflectionGroups(Database db) async {
     final List<Map<String, Object?>> res = await db.query(
-      tableNameReflection,
+      tableNameReflectionGroup,
       columns: ['*'],
       limit: 100,
     );
