@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, TextAlign, StatelessWidget;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;

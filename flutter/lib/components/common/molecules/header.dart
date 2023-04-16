@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'
     show StatelessWidget, PreferredSizeWidget, Size, AppBar, BuildContext;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;

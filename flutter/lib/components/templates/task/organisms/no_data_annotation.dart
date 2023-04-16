@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;

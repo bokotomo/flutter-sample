@@ -11,7 +11,7 @@ import 'package:flutter/material.dart'
         BorderRadius,
         Radius,
         BorderSide;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;

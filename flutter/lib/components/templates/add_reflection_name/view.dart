@@ -7,10 +7,10 @@ import 'package:flutter/material.dart'
         Icons,
         TextEditingController,
         FocusNode;
-import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'
+import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;

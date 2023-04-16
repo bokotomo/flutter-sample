@@ -4,7 +4,7 @@ import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'

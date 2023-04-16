@@ -9,9 +9,9 @@ import 'package:flutter/material.dart'
         CrossAxisAlignment,
         GlobalKey,
         FormState;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;

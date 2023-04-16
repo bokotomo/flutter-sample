@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart'
     show BuildContext, Color, showDialog, Navigator;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

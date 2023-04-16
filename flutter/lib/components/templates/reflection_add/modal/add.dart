@@ -8,11 +8,11 @@ import 'package:flutter/material.dart'
         Widget,
         Column,
         CrossAxisAlignment;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/components/common/atoms/radio_good_bad_button.dart'
+import 'package:gamer_reflection/components/common/molecules/radio_good_bad_button.dart'
     show RadioGoodBadButton;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;

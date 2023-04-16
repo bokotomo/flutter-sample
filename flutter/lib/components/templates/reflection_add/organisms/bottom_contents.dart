@@ -13,7 +13,7 @@ import 'package:flutter/material.dart'
         Expanded,
         SizedBox,
         StatelessWidget;
-import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'
+import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;

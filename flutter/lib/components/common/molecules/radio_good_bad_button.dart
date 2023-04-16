@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show StatelessWidget, Widget, BuildContext, Row, Expanded;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/button/radio.dart'

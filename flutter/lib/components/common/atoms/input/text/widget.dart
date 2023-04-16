@@ -4,7 +4,7 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
 import 'package:gamer_reflection/modules/const/color/input.dart'
     show ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/components/common/atoms/input_text/validate.dart'
+import 'package:gamer_reflection/components/common/atoms/input/text/validate.dart'
     show useValidate;
 
 /// input: text

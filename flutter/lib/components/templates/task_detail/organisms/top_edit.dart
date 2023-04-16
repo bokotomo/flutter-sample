@@ -7,11 +7,11 @@ import 'package:flutter/material.dart'
         BuildContext,
         CrossAxisAlignment;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/components/common/atoms/input_text/widget.dart'
+import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
-import 'package:gamer_reflection/components/common/atoms/input_text_form.dart'
+import 'package:gamer_reflection/components/common/atoms/input/text_form.dart'
     show InputTextForm;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
@@ -23,7 +23,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
-import 'package:gamer_reflection/components/common/atoms/radio_good_bad_button.dart'
+import 'package:gamer_reflection/components/common/molecules/radio_good_bad_button.dart'
     show RadioGoodBadButton;
 
 /// タスク詳細上部編集モード

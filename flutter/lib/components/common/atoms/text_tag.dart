@@ -6,7 +6,7 @@ import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// 注釈テキスト
+/// タグテキスト
 class TextTag extends StatelessWidget {
   const TextTag({
     super.key,

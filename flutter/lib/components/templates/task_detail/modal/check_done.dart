@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart'
     show BuildContext, showDialog, Navigator, StatefulBuilder;
-import 'package:gamer_reflection/components/common/atoms/text_annotation.dart'
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

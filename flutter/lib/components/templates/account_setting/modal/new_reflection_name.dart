@@ -2,7 +2,7 @@ import 'package:flutter/material.dart'
     show BuildContext, Color, Icons, showDialog, Navigator;
 import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
-import 'package:gamer_reflection/components/common/atoms/text.dart'
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
