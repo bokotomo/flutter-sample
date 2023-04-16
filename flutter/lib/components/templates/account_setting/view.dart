@@ -145,6 +145,11 @@ Widget view(
               text: 'プライバシーポリシー',
               size: "M",
             ),
+            SpacerHeight.m,
+            BasicText(
+              text: 'Version 1.0.0',
+              size: "M",
+            ),
           ],
         ),
       ),

@@ -41,11 +41,6 @@ Widget view(
             text: '振り返り名の変更',
             size: "M",
           ),
-          SpacerHeight.xs,
-          const TextAnnotation(
-            text: "※20文字まで",
-            size: "S",
-          ),
           SpacerHeight.m,
           InputText(
             text: textReflectionName,

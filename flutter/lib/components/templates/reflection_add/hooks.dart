@@ -103,6 +103,9 @@ UseReturn useHooks(
     /// 入力欄をリセットする
     resetInput();
 
+    /// 振り返り種類も初期値に更新
+    isGood.value = true;
+
     /// モーダルを消す
     Navigator.pop(c);
   }

@@ -32,7 +32,7 @@ void showDeleteModal(
           ),
           SpacerHeight.xs,
           const TextAnnotation(
-            text: "振り返りした内容も削除されます。",
+            text: "振り返りした内容も削除されます。\n復元はできません。",
             size: "S",
           ),
           SpacerHeight.m,
