@@ -13,13 +13,15 @@ class TemplateReflectionAdd extends HookWidget {
     super.key,
     required this.reflections,
     required this.title,
+    required this.groupId,
   });
   final List<DomainReflection> reflections;
   final String title;
+  final int groupId;
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflections);
+    final hooks = useHooks(reflections, groupId);
 
     return view(
       title,

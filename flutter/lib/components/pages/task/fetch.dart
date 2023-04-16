@@ -11,15 +11,19 @@ import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show FetchReflection;
 import 'package:gamer_reflection/components/pages/task_detail/widget.dart'
     show PageTaskDetail;
+import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+    show selectReflectionGroupId;
 
 class UseReturn {
   const UseReturn({
     required this.reflections,
     required this.reflectionGroups,
     required this.pushTaskDetail,
+    required this.fetchReflections,
   });
 
   final List<DomainReflection> reflections;
+  final Future<void> Function() fetchReflections;
 
   /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;
@@ -33,10 +37,21 @@ UseReturn useFetch(ValueNotifier<bool> canDC) {
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
 
+  /// 振り返りグループIDの取得
+  int getReflectionGroupId(String? id) {
+    if (id != null) return int.parse(id);
+    return reflectionGroups.value.isEmpty ? 1 : reflectionGroups.value[0].id;
+  }
+
   /// データ取得
-  Future<void> eventRepository() async {
+  Future<void> fetch() async {
     if (!canDC.value) return;
-    final List<DomainReflection> r = await FetchReflection().fetchReflections();
+
+    final String? id = await selectReflectionGroupId.get();
+    final int groupId = getReflectionGroupId(id);
+
+    final List<DomainReflection> r =
+        await FetchReflection().fetchReflections(groupId);
     reflections.value = r;
 
     final List<DomainReflectionGroup> rg =
@@ -52,14 +67,21 @@ UseReturn useFetch(ValueNotifier<bool> canDC) {
       MaterialPageRoute(
         builder: (c) => page,
       ),
-    ).then((v) {
-      eventRepository();
-    });
+    ).then(
+      (v) {
+        fetch();
+      },
+    );
+  }
+
+  /// 振り返りグループの更新
+  Future<void> fetchReflections() async {
+    fetch();
   }
 
   useEffect(() {
-    canDC.addListener(eventRepository);
-    eventRepository();
+    canDC.addListener(fetch);
+    fetch();
     return;
   }, []);
 
@@ -67,5 +89,6 @@ UseReturn useFetch(ValueNotifier<bool> canDC) {
     reflections: reflections.value,
     reflectionGroups: reflectionGroups.value,
     pushTaskDetail: pushTaskDetail,
+    fetchReflections: fetchReflections,
   );
 }

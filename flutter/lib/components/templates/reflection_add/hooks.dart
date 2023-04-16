@@ -41,7 +41,10 @@ class UseReturn {
 }
 
 ///
-UseReturn useHooks(List<DomainReflection> reflections) {
+UseReturn useHooks(
+  List<DomainReflection> reflections,
+  int groupId,
+) {
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
@@ -57,13 +60,14 @@ UseReturn useHooks(List<DomainReflection> reflections) {
   }
 
   /// 振り返りの追加
-  Future<void> addReflection(bool v) async {
+  Future<void> addReflection(bool isGood) async {
     final String text = textReflection.value.text;
 
     /// DBに保存する
     await RequestReflection().addReflection(
       text,
-      v,
+      isGood,
+      groupId,
     );
 
     final candidateNotExist = candidates.value.every((e) => e.text != text);
@@ -113,7 +117,7 @@ UseReturn useHooks(List<DomainReflection> reflections) {
       final DomainCandidate domain = candidates.value.firstWhere(
         (c) => c.text == text,
       );
-      count = domain.count + 1;
+      count = domain.count;
     }
 
     /// 追加するモーダルを表示する

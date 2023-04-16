@@ -13,9 +13,9 @@ class FetchReflection {
       GetIt.I<IRepositoryReflectionQuery>();
 
   /// 取得: 振り返り一覧
-  Future<List<DomainReflection>> fetchReflections() async {
+  Future<List<DomainReflection>> fetchReflections(int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    return await repositoryReflection.getReflections(db);
+    return await repositoryReflection.getReflections(db, groupId);
   }
 
   /// 取得: 振り返り

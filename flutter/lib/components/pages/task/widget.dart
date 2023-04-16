@@ -23,6 +23,7 @@ class PageTask extends HookWidget {
         reflections: d.reflections,
         reflectionGroups: d.reflectionGroups,
         pushTaskDetail: d.pushTaskDetail,
+        fetchReflections: d.fetchReflections,
       ),
     );
   }

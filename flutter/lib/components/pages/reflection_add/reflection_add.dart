@@ -10,16 +10,19 @@ class PageReflectionAdd extends HookWidget {
   const PageReflectionAdd({
     super.key,
     required this.title,
+    required this.groupId,
   });
   final String title;
+  final int groupId;
 
   @override
   Widget build(BuildContext context) {
-    final d = useFetch();
+    final d = useFetch(groupId);
 
     return Scaffold(
       body: TemplateReflectionAdd(
         title: title,
+        groupId: groupId,
         reflections: d.reflections,
       ),
     );

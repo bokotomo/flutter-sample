@@ -32,7 +32,7 @@ UseReturn useHooks(
 
   /// 選択グループID
   ValueNotifier<String> reflectionId = useState<String>(
-    reflectionGroups.isEmpty ? "0" : reflectionGroups[0].id.toString(),
+    reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString(),
   );
 
   /// 変更を押した
@@ -44,7 +44,7 @@ UseReturn useHooks(
   /// 選択IDの更新
   void updateReflectionId(String? id) {
     reflectionId.value = id ??
-        (reflectionGroups.isEmpty ? "0" : reflectionGroups[0].id.toString());
+        (reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString());
   }
 
   /// 振り返りグループ名一覧

@@ -3,6 +3,8 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
+import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+    show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/type.dart'
@@ -18,6 +20,8 @@ import 'package:gamer_reflection/modules/storage/selected_period.dart'
     show selectedTaskPagePeriod;
 import 'package:gamer_reflection/modules/storage/selected_reflection_type.dart'
     show selectReflectionType;
+import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+    show selectReflectionGroupId;
 
 class UseReturn {
   const UseReturn({
@@ -44,7 +48,11 @@ class UseReturn {
 }
 
 ///
-UseReturn useHooks(List<DomainReflection> reflections) {
+UseReturn useHooks(
+  List<DomainReflection> reflections,
+  List<DomainReflectionGroup> reflectionGroups,
+  Future<void> Function() fetchReflections,
+) {
   /// 期間: 初期値は3ヶ月
   final ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
 
@@ -155,7 +163,11 @@ UseReturn useHooks(List<DomainReflection> reflections) {
 
   /// 振り返りグループ
   void onChangeReflectionGroup(String? id) {
-    print(id);
+    String groupId = id ??
+        (reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString());
+    selectReflectionGroupId.save(groupId);
+
+    fetchReflections();
   }
 
   /// 端末に保存されてる選択している期間を取得
@@ -185,9 +197,6 @@ UseReturn useHooks(List<DomainReflection> reflections) {
     final String kvsReflectionType = futuredReflectionType.data ?? "bad";
     final bool isGood = kvsReflectionType == "good";
     isSelectedGood.value = isGood;
-
-    /// データがなければ実行しない
-    if (reflections.isEmpty) return;
 
     /// 初期値は「3ヶ月,改善点」でフィルターする
     updateFilteredReflections(kvsPeriod, isGood);

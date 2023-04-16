@@ -15,6 +15,7 @@ class TemplateTask extends HookWidget {
     required this.reflections,
     required this.reflectionGroups,
     required this.pushTaskDetail,
+    required this.fetchReflections,
   });
 
   /// 振り返り一覧
@@ -26,9 +27,12 @@ class TemplateTask extends HookWidget {
   /// クリックした
   final void Function(BuildContext context, int taskId) pushTaskDetail;
 
+  ///
+  final Future<void> Function() fetchReflections;
+
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflections);
+    final hooks = useHooks(reflections, reflectionGroups, fetchReflections);
 
     return view(
       context,

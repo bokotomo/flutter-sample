@@ -20,7 +20,7 @@ class UseReturn {
 UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   /// 開始を押した
   Future<void> onPressedStart(BuildContext context) async {
-    final groupId = await selectReflectionGroupId.get() ?? "0";
+    final groupId = await selectReflectionGroupId.get() ?? "1";
     final int id = int.parse(groupId.toString());
     final DomainReflectionGroup d = reflectionGroups.firstWhere(
       (r) => r.id == id,
@@ -28,7 +28,10 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
     );
 
     if (context.mounted) {
-      final PageReflectionAdd page = PageReflectionAdd(title: d.name);
+      final PageReflectionAdd page = PageReflectionAdd(
+        title: d.name,
+        groupId: id,
+      );
       Navigator.push(
         context,
         MaterialPageRoute(

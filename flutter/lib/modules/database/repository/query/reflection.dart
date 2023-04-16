@@ -9,7 +9,7 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
 
 /// Interface: RepositoryReflectionQuery
 abstract class IRepositoryReflectionQuery {
-  Future<List<DomainReflection>> getReflections(Database db);
+  Future<List<DomainReflection>> getReflections(Database db, int groupId);
   Future<DomainReflection> getReflectionById(Database db, int id);
 }
 
@@ -18,11 +18,16 @@ abstract class IRepositoryReflectionQuery {
 class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
   /// 取得: 振り返り一覧
   @override
-  Future<List<DomainReflection>> getReflections(Database db) async {
+  Future<List<DomainReflection>> getReflections(
+    Database db,
+    int groupId,
+  ) async {
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflection,
+      where: '"reflection_group_id" = ?',
+      whereArgs: [groupId],
       columns: ['*'],
-      limit: 100,
+      limit: 150,
     );
 
     final List<ModelReflection> models = List.generate(res.length, (i) {
@@ -45,7 +50,10 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
 
   /// 取得: 指定したIDの振り返り
   @override
-  Future<DomainReflection> getReflectionById(Database db, int id) async {
+  Future<DomainReflection> getReflectionById(
+    Database db,
+    int id,
+  ) async {
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflection,
       columns: ['*'],

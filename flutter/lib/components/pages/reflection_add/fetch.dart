@@ -4,23 +4,28 @@ import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show FetchReflection;
+// import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+//     show selectReflectionGroupId;
 
 class UseReturn {
   const UseReturn({
     required this.reflections,
+    required this.fetchReflections,
   });
 
   final List<DomainReflection> reflections;
+  final Future<void> Function() fetchReflections;
 }
 
 /// データ取得: 振り返り追加
-UseReturn useFetch() {
+UseReturn useFetch(int groupId) {
   final ValueNotifier<List<DomainReflection>> reflections =
       useState<List<DomainReflection>>([]);
 
   /// データの取得
-  Future<void> getData() async {
-    final List<DomainReflection> r = await FetchReflection().fetchReflections();
+  Future<void> fetch() async {
+    final List<DomainReflection> r =
+        await FetchReflection().fetchReflections(groupId);
 
     /// 大きい順にソート
     r.sort(((a, b) => b.count.compareTo(a.count)));
@@ -28,12 +33,18 @@ UseReturn useFetch() {
     reflections.value = r;
   }
 
+  /// 振り返りグループの更新
+  Future<void> fetchReflections() async {
+    fetch();
+  }
+
   useEffect(() {
-    getData();
+    fetch();
     return;
   }, []);
 
   return UseReturn(
     reflections: reflections.value,
+    fetchReflections: fetchReflections,
   );
 }
