@@ -2,7 +2,7 @@ import 'package:flutter/material.dart'
     show BuildContext, Navigator, MaterialPageRoute;
 import 'package:gamer_reflection/components/pages/reflection_add/reflection_add.dart'
     show PageReflectionAdd;
-import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;

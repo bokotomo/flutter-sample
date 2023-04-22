@@ -1,7 +1,11 @@
 import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
+import 'package:gamer_reflection/modules/domain/reflection.dart'
+    show DomainReflection;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
+import 'package:gamer_reflection/storage/rdb/repository/query/reflection.dart'
+    show IRepositoryReflectionQuery;
 import 'package:gamer_reflection/storage/rdb/repository/query/reflection_group.dart'
     show IRepositoryReflectionGroupQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
@@ -9,10 +13,18 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
 import 'package:gamer_reflection/modules/adapter/reflection_group.dart'
     show AdapterReflectionGroup;
 
-/// データ取得: 振り返りページ
-class FetchReflectionPage {
+/// データ取得: 振り返り追加ページ
+class FetchReflectionAddPage {
+  final IRepositoryReflectionQuery repositoryReflection =
+      GetIt.I<IRepositoryReflectionQuery>();
   final IRepositoryReflectionGroupQuery repositoryReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupQuery>();
+
+  /// 取得: 振り返り一覧
+  Future<List<DomainReflection>> fetchReflections(int groupId) async {
+    final Database db = GetIt.I<DBConnection>().db;
+    return await repositoryReflection.getReflections(db, groupId);
+  }
 
   /// 取得: 振り返りグループ一覧
   Future<List<DomainReflectionGroup>> fetchReflectionGroups() async {

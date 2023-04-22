@@ -2,10 +2,8 @@ import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/fetch/reflection.dart'
-    show FetchReflection;
-// import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
-//     show selectReflectionGroupId;
+import 'package:gamer_reflection/modules/fetch/reflection_add.dart'
+    show FetchReflectionAddPage;
 
 class UseReturn {
   const UseReturn({
@@ -25,7 +23,7 @@ UseReturn useFetch(int groupId) {
   /// データの取得
   Future<void> fetch() async {
     final List<DomainReflection> r =
-        await FetchReflection().fetchReflections(groupId);
+        await FetchReflectionAddPage().fetchReflections(groupId);
 
     /// 大きい順にソート
     r.sort(((a, b) => b.count.compareTo(a.count)));

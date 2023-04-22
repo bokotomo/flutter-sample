@@ -2,8 +2,8 @@ import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/fetch/reflection.dart'
-    show FetchReflection;
+import 'package:gamer_reflection/modules/fetch/task_detail.dart'
+    show FetchTaskDetailPage;
 import 'package:gamer_reflection/modules/type/data_fetch.dart'
     show DataFetchState;
 
@@ -31,7 +31,7 @@ UseReturn useFetch(int taskId) {
     dataFetchState.value = DataFetchState.fetching;
 
     final DomainReflection r =
-        await FetchReflection().fetchReflectionById(taskId);
+        await FetchTaskDetailPage().fetchReflectionById(taskId);
 
     reflection.value = r;
     dataFetchState.value = DataFetchState.end;

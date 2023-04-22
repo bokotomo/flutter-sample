@@ -9,7 +9,7 @@ import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
-import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;

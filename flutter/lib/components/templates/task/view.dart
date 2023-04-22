@@ -15,7 +15,7 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
     show Period;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
-import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;

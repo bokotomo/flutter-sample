@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/modules/domain/reflection_group.dart'
+import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/fetch/reflection_group.dart'
-    show FetchReflectionGroup;
+import 'package:gamer_reflection/modules/fetch/reflection.dart'
+    show FetchReflectionPage;
 
 class UseReturn {
   const UseReturn({
@@ -21,7 +21,7 @@ UseReturn useFetch() {
   /// データ取得
   Future<void> fetch() async {
     final List<DomainReflectionGroup> r =
-        await FetchReflectionGroup().fetchReflectionGroups();
+        await FetchReflectionPage().fetchReflectionGroups();
     reflectionGroups.value = r;
   }
 
