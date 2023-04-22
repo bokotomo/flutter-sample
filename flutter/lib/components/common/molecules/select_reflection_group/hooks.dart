@@ -5,7 +5,7 @@ import 'package:gamer_reflection/components/common/atoms/input/select.dart'
     show SelectItem;
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 
 class UseReturn {

@@ -4,7 +4,7 @@ import 'package:gamer_reflection/components/common/atoms/input/select.dart'
     show SelectItem;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useEffect, useMemoized, useFuture;
-import 'package:gamer_reflection/modules/storage/selected_color_mode.dart'
+import 'package:gamer_reflection/storage/kvs/selected_color_mode.dart'
     show selectColorMode;
 
 class UseReturn {

@@ -1,6 +1,6 @@
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/database/model/reflection_group.dart'
+import 'package:gamer_reflection/storage/database/model/reflection_group.dart'
     show ModelReflectionGroup;
 
 /// Adapter Domain: ReflectionGroup

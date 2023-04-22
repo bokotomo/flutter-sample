@@ -11,7 +11,7 @@ import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show FetchReflection;
 import 'package:gamer_reflection/components/pages/task_detail/widget.dart'
     show PageTaskDetail;
-import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 
 class UseReturn {

@@ -12,7 +12,7 @@ import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/request/reflection_group.dart'
     show RequestReflectionGroup;
-import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect, useMemoized, useFuture;

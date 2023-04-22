@@ -1,8 +1,8 @@
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:injectable/injectable.dart' show Injectable;
-import 'package:gamer_reflection/modules/database/model/reflection_group.dart'
+import 'package:gamer_reflection/storage/database/model/reflection_group.dart'
     show ModelReflectionGroup, tableNameReflectionGroup;
-import 'package:gamer_reflection/modules/database/adapter/reflection_group.dart'
+import 'package:gamer_reflection/storage/database/adapter/reflection_group.dart'
     show AdapterReflectionGroup;
 import 'package:gamer_reflection/modules/domain/reflection_group.dart'
     show DomainReflectionGroup;

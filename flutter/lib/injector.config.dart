@@ -12,10 +12,10 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'modules/database/repository/command/reflection.dart' as _i3;
-import 'modules/database/repository/command/reflection_group.dart' as _i4;
-import 'modules/database/repository/query/reflection.dart' as _i6;
-import 'modules/database/repository/query/reflection_group.dart' as _i5;
+import 'storage/database/repository/command/reflection.dart' as _i3;
+import 'storage/database/repository/command/reflection_group.dart' as _i4;
+import 'storage/database/repository/query/reflection.dart' as _i6;
+import 'storage/database/repository/query/reflection_group.dart' as _i5;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars

@@ -2,9 +2,9 @@ import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:gamer_reflection/modules/domain/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/database/repository/query/reflection.dart'
+import 'package:gamer_reflection/storage/database/repository/query/reflection.dart'
     show IRepositoryReflectionQuery;
-import 'package:gamer_reflection/modules/database/driver/sqlite.dart'
+import 'package:gamer_reflection/storage/database/driver/sqlite.dart'
     show DBConnection;
 
 /// Fetch: Reflection

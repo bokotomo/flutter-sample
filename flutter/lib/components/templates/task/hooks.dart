@@ -16,11 +16,11 @@ import 'package:gamer_reflection/components/templates/task/filter.dart'
         getTagColor,
         getPriority,
         getHighPriorityIds;
-import 'package:gamer_reflection/modules/storage/selected_period.dart'
+import 'package:gamer_reflection/storage/kvs/selected_period.dart'
     show selectedTaskPagePeriod;
-import 'package:gamer_reflection/modules/storage/selected_reflection_type.dart'
+import 'package:gamer_reflection/storage/kvs/selected_reflection_type.dart'
     show selectReflectionType;
-import 'package:gamer_reflection/modules/storage/selected_reflection_group.dart'
+import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 
 class UseReturn {

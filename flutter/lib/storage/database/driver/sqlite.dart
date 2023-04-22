@@ -1,7 +1,7 @@
 import 'package:sqflite/sqflite.dart'
     show Database, getDatabasesPath, openDatabase;
 import 'package:path/path.dart' show join;
-import 'package:gamer_reflection/modules/database/repository/table.dart'
+import 'package:gamer_reflection/storage/database/repository/table.dart'
     show TableSetUp;
 
 /// sqliteの管理
