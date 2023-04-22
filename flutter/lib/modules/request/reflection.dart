@@ -1,10 +1,10 @@
 import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
-import 'package:gamer_reflection/storage/database/repository/command/reflection.dart'
+import 'package:gamer_reflection/storage/rdb/repository/command/reflection.dart'
     show IRepositoryReflectionCommand;
-import 'package:gamer_reflection/storage/database/driver/sqlite.dart'
+import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/storage/database/model/reflection.dart'
+import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

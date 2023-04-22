@@ -1,6 +1,6 @@
 import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
 import 'package:injectable/injectable.dart' show Injectable;
-import 'package:gamer_reflection/storage/database/model/reflection.dart'
+import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection, tableNameReflection;
 
 /// Interface: RepositoryReflectionCommand

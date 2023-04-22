@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/storage/database/driver/sqlite.dart'
+import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show initDatabase, DBConnection;
 
 class UseReturn {

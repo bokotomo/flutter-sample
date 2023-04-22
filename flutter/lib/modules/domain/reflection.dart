@@ -2,9 +2,28 @@ import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
+import 'package:gamer_reflection/modules/domain/site/reflection.dart'
+    show
+        DomainReflectionId,
+        DomainReflectionText,
+        DomainReflectionDetail,
+        DomainReflectionCount,
+        DomainReflectionType,
+        DomainReflectionPriority,
+        DomainReflectionTagColor,
+        DomainReflectionUpdatedAt;
 
 /// ドメイン: 振り返り
-class DomainReflection {
+class DomainReflection
+    implements
+        DomainReflectionId,
+        DomainReflectionText,
+        DomainReflectionDetail,
+        DomainReflectionCount,
+        DomainReflectionType,
+        DomainReflectionPriority,
+        DomainReflectionTagColor,
+        DomainReflectionUpdatedAt {
   const DomainReflection({
     required this.id,
     required this.text,
@@ -17,26 +36,34 @@ class DomainReflection {
   });
 
   /// ID
+  @override
   final int id;
 
   /// 振り返り内容
+  @override
   final String text;
 
   /// 振り返りの対策内容
+  @override
   final String detail;
 
   /// 回数
+  @override
   final int count;
 
   /// 優先度
+  @override
   final int priority;
 
   /// 優先度の色
+  @override
   final TagTextColor tagColor;
 
   /// 振り返りの種類
+  @override
   final ReflectionType reflectionType;
 
   /// 日付
+  @override
   final DateTime updatedAt;
 }
