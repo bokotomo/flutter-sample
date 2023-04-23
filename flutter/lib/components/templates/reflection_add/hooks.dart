@@ -11,10 +11,8 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
+import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
     show DomainReflection;
-import 'package:gamer_reflection/modules/domain/reflection_add/candidate.dart'
-    show DomainCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/modal/add.dart'
     show showModal;
 
@@ -35,7 +33,7 @@ class UseReturn {
   final void Function() onPressedReflectionDone;
   final void Function() onPressedRemoveText;
   final TextEditingController textReflection;
-  final List<DomainCandidate> candidates;
+  final List<DomainReflection> candidates;
   final FocusNode textFieldFocusNode;
   final GlobalKey<FormState> formKey;
 }
@@ -48,8 +46,8 @@ UseReturn useHooks(
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
-  final ValueNotifier<List<DomainCandidate>> candidates =
-      useState<List<DomainCandidate>>([]);
+  final ValueNotifier<List<DomainReflection>> candidates =
+      useState<List<DomainReflection>>([]);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<bool?> isGood = useState<bool?>(true);
 
@@ -74,7 +72,7 @@ UseReturn useHooks(
     if (candidateNotExist) {
       /// 重複しない場合は候補一覧に追加する
       candidates.value = [
-        DomainCandidate(
+        DomainReflection(
           text: text,
           count: 1,
         ),
@@ -84,7 +82,7 @@ UseReturn useHooks(
       /// 重複する場合はcountを加算する
       candidates.value = candidates.value
           .map(
-            (c) => DomainCandidate(
+            (c) => DomainReflection(
               count: text == c.text ? c.count + 1 : c.count,
               text: c.text,
             ),
@@ -117,7 +115,7 @@ UseReturn useHooks(
     final candidateExist = !candidates.value.every((e) => e.text != text);
     int count = 1;
     if (candidateExist) {
-      final DomainCandidate domain = candidates.value.firstWhere(
+      final DomainReflection domain = candidates.value.firstWhere(
         (c) => c.text == text,
       );
       count = domain.count;
@@ -162,7 +160,7 @@ UseReturn useHooks(
     /// 候補一覧の追加する
     candidates.value = reflections
         .map(
-          (d) => DomainCandidate(
+          (d) => DomainReflection(
             text: d.text,
             count: d.count,
           ),

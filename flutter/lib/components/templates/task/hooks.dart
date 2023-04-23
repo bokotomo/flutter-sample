@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useEffect, useMemoized, useFuture;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
+import 'package:gamer_reflection/modules/domain/task/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
@@ -90,7 +90,6 @@ UseReturn useHooks(
         return DomainReflection(
           id: e.id,
           text: e.text,
-          detail: e.detail,
           count: e.count,
           reflectionType: ReflectionType.bad,
           priority: getPriority(countDistincts, e.count),

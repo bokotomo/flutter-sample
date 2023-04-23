@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show Widget, BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
+import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/components/templates/task_detail/hooks.dart'
     show useHooks;

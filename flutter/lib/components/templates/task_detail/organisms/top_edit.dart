@@ -13,7 +13,7 @@ import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/input/text_form.dart'
     show InputTextForm;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
+import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

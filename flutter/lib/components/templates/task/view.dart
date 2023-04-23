@@ -17,7 +17,7 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
     show SelectReflectionGroup;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
+import 'package:gamer_reflection/modules/domain/task/reflection.dart'
     show DomainReflection;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 

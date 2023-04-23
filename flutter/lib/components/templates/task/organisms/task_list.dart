@@ -6,7 +6,7 @@ import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/modules/domain/reflection.dart'
+import 'package:gamer_reflection/modules/domain/task/reflection.dart'
     show DomainReflection;
 
 /// タスク一覧: タスクの一覧
