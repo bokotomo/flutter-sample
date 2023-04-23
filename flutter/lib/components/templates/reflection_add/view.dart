@@ -32,6 +32,7 @@ Widget view(
   void Function(String) onPressedAddCandidate,
   void Function() onPressedReflectionDone,
   void Function() onPressedRemoveText,
+  void Function(String?) onChangeTextReflection,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -52,6 +53,7 @@ Widget view(
         onPressedReflectionDone: onPressedReflectionDone,
         onPressedAddReflection: onPressedAddReflection,
         onPressedRemoveText: onPressedRemoveText,
+        onChangeTextReflection: onChangeTextReflection,
       ),
     ],
   );

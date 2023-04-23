@@ -2,12 +2,20 @@ import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection, tableNameReflection;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 
 /// Interface: RepositoryReflectionCommand
 abstract class IRepositoryReflectionCommand {
   Future<void> insertReflection(
       Database db, String text, bool isGood, int groupId);
-  Future<void> updateReflectionById(Database db, int id, ModelReflection model);
+  Future<void> updateReflectionById(
+    Database db,
+    int id,
+    String text,
+    String detail,
+    ReflectionType reflectionType,
+  );
   Future<void> deleteReflectionById(Database db, int id);
 }
 
@@ -80,8 +88,20 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
   Future<void> updateReflectionById(
     Database db,
     int id,
-    ModelReflection model,
+    String text,
+    String detail,
+    ReflectionType reflectionType,
   ) async {
+    // todo
+    final model = ModelReflection(
+      text: text,
+      detail: detail,
+      reflectionGroupId: 0,
+      reflectionType: reflectionType == ReflectionType.good ? 1 : 2,
+      count: 0,
+      createdAt: DateTime.now(),
+      updatedAt: DateTime.now(),
+    );
     final Map<String, Object?> map = {}
       ..addAll(model.toMapText())
       ..addAll(model.toMapDetail())

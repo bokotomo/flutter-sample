@@ -34,6 +34,7 @@ Widget view(
   void Function() onPressedReflectionDone,
   void Function(BuildContext) onPressedAddReflection,
   void Function() onPressedRemoveText,
+  void Function(String?) onChangeTextReflection,
 ) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,6 +61,7 @@ Widget view(
                 hintText: '振り返りを書く',
                 focusNode: textFieldFocusNode,
                 maxLength: 30,
+                onChanged: onChangeTextReflection,
                 onPressedRemove: () => onPressedRemoveText(),
               ),
             ),
@@ -87,6 +89,7 @@ class BottomContents extends StatelessWidget {
     required this.onPressedReflectionDone,
     required this.onPressedAddReflection,
     required this.onPressedRemoveText,
+    required this.onChangeTextReflection,
   });
 
   ///
@@ -104,6 +107,9 @@ class BottomContents extends StatelessWidget {
   /// 振り返りの入力文字を削除
   final void Function() onPressedRemoveText;
 
+  /// 振り返りのinputへの入力
+  final void Function(String?) onChangeTextReflection;
+
   @override
   Widget build(BuildContext context) {
     return view(
@@ -113,6 +119,7 @@ class BottomContents extends StatelessWidget {
       onPressedReflectionDone,
       onPressedAddReflection,
       onPressedRemoveText,
+      onChangeTextReflection,
     );
   }
 }

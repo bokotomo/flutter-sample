@@ -4,8 +4,6 @@ import 'package:gamer_reflection/storage/rdb/repository/command/reflection.dart'
     show IRepositoryReflectionCommand;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
-    show ModelReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 
@@ -28,17 +26,13 @@ class RequestReflection {
     ReflectionType reflectionType,
   ) async {
     final Database db = GetIt.I<DBConnection>().db;
-    // todo
-    final model = ModelReflection(
-      text: title,
-      detail: detail,
-      reflectionGroupId: 0,
-      reflectionType: reflectionType == ReflectionType.good ? 1 : 2,
-      count: 0,
-      createdAt: DateTime.now(),
-      updatedAt: DateTime.now(),
+    await repositoryReflection.updateReflectionById(
+      db,
+      id,
+      title,
+      detail,
+      reflectionType,
     );
-    await repositoryReflection.updateReflectionById(db, id, model);
   }
 
   /// 削除: Reflection
