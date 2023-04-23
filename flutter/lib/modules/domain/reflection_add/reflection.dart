@@ -1,9 +1,10 @@
 import 'package:gamer_reflection/modules/domain/site/reflection.dart'
     show DomainReflectionText, DomainReflectionCount;
 
-/// ドメイン: 振り返り
-class DomainReflection implements DomainReflectionText, DomainReflectionCount {
-  const DomainReflection({
+/// ドメイン: 振り返り追加 振り返り
+class DomainReflectionAddReflection
+    implements DomainReflectionText, DomainReflectionCount {
+  const DomainReflectionAddReflection({
     required this.text,
     required this.count,
   });

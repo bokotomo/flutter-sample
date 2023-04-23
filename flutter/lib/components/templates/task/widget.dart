@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show BuildContext, Widget;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/components/templates/task/view.dart' show view;
@@ -19,7 +19,7 @@ class TemplateTask extends HookWidget {
   });
 
   /// 振り返り一覧
-  final List<DomainReflection> reflections;
+  final List<DomainTaskReflection> reflections;
 
   /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;

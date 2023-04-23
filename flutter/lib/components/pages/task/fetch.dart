@@ -2,7 +2,7 @@ import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/fetch/task.dart' show FetchTaskPage;
@@ -19,7 +19,7 @@ class UseReturn {
     required this.fetchReflections,
   });
 
-  final List<DomainReflection> reflections;
+  final List<DomainTaskReflection> reflections;
   final Future<void> Function() fetchReflections;
 
   /// 振り返りグループ一覧
@@ -29,8 +29,8 @@ class UseReturn {
 
 /// データ取得: タスク一覧
 UseReturn useFetch(ValueNotifier<bool> canDC) {
-  final ValueNotifier<List<DomainReflection>> reflections =
-      useState<List<DomainReflection>>([]);
+  final ValueNotifier<List<DomainTaskReflection>> reflections =
+      useState<List<DomainTaskReflection>>([]);
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
 
@@ -47,7 +47,7 @@ UseReturn useFetch(ValueNotifier<bool> canDC) {
     final String? id = await selectReflectionGroupId.get();
     final int groupId = getReflectionGroupId(id);
 
-    final List<DomainReflection> r =
+    final List<DomainTaskReflection> r =
         await FetchTaskPage().fetchReflections(groupId);
     reflections.value = r;
 

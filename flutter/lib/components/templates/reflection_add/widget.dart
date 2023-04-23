@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/templates/reflection_add/hooks.dart'
     show useHooks;
 import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
-    show DomainReflection;
+    show DomainReflectionAddReflection;
 import 'package:gamer_reflection/components/templates/reflection_add/view.dart'
     show view;
 
@@ -15,7 +15,7 @@ class TemplateReflectionAdd extends HookWidget {
     required this.title,
     required this.groupId,
   });
-  final List<DomainReflection> reflections;
+  final List<DomainReflectionAddReflection> reflections;
   final String title;
   final int groupId;
 

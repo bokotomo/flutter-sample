@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
-    show DomainReflection;
+    show DomainReflectionAddReflection;
 import 'package:gamer_reflection/modules/fetch/reflection_add.dart'
     show FetchReflectionAddPage;
 
@@ -11,18 +11,18 @@ class UseReturn {
     required this.fetchReflections,
   });
 
-  final List<DomainReflection> reflections;
+  final List<DomainReflectionAddReflection> reflections;
   final Future<void> Function() fetchReflections;
 }
 
 /// データ取得: 振り返り追加
 UseReturn useFetch(int groupId) {
-  final ValueNotifier<List<DomainReflection>> reflections =
-      useState<List<DomainReflection>>([]);
+  final ValueNotifier<List<DomainReflectionAddReflection>> reflections =
+      useState<List<DomainReflectionAddReflection>>([]);
 
   /// データの取得
   Future<void> fetch() async {
-    final List<DomainReflection> r =
+    final List<DomainReflectionAddReflection> r =
         await FetchReflectionAddPage().fetchReflections(groupId);
 
     /// 大きい順にソート

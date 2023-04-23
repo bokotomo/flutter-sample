@@ -12,8 +12,8 @@ import 'package:gamer_reflection/modules/domain/site/reflection.dart'
         DomainReflectionTagColor,
         DomainReflectionUpdatedAt;
 
-/// ドメイン: 振り返り
-class DomainReflection
+/// ドメイン: タスク一覧 振り返り
+class DomainTaskReflection
     implements
         DomainReflectionId,
         DomainReflectionText,
@@ -22,7 +22,7 @@ class DomainReflection
         DomainReflectionPriority,
         DomainReflectionTagColor,
         DomainReflectionUpdatedAt {
-  const DomainReflection({
+  const DomainTaskReflection({
     required this.id,
     required this.text,
     required this.count,

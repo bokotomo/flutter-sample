@@ -5,7 +5,7 @@ import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_task_candidate.dart'
     show ButtonTaskCandidate;
 import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
-    show DomainReflection;
+    show DomainReflectionAddReflection;
 import 'package:gamer_reflection/modules/const/color/button.dart'
     show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
@@ -27,7 +27,7 @@ Widget candidatesNone() {
 }
 
 Widget view(
-  List<DomainReflection> reflections,
+  List<DomainReflectionAddReflection> reflections,
   Function(String text) onPressCandidate,
 ) {
   final Column candidateTitles = Column(
@@ -65,7 +65,7 @@ class ReflectionAddCandidate extends StatelessWidget {
     required this.reflections,
     required this.onPressCandidate,
   });
-  final List<DomainReflection> reflections;
+  final List<DomainReflectionAddReflection> reflections;
   final Function(String text) onPressCandidate;
 
   @override

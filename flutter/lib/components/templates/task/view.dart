@@ -18,7 +18,7 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 ///
@@ -27,7 +27,7 @@ Widget view(
   List<DomainReflectionGroup> reflectionGroups,
   void Function(BuildContext context, int taskId) pushTaskDetail,
   Period period,
-  List<DomainReflection> filteredReflections,
+  List<DomainTaskReflection> filteredReflections,
   bool isSelectedGood,
   void Function() onPressedAll,
   void Function() onPressedThreeMonth,

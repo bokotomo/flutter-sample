@@ -11,7 +11,7 @@ import 'package:flutter_hooks/flutter_hooks.dart'
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
-    show DomainReflection;
+    show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/components/templates/task_detail/modal/check_done.dart'
@@ -52,7 +52,7 @@ class UseReturn {
 ///
 UseReturn useHooks(
   int taskId,
-  DomainReflection? reflection,
+  DomainTaskDetailReflection? reflection,
   Future<void> Function() updateReflection,
 ) {
   final ValueNotifier<bool> isEditMode = useState<bool>(false);

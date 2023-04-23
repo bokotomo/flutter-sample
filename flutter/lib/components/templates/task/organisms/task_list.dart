@@ -7,7 +7,7 @@ import 'package:gamer_reflection/modules/const/color/button.dart'
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 
 /// タスク一覧: タスクの一覧
 class TaskList extends StatelessWidget {
@@ -18,7 +18,7 @@ class TaskList extends StatelessWidget {
   });
 
   /// 振り返り一覧
-  final List<DomainReflection> reflections;
+  final List<DomainTaskReflection> reflections;
 
   /// タスクリストアイテムを押した
   final Function(int) onPressedTask;

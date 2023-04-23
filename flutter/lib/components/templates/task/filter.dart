@@ -1,5 +1,5 @@
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
 import 'package:gamer_reflection/components/common/molecules/button_period_filter/type.dart'
@@ -21,7 +21,7 @@ TagTextColor getTagColor(int priority) {
 }
 
 /// 一覧からcountを取得し、重複なしで大きい順に返す
-List<int> getHighPriorityIds(List<DomainReflection> domains) {
+List<int> getHighPriorityIds(List<DomainTaskReflection> domains) {
   /// カウントのみの配列
   final Iterable<int> counts = domains.map((e) => e.count);
 
@@ -35,7 +35,8 @@ List<int> getHighPriorityIds(List<DomainReflection> domains) {
 
 /// 期間でフィルターする
 /// month: month以内の月でフィルターする
-List<DomainReflection> filteredMonth(int month, List<DomainReflection> rs) {
+List<DomainTaskReflection> filteredMonth(
+    int month, List<DomainTaskReflection> rs) {
   /// 現在からmonth前の日付を返す
   final DateTime monthAgo = getMonthAgo(DateTime.now(), month);
   return rs.where((e) => e.updatedAt.isAfter(monthAgo)).toList();
@@ -50,9 +51,9 @@ int getPriority(List<int> counts, int count) {
 }
 
 /// 期間でフィルターされた一覧を取得
-List<DomainReflection> getFilteredPeriod(
+List<DomainTaskReflection> getFilteredPeriod(
   Period p,
-  List<DomainReflection> domains,
+  List<DomainTaskReflection> domains,
 ) {
   switch (p) {
     case Period.all:
@@ -67,8 +68,8 @@ List<DomainReflection> getFilteredPeriod(
 }
 
 /// 振り返り種類でフィルターされた一覧を取得
-List<DomainReflection> getFilteredReflectionType(
-  List<DomainReflection> domains,
+List<DomainTaskReflection> getFilteredReflectionType(
+  List<DomainTaskReflection> domains,
   ReflectionType reflectionType,
 ) {
   return domains.where((r) => r.reflectionType == reflectionType).toList();

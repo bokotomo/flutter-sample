@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
-    show DomainReflection;
+    show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/fetch/task_detail.dart'
     show FetchTaskDetailPage;
 import 'package:gamer_reflection/modules/type/data_fetch.dart'
@@ -14,15 +14,15 @@ class UseReturn {
     required this.dataFetchState,
   });
 
-  final DomainReflection? reflection;
+  final DomainTaskDetailReflection? reflection;
   final Future<void> Function() updateReflection;
   final DataFetchState dataFetchState;
 }
 
 /// データ取得: タスク詳細
 UseReturn useFetch(int taskId) {
-  final ValueNotifier<DomainReflection?> reflection =
-      useState<DomainReflection?>(null);
+  final ValueNotifier<DomainTaskDetailReflection?> reflection =
+      useState<DomainTaskDetailReflection?>(null);
   final ValueNotifier<DataFetchState> dataFetchState =
       useState<DataFetchState>(DataFetchState.none);
 
@@ -30,7 +30,7 @@ UseReturn useFetch(int taskId) {
   Future<void> eventRepository() async {
     dataFetchState.value = DataFetchState.fetching;
 
-    final DomainReflection r =
+    final DomainTaskDetailReflection r =
         await FetchTaskDetailPage().fetchReflectionById(taskId);
 
     reflection.value = r;

@@ -22,7 +22,7 @@ import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
-    show DomainReflection;
+    show DomainTaskDetailReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -33,7 +33,7 @@ Widget view(
   FocusNode titleFocusNode,
   FocusNode detailFocusNode,
   int taskId,
-  DomainReflection? reflection,
+  DomainTaskDetailReflection? reflection,
   bool isEditMode,
   Function toggleEditMode,
   TextEditingController titleController,

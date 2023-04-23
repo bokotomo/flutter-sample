@@ -14,7 +14,7 @@ import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
-    show DomainReflection;
+    show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
@@ -39,7 +39,7 @@ class TaskDetailTop extends StatelessWidget {
   });
 
   /// 文字
-  final DomainReflection? reflection;
+  final DomainTaskDetailReflection? reflection;
 
   /// FocusNode title
   final FocusNode titleFocusNode;

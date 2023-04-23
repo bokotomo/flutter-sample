@@ -1,5 +1,5 @@
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
-    show DomainReflection;
+    show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
@@ -10,10 +10,10 @@ import 'package:gamer_reflection/modules/type/tag_text_color.dart'
 /// Adapter Domain: Reflection
 class AdapterDomainTaskDetailPage {
   /// 振り返り詳細取得
-  DomainReflection domainReflection(ModelReflection model) {
+  DomainTaskDetailReflection domainReflection(ModelReflection model) {
     final reflectionType =
         model.reflectionType == 1 ? ReflectionType.good : ReflectionType.bad;
-    return DomainReflection(
+    return DomainTaskDetailReflection(
       id: model.id ?? 0,
       text: model.text,
       detail: model.detail,

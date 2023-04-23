@@ -14,7 +14,7 @@ import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
 import 'package:gamer_reflection/components/common/atoms/input/text_form.dart'
     show InputTextForm;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
-    show DomainReflection;
+    show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
@@ -41,7 +41,7 @@ class TaskDetailTopEdit extends HookWidget {
   });
 
   /// 文字
-  final DomainReflection? reflection;
+  final DomainTaskDetailReflection? reflection;
 
   /// FocusNode title
   final FocusNode titleFocusNode;

@@ -1,7 +1,7 @@
 import 'package:gamer_reflection/modules/domain/site/reflection_group.dart'
     show DomainReflectionGroupId, DomainReflectionGroupName;
 
-/// ドメイン: 振り返りグループ
+/// ドメイン: 共通 振り返りグループ
 class DomainReflectionGroup
     implements DomainReflectionGroupId, DomainReflectionGroupName {
   const DomainReflectionGroup({

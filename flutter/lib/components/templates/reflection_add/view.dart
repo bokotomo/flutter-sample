@@ -17,7 +17,7 @@ import 'package:gamer_reflection/components/templates/reflection_add/organisms/c
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/bottom_contents.dart'
     show BottomContents;
 import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
-    show DomainReflection;
+    show DomainReflectionAddReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
@@ -25,7 +25,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 Widget view(
   String title,
   FocusNode textFieldFocusNode,
-  List<DomainReflection> candidates,
+  List<DomainReflectionAddReflection> candidates,
   GlobalKey<FormState> formKey,
   TextEditingController textReflection,
   void Function(BuildContext) onPressedAddReflection,

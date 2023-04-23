@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/type/reflection.dart'
@@ -37,7 +37,7 @@ class UseReturn {
   });
 
   final Period period;
-  final List<DomainReflection> filteredReflections;
+  final List<DomainTaskReflection> filteredReflections;
   final bool isSelectedGood;
   final void Function() onPressedAll;
   final void Function() onPressedThreeMonth;
@@ -49,7 +49,7 @@ class UseReturn {
 
 ///
 UseReturn useHooks(
-  List<DomainReflection> reflections,
+  List<DomainTaskReflection> reflections,
   List<DomainReflectionGroup> reflectionGroups,
   Future<void> Function() fetchReflections,
 ) {
@@ -71,11 +71,12 @@ UseReturn useHooks(
       useFuture(memoedReflectionType);
 
   /// フィルターされた振り返り一覧
-  final ValueNotifier<List<DomainReflection>> filteredReflections =
-      useState<List<DomainReflection>>([]);
+  final ValueNotifier<List<DomainTaskReflection>> filteredReflections =
+      useState<List<DomainTaskReflection>>([]);
 
   /// 振り返り一覧取得
-  List<DomainReflection> adapterReflections(List<DomainReflection> domains) {
+  List<DomainTaskReflection> adapterReflections(
+      List<DomainTaskReflection> domains) {
     /// 大きい順にソート
     domains.sort(((a, b) => b.count.compareTo(a.count)));
 
@@ -87,7 +88,7 @@ UseReturn useHooks(
       (e) {
         final priority = getPriority(countDistincts, e.count);
 
-        return DomainReflection(
+        return DomainTaskReflection(
           id: e.id,
           text: e.text,
           count: e.count,
@@ -106,11 +107,11 @@ UseReturn useHooks(
   void updateFilteredReflections(Period p, bool isGood) {
     /// 良かった悪かったでフィルターする
     final reflectionType = isGood ? ReflectionType.good : ReflectionType.bad;
-    final List<DomainReflection> filteredReflectionTypeReflections =
+    final List<DomainTaskReflection> filteredReflectionTypeReflections =
         getFilteredReflectionType(reflections, reflectionType);
 
     /// 期間でフィルターする
-    final List<DomainReflection> filteredPeriodReflections =
+    final List<DomainTaskReflection> filteredPeriodReflections =
         getFilteredPeriod(p, filteredReflectionTypeReflections);
     filteredReflections.value = adapterReflections(filteredPeriodReflections);
   }

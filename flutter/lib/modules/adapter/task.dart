@@ -1,5 +1,5 @@
 import 'package:gamer_reflection/modules/domain/task/reflection.dart'
-    show DomainReflection;
+    show DomainTaskReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
@@ -10,11 +10,11 @@ import 'package:gamer_reflection/modules/type/tag_text_color.dart'
 /// Adapter Domain: Reflection
 class AdapterDomainTaskPage {
   /// 振り返り一覧取得
-  List<DomainReflection> domainReflections(List<ModelReflection> models) {
+  List<DomainTaskReflection> domainReflections(List<ModelReflection> models) {
     /// ドメインに変換
     final domain = models.map(
       (m) {
-        return DomainReflection(
+        return DomainTaskReflection(
           id: m.id ?? 0,
           text: m.text,
           count: m.count,
