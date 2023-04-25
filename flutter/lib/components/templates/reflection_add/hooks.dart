@@ -162,6 +162,8 @@ UseReturn useHooks(
   void onPressedRemoveText() {
     // 入力欄をリセットする
     resetInput();
+
+    // 候補の更新
     candidates.value = addedReflections.value;
   }
 
@@ -175,8 +177,9 @@ UseReturn useHooks(
     if (t == null) return;
 
     // 候補の更新
-    // candidates.value =
-    //     addedReflections.value.where((c) => c.text.contains(t)).toList();
+    candidates.value =
+        addedReflections.value.where((c) => c.text.contains(t)).toList();
+    textFieldFocusNode.requestFocus();
   }
 
   useEffect(() {
