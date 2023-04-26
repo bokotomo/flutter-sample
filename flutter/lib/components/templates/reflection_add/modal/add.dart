@@ -88,6 +88,7 @@ void showModal(
             ModalBase(
           title: title,
           children: [
+            // 新規追加
             if (!candidateExist)
               reflectionTypeButton(
                 groupValue,
@@ -104,6 +105,7 @@ void showModal(
                   onChangedBad(),
                 },
               ),
+            // すでに追加したもの
             if (candidateExist) reflectionCount(count),
             SpacerHeight.m,
             ButtonIcon(

@@ -1,19 +1,18 @@
-// import 'package:flutter/material.dart'
-//     show
-//         Widget,
-//         BuildContext,
-//         FocusNode,
-//         TextEditingController,
-//         Column,
-//         CrossAxisAlignment,
-//         Padding,
-//         EdgeInsets,
-//         Container,
-//         Row,
-//         Expanded,
-//         SizedBox,
-//         StatelessWidget;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        Widget,
+        BuildContext,
+        FocusNode,
+        TextEditingController,
+        Column,
+        CrossAxisAlignment,
+        Padding,
+        EdgeInsets,
+        Container,
+        Row,
+        Expanded,
+        SizedBox,
+        StatelessWidget;
 import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
@@ -114,24 +113,6 @@ class BottomContents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return Focus(
-    //   canRequestFocus: true,
-    //   child: Builder(
-    //     builder: (context) {
-    //       final bool hasPrimary = Focus.of(context).hasPrimaryFocus;
-    //       print('Building with primary focus: $hasPrimary');
-    //       return view(
-    //         context,
-    //         textFieldFocusNode,
-    //         textReflection,
-    //         onPressedReflectionDone,
-    //         onPressedAddReflection,
-    //         onPressedRemoveText,
-    //         onChangeTextReflection,
-    //       );
-    //     },
-    //   ),
-    // );
     return view(
       context,
       textFieldFocusNode,

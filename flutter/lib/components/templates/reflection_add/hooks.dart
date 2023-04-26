@@ -177,9 +177,8 @@ UseReturn useHooks(
     if (t == null) return;
 
     // 候補の更新
-    candidates.value =
-        addedReflections.value.where((c) => c.text.contains(t)).toList();
-    textFieldFocusNode.requestFocus();
+    // candidates.value =
+    //     addedReflections.value.where((c) => c.text.contains(t)).toList();
   }
 
   useEffect(() {
