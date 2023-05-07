@@ -15,8 +15,14 @@ class TemplateReflectionAdd extends HookWidget {
     required this.title,
     required this.groupId,
   });
+
+  /// 振り返りの一覧
   final List<DomainReflectionAddReflection> reflections;
+
+  /// タイトル
   final String title;
+
+  /// 振り返りグループID
   final int groupId;
 
   @override
