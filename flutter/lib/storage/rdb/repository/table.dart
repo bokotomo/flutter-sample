@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS reflection(
   updated_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime'))
 )
 ''');
+
       await db.execute('''
 CREATE TABLE IF NOT EXISTS reflection_group(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
