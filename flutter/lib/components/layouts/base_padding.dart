@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart'
     show
-        StatelessWidget,
         Widget,
         BuildContext,
         Padding,
@@ -14,12 +13,15 @@ import 'package:flutter/material.dart'
         BoxFit;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show useColorBase;
 
 /// レイアウト: 基本パディング
-class BaseLayoutPadding extends StatelessWidget {
+class BaseLayoutPadding extends HookWidget {
   const BaseLayoutPadding({
     super.key,
     required this.child,
@@ -42,6 +44,8 @@ class BaseLayoutPadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final u = useColorBase();
+
     final padding = Padding(
       padding: const EdgeInsets.only(
         left: ConstantSizeUI.l3,
@@ -60,7 +64,7 @@ class BaseLayoutPadding extends StatelessWidget {
     );
 
     return Scaffold(
-      backgroundColor: ConstantColor.content,
+      backgroundColor: u.content,
       appBar: Header(title: title),
       body: GestureDetector(
         onTap: onTap,

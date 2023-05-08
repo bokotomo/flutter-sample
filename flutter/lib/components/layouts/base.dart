@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show useColorBase;
 
 /// レイアウト: 基本
-class BaseLayout extends StatelessWidget {
+class BaseLayout extends HookWidget {
   const BaseLayout({
     super.key,
     required this.child,
@@ -24,8 +27,10 @@ class BaseLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final u = useColorBase();
+
     return Scaffold(
-      backgroundColor: ConstantColor.content,
+      backgroundColor: u.content,
       appBar: Header(title: title),
       body: GestureDetector(
         onTap: onTap,

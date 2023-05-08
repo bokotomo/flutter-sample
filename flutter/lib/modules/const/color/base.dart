@@ -10,10 +10,12 @@ class UseReturn {
   const UseReturn({
     required this.header,
     required this.footer,
+    required this.content,
   });
 
   final Color header;
   final Color footer;
+  final Color content;
 }
 
 UseReturn useColorBase() {
@@ -34,10 +36,13 @@ UseReturn useColorBase() {
       isDark.value ? darkBlueLittle : const Color.fromARGB(120, 255, 104, 104);
   final footer =
       isDark.value ? darkBlueLittle : const Color.fromARGB(120, 255, 104, 104);
+  final content =
+      isDark.value ? darkBlue : const Color.fromARGB(120, 255, 104, 104);
 
   return UseReturn(
     header: header,
     footer: footer,
+    content: content,
   );
 }
 
