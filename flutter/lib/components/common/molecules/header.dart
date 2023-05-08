@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart'
-    show StatelessWidget, PreferredSizeWidget, Size, AppBar, BuildContext;
+    show PreferredSizeWidget, Size, AppBar, BuildContext;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
+    show useColorBase;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ヘッダー
-class Header extends StatelessWidget with PreferredSizeWidget {
+class Header extends HookWidget with PreferredSizeWidget {
   const Header({
     super.key,
     required this.title,
@@ -22,12 +23,14 @@ class Header extends StatelessWidget with PreferredSizeWidget {
 
   @override
   AppBar build(BuildContext context) {
+    final u = useColorBase();
+
     return AppBar(
       title: BasicText(
         text: title,
         size: "M",
       ),
-      backgroundColor: ConstantColor.header,
+      backgroundColor: u.header,
     );
   }
 }
