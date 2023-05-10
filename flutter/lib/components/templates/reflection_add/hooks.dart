@@ -122,6 +122,7 @@ UseReturn useHooks(
   /// 振り返りの追加を押した
   void onPressedAddReflection(BuildContext context) async {
     if (!formKey.currentState!.validate()) return;
+
     final text = textReflection.value.text;
     final candidateExist = !addedReflections.value.every((e) => e.text != text);
     int count = 1;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
@@ -59,7 +60,7 @@ Widget view(
 }
 
 /// 振り返り名候補一覧
-class ReflectionAddCandidate extends StatelessWidget {
+class ReflectionAddCandidate extends HookWidget {
   const ReflectionAddCandidate({
     super.key,
     required this.reflections,
