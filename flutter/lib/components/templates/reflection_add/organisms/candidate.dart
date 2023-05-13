@@ -14,8 +14,8 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 
 /// 振り返りがない場合
 Widget candidatesNone() {
-  return Column(
-    children: const [
+  return const Column(
+    children: [
       SpacerHeight.xm,
       Center(
         child: TextAnnotation(

@@ -10,7 +10,8 @@ import 'package:flutter/material.dart'
         Column,
         Expanded,
         Form,
-        AutovalidateMode;
+        AutovalidateMode,
+        TextFieldTapRegion;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
     show ReflectionAddCandidate;
@@ -61,10 +62,12 @@ Widget view(
   return BaseLayout(
     title: title,
     onTap: () => textFieldFocusNode.unfocus(),
-    child: Form(
-      autovalidateMode: AutovalidateMode.onUserInteraction,
-      key: formKey,
-      child: content,
+    child: TextFieldTapRegion(
+      child: Form(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        key: formKey,
+        child: content,
+      ),
     ),
   );
 }

@@ -12,9 +12,10 @@ import 'package:flutter/material.dart'
         Row,
         Expanded,
         SizedBox,
-        StatelessWidget;
-import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
-    show InputText;
+        Builder;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
+import 'package:gamer_reflection/components/common/atoms/input/text_tap_region/widget.dart'
+    show InputTextTapRegion;
 import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/button/done.dart'
@@ -56,7 +57,7 @@ Widget view(
         child: Row(
           children: [
             Expanded(
-              child: InputText(
+              child: InputTextTapRegion(
                 autofocus: true,
                 text: textReflection,
                 hintText: '振り返りを書く',
@@ -82,7 +83,7 @@ Widget view(
 }
 
 /// 振り返り名候補一覧
-class BottomContents extends StatelessWidget {
+class BottomContents extends HookWidget {
   const BottomContents({
     super.key,
     required this.textFieldFocusNode,
@@ -113,14 +114,18 @@ class BottomContents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return view(
-      context,
-      textFieldFocusNode,
-      textReflection,
-      onPressedReflectionDone,
-      onPressedAddReflection,
-      onPressedRemoveText,
-      onChangeTextReflection,
+    return Builder(
+      builder: (context) {
+        return view(
+          context,
+          textFieldFocusNode,
+          textReflection,
+          onPressedReflectionDone,
+          onPressedAddReflection,
+          onPressedRemoveText,
+          onChangeTextReflection,
+        );
+      },
     );
   }
 }
