@@ -32,7 +32,6 @@ class TemplateReflectionAdd extends HookWidget {
     return view(
       title,
       hooks.textFieldFocusNode,
-      hooks.candidates,
       hooks.formKey,
       hooks.textReflection,
       hooks.onPressedAddReflection,
@@ -40,6 +39,7 @@ class TemplateReflectionAdd extends HookWidget {
       hooks.onPressedReflectionDone,
       hooks.onPressedRemoveText,
       hooks.onChangeTextReflection,
+      hooks.candidatesForListener,
     );
   }
 }

@@ -23,10 +23,10 @@ class UseReturn {
     required this.onPressedReflectionDone,
     required this.onChangeTextReflection,
     required this.textReflection,
-    required this.candidates,
     required this.textFieldFocusNode,
     required this.onPressedRemoveText,
     required this.formKey,
+    required this.candidatesForListener,
   });
 
   final void Function(BuildContext) onPressedAddReflection;
@@ -35,9 +35,10 @@ class UseReturn {
   final void Function() onPressedRemoveText;
   final void Function(String?) onChangeTextReflection;
   final TextEditingController textReflection;
-  final List<DomainReflectionAddReflection> candidates;
   final FocusNode textFieldFocusNode;
   final GlobalKey<FormState> formKey;
+  final ValueNotifier<List<DomainReflectionAddReflection>>
+      candidatesForListener;
 }
 
 ///
@@ -48,17 +49,17 @@ UseReturn useHooks(
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
-  final ValueNotifier<List<DomainReflectionAddReflection>> candidates =
-      useState<List<DomainReflectionAddReflection>>([]);
   final ValueNotifier<List<DomainReflectionAddReflection>> addedReflections =
       useState<List<DomainReflectionAddReflection>>([]);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<bool?> isGood = useState<bool?>(true);
+  final candidatesForListener =
+      ValueNotifier<List<DomainReflectionAddReflection>>([]);
 
   /// 入力欄をリセットする
   void resetInput() {
     formKey.currentState?.reset();
-    textReflection.value.text = "";
+    // textReflection.value.text = "";
   }
 
   /// 振り返りの追加
@@ -96,7 +97,7 @@ UseReturn useHooks(
     }
 
     // 候補の更新
-    candidates.value = addedReflections.value;
+    candidatesForListener.value = addedReflections.value;
   }
 
   /// モーダルで追加を押した
@@ -113,7 +114,7 @@ UseReturn useHooks(
     isGood.value = true;
 
     // 候補も初期化
-    candidates.value = addedReflections.value;
+    candidatesForListener.value = addedReflections.value;
 
     // モーダルを消す
     Navigator.pop(c);
@@ -141,12 +142,8 @@ UseReturn useHooks(
       candidateExist,
       count,
       (BuildContext c) => onPressedAddModal(c, candidateExist),
-      () => {
-        isGood.value = true,
-      },
-      () => {
-        isGood.value = false,
-      },
+      () => isGood.value = true,
+      () => isGood.value = false,
     );
   }
 
@@ -156,7 +153,7 @@ UseReturn useHooks(
     textFieldFocusNode.unfocus();
 
     // 候補の更新
-    candidates.value = addedReflections.value;
+    candidatesForListener.value = addedReflections.value;
   }
 
   /// 振り返りの入力文字を削除
@@ -165,7 +162,7 @@ UseReturn useHooks(
     resetInput();
 
     // 候補の更新
-    candidates.value = addedReflections.value;
+    candidatesForListener.value = addedReflections.value;
   }
 
   /// 振り返りの終了を押した
@@ -177,9 +174,9 @@ UseReturn useHooks(
   void onChangeTextReflection(String? t) {
     if (t == null) return;
 
-    // 候補の更新
-    // candidates.value =
-    //     addedReflections.value.where((c) => c.text.contains(t)).toList();
+    // 候補一覧の更新
+    candidatesForListener.value =
+        addedReflections.value.where((c) => c.text.contains(t)).toList();
   }
 
   useEffect(() {
@@ -196,7 +193,9 @@ UseReturn useHooks(
         .toList();
 
     // 候補の更新
-    candidates.value = addedReflections.value;
+    candidatesForListener.value = addedReflections.value;
+
+    return;
   }, [reflections]);
 
   return UseReturn(
@@ -207,7 +206,7 @@ UseReturn useHooks(
     onChangeTextReflection: onChangeTextReflection,
     textReflection: textReflection.value,
     textFieldFocusNode: textFieldFocusNode,
-    candidates: candidates.value,
     formKey: formKey,
+    candidatesForListener: candidatesForListener,
   );
 }

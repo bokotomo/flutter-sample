@@ -14,8 +14,8 @@ import 'package:flutter/material.dart'
         SizedBox,
         Builder;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/components/common/atoms/input/text_tap_region/widget.dart'
-    show InputTextTapRegion;
+import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
+    show InputText;
 import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/button/done.dart'
@@ -57,7 +57,7 @@ Widget view(
         child: Row(
           children: [
             Expanded(
-              child: InputTextTapRegion(
+              child: InputText(
                 autofocus: true,
                 text: textReflection,
                 hintText: '振り返りを書く',

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart'
         BuildContext,
         FocusNode,
         GlobalKey,
+        ValueNotifier,
         FormState,
         TextEditingController,
         ListView,
         Column,
         Expanded,
         Form,
-        AutovalidateMode,
-        TextFieldTapRegion;
+        AutovalidateMode;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
     show ReflectionAddCandidate;
@@ -26,7 +26,6 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 Widget view(
   String title,
   FocusNode textFieldFocusNode,
-  List<DomainReflectionAddReflection> candidates,
   GlobalKey<FormState> formKey,
   TextEditingController textReflection,
   void Function(BuildContext) onPressedAddReflection,
@@ -34,12 +33,13 @@ Widget view(
   void Function() onPressedReflectionDone,
   void Function() onPressedRemoveText,
   void Function(String?) onChangeTextReflection,
+  ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener,
 ) {
   ListView cloumn = ListView(
     children: [
       ReflectionAddCandidate(
-        reflections: candidates,
         onPressCandidate: (String text) => onPressedAddCandidate(text),
+        candidatesForListener: candidatesForListener,
       ),
       SpacerHeight.xl,
     ],
@@ -62,12 +62,10 @@ Widget view(
   return BaseLayout(
     title: title,
     onTap: () => textFieldFocusNode.unfocus(),
-    child: TextFieldTapRegion(
-      child: Form(
-        autovalidateMode: AutovalidateMode.onUserInteraction,
-        key: formKey,
-        child: content,
-      ),
+    child: Form(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      key: formKey,
+      child: content,
     ),
   );
 }

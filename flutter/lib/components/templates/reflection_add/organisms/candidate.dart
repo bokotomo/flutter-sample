@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
+import 'package:flutter_hooks/flutter_hooks.dart'
+    show HookWidget, useEffect, useState;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
@@ -63,16 +64,31 @@ Widget view(
 class ReflectionAddCandidate extends HookWidget {
   const ReflectionAddCandidate({
     super.key,
-    required this.reflections,
     required this.onPressCandidate,
+    required this.candidatesForListener,
   });
-  final List<DomainReflectionAddReflection> reflections;
   final Function(String text) onPressCandidate;
+  final ValueNotifier<List<DomainReflectionAddReflection>>
+      candidatesForListener;
 
   @override
   Widget build(BuildContext context) {
+    final ValueNotifier<List<DomainReflectionAddReflection>> reflections =
+        useState<List<DomainReflectionAddReflection>>([]);
+
+    /// NOTE:
+    /// TextFormFieldの入力時に候補一覧を更新すると、
+    /// TextFormFieldもリレンダリングされフォーカスが外れてしまう。
+    /// 候補だけをレンダリングさせたいのでListenerでイベント発火している。
+    useEffect(() {
+      candidatesForListener.addListener(() {
+        reflections.value = candidatesForListener.value;
+      });
+      return;
+    }, []);
+
     return view(
-      reflections,
+      candidatesForListener.value,
       onPressCandidate,
     );
   }
