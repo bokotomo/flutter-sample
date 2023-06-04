@@ -58,7 +58,7 @@ Widget view(
           children: [
             Expanded(
               child: InputText(
-                autofocus: true,
+                autofocus: false,
                 text: textReflection,
                 hintText: '振り返りを書く',
                 focusNode: textFieldFocusNode,

@@ -24,6 +24,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 
 ///
 Widget view(
+  List<DomainReflectionAddReflection> reflections,
   String title,
   FocusNode textFieldFocusNode,
   GlobalKey<FormState> formKey,
@@ -38,6 +39,7 @@ Widget view(
   ListView cloumn = ListView(
     children: [
       ReflectionAddCandidate(
+        reflections: reflections,
         onPressCandidate: (String text) => onPressedAddCandidate(text),
         candidatesForListener: candidatesForListener,
       ),

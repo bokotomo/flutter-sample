@@ -30,6 +30,7 @@ class TemplateReflectionAdd extends HookWidget {
     final hooks = useHooks(reflections, groupId);
 
     return view(
+      reflections,
       title,
       hooks.textFieldFocusNode,
       hooks.formKey,

@@ -64,16 +64,18 @@ Widget view(
 class ReflectionAddCandidate extends HookWidget {
   const ReflectionAddCandidate({
     super.key,
+    required this.reflections,
     required this.onPressCandidate,
     required this.candidatesForListener,
   });
+  final List<DomainReflectionAddReflection> reflections;
   final Function(String text) onPressCandidate;
   final ValueNotifier<List<DomainReflectionAddReflection>>
       candidatesForListener;
 
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<List<DomainReflectionAddReflection>> reflections =
+    final ValueNotifier<List<DomainReflectionAddReflection>> candidates =
         useState<List<DomainReflectionAddReflection>>([]);
 
     /// NOTE:
@@ -81,14 +83,24 @@ class ReflectionAddCandidate extends HookWidget {
     /// TextFormFieldもリレンダリングされフォーカスが外れてしまう。
     /// 候補だけをレンダリングさせたいのでListenerでイベント発火している。
     useEffect(() {
+      // 候補一覧を更新する
+      candidates.value = reflections
+          .map(
+            (d) => DomainReflectionAddReflection(
+              text: d.text,
+              count: d.count,
+            ),
+          )
+          .toList();
+
       candidatesForListener.addListener(() {
-        reflections.value = candidatesForListener.value;
+        candidates.value = candidatesForListener.value;
       });
       return;
     }, []);
 
     return view(
-      candidatesForListener.value,
+      candidates.value,
       onPressCandidate,
     );
   }
