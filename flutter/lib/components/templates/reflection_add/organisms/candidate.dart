@@ -78,6 +78,11 @@ class ReflectionAddCandidate extends HookWidget {
     final ValueNotifier<List<DomainReflectionAddReflection>> candidates =
         useState<List<DomainReflectionAddReflection>>([]);
 
+    /// 外部で候補一覧が更新されたら実行
+    void updateCandidates() {
+      candidates.value = candidatesForListener.value;
+    }
+
     /// NOTE:
     /// TextFormFieldの入力時に候補一覧を更新すると、
     /// TextFormFieldもリレンダリングされフォーカスが外れてしまう。
@@ -93,9 +98,7 @@ class ReflectionAddCandidate extends HookWidget {
           )
           .toList();
 
-      candidatesForListener.addListener(() {
-        candidates.value = candidatesForListener.value;
-      });
+      candidatesForListener.addListener(updateCandidates);
       return;
     }, []);
 

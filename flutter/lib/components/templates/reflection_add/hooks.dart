@@ -52,8 +52,7 @@ UseReturn useHooks(
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<bool?> isGood = useState<bool?>(true);
   // 更新後の振り返り一覧
-  final ValueNotifier<List<DomainReflectionAddReflection>> addedReflections =
-      useState<List<DomainReflectionAddReflection>>([]);
+  List<DomainReflectionAddReflection> addedReflections = [];
   // 表示する候補の一覧
   final candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
@@ -61,6 +60,33 @@ UseReturn useHooks(
   /// 入力欄をリセットする
   void resetInput() {
     formKey.currentState?.reset();
+  }
+
+  /// ページに保存される候補一覧を返す
+  // void getAddedReflections(String text) {
+  List<DomainReflectionAddReflection> getAddedReflections(String text) {
+    final candidateNotExist = addedReflections.every((e) => e.text != text);
+
+    // 重複しない場合は候補一覧に追加する
+    if (candidateNotExist) {
+      return [
+        DomainReflectionAddReflection(
+          text: text,
+          count: 1,
+        ),
+        ...addedReflections,
+      ];
+    }
+
+    // 重複する場合はcountを加算する
+    return addedReflections
+        .map(
+          (c) => DomainReflectionAddReflection(
+            count: text == c.text ? c.count + 1 : c.count,
+            text: c.text,
+          ),
+        )
+        .toList();
   }
 
   /// 振り返りの追加
@@ -74,31 +100,11 @@ UseReturn useHooks(
       groupId,
     );
 
-    final candidateNotExist =
-        addedReflections.value.every((e) => e.text != text);
-    if (candidateNotExist) {
-      // 重複しない場合は候補一覧に追加する
-      addedReflections.value = [
-        DomainReflectionAddReflection(
-          text: text,
-          count: 1,
-        ),
-        ...addedReflections.value,
-      ];
-    } else {
-      // 重複する場合はcountを加算する
-      addedReflections.value = addedReflections.value
-          .map(
-            (c) => DomainReflectionAddReflection(
-              count: text == c.text ? c.count + 1 : c.count,
-              text: c.text,
-            ),
-          )
-          .toList();
-    }
+    // 候補の更新
+    addedReflections = getAddedReflections(text);
 
     // 表示する候補の更新
-    candidatesForListener.value = addedReflections.value;
+    candidatesForListener.value = addedReflections;
   }
 
   /// モーダルで追加を押した
@@ -116,7 +122,10 @@ UseReturn useHooks(
     isGood.value = true;
 
     // モーダルを消す
-    Navigator.pop(c);
+    Navigator.pop(
+      c,
+      () => {},
+    );
   }
 
   /// 振り返りの追加を押した
@@ -125,11 +134,10 @@ UseReturn useHooks(
 
     int reflectionCount = 1;
     final text = textReflection.value.text;
-    final candidateExist = !addedReflections.value.every((e) => e.text != text);
+    final candidateExist = !addedReflections.every((e) => e.text != text);
     // すでに追加したことがある振り返り
     if (candidateExist) {
-      final DomainReflectionAddReflection domain =
-          addedReflections.value.firstWhere(
+      final DomainReflectionAddReflection domain = addedReflections.firstWhere(
         (c) => c.text == text,
       );
       reflectionCount = domain.count;
@@ -147,43 +155,43 @@ UseReturn useHooks(
     );
   }
 
-  /// 振り返りの入力文字を削除
+  /// 振り返りの入力文字削除を押した
   void onPressedRemoveText() {
     // 入力欄をリセットする
     resetInput();
 
     // 候補の更新
-    candidatesForListener.value = addedReflections.value;
+    candidatesForListener.value = addedReflections;
   }
 
   /// 振り返りの終了を押した
-  void onPressedReflectionDone() async {
+  void onPressedReflectionDone() {
     // モーダルを消す
   }
 
   /// 候補から振り返りの追加を押した
-  void onPressedAddCandidate(String text) async {
+  void onPressedAddCandidate(String text) {
     textReflection.value.text = text;
     textFieldFocusNode.unfocus();
 
     // 候補の更新
-    candidatesForListener.value = addedReflections.value;
+    candidatesForListener.value = addedReflections;
   }
 
-  /// 振り返りの入力をした
+  /// 振り返りの入力中のイベント
   void onChangeTextReflection(String? t) {
     if (t == null) return;
 
-    // 候補一覧の更新
+    // 候補一覧を含まれてる文字がある内容だけに更新
     candidatesForListener.value =
-        addedReflections.value.where((c) => c.text.contains(t)).toList();
+        addedReflections.where((c) => c.text.contains(t)).toList();
   }
 
   useEffect(() {
     if (reflections.isEmpty) return;
 
     // 候補一覧を更新する
-    addedReflections.value = reflections
+    addedReflections = reflections
         .map(
           (d) => DomainReflectionAddReflection(
             text: d.text,
