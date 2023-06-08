@@ -12,7 +12,8 @@ import 'package:flutter/material.dart'
         Row,
         Expanded,
         SizedBox,
-        Builder;
+        Builder,
+        Navigator;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
@@ -47,7 +48,10 @@ Widget view(
         ),
         child: ButtonDone(
           text: '振り返りを終える',
-          onPressed: () => onPressedReflectionDone(),
+          onPressed: () => {
+            onPressedReflectionDone(),
+            Navigator.pop(context),
+          },
         ),
       ),
       SpacerHeight.s,

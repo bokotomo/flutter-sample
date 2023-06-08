@@ -82,10 +82,10 @@ Widget view(
         formKey: formKeyNewName,
       ),
       SpacerHeight.m,
-      Box(
+      const Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             BasicText(
               text: '言語の変更',
               size: "M",
@@ -96,16 +96,38 @@ Widget view(
         ),
       ),
       SpacerHeight.m,
-      Box(
+      const Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
+          children: [
             BasicText(
               text: 'カラーモードの変更',
               size: "M",
             ),
             SpacerHeight.m,
             SelectColorMode(),
+          ],
+        ),
+      ),
+      SpacerHeight.m,
+      const Box(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BasicText(
+              text: '利用規約',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            BasicText(
+              text: 'プライバシーポリシー',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            BasicText(
+              text: 'Version 1.0.0',
+              size: "M",
+            ),
           ],
         ),
       ),
@@ -120,35 +142,13 @@ Widget view(
             ),
             SpacerHeight.xs,
             const TextAnnotation(
-              text: "振り返りした内容も削除されます。",
+              text: "※振り返りした内容も削除されます。",
               size: "S",
             ),
             SpacerHeight.m,
             ButtonDelete(
               text: "削除する",
               onPressed: () => onPressedDelete(context),
-            ),
-          ],
-        ),
-      ),
-      SpacerHeight.m,
-      Box(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            BasicText(
-              text: '利用規約',
-              size: "M",
-            ),
-            SpacerHeight.m,
-            BasicText(
-              text: 'プライバシーポリシー',
-              size: "M",
-            ),
-            SpacerHeight.m,
-            BasicText(
-              text: 'Version 1.0.0',
-              size: "M",
             ),
           ],
         ),

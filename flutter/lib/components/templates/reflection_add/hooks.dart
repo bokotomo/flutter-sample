@@ -160,7 +160,7 @@ UseReturn useHooks(
 
   /// 振り返りの終了を押した
   void onPressedReflectionDone() {
-    // モーダルを消す
+    ///
   }
 
   /// 候補から振り返りの追加を押した
