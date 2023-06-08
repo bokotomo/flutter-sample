@@ -19,26 +19,25 @@ Widget view(
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   Function(BuildContext) onPressedStart,
-  void Function(String?) onChangeReflectionGroup,
 ) {
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
       SelectReflectionGroup(
         reflectionGroups: reflectionGroups,
-        onChanged: onChangeReflectionGroup,
+        onChanged: (t) {},
       ),
       SpacerHeight.m,
-      Box(
+      const Box(
         child: Column(
-          children: const [
+          children: [
             BasicText(
               text: "振り返りのやり方",
               size: "M",
             ),
             SpacerHeight.m,
             BasicText(
-              text: "1. リプレイなどを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
+              text: "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
               size: "M",
             ),
           ],

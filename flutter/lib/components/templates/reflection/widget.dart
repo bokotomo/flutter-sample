@@ -25,7 +25,6 @@ class TemplateReflection extends HookWidget {
       context,
       reflectionGroups,
       hooks.onPressedStart,
-      hooks.onChangeReflectionGroup,
     );
   }
 }

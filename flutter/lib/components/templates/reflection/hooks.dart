@@ -10,15 +10,13 @@ import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
 class UseReturn {
   const UseReturn({
     required this.onPressedStart,
-    required this.onChangeReflectionGroup,
   });
   final Future<void> Function(BuildContext) onPressedStart;
-  final void Function(String?) onChangeReflectionGroup;
 }
 
 ///
 UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
-  /// 開始を押した
+  /// 振り返りの開始を押した
   Future<void> onPressedStart(BuildContext context) async {
     final groupId = await selectReflectionGroupId.get() ?? "1";
     final int id = int.parse(groupId.toString());
@@ -27,6 +25,7 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
       orElse: () => const DomainReflectionGroup(id: 0, name: ""),
     );
 
+    // ページを開く
     if (context.mounted) {
       final PageReflectionAdd page = PageReflectionAdd(
         title: d.name,
@@ -41,13 +40,7 @@ UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
     }
   }
 
-  /// 振り返りグループ
-  void onChangeReflectionGroup(String? id) {
-    print(id);
-  }
-
   return UseReturn(
     onPressedStart: onPressedStart,
-    onChangeReflectionGroup: onChangeReflectionGroup,
   );
 }

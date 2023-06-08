@@ -12,11 +12,11 @@ class TaskNoDataAnnotation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           SpacerHeight.xl,
           Icon(
             Icons.info,

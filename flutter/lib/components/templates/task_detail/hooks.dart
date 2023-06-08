@@ -83,9 +83,7 @@ UseReturn useHooks(
   void onPressedTaskDone(BuildContext context) async {
     showModal(
       context,
-      () async => {
-        await RequestReflection().deleteReflection(taskId),
-      },
+      () async => await RequestReflection().deleteReflection(taskId),
     );
   }
 
