@@ -50,7 +50,7 @@ UseReturn useHooks(
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  final ValueNotifier<bool?> isGood = useState<bool?>(true);
+  bool isGood = true;
   // 更新後の振り返り一覧
   List<DomainReflectionAddReflection> addedReflections = [];
   // 表示する候補の一覧
@@ -90,7 +90,7 @@ UseReturn useHooks(
   }
 
   /// 振り返りの追加
-  Future<void> addReflection(bool isGood) async {
+  Future<void> addReflection() async {
     final String text = textReflection.value.text;
 
     // DBに保存する
@@ -109,23 +109,17 @@ UseReturn useHooks(
 
   /// モーダルで追加を押した
   void onPressedAddModal(BuildContext c, bool candidateExist) {
-    // 新規追加で、振り返りの種類を押していない
-    if (isGood.value == null && !candidateExist) return;
-
     // 振り返りの追加
-    addReflection(isGood.value!);
+    addReflection();
 
     // 入力欄をリセットする
     resetInput();
 
     // 振り返り種類の初期値を更新
-    isGood.value = true;
+    isGood = true;
 
     // モーダルを消す
-    Navigator.pop(
-      c,
-      () => {},
-    );
+    Navigator.pop(c);
   }
 
   /// 振り返りの追加を押した
@@ -150,8 +144,8 @@ UseReturn useHooks(
       candidateExist,
       reflectionCount,
       (BuildContext c) => onPressedAddModal(c, candidateExist),
-      () => isGood.value = true,
-      () => isGood.value = false,
+      () => isGood = true,
+      () => isGood = false,
     );
   }
 
