@@ -3,7 +3,6 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/modules/const/color/input.dart'
     show ConstantColorInput;
-import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 
@@ -66,9 +65,7 @@ class InputSelect extends StatelessWidget {
             width: 2.0,
           ),
         ),
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: ConstantSizeUI.l3,
-        ),
+        contentPadding: EdgeInsets.only(left: 42, right: 16),
       );
     }
 
@@ -77,9 +74,11 @@ class InputSelect extends StatelessWidget {
         .map(
           (item) => DropdownMenuItem(
             value: item.value,
-            child: BasicText(
-              size: "M",
-              text: item.text,
+            child: Center(
+              child: BasicText(
+                size: "M",
+                text: item.text,
+              ),
             ),
           ),
         )
@@ -87,8 +86,11 @@ class InputSelect extends StatelessWidget {
 
     return DropdownButtonFormField(
       items: menuItems,
+      isExpanded: true,
       decoration: decoration(),
-      style: const TextStyle(color: ConstantColor.text),
+      style: const TextStyle(
+        color: ConstantColor.text,
+      ),
       dropdownColor: ConstantColorInput.input,
       value: value,
       focusNode: focusNode,
