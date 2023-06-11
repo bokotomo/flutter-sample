@@ -5,6 +5,7 @@ import 'package:gamer_reflection/modules/const/color/input.dart'
     show ConstantColorInput;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// セレクトアイテム
 class SelectItem {
@@ -65,7 +66,7 @@ class InputSelect extends StatelessWidget {
             width: 2.0,
           ),
         ),
-        contentPadding: EdgeInsets.only(left: 42, right: 16),
+        contentPadding: EdgeInsets.symmetric(horizontal: ConstantSizeUI.l4),
       );
     }
 
@@ -74,11 +75,9 @@ class InputSelect extends StatelessWidget {
         .map(
           (item) => DropdownMenuItem(
             value: item.value,
-            child: Center(
-              child: BasicText(
-                size: "M",
-                text: item.text,
-              ),
+            child: BasicText(
+              size: "M",
+              text: item.text,
             ),
           ),
         )
@@ -86,7 +85,6 @@ class InputSelect extends StatelessWidget {
 
     return DropdownButtonFormField(
       items: menuItems,
-      isExpanded: true,
       decoration: decoration(),
       style: const TextStyle(
         color: ConstantColor.text,
