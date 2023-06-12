@@ -19,6 +19,7 @@ class PageTodo extends HookWidget {
       body: TemplateTodo(
         reflectionGroups: d.reflectionGroups,
         todos: d.todos,
+        fetchTodos: d.fetchTodos,
       ),
     );
   }

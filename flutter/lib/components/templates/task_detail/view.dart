@@ -46,7 +46,7 @@ Widget view(
   void Function() onPressedCancel,
   final Function(String?) onChangedGood,
   final Function(String?) onChangedBad,
-  final Function(bool todoExist) onPressedToggleTodo,
+  final Function() onPressedToggleTodo,
 ) {
   ListView content = ListView(
     padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
@@ -75,7 +75,7 @@ Widget view(
       SpacerHeight.xm,
       ButtonCancel(
         text: todoExist ? "やることから外す" : "やることに追加する",
-        onPressed: () async => await onPressedToggleTodo(todoExist),
+        onPressed: () async => await onPressedToggleTodo(),
       ),
     ],
   );

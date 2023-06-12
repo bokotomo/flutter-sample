@@ -14,12 +14,15 @@ class UseReturn {
 ///
 UseReturn useHooks(
   List<DomainReflectionGroup> reflectionGroups,
+  Future<void> Function() fetchTodos,
 ) {
   /// 振り返りグループ
-  void onChangeReflectionGroup(String? id) {
+  void onChangeReflectionGroup(String? id) async {
     String groupId = id ??
         (reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString());
     selectReflectionGroupId.save(groupId);
+
+    await fetchTodos();
   }
 
   return UseReturn(

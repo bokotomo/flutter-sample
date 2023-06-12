@@ -11,6 +11,7 @@ class UseReturn {
   const UseReturn({
     required this.reflectionGroups,
     required this.todos,
+    required this.fetchTodos,
   });
 
   /// 振り返りグループ一覧
@@ -18,6 +19,9 @@ class UseReturn {
 
   /// やること一覧
   final List<DomainTodo> todos;
+
+  /// 取得
+  final Future<void> Function() fetchTodos;
 }
 
 /// データ取得: タスク一覧
@@ -41,8 +45,13 @@ UseReturn useFetch() {
         await FetchTodoPage().fetchReflectionGroups();
     reflectionGroups.value = rg;
 
-    final List<DomainTodo> td = await FetchTodoPage().fetchTodos(groupId);
-    todos.value = td;
+    final List<DomainTodo> tds = await FetchTodoPage().fetchTodos(groupId);
+    todos.value = tds;
+  }
+
+  /// やることリスト取得
+  Future<void> fetchTodos() async {
+    fetch();
   }
 
   useEffect(() {
@@ -53,5 +62,6 @@ UseReturn useFetch() {
   return UseReturn(
     reflectionGroups: reflectionGroups.value,
     todos: todos.value,
+    fetchTodos: fetchTodos,
   );
 }

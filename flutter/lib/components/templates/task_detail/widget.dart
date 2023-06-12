@@ -17,7 +17,7 @@ class TemplateTaskDetail extends HookWidget {
     required this.taskId,
     required this.reflection,
     required this.updateReflection,
-    required this.todoExist,
+    required this.todoExistDB,
   });
 
   /// データ取得状態
@@ -33,15 +33,20 @@ class TemplateTaskDetail extends HookWidget {
   final Future<void> Function() updateReflection;
 
   /// やることに追加済みか
-  final bool todoExist;
+  final bool todoExistDB;
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks(taskId, reflection, updateReflection);
+    final h = useHooks(
+      taskId,
+      reflection,
+      updateReflection,
+      todoExistDB,
+    );
 
     return view(
       context,
-      todoExist,
+      h.todoExist,
       h.titleFocusNode,
       h.detailFocusNode,
       taskId,

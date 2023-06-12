@@ -31,7 +31,6 @@ class FetchTodoPage {
   Future<List<DomainTodo>> fetchTodos(int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
     final models = await repositoryTodoQuery.getTodos(db, groupId);
-    print(models);
     return AdapterTodo().domainTodos(models);
   }
 }

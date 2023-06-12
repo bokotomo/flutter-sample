@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/todo.dart'
     show tableNameTodo;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
-    show tableNameReflection, ModelReflection;
+    show ModelReflection;
 
 /// Interface: RepositoryTodoQuery
 abstract class IRepositoryTodoQuery {
@@ -21,19 +21,12 @@ class RepositoryTodoQuery extends IRepositoryTodoQuery {
     int groupId,
   ) async {
     final List<Map<String, Object?>> res = await db.rawQuery(
-      'SELECT * FROM ? LEFT JOIN reflection WHERE reflection.reflection_group_id=1 LIMIT 150',
+      'SELECT * FROM todo as t LEFT JOIN reflection as r ON r.id = t.reflection_id WHERE r.reflection_group_id = ? LIMIT ?',
       [
-        tableNameTodo,
-        // tableNameReflection,
-        // tableNameReflection,
-        // groupId,
-        // 150,
+        groupId,
+        150,
       ],
     );
-    // final List<Map<String, Object?>> res = await db.rawQuery(
-    //   'SELECT * FROM todo LEFT JOIN reflection WHERE reflection.reflection_group_id=1 LIMIT 150',
-    // );
-    print(res);
 
     return List.generate(res.length, (i) {
       return ModelReflection(

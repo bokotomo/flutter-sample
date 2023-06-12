@@ -20,6 +20,7 @@ import 'package:gamer_reflection/components/templates/task_detail/modal/check_do
 
 class UseReturn {
   const UseReturn({
+    required this.todoExist,
     required this.titleFocusNode,
     required this.detailFocusNode,
     required this.isEditMode,
@@ -36,6 +37,7 @@ class UseReturn {
     required this.onPressedToggleTodo,
   });
 
+  final bool todoExist;
   final FocusNode titleFocusNode;
   final FocusNode detailFocusNode;
   final bool isEditMode;
@@ -49,7 +51,7 @@ class UseReturn {
   final void Function() onPressedCancel;
   final Function(String?) onChangedGood;
   final Function(String?) onChangedBad;
-  final Function(bool) onPressedToggleTodo;
+  final Function() onPressedToggleTodo;
 }
 
 ///
@@ -57,6 +59,7 @@ UseReturn useHooks(
   int reflectionId,
   DomainTaskDetailReflection? reflection,
   Future<void> Function() updateReflection,
+  bool todoExistDB,
 ) {
   final ValueNotifier<bool> isEditMode = useState<bool>(false);
   final FocusNode titleFocusNode = useFocusNode();
@@ -65,6 +68,7 @@ UseReturn useHooks(
       useState<TextEditingController>(TextEditingController());
   final ValueNotifier<TextEditingController> detailController =
       useState<TextEditingController>(TextEditingController());
+  final ValueNotifier<bool> todoExist = useState<bool>(false);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<String> groupValue = useState<String>("");
 
@@ -76,6 +80,7 @@ UseReturn useHooks(
   useEffect(() {
     if (reflection == null) return;
 
+    todoExist.value = todoExistDB;
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
     final bool isGood = reflection.reflectionType == ReflectionType.good;
@@ -117,14 +122,15 @@ UseReturn useHooks(
   }
 
   /// やることに追加ボタンを押した
-  Future<void> onPressedToggleTodo(bool todoExist) async {
-    if (todoExist) {
+  Future<void> onPressedToggleTodo() async {
+    if (todoExist.value) {
       // すでにあれば削除
       await RequestTodo().deleteTodo(reflectionId);
     } else {
       // なければ新規追加
       await RequestTodo().insertTodo(reflectionId);
     }
+    todoExist.value = !todoExist.value;
   }
 
   /// 良いを押した
@@ -138,6 +144,7 @@ UseReturn useHooks(
   }
 
   return UseReturn(
+    todoExist: todoExist.value,
     onPressedTaskDone: onPressedTaskDone,
     onPressedEditDone: onPressedEditDone,
     toggleEditMode: toggleEditMode,

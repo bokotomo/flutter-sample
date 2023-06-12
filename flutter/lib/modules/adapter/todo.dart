@@ -11,8 +11,8 @@ class AdapterTodo {
       (m) {
         return DomainTodo(
           todoId: m.id ?? 0,
-          title: m.text,
-          subTitle: m.detail,
+          title: m.detail,
+          subTitle: m.text,
         );
       },
     );

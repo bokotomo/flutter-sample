@@ -13,6 +13,7 @@ class TemplateTodo extends HookWidget {
     super.key,
     required this.reflectionGroups,
     required this.todos,
+    required this.fetchTodos,
   });
 
   /// 振り返りグループ一覧
@@ -21,15 +22,16 @@ class TemplateTodo extends HookWidget {
   /// やること一覧
   final List<DomainTodo> todos;
 
+  /// 取得
+  final Future<void> Function() fetchTodos;
+
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflectionGroups);
-    todos.forEach((e) {
-      print(e.title);
-    });
+    final hooks = useHooks(reflectionGroups, fetchTodos);
 
     return view(
       context,
+      todos,
       reflectionGroups,
       hooks.onChangeReflectionGroup,
     );
