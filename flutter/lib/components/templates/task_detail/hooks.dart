@@ -10,6 +10,7 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
+import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
     show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
@@ -32,6 +33,7 @@ class UseReturn {
     required this.onPressedCancel,
     required this.onChangedGood,
     required this.onChangedBad,
+    required this.onPressedToggleTodo,
   });
 
   final FocusNode titleFocusNode;
@@ -47,11 +49,12 @@ class UseReturn {
   final void Function() onPressedCancel;
   final Function(String?) onChangedGood;
   final Function(String?) onChangedBad;
+  final Function(bool) onPressedToggleTodo;
 }
 
 ///
 UseReturn useHooks(
-  int taskId,
+  int reflectionId,
   DomainTaskDetailReflection? reflection,
   Future<void> Function() updateReflection,
 ) {
@@ -83,7 +86,7 @@ UseReturn useHooks(
   void onPressedTaskDone(BuildContext context) async {
     showModal(
       context,
-      () async => await RequestReflection().deleteReflection(taskId),
+      () async => await RequestReflection().deleteReflection(reflectionId),
     );
   }
 
@@ -104,13 +107,24 @@ UseReturn useHooks(
     if (titleController.value.text == "") return;
 
     await RequestReflection().updateReflection(
-      taskId,
+      reflectionId,
       titleController.value.text,
       detailController.value.text,
       groupValue.value == "good" ? ReflectionType.good : ReflectionType.bad,
     );
     toggleEditMode();
     updateReflection();
+  }
+
+  /// やることに追加ボタンを押した
+  Future<void> onPressedToggleTodo(bool todoExist) async {
+    if (todoExist) {
+      // すでにあれば削除
+      await RequestTodo().deleteTodo(reflectionId);
+    } else {
+      // なければ新規追加
+      await RequestTodo().insertTodo(reflectionId);
+    }
   }
 
   /// 良いを押した
@@ -137,5 +151,6 @@ UseReturn useHooks(
     groupValue: groupValue.value,
     onChangedGood: onChangedGood,
     onChangedBad: onChangedBad,
+    onPressedToggleTodo: onPressedToggleTodo,
   );
 }

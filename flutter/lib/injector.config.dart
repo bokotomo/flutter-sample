@@ -14,8 +14,10 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import 'storage/rdb/repository/command/reflection.dart' as _i3;
 import 'storage/rdb/repository/command/reflection_group.dart' as _i4;
+import 'storage/rdb/repository/command/todo.dart' as _i7;
 import 'storage/rdb/repository/query/reflection.dart' as _i6;
 import 'storage/rdb/repository/query/reflection_group.dart' as _i5;
+import 'storage/rdb/repository/query/todo.dart' as _i8;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -38,5 +40,7 @@ _i1.GetIt init(
       () => _i5.RepositoryReflectionQuery());
   gh.factory<_i6.IRepositoryReflectionQuery>(
       () => _i6.RepositoryReflectionQuery());
+  gh.factory<_i7.IRepositoryTodoCommand>(() => _i7.RepositoryTodoCommand());
+  gh.factory<_i8.IRepositoryTodoQuery>(() => _i8.RepositoryTodoQuery());
   return getIt;
 }

@@ -6,6 +6,7 @@ class TableSetUp {
   /// 後でマイグレーションファイルに合わせるので一時的
   Future<void> createTables(Database db) async {
     try {
+      // 振り返り
       await db.execute('''
 CREATE TABLE IF NOT EXISTS reflection(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,10 +20,20 @@ CREATE TABLE IF NOT EXISTS reflection(
 )
 ''');
 
+      // 振り返りグループ
       await db.execute('''
 CREATE TABLE IF NOT EXISTS reflection_group(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime'))
+)
+''');
+
+      // やることリスト
+      await db.execute('''
+CREATE TABLE IF NOT EXISTS todo(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  reflection_id INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime'))
 )
 ''');

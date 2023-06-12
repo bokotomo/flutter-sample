@@ -30,6 +30,7 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 ///
 Widget view(
   BuildContext context,
+  bool todoExist,
   FocusNode titleFocusNode,
   FocusNode detailFocusNode,
   int taskId,
@@ -45,6 +46,7 @@ Widget view(
   void Function() onPressedCancel,
   final Function(String?) onChangedGood,
   final Function(String?) onChangedBad,
+  final Function(bool todoExist) onPressedToggleTodo,
 ) {
   ListView content = ListView(
     padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
@@ -69,6 +71,11 @@ Widget view(
         onPressed: () => {
           onPressedTaskDone(context),
         },
+      ),
+      SpacerHeight.xm,
+      ButtonCancel(
+        text: todoExist ? "やることから外す" : "やることに追加する",
+        onPressed: () async => await onPressedToggleTodo(todoExist),
       ),
     ],
   );

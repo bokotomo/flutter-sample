@@ -17,6 +17,7 @@ class TemplateTaskDetail extends HookWidget {
     required this.taskId,
     required this.reflection,
     required this.updateReflection,
+    required this.todoExist,
   });
 
   /// データ取得状態
@@ -31,27 +32,32 @@ class TemplateTaskDetail extends HookWidget {
   /// 更新
   final Future<void> Function() updateReflection;
 
+  /// やることに追加済みか
+  final bool todoExist;
+
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(taskId, reflection, updateReflection);
+    final h = useHooks(taskId, reflection, updateReflection);
 
     return view(
       context,
-      hooks.titleFocusNode,
-      hooks.detailFocusNode,
+      todoExist,
+      h.titleFocusNode,
+      h.detailFocusNode,
       taskId,
       reflection,
-      hooks.isEditMode,
-      hooks.toggleEditMode,
-      hooks.titleController,
-      hooks.detailController,
-      hooks.formKey,
-      hooks.groupValue,
-      hooks.onPressedEditDone,
-      hooks.onPressedTaskDone,
-      hooks.onPressedCancel,
-      hooks.onChangedGood,
-      hooks.onChangedBad,
+      h.isEditMode,
+      h.toggleEditMode,
+      h.titleController,
+      h.detailController,
+      h.formKey,
+      h.groupValue,
+      h.onPressedEditDone,
+      h.onPressedTaskDone,
+      h.onPressedCancel,
+      h.onChangedGood,
+      h.onChangedBad,
+      h.onPressedToggleTodo,
     );
   }
 }

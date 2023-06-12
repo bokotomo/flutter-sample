@@ -23,6 +23,7 @@ class PageTaskDetail extends HookWidget {
         reflection: d.reflection,
         updateReflection: d.updateReflection,
         dataFetchState: d.dataFetchState,
+        todoExist: d.todoExist,
       ),
     );
   }

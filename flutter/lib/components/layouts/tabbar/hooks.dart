@@ -4,8 +4,10 @@ import 'package:gamer_reflection/components/pages/account/account_setting.dart'
     show PageAccountSetting;
 import 'package:gamer_reflection/components/pages/task/widget.dart'
     show PageTask;
-import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
-    show PageRanking;
+import 'package:gamer_reflection/components/pages/todo/widget.dart'
+    show PageTodo;
+// import 'package:gamer_reflection/components/pages/ranking/ranking.dart'
+//     show PageRanking;
 import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
     show PageReflection;
 
@@ -25,7 +27,7 @@ class Hooks {
     final List<Widget> pages = [
       PageTask(canDC: canDC),
       const PageReflection(),
-      const PageRanking(),
+      const PageTodo(),
       const PageAccountSetting(),
     ];
     return pages[selectedIndex.value];

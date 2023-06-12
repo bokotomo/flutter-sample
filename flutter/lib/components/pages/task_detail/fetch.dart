@@ -12,11 +12,13 @@ class UseReturn {
     required this.reflection,
     required this.updateReflection,
     required this.dataFetchState,
+    required this.todoExist,
   });
 
   final DomainTaskDetailReflection? reflection;
   final Future<void> Function() updateReflection;
   final DataFetchState dataFetchState;
+  final bool todoExist;
 }
 
 /// データ取得: タスク詳細
@@ -25,6 +27,7 @@ UseReturn useFetch(int taskId) {
       useState<DomainTaskDetailReflection?>(null);
   final ValueNotifier<DataFetchState> dataFetchState =
       useState<DataFetchState>(DataFetchState.none);
+  final ValueNotifier<bool> todoExist = useState<bool>(false);
 
   /// データ取得
   Future<void> eventRepository() async {
@@ -35,6 +38,9 @@ UseReturn useFetch(int taskId) {
 
     reflection.value = r;
     dataFetchState.value = DataFetchState.end;
+
+    final bool t = await FetchTaskDetailPage().fetchTodoExistById(taskId);
+    todoExist.value = t;
   }
 
   ///
@@ -51,5 +57,6 @@ UseReturn useFetch(int taskId) {
     reflection: reflection.value,
     updateReflection: updateReflection,
     dataFetchState: dataFetchState.value,
+    todoExist: todoExist.value,
   );
 }

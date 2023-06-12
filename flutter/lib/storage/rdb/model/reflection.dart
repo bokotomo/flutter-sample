@@ -2,7 +2,7 @@ import 'package:intl/intl.dart' show DateFormat;
 
 const String tableNameReflection = "reflection";
 
-/// Model: Reflection
+/// Model: Reflection 振り返り
 class ModelReflection {
   ModelReflection({
     this.id,
@@ -46,6 +46,7 @@ class ModelReflection {
       'text': text,
       'detail': detail,
       'count': count,
+      'created_at': createdAt,
     };
   }
 

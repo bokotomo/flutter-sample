@@ -1,6 +1,6 @@
 const String tableNameReflectionGroup = "reflection_group";
 
-/// Model: ReflectionGroup
+/// Model: ReflectionGroup 振り返りグループ名
 class ModelReflectionGroup {
   ModelReflectionGroup({
     this.id,

@@ -21,16 +21,16 @@ Widget view(
   /// タブの一覧
   const items = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
-      icon: Icon(Icons.list),
-      label: "タスク",
+      icon: Icon(Icons.mode_edit),
+      label: "解決案",
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.add),
-      label: "振り返り",
+      label: "振り返る",
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.games),
-      label: "ランキング",
+      icon: Icon(Icons.list),
+      label: "やること",
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.account_circle),
