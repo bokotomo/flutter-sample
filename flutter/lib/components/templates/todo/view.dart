@@ -2,6 +2,8 @@ import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, Column, CrossAxisAlignment, TextAlign;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
+    show TextAnnotation;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
@@ -31,6 +33,15 @@ Widget view(
 
       SpacerHeight.m,
 
+      /// ない場合
+      if (todos.isEmpty)
+        const TextAnnotation(
+          text: "やることが追加されていません。",
+          size: "M",
+          textAlign: TextAlign.center,
+        ),
+
+      /// やること一覧
       for (int i = 0; i < todos.length; i++) ...{
         Card(
           child: Column(
@@ -41,9 +52,9 @@ Widget view(
                 size: "M",
               ),
               SpacerHeight.m,
-              BasicText(
+              TextAnnotation(
                 text: todos[i].subTitle,
-                size: "M",
+                size: "S",
               ),
             ],
           ),
