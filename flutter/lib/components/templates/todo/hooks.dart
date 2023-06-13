@@ -2,13 +2,16 @@ import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
+import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
 
 class UseReturn {
   const UseReturn({
     required this.onChangeReflectionGroup,
+    required this.onClickRemove,
   });
 
   final void Function(String?) onChangeReflectionGroup;
+  final void Function(int) onClickRemove;
 }
 
 ///
@@ -25,7 +28,17 @@ UseReturn useHooks(
     await fetchTodos();
   }
 
+  /// やることを削除
+  Future<void> onClickRemove(int reflectionId) async {
+    // 削除
+    await RequestTodo().deleteTodo(reflectionId);
+
+    // 更新
+    await fetchTodos();
+  }
+
   return UseReturn(
     onChangeReflectionGroup: onChangeReflectionGroup,
+    onClickRemove: onClickRemove,
   );
 }

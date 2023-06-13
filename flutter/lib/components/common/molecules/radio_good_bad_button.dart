@@ -10,12 +10,16 @@ class RadioGoodBadButton extends StatelessWidget {
   const RadioGoodBadButton({
     super.key,
     required this.groupValue,
+    this.heightSize,
     required this.onChangedGood,
     required this.onChangedBad,
   });
 
   /// 文字
   final String groupValue;
+
+  /// 縦のサイズ
+  final double? heightSize;
 
   /// 良いに変更した
   final void Function(String?) onChangedGood;
@@ -32,6 +36,7 @@ class RadioGoodBadButton extends StatelessWidget {
             groupValue: groupValue,
             value: "good",
             text: "良かった",
+            minimumSize: heightSize,
             onPressed: (v) => onChangedGood(v),
           ),
         ),
@@ -41,6 +46,7 @@ class RadioGoodBadButton extends StatelessWidget {
             groupValue: groupValue,
             value: "bad",
             text: "悪かった",
+            minimumSize: heightSize,
             onPressed: (v) => onChangedBad(v),
           ),
         ),

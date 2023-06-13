@@ -1,13 +1,13 @@
 /// ドメイン: やること
 class DomainTodo {
   const DomainTodo({
-    required this.todoId,
+    required this.reflectionId,
     required this.title,
     required this.subTitle,
   });
 
-  /// やることID
-  final int todoId;
+  /// 振り返りID
+  final int reflectionId;
 
   /// タイトル
   final String title;

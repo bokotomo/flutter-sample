@@ -40,13 +40,17 @@ class ModelReflection {
   final DateTime updatedAt;
 
   Map<String, Object> toMap() {
+    final DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
+    final String formattedC = formatter.format(createdAt);
+    final String formattedU = formatter.format(updatedAt);
     return {
       'reflection_group_id': reflectionGroupId,
       'reflection_type': reflectionType,
       'text': text,
       'detail': detail,
       'count': count,
-      'created_at': createdAt,
+      'created_at': formattedC,
+      'updated_at': formattedU,
     };
   }
 

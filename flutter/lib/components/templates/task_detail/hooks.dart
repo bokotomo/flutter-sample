@@ -6,10 +6,14 @@ import 'package:flutter/material.dart'
         GlobalKey,
         FormState,
         BuildContext;
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
+import 'package:gamer_reflection/components/common/atoms/toast/alert.dart'
+    show ToastAlert;
+import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
 import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
     show DomainTaskDetailReflection;
@@ -56,10 +60,11 @@ class UseReturn {
 
 ///
 UseReturn useHooks(
+  BuildContext context,
   int reflectionId,
   DomainTaskDetailReflection? reflection,
   Future<void> Function() updateReflection,
-  bool todoExistDB,
+  bool? todoExistDB,
 ) {
   final ValueNotifier<bool> isEditMode = useState<bool>(false);
   final FocusNode titleFocusNode = useFocusNode();
@@ -71,6 +76,7 @@ UseReturn useHooks(
   final ValueNotifier<bool> todoExist = useState<bool>(false);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<String> groupValue = useState<String>("");
+  final FToast fToast = FToast();
 
   /// 編集モード切り替え
   void toggleEditMode() {
@@ -80,12 +86,22 @@ UseReturn useHooks(
   useEffect(() {
     if (reflection == null) return;
 
-    todoExist.value = todoExistDB;
+    fToast.init(context);
+
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
     final bool isGood = reflection.reflectionType == ReflectionType.good;
     groupValue.value = isGood ? "good" : "bad";
+
+    return;
   }, [reflection]);
+
+  useEffect(() {
+    if (todoExistDB == null) return;
+
+    todoExist.value = todoExistDB;
+    return;
+  }, [todoExistDB]);
 
   /// タスク完了ボタンを押した
   void onPressedTaskDone(BuildContext context) async {
@@ -117,8 +133,18 @@ UseReturn useHooks(
       detailController.value.text,
       groupValue.value == "good" ? ReflectionType.good : ReflectionType.bad,
     );
+
     toggleEditMode();
     updateReflection();
+  }
+
+  /// トーストを表示
+  void showAlert(String text) {
+    fToast.showToast(
+      child: ToastAlert(text: text),
+      gravity: ToastGravity.TOP,
+      toastDuration: const Duration(milliseconds: 2500),
+    );
   }
 
   /// やることに追加ボタンを押した
@@ -127,9 +153,18 @@ UseReturn useHooks(
       // すでにあれば削除
       await RequestTodo().deleteTodo(reflectionId);
     } else {
+      // 詳細が空の場合
+      if (detailController.value.text.isEmpty) {
+        final bool isGood = reflection!.reflectionType == ReflectionType.good;
+        final String text =
+            isGood ? "追加するには、「伸ばす方法」を書く必要があります。" : "追加するには、「対策方法」を書く必要があります。";
+        showAlert(text);
+        return;
+      }
       // なければ新規追加
       await RequestTodo().insertTodo(reflectionId);
     }
+
     todoExist.value = !todoExist.value;
   }
 

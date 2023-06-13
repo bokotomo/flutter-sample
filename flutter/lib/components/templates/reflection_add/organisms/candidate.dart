@@ -20,8 +20,9 @@ Widget candidatesNone() {
       SpacerHeight.xm,
       Center(
         child: TextAnnotation(
-          text: 'まだ振り返りを追加していません。',
+          text: 'リプレイを見て、\n良かったこと悪かったことを書きましょう!',
           size: "M",
+          textAlign: TextAlign.center,
         ),
       )
     ],

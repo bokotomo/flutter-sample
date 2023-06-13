@@ -18,7 +18,7 @@ class UseReturn {
   final DomainTaskDetailReflection? reflection;
   final Future<void> Function() updateReflection;
   final DataFetchState dataFetchState;
-  final bool todoExist;
+  final bool? todoExist;
 }
 
 /// データ取得: タスク詳細
@@ -27,7 +27,7 @@ UseReturn useFetch(int taskId) {
       useState<DomainTaskDetailReflection?>(null);
   final ValueNotifier<DataFetchState> dataFetchState =
       useState<DataFetchState>(DataFetchState.none);
-  final ValueNotifier<bool> todoExist = useState<bool>(false);
+  final ValueNotifier<bool?> todoExist = useState<bool?>(null);
 
   /// データ取得
   Future<void> eventRepository() async {

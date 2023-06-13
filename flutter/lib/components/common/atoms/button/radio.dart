@@ -11,6 +11,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
 class ButtonRadio extends StatelessWidget {
   const ButtonRadio({
     super.key,
+    this.minimumSize,
     required this.text,
     required this.groupValue,
     required this.value,
@@ -25,6 +26,9 @@ class ButtonRadio extends StatelessWidget {
 
   /// グループId
   final String value;
+
+  /// グループId
+  final double? minimumSize;
 
   /// クリックした
   final void Function(String) onPressed;
@@ -43,7 +47,9 @@ class ButtonRadio extends StatelessWidget {
 
     final style = ElevatedButton.styleFrom(
       backgroundColor: ConstantColorButton.radio,
-      minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+      minimumSize: Size.fromHeight(
+        minimumSize ?? ConstantSizeUI.l7,
+      ),
       padding: const EdgeInsets.only(left: ConstantSizeUI.l2),
       elevation: 2,
       shadowColor: isActive

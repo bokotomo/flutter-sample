@@ -34,6 +34,7 @@ class TemplateTodo extends HookWidget {
       todos,
       reflectionGroups,
       hooks.onChangeReflectionGroup,
+      hooks.onClickRemove,
     );
   }
 }

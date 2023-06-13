@@ -6,7 +6,7 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
-/// タスク一覧: データがまだない
+/// やることリスト: データがまだない
 class TaskNoDataAnnotation extends StatelessWidget {
   const TaskNoDataAnnotation({super.key});
 
@@ -25,7 +25,7 @@ class TaskNoDataAnnotation extends StatelessWidget {
           ),
           SpacerHeight.m,
           TextAnnotation(
-            text: '振り返りがありません。\n「振り返る」から追加しましょう!',
+            text: 'やることが追加されていません。\n解決案から追加しましょう!',
             size: "M",
             textAlign: TextAlign.center,
           ),

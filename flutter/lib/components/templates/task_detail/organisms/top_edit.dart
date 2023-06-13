@@ -25,8 +25,9 @@ import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
 import 'package:gamer_reflection/components/common/molecules/radio_good_bad_button.dart'
     show RadioGoodBadButton;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
-/// タスク詳細上部編集モード
+/// タスク詳細上部: 編集モード
 class TaskDetailTopEdit extends HookWidget {
   const TaskDetailTopEdit({
     super.key,
@@ -71,7 +72,7 @@ class TaskDetailTopEdit extends HookWidget {
     final String countText = "回数: $count回";
     final String detailTitle = isGood ? "良かった点を伸ばす方法" : "対策方法";
     final String detailHintText =
-        isGood ? "良かった点を伸ばす方法を書きましょう。(1000文字以内)" : "対策方法を書きましょう。(1000文字以内)";
+        isGood ? "良かった点を伸ばす方法を書きましょう。(800文字以内)" : "対策方法を書きましょう。(800文字以内)";
 
     final InputText titleForm = InputText(
       text: titleController,
@@ -83,7 +84,7 @@ class TaskDetailTopEdit extends HookWidget {
       text: detailController,
       hintText: detailHintText,
       focusNode: detailFocusNode,
-      maxLength: 50, // TODO デバックで50
+      maxLength: 800,
     );
 
     return Column(
@@ -100,6 +101,7 @@ class TaskDetailTopEdit extends HookWidget {
           groupValue: groupValue,
           onChangedGood: onChangedGood,
           onChangedBad: onChangedBad,
+          heightSize: ConstantSizeUI.l6,
         ),
         SpacerHeight.m,
         BasicText(

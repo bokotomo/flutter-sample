@@ -33,11 +33,12 @@ class TemplateTaskDetail extends HookWidget {
   final Future<void> Function() updateReflection;
 
   /// やることに追加済みか
-  final bool todoExistDB;
+  final bool? todoExistDB;
 
   @override
   Widget build(BuildContext context) {
     final h = useHooks(
+      context,
       taskId,
       reflection,
       updateReflection,

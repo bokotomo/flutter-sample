@@ -90,7 +90,7 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "タスク",
+    title: "解決案",
     child: content,
   );
 }

@@ -14,6 +14,9 @@ import 'package:gamer_reflection/modules/request/reflection_group.dart'
     show RequestReflectionGroup;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
+import 'package:gamer_reflection/components/common/atoms/toast/basic.dart'
+    show ToastBasic;
+import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
@@ -49,6 +52,7 @@ class UseReturn {
 
 /// ロジック
 UseReturn useHooks(
+  BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   Future<void> Function() fetchReflectionGroups,
 ) {
@@ -65,6 +69,16 @@ UseReturn useHooks(
   final FocusNode textReflectionNewNameFocusNode = useFocusNode();
   final GlobalKey<FormState> formKeyNewName = GlobalKey<FormState>();
   final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
+  final FToast fToast = FToast();
+
+  /// トーストを表示
+  void showAlert(String text) {
+    fToast.showToast(
+      child: ToastBasic(text: text),
+      gravity: ToastGravity.TOP,
+      toastDuration: const Duration(milliseconds: 2500),
+    );
+  }
 
   /// 振り返りグループIDの取得
   int getReflectionGroupId(String? id) {
@@ -86,11 +100,13 @@ UseReturn useHooks(
     /// DB更新
     await RequestReflectionGroup().updateReflectionGroup(id, name);
 
+    showAlert("「$name」に変更しました。");
+
     /// 振り返りグループ再読み込み
     fetchReflectionGroups();
   }
 
-  /// 新規振り返り名の追加を押した
+  /// モーダル新規追加: 新規振り返り名の追加を押した
   Future<void> onPressedAddRefletionGroup(BuildContext context) async {
     final String name = textReflectionNewName.value.text;
     if (name.isEmpty) return;
@@ -113,6 +129,8 @@ UseReturn useHooks(
 
     ///
     if (context.mounted) Navigator.pop(context);
+
+    showAlert("「$name」を追加しました。");
   }
 
   /// 新規振り返り名の追加を押した
@@ -140,7 +158,7 @@ UseReturn useHooks(
     textReflectionName.value.text = d.name;
   }
 
-  /// 振り返りグループを変更した
+  /// 振り返りグループを変更を押した
   void onChangeReflectionGroup(String? id) {
     updateReflectionName(id);
 
@@ -148,8 +166,8 @@ UseReturn useHooks(
     fetchReflectionGroups();
   }
 
-  /// 振り返りグループを削除する
-  void deleteRefletionGroup(String? id) async {
+  /// モーダル削除: 振り返りグループを削除する
+  void deleteRefletionGroup(String? id, String name) async {
     if (id == null) return;
 
     /// グループが1個なら削除できない
@@ -173,6 +191,8 @@ UseReturn useHooks(
 
     /// 名前の更新
     textReflectionName.value.text = d.name;
+
+    showAlert("「$name」を削除しました。");
   }
 
   /// 削除を押した
@@ -190,7 +210,7 @@ UseReturn useHooks(
         context,
         d.name,
         (context) {
-          deleteRefletionGroup(id);
+          deleteRefletionGroup(id, d.name);
           Navigator.pop(context);
         },
       );
@@ -200,6 +220,9 @@ UseReturn useHooks(
   useEffect(() {
     if (futuredReflectionGroupId.data == null) return;
     updateReflectionName(futuredReflectionGroupId.data);
+
+    fToast.init(context);
+    return;
   }, [futuredReflectionGroupId.data]);
 
   return UseReturn(

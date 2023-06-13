@@ -10,7 +10,7 @@ class AdapterTodo {
     final domain = models.map(
       (m) {
         return DomainTodo(
-          todoId: m.id ?? 0,
+          reflectionId: m.id ?? 0,
           title: m.detail,
           subTitle: m.text,
         );

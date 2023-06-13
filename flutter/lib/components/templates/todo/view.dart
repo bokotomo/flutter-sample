@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart'
-    show Widget, BuildContext, ListView, Column, CrossAxisAlignment, TextAlign;
+    show Widget, BuildContext, ListView, Column, CrossAxisAlignment;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
+import 'package:gamer_reflection/components/templates/todo/organisms/no_data_annotation.dart'
+    show TaskNoDataAnnotation;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/atoms/card.dart' show Card;
@@ -20,6 +22,7 @@ Widget view(
   List<DomainTodo> todos,
   List<DomainReflectionGroup> reflectionGroups,
   void Function(String?) onChangeReflectionGroup,
+  void Function(int) onClickRemove,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -34,12 +37,7 @@ Widget view(
       SpacerHeight.m,
 
       /// ない場合
-      if (todos.isEmpty)
-        const TextAnnotation(
-          text: "やることが追加されていません。",
-          size: "M",
-          textAlign: TextAlign.center,
-        ),
+      if (todos.isEmpty) const TaskNoDataAnnotation(),
 
       /// やること一覧
       for (int i = 0; i < todos.length; i++) ...{
@@ -58,6 +56,7 @@ Widget view(
               ),
             ],
           ),
+          onClickRemove: () => onClickRemove(todos[i].reflectionId),
         ),
         SpacerHeight.m,
       }
