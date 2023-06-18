@@ -57,7 +57,7 @@ class Card extends StatelessWidget {
           right: ConstantSizeUI.l2,
           top: ConstantSizeUI.l2,
           child: CircleAvatar(
-            radius: 12,
+            radius: 8,
             backgroundColor: ConstantColor.iconBackGround,
             child: IconButton(
               iconSize: ConstantSizeUI.l3,

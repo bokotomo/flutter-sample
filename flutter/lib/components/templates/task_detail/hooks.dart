@@ -13,6 +13,8 @@ import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/components/common/atoms/toast/alert.dart'
     show ToastAlert;
+import 'package:gamer_reflection/components/common/atoms/toast/basic.dart'
+    show ToastBasic;
 import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
 import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
 import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
@@ -103,6 +105,24 @@ UseReturn useHooks(
     return;
   }, [todoExistDB]);
 
+  /// トーストを表示
+  void showAlert(String text) {
+    fToast.showToast(
+      child: ToastAlert(text: text),
+      gravity: ToastGravity.TOP,
+      toastDuration: const Duration(milliseconds: 2500),
+    );
+  }
+
+  /// トーストを表示
+  void showNotification(String text) {
+    fToast.showToast(
+      child: ToastBasic(text: text),
+      gravity: ToastGravity.TOP,
+      toastDuration: const Duration(milliseconds: 2500),
+    );
+  }
+
   /// タスク完了ボタンを押した
   void onPressedTaskDone(BuildContext context) async {
     showModal(
@@ -138,15 +158,6 @@ UseReturn useHooks(
     updateReflection();
   }
 
-  /// トーストを表示
-  void showAlert(String text) {
-    fToast.showToast(
-      child: ToastAlert(text: text),
-      gravity: ToastGravity.TOP,
-      toastDuration: const Duration(milliseconds: 2500),
-    );
-  }
-
   /// やることに追加ボタンを押した
   Future<void> onPressedToggleTodo() async {
     if (todoExist.value) {
@@ -157,13 +168,17 @@ UseReturn useHooks(
       if (detailController.value.text.isEmpty) {
         final bool isGood = reflection!.reflectionType == ReflectionType.good;
         final String text =
-            isGood ? "追加するには、「伸ばす方法」を書く必要があります。" : "追加するには、「対策方法」を書く必要があります。";
+            isGood ? "追加するには「伸ばす方法」を書く必要があります。" : "追加するには「対策方法」を書く必要があります。";
         showAlert(text);
         return;
       }
       // なければ新規追加
       await RequestTodo().insertTodo(reflectionId);
     }
+
+    final String textNotificatoin =
+        todoExist.value ? "やることから外しました。" : "やることに追加しました。";
+    showNotification(textNotificatoin);
 
     todoExist.value = !todoExist.value;
   }

@@ -27,7 +27,7 @@ void showModal(
           title: "このタスクを完了しますか？",
           children: [
             const TextAnnotation(
-              text: "一覧から削除されます。",
+              text: "※一覧から削除されます。",
               size: "M",
             ),
             SpacerHeight.m,
