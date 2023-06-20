@@ -14,7 +14,7 @@ class UseReturn {
   final Future<void> Function(BuildContext) onPressedStart;
 }
 
-///
+/// ロジック: 振り返りページ
 UseReturn useHooks(List<DomainReflectionGroup> reflectionGroups) {
   /// 振り返りの開始を押した
   Future<void> onPressedStart(BuildContext context) async {

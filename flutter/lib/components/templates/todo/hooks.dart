@@ -14,7 +14,7 @@ class UseReturn {
   final void Function(int) onClickRemove;
 }
 
-///
+/// ロジック: やることページ
 UseReturn useHooks(
   List<DomainReflectionGroup> reflectionGroups,
   Future<void> Function() fetchTodos,

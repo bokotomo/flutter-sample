@@ -50,7 +50,7 @@ class UseReturn {
   final GlobalKey<FormState> formKeyEditName;
 }
 
-/// ロジック
+/// ロジック: アカウント設定ページ
 UseReturn useHooks(
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,

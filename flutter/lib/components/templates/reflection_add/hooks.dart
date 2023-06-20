@@ -41,7 +41,7 @@ class UseReturn {
       candidatesForListener;
 }
 
-///
+/// ロジック: 振り返り追加ページ
 UseReturn useHooks(
   List<DomainReflectionAddReflection> reflections,
   int groupId,
