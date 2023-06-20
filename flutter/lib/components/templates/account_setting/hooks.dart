@@ -8,7 +8,7 @@ import 'package:flutter/material.dart'
         FormState,
         AsyncSnapshot,
         Navigator;
-import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
+import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/request/reflection_group.dart'
     show RequestReflectionGroup;

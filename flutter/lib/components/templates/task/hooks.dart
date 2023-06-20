@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useEffect, useMemoized, useFuture;
-import 'package:gamer_reflection/modules/domain/task/reflection.dart'
+import 'package:gamer_reflection/domain/task/reflection.dart'
     show DomainTaskReflection;
-import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
+import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

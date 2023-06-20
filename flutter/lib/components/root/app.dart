@@ -7,7 +7,7 @@ import 'package:gamer_reflection/components/root/hooks.dart' show useHooks;
 
 const title = 'Gamer Reflection';
 
-/// ページ: タスク一覧
+/// ページ: ルート
 class App extends HookWidget {
   const App({
     super.key,

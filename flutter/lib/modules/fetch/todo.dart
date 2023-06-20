@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
-import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
+import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/domain/todo/todo.dart' show DomainTodo;
+import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 import 'package:gamer_reflection/storage/rdb/repository/query/reflection_group.dart'
     show IRepositoryReflectionGroupQuery;
 import 'package:gamer_reflection/storage/rdb/repository/query/todo.dart'

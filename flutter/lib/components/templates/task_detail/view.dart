@@ -21,7 +21,7 @@ import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
 import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
+import 'package:gamer_reflection/domain/task_detail/reflection.dart'
     show DomainTaskDetailReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

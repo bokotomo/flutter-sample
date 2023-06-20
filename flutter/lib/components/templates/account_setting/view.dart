@@ -26,7 +26,7 @@ import 'package:gamer_reflection/components/common/molecules/select_color_mode/w
     show SelectColorMode;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
-import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
+import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/components/templates/account_setting/organisms/new_reflection_name.dart'
     show NewReflectionName;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/modules/domain/task/reflection.dart'
+import 'package:gamer_reflection/domain/task/reflection.dart'
     show DomainTaskReflection;
-import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
+import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/fetch/task.dart' show FetchTaskPage;
 import 'package:gamer_reflection/components/pages/task_detail/widget.dart'

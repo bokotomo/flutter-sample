@@ -1,4 +1,4 @@
-import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
+import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection;

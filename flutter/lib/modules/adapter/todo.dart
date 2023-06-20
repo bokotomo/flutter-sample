@@ -1,4 +1,4 @@
-import 'package:gamer_reflection/modules/domain/todo/todo.dart' show DomainTodo;
+import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection;
 

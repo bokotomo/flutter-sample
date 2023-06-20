@@ -13,9 +13,9 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 import 'package:gamer_reflection/components/common/atoms/card.dart' show Card;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
-import 'package:gamer_reflection/modules/domain/common/reflection_group.dart'
+import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/domain/todo/todo.dart' show DomainTodo;
+import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 
 Widget view(
   BuildContext context,

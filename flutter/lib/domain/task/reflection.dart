@@ -2,7 +2,7 @@ import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
-import 'package:gamer_reflection/modules/domain/site/reflection.dart'
+import 'package:gamer_reflection/domain/site/reflection.dart'
     show
         DomainReflectionId,
         DomainReflectionText,

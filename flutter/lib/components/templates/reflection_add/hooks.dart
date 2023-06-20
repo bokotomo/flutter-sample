@@ -11,7 +11,7 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
-import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
+import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/components/templates/reflection_add/modal/add.dart'
     show showModal;

@@ -17,7 +17,7 @@ import 'package:gamer_reflection/components/common/atoms/toast/basic.dart'
     show ToastBasic;
 import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
 import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
-import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
+import 'package:gamer_reflection/domain/task_detail/reflection.dart'
     show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

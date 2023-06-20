@@ -1,4 +1,4 @@
-import 'package:gamer_reflection/modules/domain/site/reflection.dart'
+import 'package:gamer_reflection/domain/site/reflection.dart'
     show DomainReflectionText, DomainReflectionCount;
 
 /// ドメイン: 振り返り追加 振り返り

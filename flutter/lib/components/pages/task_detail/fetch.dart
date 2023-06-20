@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/modules/domain/task_detail/reflection.dart'
+import 'package:gamer_reflection/domain/task_detail/reflection.dart'
     show DomainTaskDetailReflection;
 import 'package:gamer_reflection/modules/fetch/task_detail.dart'
     show FetchTaskDetailPage;

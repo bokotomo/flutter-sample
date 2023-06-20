@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
-import 'package:gamer_reflection/modules/domain/reflection_add/reflection.dart'
+import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/modules/fetch/reflection_add.dart'
     show FetchReflectionAddPage;

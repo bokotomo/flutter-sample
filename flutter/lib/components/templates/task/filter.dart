@@ -1,4 +1,4 @@
-import 'package:gamer_reflection/modules/domain/task/reflection.dart'
+import 'package:gamer_reflection/domain/task/reflection.dart'
     show DomainTaskReflection;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
