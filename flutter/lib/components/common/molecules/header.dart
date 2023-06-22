@@ -43,14 +43,22 @@ class Header extends HookWidget implements PreferredSizeWidget {
     final u = useColorBase();
 
     /// 右上のアイコンを追加
-    List<badges.Badge> getActions() {
+    List<Widget> getActions() {
       if (onClickRightMenu == null) return [];
+      if (badgeNum == null) {
+        return [
+          IconButton(
+            icon: const Icon(Icons.dehaze_sharp),
+            onPressed: onClickRightMenu,
+          ),
+        ];
+      }
 
       return [
         badges.Badge(
           position: badges.BadgePosition.custom(top: 0, end: 2),
           badgeContent: Text(
-            (badgeNum == null ? "" : badgeNum.toString()),
+            badgeNum.toString(),
             style: const TextStyle(color: Colors.white),
           ),
           child: IconButton(

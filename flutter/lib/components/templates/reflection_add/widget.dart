@@ -32,6 +32,7 @@ class TemplateReflectionAdd extends HookWidget {
     return view(
       reflections,
       title,
+      hooks.badgeNum,
       hooks.textFieldFocusNode,
       hooks.formKey,
       hooks.textReflection,

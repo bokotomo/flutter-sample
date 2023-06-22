@@ -26,6 +26,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 Widget view(
   List<DomainReflectionAddReflection> reflections,
   String title,
+  int badgeNum,
   FocusNode textFieldFocusNode,
   GlobalKey<FormState> formKey,
   TextEditingController textReflection,
@@ -64,9 +65,12 @@ Widget view(
   return BaseLayout(
     title: title,
     onTap: () => textFieldFocusNode.unfocus(),
-    onClickRightMenu: () => {
-      print("open list"),
-    },
+    badgeNum: badgeNum,
+    onClickRightMenu: badgeNum == 0
+        ? null
+        : () => {
+              print("open list"),
+            },
     child: Form(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       key: formKey,

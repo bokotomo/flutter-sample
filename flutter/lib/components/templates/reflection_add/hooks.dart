@@ -27,8 +27,10 @@ class UseReturn {
     required this.onPressedRemoveText,
     required this.formKey,
     required this.candidatesForListener,
+    required this.badgeNum,
   });
 
+  final int badgeNum;
   final void Function(BuildContext) onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
   final void Function() onPressedReflectionDone;
@@ -49,6 +51,7 @@ UseReturn useHooks(
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
+  final ValueNotifier<int> badgeNum = useState<int>(0);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isGood = true;
   // 更新後の振り返り一覧
@@ -198,6 +201,7 @@ UseReturn useHooks(
   }, [reflections]);
 
   return UseReturn(
+    badgeNum: badgeNum.value,
     onPressedAddReflection: onPressedAddReflection,
     onPressedAddCandidate: onPressedAddCandidate,
     onPressedReflectionDone: onPressedReflectionDone,
