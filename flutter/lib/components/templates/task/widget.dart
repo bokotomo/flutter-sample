@@ -27,7 +27,7 @@ class TemplateTask extends HookWidget {
   /// クリックした
   final void Function(BuildContext context, int taskId) pushTaskDetail;
 
-  ///
+  /// 振り返りの取得をする
   final Future<void> Function() fetchReflections;
 
   @override

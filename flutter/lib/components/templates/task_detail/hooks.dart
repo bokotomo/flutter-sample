@@ -11,11 +11,8 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
-import 'package:gamer_reflection/components/common/atoms/toast/alert.dart'
-    show ToastAlert;
-import 'package:gamer_reflection/components/common/atoms/toast/basic.dart'
-    show ToastBasic;
-import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
+import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
+    show useToast;
 import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
 import 'package:gamer_reflection/domain/task_detail/reflection.dart'
     show DomainTaskDetailReflection;
@@ -78,7 +75,7 @@ UseReturn useHooks(
   final ValueNotifier<bool> todoExist = useState<bool>(false);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<String> groupValue = useState<String>("");
-  final FToast fToast = FToast();
+  final toast = useToast(context);
 
   /// 編集モード切り替え
   void toggleEditMode() {
@@ -88,8 +85,6 @@ UseReturn useHooks(
   useEffect(() {
     if (reflection == null) return;
 
-    fToast.init(context);
-
     titleController.value.text = reflection.text;
     detailController.value.text = reflection.detail;
     final bool isGood = reflection.reflectionType == ReflectionType.good;
@@ -98,30 +93,13 @@ UseReturn useHooks(
     return;
   }, [reflection]);
 
+  /// やることの反映
   useEffect(() {
     if (todoExistDB == null) return;
 
     todoExist.value = todoExistDB;
     return;
   }, [todoExistDB]);
-
-  /// トーストを表示
-  void showAlert(String text) {
-    fToast.showToast(
-      child: ToastAlert(text: text),
-      gravity: ToastGravity.TOP,
-      toastDuration: const Duration(milliseconds: 2500),
-    );
-  }
-
-  /// トーストを表示
-  void showNotification(String text) {
-    fToast.showToast(
-      child: ToastBasic(text: text),
-      gravity: ToastGravity.TOP,
-      toastDuration: const Duration(milliseconds: 2500),
-    );
-  }
 
   /// タスク完了ボタンを押した
   void onPressedTaskDone(BuildContext context) async {
@@ -169,7 +147,7 @@ UseReturn useHooks(
         final bool isGood = reflection!.reflectionType == ReflectionType.good;
         final String text =
             isGood ? "追加するには「伸ばす方法」を書く必要があります。" : "追加するには「対策方法」を書く必要があります。";
-        showAlert(text);
+        toast.showAlert(text, 2500);
         return;
       }
       // なければ新規追加
@@ -178,7 +156,7 @@ UseReturn useHooks(
 
     final String textNotificatoin =
         todoExist.value ? "やることから外しました。" : "やることに追加しました。";
-    showNotification(textNotificatoin);
+    toast.showNotification(textNotificatoin, 2500);
 
     todoExist.value = !todoExist.value;
   }

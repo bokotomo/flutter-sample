@@ -48,6 +48,7 @@ Widget view(
   final Function(String?) onChangedBad,
   final Function() onPressedToggleTodo,
 ) {
+  // タスク詳細のView
   ListView content = ListView(
     padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
     children: [
@@ -80,6 +81,7 @@ Widget view(
     ],
   );
 
+  // 編集可能なView
   ListView editContent = ListView(
     padding: const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l2),
     children: [

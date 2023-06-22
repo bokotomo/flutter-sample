@@ -14,9 +14,8 @@ import 'package:gamer_reflection/modules/request/reflection_group.dart'
     show RequestReflectionGroup;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
-import 'package:gamer_reflection/components/common/atoms/toast/basic.dart'
-    show ToastBasic;
-import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
+import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
+    show useToast;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect, useMemoized, useFuture;
 import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
@@ -69,16 +68,7 @@ UseReturn useHooks(
   final FocusNode textReflectionNewNameFocusNode = useFocusNode();
   final GlobalKey<FormState> formKeyNewName = GlobalKey<FormState>();
   final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
-  final FToast fToast = FToast();
-
-  /// トーストを表示
-  void showAlert(String text) {
-    fToast.showToast(
-      child: ToastBasic(text: text),
-      gravity: ToastGravity.TOP,
-      toastDuration: const Duration(milliseconds: 2500),
-    );
-  }
+  final toast = useToast(context);
 
   /// 振り返りグループIDの取得
   int getReflectionGroupId(String? id) {
@@ -100,7 +90,7 @@ UseReturn useHooks(
     /// DB更新
     await RequestReflectionGroup().updateReflectionGroup(id, name);
 
-    showAlert("「$name」に変更しました。");
+    toast.showNotification("「$name」に変更しました。", 2500);
 
     /// 振り返りグループ再読み込み
     fetchReflectionGroups();
@@ -130,7 +120,7 @@ UseReturn useHooks(
     ///
     if (context.mounted) Navigator.pop(context);
 
-    showAlert("「$name」を追加しました。");
+    toast.showNotification("「$name」を追加しました。", 2500);
   }
 
   /// 新規振り返り名の追加を押した
@@ -192,7 +182,7 @@ UseReturn useHooks(
     /// 名前の更新
     textReflectionName.value.text = d.name;
 
-    showAlert("「$name」を削除しました。");
+    toast.showNotification("「$name」を削除しました。", 2500);
   }
 
   /// 削除を押した
@@ -221,7 +211,6 @@ UseReturn useHooks(
     if (futuredReflectionGroupId.data == null) return;
     updateReflectionName(futuredReflectionGroupId.data);
 
-    fToast.init(context);
     return;
   }, [futuredReflectionGroupId.data]);
 
