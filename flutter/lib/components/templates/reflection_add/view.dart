@@ -65,7 +65,7 @@ Widget view(
   return BaseLayout(
     title: title,
     onTap: () => textFieldFocusNode.unfocus(),
-    badgeNum: badgeNum,
+    badgeNum: badgeNum == 0 ? null : badgeNum,
     onClickRightMenu: badgeNum == 0
         ? null
         : () => {

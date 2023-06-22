@@ -57,7 +57,7 @@ UseReturn useHooks(
   // 更新後の振り返り一覧
   List<DomainReflectionAddReflection> addedReflections = [];
   // 表示する候補の一覧
-  final candidatesForListener =
+  ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
 
   /// 入力欄をリセットする
@@ -120,6 +120,8 @@ UseReturn useHooks(
 
     // 振り返り種類の初期値を更新
     isGood = true;
+
+    badgeNum.value++;
 
     // モーダルを消す
     Navigator.pop(c);
