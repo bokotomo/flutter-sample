@@ -21,7 +21,7 @@ class TaskList extends StatelessWidget {
   final List<DomainTaskReflection> reflections;
 
   /// タスクリストアイテムを押した
-  final Function(int) onPressedTask;
+  final void Function(int) onPressedTask;
 
   @override
   Widget build(BuildContext context) {

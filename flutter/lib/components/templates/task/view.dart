@@ -29,11 +29,11 @@ Widget view(
   Period period,
   List<DomainTaskReflection> filteredReflections,
   bool isSelectedGood,
-  void Function() onPressedAll,
-  void Function() onPressedThreeMonth,
-  void Function() onPressedMonth,
-  void Function() onPressedBad,
-  void Function() onPressedGood,
+  Future<void> Function() onPressedAll,
+  Future<void> Function() onPressedThreeMonth,
+  Future<void> Function() onPressedMonth,
+  Future<void> Function() onPressedBad,
+  Future<void> Function() onPressedGood,
   void Function(String?) onChangeReflectionGroup,
 ) {
   final tasklist = TaskList(

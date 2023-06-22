@@ -22,7 +22,7 @@ class TemplateTodo extends HookWidget {
   /// やること一覧
   final List<DomainTodo> todos;
 
-  /// 取得
+  /// やることを取得
   final Future<void> Function() fetchTodos;
 
   @override

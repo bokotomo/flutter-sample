@@ -20,10 +20,10 @@ class BottomButtons extends HookWidget {
   final bool isSelectedGood;
 
   /// 改善することを押した
-  final Function() onPressedBad;
+  final void Function() onPressedBad;
 
   /// 伸ばすことを押した
-  final Function() onPressedGood;
+  final void Function() onPressedGood;
 
   @override
   Widget build(BuildContext context) {

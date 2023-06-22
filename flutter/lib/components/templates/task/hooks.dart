@@ -39,11 +39,11 @@ class UseReturn {
   final Period period;
   final List<DomainTaskReflection> filteredReflections;
   final bool isSelectedGood;
-  final void Function() onPressedAll;
-  final void Function() onPressedThreeMonth;
-  final void Function() onPressedMonth;
-  final void Function() onPressedBad;
-  final void Function() onPressedGood;
+  final Future<void> Function() onPressedAll;
+  final Future<void> Function() onPressedThreeMonth;
+  final Future<void> Function() onPressedMonth;
+  final Future<void> Function() onPressedBad;
+  final Future<void> Function() onPressedGood;
   final void Function(String?) onChangeReflectionGroup;
 }
 
@@ -117,7 +117,7 @@ UseReturn useHooks(
   }
 
   /// 期間変更をクリック：全期間
-  void onPressedAll() async {
+  Future<void> onPressedAll() async {
     period.value = Period.all;
     updateFilteredReflections(Period.all, isSelectedGood.value);
 
@@ -126,7 +126,7 @@ UseReturn useHooks(
   }
 
   /// 期間変更をクリック：3ヶ月
-  void onPressedThreeMonth() async {
+  Future<void> onPressedThreeMonth() async {
     period.value = Period.threeMonth;
     updateFilteredReflections(Period.threeMonth, isSelectedGood.value);
 
@@ -135,7 +135,7 @@ UseReturn useHooks(
   }
 
   /// 期間変更をクリック：1ヶ月
-  void onPressedMonth() async {
+  Future<void> onPressedMonth() async {
     period.value = Period.oneMonth;
     updateFilteredReflections(Period.oneMonth, isSelectedGood.value);
 
@@ -144,7 +144,7 @@ UseReturn useHooks(
   }
 
   /// 改善することボタンを押した
-  void onPressedBad() async {
+  Future<void> onPressedBad() async {
     isSelectedGood.value = false;
     updateFilteredReflections(period.value, false);
 
@@ -153,7 +153,7 @@ UseReturn useHooks(
   }
 
   /// 伸ばすことボタンを押した
-  void onPressedGood() async {
+  Future<void> onPressedGood() async {
     isSelectedGood.value = true;
     updateFilteredReflections(period.value, true);
 

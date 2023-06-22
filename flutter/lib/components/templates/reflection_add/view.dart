@@ -64,6 +64,9 @@ Widget view(
   return BaseLayout(
     title: title,
     onTap: () => textFieldFocusNode.unfocus(),
+    onClickRightMenu: () => {
+      print("open list"),
+    },
     child: Form(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       key: formKey,
