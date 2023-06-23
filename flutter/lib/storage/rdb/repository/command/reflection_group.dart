@@ -2,8 +2,6 @@ import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/reflection_group.dart'
     show ModelReflectionGroup, tableNameReflectionGroup;
-import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
-    show tableNameReflection;
 
 /// Interface: IRepositoryReflectionGroupCommand
 abstract class IRepositoryReflectionGroupCommand {
@@ -57,19 +55,14 @@ class RepositoryReflectionGroupCommand
 
   /// 削除: 指定したIDの振り返り
   @override
-  Future<void> deleteReflectionGroupById(Database db, int id) async {
+  Future<void> deleteReflectionGroupById(Database db, int groupId) async {
     /// 振り返りグループの削除
+    /// cascadeなので子レコードも削除される
+    /// reflection_groupテーブル, reflectionテーブル, todoテーブル
     await db.delete(
       tableNameReflectionGroup,
       where: 'id = ?',
-      whereArgs: [id],
-    );
-
-    /// 振り返り内容も全て削除する
-    await db.delete(
-      tableNameReflection,
-      where: 'reflection_group_id = ?',
-      whereArgs: [id],
+      whereArgs: [groupId],
     );
   }
 }

@@ -15,8 +15,9 @@ CREATE TABLE IF NOT EXISTS reflection(
   detail TEXT NOT NULL DEFAULT "",
   reflection_type INTEGER NOT NULL,
   count INTEGER NOT NULL,
-  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime')),
-  updated_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime'))
+  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')),
+  updated_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')),
+  foreign key (reflection_group_id) references reflection_group(id) on delete cascade
 )
 ''');
 
@@ -25,7 +26,7 @@ CREATE TABLE IF NOT EXISTS reflection(
 CREATE TABLE IF NOT EXISTS reflection_group(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
-  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime'))
+  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime'))
 )
 ''');
 
@@ -34,7 +35,8 @@ CREATE TABLE IF NOT EXISTS reflection_group(
 CREATE TABLE IF NOT EXISTS todo(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   reflection_id INTEGER NOT NULL,
-  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP,'localtime'))
+  created_at TIMESTAMP DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')),
+  foreign key (reflection_id) references reflection(id) on delete cascade
 )
 ''');
     } catch (e) {

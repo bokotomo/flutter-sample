@@ -4,6 +4,8 @@ import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection, tableNameReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/storage/rdb/model/todo.dart'
+    show tableNameTodo;
 
 /// Interface: RepositoryReflectionCommand
 abstract class IRepositoryReflectionCommand {
@@ -117,11 +119,14 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
 
   /// 削除: 指定したIDの振り返り
   @override
-  Future<void> deleteReflectionById(Database db, int id) async {
+  Future<void> deleteReflectionById(Database db, int reflectionId) async {
+    /// 振り返りグループの削除
+    /// cascadeなので子レコードも削除される
+    /// reflectionテーブル, todoテーブル
     await db.delete(
       tableNameReflection,
       where: 'id = ?',
-      whereArgs: [id],
+      whereArgs: [reflectionId],
     );
   }
 }

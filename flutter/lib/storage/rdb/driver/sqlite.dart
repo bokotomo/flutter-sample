@@ -27,6 +27,5 @@ Future<Database> initDatabase() async {
       await TableSetUp().createTables(db);
     },
   );
-
   return db;
 }
