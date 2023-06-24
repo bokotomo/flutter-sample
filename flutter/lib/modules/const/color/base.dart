@@ -62,6 +62,9 @@ class ConstantColor {
   /// 基本的な文字色
   static const Color text = white;
 
+  /// 基本的な文字色
+  static const Color textBold = Color.fromARGB(180, 255, 255, 255);
+
   /// 薄い文字
   static const Color textOpacity = Color.fromARGB(120, 255, 255, 255);
 

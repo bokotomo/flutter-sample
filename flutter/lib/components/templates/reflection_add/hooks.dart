@@ -15,6 +15,8 @@ import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/components/templates/reflection_add/modal/add.dart'
     show showModal;
+import 'package:gamer_reflection/components/templates/reflection_add/modal/confirm_back.dart'
+    show showModalConfirmBack;
 
 class UseReturn {
   const UseReturn({
@@ -28,6 +30,7 @@ class UseReturn {
     required this.formKey,
     required this.candidatesForListener,
     required this.badgeNumForListener,
+    required this.onWillPop,
   });
   final void Function(BuildContext) onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
@@ -40,6 +43,7 @@ class UseReturn {
   final ValueNotifier<int> badgeNumForListener;
   final ValueNotifier<List<DomainReflectionAddReflection>>
       candidatesForListener;
+  final Future<bool> Function(BuildContext) onWillPop;
 }
 
 /// ロジック: 振り返り追加ページ
@@ -55,6 +59,8 @@ UseReturn useHooks(
   bool isGood = true;
   // 更新後の振り返り一覧
   List<DomainReflectionAddReflection> addedReflections = [];
+  // 追加した保存するための振り返り一覧
+  List<DomainReflectionAddReflection> reflectionsForRegister = [];
   // 表示する候補の一覧
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
@@ -102,6 +108,12 @@ UseReturn useHooks(
       groupId,
     );
 
+    // 登録するための振り返り一覧
+    reflectionsForRegister.add(DomainReflectionAddReflection(
+      count: 1,
+      text: text,
+    ));
+
     // 候補の更新
     addedReflections = getAddedReflections(text);
 
@@ -121,7 +133,7 @@ UseReturn useHooks(
     isGood = true;
 
     // バッジの更新
-    badgeNumForListener.value++;
+    // badgeNumForListener.value++;
 
     // モーダルを消す
     Navigator.pop(c);
@@ -202,6 +214,20 @@ UseReturn useHooks(
     return;
   }, [reflections]);
 
+  /// 戻るのをチェックする
+  Future<bool> onWillPop(BuildContext context) {
+    final bool reflectionNotExist = reflectionsForRegister.isEmpty;
+    if (reflectionNotExist) return Future.value(true);
+
+    // 追加するモーダルを表示する
+    showModalConfirmBack(
+      context,
+      "追加した振り返りがあります。\n戻ってもよろしいですか？",
+    );
+
+    return Future.value(false);
+  }
+
   return UseReturn(
     badgeNumForListener: badgeNumForListener,
     onPressedAddReflection: onPressedAddReflection,
@@ -213,5 +239,6 @@ UseReturn useHooks(
     textFieldFocusNode: textFieldFocusNode,
     formKey: formKey,
     candidatesForListener: candidatesForListener,
+    onWillPop: onWillPop,
   );
 }

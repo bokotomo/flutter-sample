@@ -30,6 +30,10 @@ class TextAnnotation extends StatelessWidget {
         return ConstantSizeFont.xm;
       case "M":
         return ConstantSizeFont.m;
+      case "S":
+        return ConstantSizeFont.s;
+      case "XS":
+        return ConstantSizeFont.xs;
       default:
         return ConstantSizeFont.s;
     }

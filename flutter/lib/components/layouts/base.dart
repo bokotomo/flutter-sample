@@ -14,6 +14,7 @@ class BaseLayout extends HookWidget {
     this.onTap,
     this.badgeNumForListener,
     this.onClickRightMenu,
+    this.onWillPop,
   });
 
   /// コンテンツ
@@ -31,20 +32,26 @@ class BaseLayout extends HookWidget {
   /// 右のメニューをクリックした
   final void Function()? onClickRightMenu;
 
+  /// 戻る時のアクション
+  final Future<bool> Function()? onWillPop;
+
   @override
   Widget build(BuildContext context) {
     final u = useColorBase();
 
-    return Scaffold(
-      backgroundColor: u.content,
-      appBar: Header(
-        title: title,
-        badgeNumForListener: badgeNumForListener,
-        onClickRightMenu: onClickRightMenu,
-      ),
-      body: GestureDetector(
-        onTap: onTap,
-        child: child,
+    return WillPopScope(
+      onWillPop: onWillPop,
+      child: Scaffold(
+        backgroundColor: u.content,
+        appBar: Header(
+          title: title,
+          badgeNumForListener: badgeNumForListener,
+          onClickRightMenu: onClickRightMenu,
+        ),
+        body: GestureDetector(
+          onTap: onTap,
+          child: child,
+        ),
       ),
     );
   }

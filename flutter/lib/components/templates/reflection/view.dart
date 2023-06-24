@@ -34,6 +34,7 @@ Widget view(
             BasicText(
               text: "振り返りのやり方",
               size: "M",
+              isBold: true,
             ),
             SpacerHeight.m,
             BasicText(

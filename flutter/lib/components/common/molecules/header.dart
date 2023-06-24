@@ -43,14 +43,14 @@ class Header extends HookWidget implements PreferredSizeWidget {
   AppBar build(BuildContext context) {
     final u = useColorBase();
 
-    final ValueNotifier<int> badgeNum = useState<int>(0);
+    // final ValueNotifier<int> badgeNum = useState<int>(0);
 
     /// 外部で候補一覧が更新されたら実行
-    void updateBadge() {
-      print("okoko");
-      print(badgeNumForListener!.value);
-      badgeNum.value = badgeNumForListener!.value;
-    }
+    // void updateBadge() {
+    //   print("okoko");
+    //   print(badgeNumForListener!.value);
+    //   badgeNum.value = badgeNumForListener!.value;
+    // }
 
     /// NOTE:
     /// バッジ番号のみをレンダリングさせたいのでListenerでイベント発火している。
@@ -62,39 +62,40 @@ class Header extends HookWidget implements PreferredSizeWidget {
     //   return;
     // }, []);
 
-    if (badgeNumForListener != null) {
-      print("ともの");
-      print(badgeNumForListener!.value);
-      badgeNumForListener!.addListener(updateBadge);
-    }
+    // if (badgeNumForListener != null) {
+    //   print("ともの");
+    //   print(badgeNumForListener!.value);
+    //   badgeNumForListener!.addListener(updateBadge);
+    // }
 
     /// 右上のアイコンを追加
     List<Widget> getActions() {
-      if (onClickRightMenu == null) return [];
-      // 数字なし
-      if (badgeNum.value == 0) {
-        return [
-          IconButton(
-            icon: const Icon(Icons.dehaze_sharp),
-            onPressed: onClickRightMenu,
-          ),
-        ];
-      }
+      return [];
+      // if (onClickRightMenu == null) return [];
+      // // 数字なし
+      // if (badgeNum.value == 0) {
+      //   return [
+      //     IconButton(
+      //       icon: const Icon(Icons.dehaze_sharp),
+      //       onPressed: onClickRightMenu,
+      //     ),
+      //   ];
+      // }
 
-      //　数字付き
-      return [
-        badges.Badge(
-          position: badges.BadgePosition.custom(top: 0, end: 2),
-          badgeContent: Text(
-            badgeNum.value.toString(),
-            style: const TextStyle(color: Colors.white),
-          ),
-          child: IconButton(
-            icon: const Icon(Icons.dehaze_sharp),
-            onPressed: onClickRightMenu,
-          ),
-        ),
-      ];
+      // //　数字付き
+      // return [
+      //   badges.Badge(
+      //     position: badges.BadgePosition.custom(top: 0, end: 2),
+      //     badgeContent: Text(
+      //       badgeNum.value.toString(),
+      //       style: const TextStyle(color: Colors.white),
+      //     ),
+      //     child: IconButton(
+      //       icon: const Icon(Icons.dehaze_sharp),
+      //       onPressed: onClickRightMenu,
+      //     ),
+      //   ),
+      // ];
     }
 
     return AppBar(

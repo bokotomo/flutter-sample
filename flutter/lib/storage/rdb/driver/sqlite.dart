@@ -27,10 +27,10 @@ Future<Database> initDatabase() async {
       await TableSetUp().createTables(db);
     },
   );
-  const bool isDebugMode = true;
+  // const bool isDebugMode = true;
   // await TableSetUp().createTables(db);
   // await TableSetUp().dropAllTables(isDebugMode, db);
-  await TableSetUp().showRecords(isDebugMode, db);
+  // await TableSetUp().showRecords(isDebugMode, db);
 
   return db;
 }

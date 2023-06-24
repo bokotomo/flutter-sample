@@ -30,6 +30,7 @@ class TemplateReflectionAdd extends HookWidget {
     final hooks = useHooks(reflections, groupId);
 
     return view(
+      context,
       reflections,
       title,
       hooks.badgeNumForListener,
@@ -42,6 +43,7 @@ class TemplateReflectionAdd extends HookWidget {
       hooks.onPressedRemoveText,
       hooks.onChangeTextReflection,
       hooks.candidatesForListener,
+      hooks.onWillPop,
     );
   }
 }

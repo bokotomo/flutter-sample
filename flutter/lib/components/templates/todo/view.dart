@@ -48,11 +48,12 @@ Widget view(
               BasicText(
                 text: todos[i].title,
                 size: "M",
+                isBold: true,
               ),
-              SpacerHeight.m,
+              SpacerHeight.s,
               TextAnnotation(
                 text: todos[i].subTitle,
-                size: "S",
+                size: "XS",
               ),
             ],
           ),

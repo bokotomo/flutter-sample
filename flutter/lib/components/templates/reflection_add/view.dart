@@ -24,6 +24,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 
 ///
 Widget view(
+  BuildContext context,
   List<DomainReflectionAddReflection> reflections,
   String title,
   ValueNotifier<int> badgeNumForListener,
@@ -36,6 +37,7 @@ Widget view(
   void Function() onPressedRemoveText,
   void Function(String?) onChangeTextReflection,
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener,
+  Future<bool> Function(BuildContext) onWillPop,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -70,6 +72,7 @@ Widget view(
       badgeNumForListener.value = 10,
       print("open list"),
     },
+    onWillPop: () => onWillPop(context),
     child: Form(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       key: formKey,
