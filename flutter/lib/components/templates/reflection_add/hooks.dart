@@ -27,10 +27,8 @@ class UseReturn {
     required this.onPressedRemoveText,
     required this.formKey,
     required this.candidatesForListener,
-    required this.badgeNum,
+    required this.badgeNumForListener,
   });
-
-  final int badgeNum;
   final void Function(BuildContext) onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
   final void Function() onPressedReflectionDone;
@@ -39,6 +37,7 @@ class UseReturn {
   final TextEditingController textReflection;
   final FocusNode textFieldFocusNode;
   final GlobalKey<FormState> formKey;
+  final ValueNotifier<int> badgeNumForListener;
   final ValueNotifier<List<DomainReflectionAddReflection>>
       candidatesForListener;
 }
@@ -51,7 +50,7 @@ UseReturn useHooks(
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
-  final ValueNotifier<int> badgeNum = useState<int>(0);
+  final ValueNotifier<int> badgeNumForListener = ValueNotifier<int>(0);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isGood = true;
   // 更新後の振り返り一覧
@@ -121,14 +120,15 @@ UseReturn useHooks(
     // 振り返り種類の初期値を更新
     isGood = true;
 
-    badgeNum.value++;
+    // バッジの更新
+    badgeNumForListener.value++;
 
     // モーダルを消す
     Navigator.pop(c);
   }
 
   /// 振り返りの追加を押した
-  void onPressedAddReflection(BuildContext context) async {
+  Future<void> onPressedAddReflection(BuildContext context) async {
     if (!formKey.currentState!.validate()) return;
 
     int reflectionCount = 1;
@@ -203,7 +203,7 @@ UseReturn useHooks(
   }, [reflections]);
 
   return UseReturn(
-    badgeNum: badgeNum.value,
+    badgeNumForListener: badgeNumForListener,
     onPressedAddReflection: onPressedAddReflection,
     onPressedAddCandidate: onPressedAddCandidate,
     onPressedReflectionDone: onPressedReflectionDone,

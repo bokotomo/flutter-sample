@@ -12,7 +12,7 @@ class BaseLayout extends HookWidget {
     required this.child,
     required this.title,
     this.onTap,
-    this.badgeNum,
+    this.badgeNumForListener,
     this.onClickRightMenu,
   });
 
@@ -23,7 +23,7 @@ class BaseLayout extends HookWidget {
   final String title;
 
   /// バッジの数
-  final int? badgeNum;
+  final ValueNotifier<int>? badgeNumForListener;
 
   /// 外部を押した
   final void Function()? onTap;
@@ -39,7 +39,7 @@ class BaseLayout extends HookWidget {
       backgroundColor: u.content,
       appBar: Header(
         title: title,
-        badgeNum: badgeNum,
+        badgeNumForListener: badgeNumForListener,
         onClickRightMenu: onClickRightMenu,
       ),
       body: GestureDetector(

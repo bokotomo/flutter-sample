@@ -6,6 +6,11 @@ class TableSetUp {
   /// 後でマイグレーションファイルに合わせるので一時的
   Future<void> createTables(Database db) async {
     try {
+      print("---- Setup Table ----");
+
+      // 外部キー有効化
+      await db.execute("PRAGMA foreign_keys=true");
+
       // 振り返り
       await db.execute('''
 CREATE TABLE IF NOT EXISTS reflection(
@@ -43,5 +48,35 @@ CREATE TABLE IF NOT EXISTS todo(
       //todo
       rethrow;
     }
+  }
+
+  /// デバック用: テーブルの全削除
+  Future<void> dropAllTables(bool isDebugMode, Database db) async {
+    print("---- Drop Tables Start ----");
+    await db.execute("DELETE FROM reflection;");
+    await db.execute("DROP TABLE reflection;");
+    await db.execute("DELETE FROM reflection_group;");
+    await db.execute("DROP TABLE reflection_group;");
+    await db.execute("DELETE FROM todo;");
+    await db.execute("DROP TABLE todo;");
+    print("---- Drop Tables End ----");
+  }
+
+  /// デバック用: レコードを全て表示
+  Future<void> showRecords(bool isDebugMode, Database db) async {
+    final List<Map<String, Object?>> todos =
+        await db.rawQuery('SELECT * FROM todo');
+    final List<Map<String, Object?>> reflections =
+        await db.rawQuery('SELECT * FROM reflection');
+    final List<Map<String, Object?>> reflectionGroups =
+        await db.rawQuery('SELECT * FROM reflection_group');
+
+    print("---- Records ----");
+    print("Todos");
+    print(todos);
+    print("Reflections");
+    print(reflections);
+    print("ReflectionGroups");
+    print(reflectionGroups);
   }
 }

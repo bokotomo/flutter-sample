@@ -14,13 +14,15 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
 /// 振り返りがない場合
-Widget candidatesNone() {
-  return const Column(
+Widget candidatesNone(bool isNotAdd) {
+  final text = isNotAdd ? 'リプレイを見て、\n良かったこと悪かったことを書きましょう!' : '候補が見つかりません';
+
+  return Column(
     children: [
       SpacerHeight.xm,
       Center(
         child: TextAnnotation(
-          text: 'リプレイを見て、\n良かったこと悪かったことを書きましょう!',
+          text: text,
           size: "M",
           textAlign: TextAlign.center,
         ),
@@ -31,6 +33,7 @@ Widget candidatesNone() {
 
 Widget view(
   List<DomainReflectionAddReflection> reflections,
+  bool isNotAdd,
   Function(String text) onPressCandidate,
 ) {
   final Column candidateTitles = Column(
@@ -51,7 +54,8 @@ Widget view(
     ],
   );
 
-  final candidates = reflections.isEmpty ? candidatesNone() : candidateTitles;
+  final candidates =
+      reflections.isEmpty ? candidatesNone(isNotAdd) : candidateTitles;
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,6 +83,8 @@ class ReflectionAddCandidate extends HookWidget {
     final ValueNotifier<List<DomainReflectionAddReflection>> candidates =
         useState<List<DomainReflectionAddReflection>>([]);
 
+    final bool isNotAdd = reflections.isEmpty;
+
     /// 外部で候補一覧が更新されたら実行
     void updateCandidates() {
       candidates.value = candidatesForListener.value;
@@ -105,6 +111,7 @@ class ReflectionAddCandidate extends HookWidget {
 
     return view(
       candidates.value,
+      isNotAdd,
       onPressCandidate,
     );
   }

@@ -161,7 +161,10 @@ UseReturn useHooks(
     if (id == null) return;
 
     /// グループが1個なら削除できない
-    if (reflectionGroups.length <= 1) return;
+    if (reflectionGroups.length <= 1) {
+      toast.showAlert("最後の一つは削除できません。", 2500);
+      return;
+    }
 
     /// DB削除
     await RequestReflectionGroup().deleteReflection(int.parse(id));
