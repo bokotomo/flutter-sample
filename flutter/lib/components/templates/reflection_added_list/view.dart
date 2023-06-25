@@ -16,7 +16,7 @@ Widget view(
   BuildContext context,
   List<DomainReflectionAdded> reflections,
   Future<bool> Function(BuildContext) onWillPop,
-  void Function(int) onClickRemove,
+  void Function(String) onClickRemove,
 ) {
   ListView column = ListView(
     children: [
@@ -30,8 +30,7 @@ Widget view(
               text: reflections[i].text,
               isThin: i % 2 == 0,
               count: reflections[i].count,
-              onPressed: () => {},
-              onClickRemove: () => onClickRemove(i),
+              onClickRemove: () => onClickRemove(reflections[i].text),
             ),
           },
           const Bar(

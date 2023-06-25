@@ -36,6 +36,9 @@ class Header extends HookWidget implements PreferredSizeWidget {
   /// バッジの数
   final ValueNotifier<int>? badgeNumForListener;
 
+  /// バッジの初期数
+  // final int? badgeDefaultNum;
+
   /// 右のメニューをクリックした
   final void Function()? onClickRightMenu;
 
@@ -57,6 +60,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
     /// バッジ番号のみをレンダリングさせたいのでListenerでイベント発火している。
     useEffect(() {
       if (badgeNumForListener == null) return;
+      badgeNum.value = badgeNumForListener!.value;
       badgeNumForListener!.addListener(updateBadge);
       return;
     }, [badgeNumForListener]);

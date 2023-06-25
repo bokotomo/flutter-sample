@@ -62,7 +62,8 @@ UseReturn useHooks(
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
       useState<TextEditingController>(TextEditingController());
-  final ValueNotifier<int> badgeNumForListener = ValueNotifier<int>(0);
+  final ValueNotifier<int> badgeNumForListener =
+      ValueNotifier<int>(addedReflectionsFromOtherPage.length);
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool isGood = true;
   // 更新後の振り返り一覧
@@ -239,8 +240,6 @@ UseReturn useHooks(
 
     // 追加した振り返り一覧
     reflectionsForRegister = addedReflectionsFromOtherPage;
-
-    badgeNumForListener.value = addedReflectionsFromOtherPage.length;
 
     return;
   }, [reflections]);

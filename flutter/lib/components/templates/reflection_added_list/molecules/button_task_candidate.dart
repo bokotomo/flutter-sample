@@ -34,7 +34,6 @@ class ButtonTaskCandidate extends StatelessWidget {
     required this.text,
     required this.isThin,
     required this.count,
-    required this.onPressed,
     required this.onClickRemove,
   });
 
@@ -46,9 +45,6 @@ class ButtonTaskCandidate extends StatelessWidget {
 
   /// 回数
   final int count;
-
-  /// クリックした
-  final void Function()? onPressed;
 
   /// 削除をクリックした
   final void Function() onClickRemove;

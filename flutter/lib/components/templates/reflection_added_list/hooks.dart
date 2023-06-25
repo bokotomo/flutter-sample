@@ -11,7 +11,7 @@ class UseReturn {
     required this.onWillPop,
   });
   final List<DomainReflectionAdded> reflectionsOnPage;
-  final void Function(int) onClickRemove;
+  final void Function(String) onClickRemove;
   final Future<bool> Function(BuildContext) onWillPop;
 }
 
@@ -22,9 +22,9 @@ UseReturn useHooks(List<DomainReflectionAdded> reflections) {
       useState<List<DomainReflectionAdded>>([]);
 
   /// 削除を押した
-  void onClickRemove(int index) {
-    print(index);
-    reflectionsOnPage.value.removeAt(index);
+  void onClickRemove(String text) {
+    reflectionsOnPage.value =
+        reflectionsOnPage.value.where((e) => e.text != text).toList();
   }
 
   ///　戻るときに振り返り一覧も送る
