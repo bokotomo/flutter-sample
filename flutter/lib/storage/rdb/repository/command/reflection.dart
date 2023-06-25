@@ -4,13 +4,11 @@ import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection, tableNameReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
-import 'package:gamer_reflection/storage/rdb/model/todo.dart'
-    show tableNameTodo;
 
 /// Interface: RepositoryReflectionCommand
 abstract class IRepositoryReflectionCommand {
   Future<void> insertReflection(
-      Database db, String text, bool isGood, int groupId);
+      Database db, String text, bool isGood, int count, int groupId);
   Future<void> updateReflectionById(
     Database db,
     int id,
@@ -30,6 +28,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
     Database db,
     String text,
     bool isGood,
+    int count,
     int groupId,
   ) async {
     /// idにする
@@ -47,7 +46,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
         reflectionType: isGood ? 1 : 2,
         text: text,
         detail: "",
-        count: 1,
+        count: count,
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       );
@@ -60,14 +59,14 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
     } else {
       /// 登録済み
       final int id = res.first['id'] as int;
-      final int count = res.first['count'] as int;
+      final int resCount = res.first['count'] as int;
 
       final ModelReflection reflection = ModelReflection(
         reflectionGroupId: groupId,
         reflectionType: isGood ? 1 : 2,
         text: "",
         detail: "",
-        count: count + 1,
+        count: resCount + count,
         createdAt: DateTime.now(),
         updatedAt: DateTime.now(),
       );

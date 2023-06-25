@@ -27,7 +27,7 @@ class TemplateReflectionAddedList extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks(reflections, groupId);
+    final h = useHooks(context, reflections, groupId);
 
     return view(
       context,

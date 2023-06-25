@@ -13,9 +13,11 @@ class RequestReflection {
       GetIt.I<IRepositoryReflectionCommand>();
 
   /// 新規追加: Reflection
-  Future<void> addReflection(String text, bool isGood, int groupId) async {
+  Future<void> addReflection(
+      String text, bool isGood, int count, int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflection.insertReflection(db, text, isGood, groupId);
+    await repositoryReflection.insertReflection(
+        db, text, isGood, count, groupId);
   }
 
   /// 更新: Reflection

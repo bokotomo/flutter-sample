@@ -7,6 +7,8 @@ import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
+    show useToast;
 
 class UseReturn {
   const UseReturn({
@@ -23,12 +25,14 @@ class UseReturn {
 
 /// ロジック: 振り返り追加ページ
 UseReturn useHooks(
+  BuildContext context,
   List<DomainReflectionAdded> reflections,
   int groupId,
 ) {
   // 追加した保存するための振り返り一覧
   ValueNotifier<List<DomainReflectionAdded>> reflectionsOnPage =
       useState<List<DomainReflectionAdded>>([]);
+  final toast = useToast(context);
 
   /// 削除を押した
   void onClickRemove(String text) {
@@ -50,13 +54,17 @@ UseReturn useHooks(
       RequestReflection().addReflection(
         r.text,
         r.reflectionType == ReflectionType.good,
+        r.count,
         groupId,
       );
     }
 
+    // 二つ前のページへ戻る
     Navigator.of(context)
       ..pop()
       ..pop();
+
+    toast.showNotification("振り返りを追加しました。", 2500);
   }
 
   useEffect(() {

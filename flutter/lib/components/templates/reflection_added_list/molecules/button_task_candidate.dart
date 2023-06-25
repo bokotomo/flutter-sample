@@ -79,8 +79,8 @@ class ButtonTaskCandidate extends StatelessWidget {
               size: "S",
             ),
           ),
-          if (isSavePage) SpacerWidth.s,
-          if (isSavePage)
+          if (!isSavePage) SpacerWidth.s,
+          if (!isSavePage)
             CircleAvatar(
               radius: ConstantSizeUI.l3,
               backgroundColor: ConstantColor.iconBackGround,
