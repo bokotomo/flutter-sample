@@ -4,6 +4,8 @@ import 'package:gamer_reflection/components/templates/reflection_add/hooks.dart'
     show useHooks;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
+import 'package:gamer_reflection/domain/common/reflection_added.dart'
+    show DomainReflectionAdded;
 import 'package:gamer_reflection/components/templates/reflection_add/view.dart'
     show view;
 
@@ -14,10 +16,15 @@ class TemplateReflectionAdd extends HookWidget {
     required this.reflections,
     required this.title,
     required this.groupId,
+    required this.addedReflectionsFromOtherPage,
+    required this.pushReflectionAddedList,
   });
 
   /// 振り返りの一覧
   final List<DomainReflectionAddReflection> reflections;
+
+  /// 追加した振り返り一覧
+  final List<DomainReflectionAdded> addedReflectionsFromOtherPage;
 
   /// タイトル
   final String title;
@@ -25,9 +32,18 @@ class TemplateReflectionAdd extends HookWidget {
   /// 振り返りグループID
   final int groupId;
 
+  /// 追加した振り返り一覧ページへ移動
+  final Function(BuildContext, List<DomainReflectionAdded>)
+      pushReflectionAddedList;
+
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflections, groupId);
+    final hooks = useHooks(
+      reflections,
+      addedReflectionsFromOtherPage,
+      groupId,
+      pushReflectionAddedList,
+    );
 
     return view(
       context,
@@ -42,6 +58,7 @@ class TemplateReflectionAdd extends HookWidget {
       hooks.onPressedReflectionDone,
       hooks.onPressedRemoveText,
       hooks.onChangeTextReflection,
+      hooks.onClickRightMenu,
       hooks.candidatesForListener,
       hooks.onWillPop,
     );

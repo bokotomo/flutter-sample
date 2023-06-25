@@ -33,13 +33,14 @@ Widget view(
   TextEditingController textReflection,
   void Function(BuildContext) onPressedAddReflection,
   void Function(String) onPressedAddCandidate,
-  void Function() onPressedReflectionDone,
+  void Function(BuildContext) onPressedReflectionDone,
   void Function() onPressedRemoveText,
   void Function(String?) onChangeTextReflection,
+  void Function(BuildContext) onClickRightMenu,
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener,
   Future<bool> Function(BuildContext) onWillPop,
 ) {
-  ListView cloumn = ListView(
+  ListView column = ListView(
     children: [
       ReflectionAddCandidate(
         reflections: reflections,
@@ -52,7 +53,7 @@ Widget view(
 
   final content = Column(
     children: <Widget>[
-      Expanded(child: cloumn),
+      Expanded(child: column),
       BottomContents(
         textReflection: textReflection,
         textFieldFocusNode: textFieldFocusNode,
@@ -68,10 +69,7 @@ Widget view(
     title: title,
     onTap: () => textFieldFocusNode.unfocus(),
     badgeNumForListener: badgeNumForListener,
-    onClickRightMenu: () => {
-      badgeNumForListener.value = 10,
-      print("open list"),
-    },
+    onClickRightMenu: () => onClickRightMenu(context),
     onWillPop: () => onWillPop(context),
     child: Form(
       autovalidateMode: AutovalidateMode.onUserInteraction,

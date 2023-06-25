@@ -65,7 +65,7 @@ Widget reflectionCount(int count) {
 }
 
 ///
-void showModal(
+void showAddModal(
   BuildContext context,
   String title,
   bool candidateExist,

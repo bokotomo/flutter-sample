@@ -95,6 +95,11 @@ class ReflectionAddCandidate extends HookWidget {
     /// TextFormFieldもリレンダリングされフォーカスが外れてしまう。
     /// 候補だけをレンダリングさせたいのでListenerでイベント発火している。
     useEffect(() {
+      candidatesForListener.addListener(updateCandidates);
+      return;
+    }, [candidatesForListener]);
+
+    useEffect(() {
       // 候補一覧を更新する
       candidates.value = reflections
           .map(
@@ -104,8 +109,6 @@ class ReflectionAddCandidate extends HookWidget {
             ),
           )
           .toList();
-
-      candidatesForListener.addListener(updateCandidates);
       return;
     }, []);
 

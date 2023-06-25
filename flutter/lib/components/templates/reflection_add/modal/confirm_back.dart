@@ -12,10 +12,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
 
 /// モーダル: 戻るのを確認
-void showModalConfirmBack(
-  BuildContext context,
-  String title,
-) {
+void showModalConfirmBack(BuildContext context) {
   showDialog(
     barrierColor: ConstantColor.modalBackground,
     context: context,
@@ -26,10 +23,10 @@ void showModalConfirmBack(
           void Function(void Function()) setState,
         ) =>
             ModalBase(
-          title: title,
+          title: "追加した振り返りがあります。\n戻ってもよろしいですか？",
           children: [
             ButtonBasic(
-              text: "戻る",
+              text: "保存せずに戻る",
               onPressed: () => {
                 Navigator.pop(contextStatefulBuilder),
                 Navigator.pop(context),

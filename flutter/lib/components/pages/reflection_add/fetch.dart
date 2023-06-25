@@ -1,48 +1,116 @@
-import 'package:flutter/material.dart' show ValueNotifier;
+import 'package:flutter/material.dart'
+    show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
+import 'package:gamer_reflection/domain/common/reflection_added.dart'
+    show DomainReflectionAdded;
 import 'package:gamer_reflection/modules/fetch/reflection_add.dart'
     show FetchReflectionAddPage;
+import 'package:gamer_reflection/components/pages/reflection_added_list/widget.dart'
+    show PageReflectionAddedList;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 
 class UseReturn {
   const UseReturn({
     required this.reflections,
+    required this.addedReflectionsFromOtherPage,
     required this.fetchReflections,
+    required this.pushReflectionAddedList,
   });
 
   final List<DomainReflectionAddReflection> reflections;
+  final List<DomainReflectionAdded> addedReflectionsFromOtherPage;
   final Future<void> Function() fetchReflections;
+  final void Function(BuildContext, List<DomainReflectionAdded>)
+      pushReflectionAddedList;
 }
 
 /// データ取得: 振り返り追加
 UseReturn useFetch(int groupId) {
   final ValueNotifier<List<DomainReflectionAddReflection>> reflections =
       useState<List<DomainReflectionAddReflection>>([]);
+  ValueNotifier<List<DomainReflectionAdded>> addedReflectionsFromOtherPage =
+      useState<List<DomainReflectionAdded>>([]);
 
   /// データの取得
-  Future<void> fetch() async {
-    final List<DomainReflectionAddReflection> r =
+  Future<void> fetch(List<DomainReflectionAdded> addeds) async {
+    final List<DomainReflectionAddReflection> rs =
         await FetchReflectionAddPage().fetchReflections(groupId);
+    List<DomainReflectionAddReflection> mergedRs = [];
+
+    // 候補一覧を更新する
+    mergedRs = rs.map((d) {
+      // 別ページからの振り返りがあればcountを増やす
+      final sameReflection = addeds.firstWhere(
+        (e) => e.text == d.text,
+        orElse: () => const DomainReflectionAdded(
+          text: "",
+          count: 0,
+          reflectionType: ReflectionType.good,
+        ),
+      );
+
+      return DomainReflectionAddReflection(
+        text: d.text,
+        count: d.count + sameReflection.count,
+      );
+    }).toList();
+
+    // 別ページからの振り返りを追加
+    for (DomainReflectionAdded r in addeds) {
+      final reflectionExist = rs.map((e) => e.text).contains(r.text);
+      if (reflectionExist) continue;
+
+      mergedRs.add(
+        DomainReflectionAddReflection(
+          text: r.text,
+          count: r.count,
+        ),
+      );
+    }
 
     /// 大きい順にソート
-    r.sort(((a, b) => b.count.compareTo(a.count)));
+    mergedRs.sort(((a, b) => b.count.compareTo(a.count)));
 
-    reflections.value = r;
+    reflections.value = mergedRs;
   }
 
   /// 振り返りグループの更新
   Future<void> fetchReflections() async {
-    fetch();
+    await fetch([]);
+  }
+
+  /// 追加している振り返りページへ移動
+  void pushReflectionAddedList(
+    BuildContext context,
+    List<DomainReflectionAdded> reflections,
+  ) {
+    final PageReflectionAddedList page =
+        PageReflectionAddedList(reflections: reflections);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (c) => page,
+      ),
+    ).then(
+      (v) {
+        addedReflectionsFromOtherPage.value = v;
+        fetch(v);
+      },
+    );
   }
 
   useEffect(() {
-    fetch();
+    fetch([]);
     return;
   }, []);
 
   return UseReturn(
     reflections: reflections.value,
+    addedReflectionsFromOtherPage: addedReflectionsFromOtherPage.value,
     fetchReflections: fetchReflections,
+    pushReflectionAddedList: pushReflectionAddedList,
   );
 }

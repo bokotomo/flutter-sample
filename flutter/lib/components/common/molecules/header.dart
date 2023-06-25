@@ -1,13 +1,17 @@
-// import 'package:flutter/material.dart'
-//     show
-//         AppBar,
-//         BuildContext,
-//         PreferredSizeWidget,
-//         Size,
-//         IconButton,
-//         Icon,
-//         Icons;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        AppBar,
+        Widget,
+        Text,
+        TextStyle,
+        Colors,
+        BuildContext,
+        ValueNotifier,
+        PreferredSizeWidget,
+        Size,
+        IconButton,
+        Icon,
+        Icons;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show HookWidget, useEffect, useState;
@@ -42,60 +46,41 @@ class Header extends HookWidget implements PreferredSizeWidget {
   @override
   AppBar build(BuildContext context) {
     final u = useColorBase();
-
-    // final ValueNotifier<int> badgeNum = useState<int>(0);
+    final ValueNotifier<int> badgeNum = useState<int>(0);
 
     /// 外部で候補一覧が更新されたら実行
-    // void updateBadge() {
-    //   print("okoko");
-    //   print(badgeNumForListener!.value);
-    //   badgeNum.value = badgeNumForListener!.value;
-    // }
+    void updateBadge() {
+      badgeNum.value = badgeNumForListener!.value;
+    }
 
     /// NOTE:
     /// バッジ番号のみをレンダリングさせたいのでListenerでイベント発火している。
-    // useEffect(() {
-    //   if (badgeNumForListener == null) return;
-    //   print("ともの");
-    //   print(badgeNumForListener!.value);
-    //   badgeNumForListener!.addListener(updateBadge);
-    //   return;
-    // }, []);
-
-    // if (badgeNumForListener != null) {
-    //   print("ともの");
-    //   print(badgeNumForListener!.value);
-    //   badgeNumForListener!.addListener(updateBadge);
-    // }
+    useEffect(() {
+      if (badgeNumForListener == null) return;
+      badgeNumForListener!.addListener(updateBadge);
+      return;
+    }, [badgeNumForListener]);
 
     /// 右上のアイコンを追加
     List<Widget> getActions() {
-      return [];
-      // if (onClickRightMenu == null) return [];
-      // // 数字なし
-      // if (badgeNum.value == 0) {
-      //   return [
-      //     IconButton(
-      //       icon: const Icon(Icons.dehaze_sharp),
-      //       onPressed: onClickRightMenu,
-      //     ),
-      //   ];
-      // }
+      if (onClickRightMenu == null) return [];
+      // 数字なしなら非表示
+      if (badgeNum.value == 0) return [];
 
-      // //　数字付き
-      // return [
-      //   badges.Badge(
-      //     position: badges.BadgePosition.custom(top: 0, end: 2),
-      //     badgeContent: Text(
-      //       badgeNum.value.toString(),
-      //       style: const TextStyle(color: Colors.white),
-      //     ),
-      //     child: IconButton(
-      //       icon: const Icon(Icons.dehaze_sharp),
-      //       onPressed: onClickRightMenu,
-      //     ),
-      //   ),
-      // ];
+      //　数字付き
+      return [
+        badges.Badge(
+          position: badges.BadgePosition.custom(top: 0, end: 2),
+          badgeContent: Text(
+            badgeNum.value.toString(),
+            style: const TextStyle(color: Colors.white),
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.dehaze_sharp),
+            onPressed: onClickRightMenu,
+          ),
+        ),
+      ];
     }
 
     return AppBar(

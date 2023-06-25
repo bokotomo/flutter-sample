@@ -33,7 +33,7 @@ Widget view(
   BuildContext context,
   FocusNode textFieldFocusNode,
   TextEditingController textReflection,
-  void Function() onPressedReflectionDone,
+  void Function(BuildContext) onPressedReflectionDone,
   void Function(BuildContext) onPressedAddReflection,
   void Function() onPressedRemoveText,
   void Function(String?) onChangeTextReflection,
@@ -47,11 +47,8 @@ Widget view(
           horizontal: ConstantSizeUI.l2,
         ),
         child: ButtonDone(
-          text: '振り返りを終える',
-          onPressed: () => {
-            onPressedReflectionDone(),
-            Navigator.pop(context),
-          },
+          text: '振り返りを完了する',
+          onPressed: () => onPressedReflectionDone(context),
         ),
       ),
       SpacerHeight.s,
@@ -105,7 +102,7 @@ class BottomContents extends HookWidget {
   final TextEditingController textReflection;
 
   /// 振り返りの終了を押した
-  final void Function() onPressedReflectionDone;
+  final void Function(BuildContext) onPressedReflectionDone;
 
   /// 振り返りの追加を押した
   final void Function(BuildContext) onPressedAddReflection;

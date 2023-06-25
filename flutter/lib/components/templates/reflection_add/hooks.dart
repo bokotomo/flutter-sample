@@ -9,12 +9,16 @@ import 'package:flutter/material.dart'
         Navigator;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
-import 'package:gamer_reflection/modules/request/reflection.dart'
-    show RequestReflection;
+// import 'package:gamer_reflection/modules/request/reflection.dart'
+//     show RequestReflection;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
+import 'package:gamer_reflection/domain/common/reflection_added.dart'
+    show DomainReflectionAdded;
+import 'package:gamer_reflection/modules/type/reflection.dart'
+    show ReflectionType;
 import 'package:gamer_reflection/components/templates/reflection_add/modal/add.dart'
-    show showModal;
+    show showAddModal;
 import 'package:gamer_reflection/components/templates/reflection_add/modal/confirm_back.dart'
     show showModalConfirmBack;
 
@@ -31,10 +35,10 @@ class UseReturn {
     required this.candidatesForListener,
     required this.badgeNumForListener,
     required this.onWillPop,
+    required this.onClickRightMenu,
   });
   final void Function(BuildContext) onPressedAddReflection;
   final void Function(String) onPressedAddCandidate;
-  final void Function() onPressedReflectionDone;
   final void Function() onPressedRemoveText;
   final void Function(String?) onChangeTextReflection;
   final TextEditingController textReflection;
@@ -44,12 +48,16 @@ class UseReturn {
   final ValueNotifier<List<DomainReflectionAddReflection>>
       candidatesForListener;
   final Future<bool> Function(BuildContext) onWillPop;
+  final void Function(BuildContext) onPressedReflectionDone;
+  final void Function(BuildContext) onClickRightMenu;
 }
 
 /// ロジック: 振り返り追加ページ
 UseReturn useHooks(
   List<DomainReflectionAddReflection> reflections,
+  List<DomainReflectionAdded> addedReflectionsFromOtherPage,
   int groupId,
+  Function(BuildContext, List<DomainReflectionAdded>) pushReflectionAddedList,
 ) {
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
@@ -60,7 +68,7 @@ UseReturn useHooks(
   // 更新後の振り返り一覧
   List<DomainReflectionAddReflection> addedReflections = [];
   // 追加した保存するための振り返り一覧
-  List<DomainReflectionAddReflection> reflectionsForRegister = [];
+  List<DomainReflectionAdded> reflectionsForRegister = [];
   // 表示する候補の一覧
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
@@ -71,7 +79,6 @@ UseReturn useHooks(
   }
 
   /// ページに保存される候補一覧を返す
-  // void getAddedReflections(String text) {
   List<DomainReflectionAddReflection> getAddedReflections(String text) {
     final candidateNotExist = addedReflections.every((e) => e.text != text);
 
@@ -102,17 +109,31 @@ UseReturn useHooks(
     final String text = textReflection.value.text;
 
     // DBに保存する
-    await RequestReflection().addReflection(
-      text,
-      isGood,
-      groupId,
-    );
+    // await RequestReflection().addReflection(
+    //   text,
+    //   isGood,
+    //   groupId,
+    // );
 
     // 登録するための振り返り一覧
-    reflectionsForRegister.add(DomainReflectionAddReflection(
-      count: 1,
-      text: text,
-    ));
+    final noExist = reflectionsForRegister.every((e) => e.text != text);
+    if (noExist) {
+      reflectionsForRegister.add(DomainReflectionAdded(
+        count: 1,
+        text: text,
+        reflectionType: isGood ? ReflectionType.good : ReflectionType.bad,
+      ));
+    } else {
+      reflectionsForRegister = reflectionsForRegister
+          .map(
+            (r) => DomainReflectionAdded(
+              count: r.text == text ? r.count + 1 : r.count,
+              text: r.text,
+              reflectionType: r.reflectionType,
+            ),
+          )
+          .toList();
+    }
 
     // 候補の更新
     addedReflections = getAddedReflections(text);
@@ -133,7 +154,7 @@ UseReturn useHooks(
     isGood = true;
 
     // バッジの更新
-    // badgeNumForListener.value++;
+    badgeNumForListener.value = reflectionsForRegister.length;
 
     // モーダルを消す
     Navigator.pop(c);
@@ -155,7 +176,7 @@ UseReturn useHooks(
     }
 
     // 追加するモーダルを表示する
-    showModal(
+    showAddModal(
       context,
       text,
       candidateExist,
@@ -176,8 +197,15 @@ UseReturn useHooks(
   }
 
   /// 振り返りの終了を押した
-  void onPressedReflectionDone() {
-    ///
+  void onPressedReflectionDone(BuildContext c) {
+    // 追加した振り返りページへ移動
+    pushReflectionAddedList(c, reflectionsForRegister);
+  }
+
+  /// 振り返りの終了を押した
+  void onClickRightMenu(BuildContext c) {
+    // 追加した振り返りページへ移動
+    pushReflectionAddedList(c, reflectionsForRegister);
   }
 
   /// 候補から振り返りの追加を押した
@@ -203,28 +231,30 @@ UseReturn useHooks(
 
     // 候補一覧を更新する
     addedReflections = reflections
-        .map(
-          (d) => DomainReflectionAddReflection(
-            text: d.text,
-            count: d.count,
-          ),
-        )
+        .map((d) => DomainReflectionAddReflection(
+              text: d.text,
+              count: d.count,
+            ))
         .toList();
+
+    // 追加した振り返り一覧
+    reflectionsForRegister = addedReflectionsFromOtherPage;
+
+    badgeNumForListener.value = addedReflectionsFromOtherPage.length;
 
     return;
   }, [reflections]);
 
   /// 戻るのをチェックする
   Future<bool> onWillPop(BuildContext context) {
+    // 何も追加してなければチェックしない
     final bool reflectionNotExist = reflectionsForRegister.isEmpty;
     if (reflectionNotExist) return Future.value(true);
 
     // 追加するモーダルを表示する
-    showModalConfirmBack(
-      context,
-      "追加した振り返りがあります。\n戻ってもよろしいですか？",
-    );
+    showModalConfirmBack(context);
 
+    // 戻らない
     return Future.value(false);
   }
 
@@ -240,5 +270,6 @@ UseReturn useHooks(
     formKey: formKey,
     candidatesForListener: candidatesForListener,
     onWillPop: onWillPop,
+    onClickRightMenu: onClickRightMenu,
   );
 }
