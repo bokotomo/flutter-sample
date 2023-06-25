@@ -10,16 +10,26 @@ class PageReflectionAddedList extends HookWidget {
   const PageReflectionAddedList({
     super.key,
     required this.reflections,
+    required this.groupId,
+    required this.isSavePage,
   });
 
   /// 振り返りの一覧
   final List<DomainReflectionAdded> reflections;
+
+  /// 振り返りグループID
+  final int groupId;
+
+  /// todo: pageを分ける
+  final bool isSavePage;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: TemplateReflectionAddedList(
         reflections: reflections,
+        groupId: groupId,
+        isSavePage: isSavePage,
       ),
     );
   }

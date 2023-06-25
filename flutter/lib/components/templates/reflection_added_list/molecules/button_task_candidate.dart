@@ -35,6 +35,7 @@ class ButtonTaskCandidate extends StatelessWidget {
     required this.isThin,
     required this.count,
     required this.onClickRemove,
+    required this.isSavePage,
   });
 
   /// 文字
@@ -48,6 +49,9 @@ class ButtonTaskCandidate extends StatelessWidget {
 
   /// 削除をクリックした
   final void Function() onClickRemove;
+
+  /// todo: pageを分ける
+  final bool isSavePage;
 
   @override
   Widget build(BuildContext context) {
@@ -75,21 +79,22 @@ class ButtonTaskCandidate extends StatelessWidget {
               size: "S",
             ),
           ),
-          SpacerWidth.s,
-          CircleAvatar(
-            radius: ConstantSizeUI.l3,
-            backgroundColor: ConstantColor.iconBackGround,
-            child: IconButton(
-              iconSize: ConstantSizeUI.l3,
-              padding: const EdgeInsets.all(0),
-              icon: const Icon(
-                Icons.close,
-                color: ConstantColor.iconDark,
+          if (isSavePage) SpacerWidth.s,
+          if (isSavePage)
+            CircleAvatar(
+              radius: ConstantSizeUI.l3,
+              backgroundColor: ConstantColor.iconBackGround,
+              child: IconButton(
+                iconSize: ConstantSizeUI.l3,
+                padding: const EdgeInsets.all(0),
+                icon: const Icon(
+                  Icons.close,
+                  color: ConstantColor.iconDark,
+                ),
+                onPressed: () => onClickRemove(),
+                splashRadius: 0.1,
               ),
-              onPressed: () => onClickRemove(),
-              splashRadius: 0.1,
             ),
-          ),
         ],
       ),
     );

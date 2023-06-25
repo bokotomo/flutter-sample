@@ -33,7 +33,7 @@ class TemplateReflectionAdd extends HookWidget {
   final int groupId;
 
   /// 追加した振り返り一覧ページへ移動
-  final Function(BuildContext, List<DomainReflectionAdded>)
+  final Function(BuildContext, bool, List<DomainReflectionAdded>)
       pushReflectionAddedList;
 
   @override

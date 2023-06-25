@@ -9,8 +9,6 @@ import 'package:flutter/material.dart'
         Navigator;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
-// import 'package:gamer_reflection/modules/request/reflection.dart'
-//     show RequestReflection;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
@@ -57,7 +55,8 @@ UseReturn useHooks(
   List<DomainReflectionAddReflection> reflections,
   List<DomainReflectionAdded> addedReflectionsFromOtherPage,
   int groupId,
-  Function(BuildContext, List<DomainReflectionAdded>) pushReflectionAddedList,
+  Function(BuildContext, bool, List<DomainReflectionAdded>)
+      pushReflectionAddedList,
 ) {
   final FocusNode textFieldFocusNode = useFocusNode();
   final ValueNotifier<TextEditingController> textReflection =
@@ -106,15 +105,8 @@ UseReturn useHooks(
   }
 
   /// 振り返りの追加
-  Future<void> addReflection() async {
+  void addReflection() {
     final String text = textReflection.value.text;
-
-    // DBに保存する
-    // await RequestReflection().addReflection(
-    //   text,
-    //   isGood,
-    //   groupId,
-    // );
 
     // 登録するための振り返り一覧
     final noExist = reflectionsForRegister.every((e) => e.text != text);
@@ -197,16 +189,16 @@ UseReturn useHooks(
     candidatesForListener.value = addedReflections;
   }
 
-  /// 振り返りの終了を押した
+  /// 振り返りの完了を押した
   void onPressedReflectionDone(BuildContext c) {
     // 追加した振り返りページへ移動
-    pushReflectionAddedList(c, reflectionsForRegister);
+    pushReflectionAddedList(c, true, reflectionsForRegister);
   }
 
-  /// 振り返りの終了を押した
+  /// 右上の一覧メニューを押した
   void onClickRightMenu(BuildContext c) {
     // 追加した振り返りページへ移動
-    pushReflectionAddedList(c, reflectionsForRegister);
+    pushReflectionAddedList(c, false, reflectionsForRegister);
   }
 
   /// 候補から振り返りの追加を押した

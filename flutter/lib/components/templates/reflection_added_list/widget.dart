@@ -12,20 +12,30 @@ class TemplateReflectionAddedList extends HookWidget {
   const TemplateReflectionAddedList({
     super.key,
     required this.reflections,
+    required this.groupId,
+    required this.isSavePage,
   });
 
   /// 振り返りの一覧
   final List<DomainReflectionAdded> reflections;
 
+  /// 振り返りグループID
+  final int groupId;
+
+  /// todo: pageを分ける
+  final bool isSavePage;
+
   @override
   Widget build(BuildContext context) {
-    final h = useHooks(reflections);
+    final h = useHooks(reflections, groupId);
 
     return view(
       context,
+      isSavePage,
       h.reflectionsOnPage,
       h.onWillPop,
       h.onClickRemove,
+      h.onPressedReflectionDone,
     );
   }
 }

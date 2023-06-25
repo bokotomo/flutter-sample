@@ -12,8 +12,7 @@ import 'package:flutter/material.dart'
         Row,
         Expanded,
         SizedBox,
-        Builder,
-        Navigator;
+        Builder;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
