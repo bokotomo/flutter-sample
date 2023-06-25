@@ -12,17 +12,27 @@ class ButtonDone extends StatelessWidget {
   const ButtonDone({
     super.key,
     required this.text,
+    this.isActive,
     this.onPressed,
   });
 
   /// 文字
   final String text;
 
+  /// アクティブかどうか
+  final bool? isActive;
+
   /// クリックした
   final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
+    /// アクティブ状態か
+    bool isActiveMode() {
+      if (isActive == null) return true;
+      return isActive!;
+    }
+
     /// クリックされた
     void onPressed() {
       if (this.onPressed == null) return;
@@ -31,20 +41,25 @@ class ButtonDone extends StatelessWidget {
 
     final style = ElevatedButton.styleFrom(
       backgroundColor: ConstantColorButton.done,
+      disabledBackgroundColor: ConstantColorButton.doneDisable,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.doneBorder,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(100)),
+      shadowColor: isActiveMode()
+          ? ConstantColorButton.doneBorder
+          : ConstantColorButton.doneBorderDisable,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.doneBorder,
+          color: isActiveMode()
+              ? ConstantColorButton.doneBorder
+              : ConstantColorButton.doneBorderDisable,
         ),
       ),
     );
 
     return ElevatedButton.icon(
-      onPressed: onPressed,
+      onPressed: isActiveMode() ? onPressed : null,
       style: style,
       icon: const Icon(
         Icons.check_circle,

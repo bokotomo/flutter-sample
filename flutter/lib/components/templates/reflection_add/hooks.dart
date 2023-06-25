@@ -19,6 +19,8 @@ import 'package:gamer_reflection/components/templates/reflection_add/modal/add.d
     show showAddModal;
 import 'package:gamer_reflection/components/templates/reflection_add/modal/confirm_back.dart'
     show showModalConfirmBack;
+import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
+    show useToast;
 
 class UseReturn {
   const UseReturn({
@@ -52,6 +54,7 @@ class UseReturn {
 
 /// ロジック: 振り返り追加ページ
 UseReturn useHooks(
+  BuildContext context,
   List<DomainReflectionAddReflection> reflections,
   List<DomainReflectionAdded> addedReflectionsFromOtherPage,
   int groupId,
@@ -72,6 +75,7 @@ UseReturn useHooks(
   // 表示する候補の一覧
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
+  final toast = useToast(context);
 
   /// 入力欄をリセットする
   void resetInput() {
@@ -191,6 +195,10 @@ UseReturn useHooks(
 
   /// 振り返りの完了を押した
   void onPressedReflectionDone(BuildContext c) {
+    if (reflectionsForRegister.isEmpty) {
+      toast.showAlert("振り返りを追加していません。", 2500);
+      return;
+    }
     // 追加した振り返りページへ移動
     pushReflectionAddedList(c, true, reflectionsForRegister);
   }
@@ -219,6 +227,19 @@ UseReturn useHooks(
         addedReflections.where((c) => c.text.contains(t)).toList();
   }
 
+  /// 戻るのをチェックする
+  Future<bool> onWillPop(BuildContext context) {
+    // 何も追加してなければチェックしない
+    final bool reflectionNotExist = reflectionsForRegister.isEmpty;
+    if (reflectionNotExist) return Future.value(true);
+
+    // 追加するモーダルを表示する
+    showModalConfirmBack(context);
+
+    // 戻らない
+    return Future.value(false);
+  }
+
   useEffect(() {
     if (reflections.isEmpty) return;
 
@@ -235,19 +256,6 @@ UseReturn useHooks(
 
     return;
   }, [reflections]);
-
-  /// 戻るのをチェックする
-  Future<bool> onWillPop(BuildContext context) {
-    // 何も追加してなければチェックしない
-    final bool reflectionNotExist = reflectionsForRegister.isEmpty;
-    if (reflectionNotExist) return Future.value(true);
-
-    // 追加するモーダルを表示する
-    showModalConfirmBack(context);
-
-    // 戻らない
-    return Future.value(false);
-  }
 
   return UseReturn(
     badgeNumForListener: badgeNumForListener,

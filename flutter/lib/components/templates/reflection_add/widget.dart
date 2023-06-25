@@ -39,6 +39,7 @@ class TemplateReflectionAdd extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final hooks = useHooks(
+      context,
       reflections,
       addedReflectionsFromOtherPage,
       groupId,
