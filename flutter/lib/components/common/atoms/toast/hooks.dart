@@ -3,7 +3,6 @@ import 'package:gamer_reflection/components/common/atoms/toast/basic.dart'
     show ToastBasic;
 import 'package:gamer_reflection/components/common/atoms/toast/alert.dart'
     show ToastAlert;
-import 'package:flutter_hooks/flutter_hooks.dart' show useEffect;
 import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
 
 class UseReturn {
@@ -18,7 +17,7 @@ class UseReturn {
 /// トースト
 UseReturn useToast(BuildContext context) {
   final FToast fToast = FToast();
-  fToast.init(context);
+  if (fToast.context == null) fToast.init(context);
 
   /// トーストを表示: 基本
   void showNotification(String text, int milliseconds) {
