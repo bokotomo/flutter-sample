@@ -18,11 +18,7 @@ class UseReturn {
 /// トースト
 UseReturn useToast(BuildContext context) {
   final FToast fToast = FToast();
-
-  useEffect(() {
-    fToast.init(context);
-    return;
-  }, []);
+  fToast.init(context);
 
   /// トーストを表示: 基本
   void showNotification(String text, int milliseconds) {
@@ -38,7 +34,7 @@ UseReturn useToast(BuildContext context) {
     fToast.showToast(
       child: ToastAlert(text: text),
       gravity: ToastGravity.TOP,
-      toastDuration: const Duration(milliseconds: 2500),
+      toastDuration: Duration(milliseconds: milliseconds),
     );
   }
 

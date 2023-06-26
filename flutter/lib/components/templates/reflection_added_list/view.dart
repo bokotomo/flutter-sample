@@ -66,6 +66,7 @@ Widget view(
 
   return BaseLayout(
     title: "追加した振り返り",
+    isBackGround: false,
     child: isSavePage ? content : column,
     onWillPop: () => onWillPop(context),
   );

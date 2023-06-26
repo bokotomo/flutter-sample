@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart'
-    show Widget, BuildContext, Padding, EdgeInsets, Row, Expanded;
+    show Widget, BuildContext, Padding, EdgeInsets, Row, Expanded, Container;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/button/thin.dart'
     show ButtonThin;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 下部の固定ボタン
@@ -27,28 +29,31 @@ class BottomButtons extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: ConstantSizeUI.l2),
-      child: Row(
-        children: [
-          SpacerWidth.m,
-          Expanded(
-            child: ButtonThin(
-              text: "改善すること",
-              onPressed: () => onPressedBad(),
-              isActive: !isSelectedGood,
+    return Container(
+      color: ConstantColor.content,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: ConstantSizeUI.l2),
+        child: Row(
+          children: [
+            SpacerWidth.m,
+            Expanded(
+              child: ButtonThin(
+                text: "改善すること",
+                onPressed: () => onPressedBad(),
+                isActive: !isSelectedGood,
+              ),
             ),
-          ),
-          SpacerWidth.m,
-          Expanded(
-            child: ButtonThin(
-              text: "伸ばすこと",
-              onPressed: () => onPressedGood(),
-              isActive: isSelectedGood,
+            SpacerWidth.m,
+            Expanded(
+              child: ButtonThin(
+                text: "伸ばすこと",
+                onPressed: () => onPressedGood(),
+                isActive: isSelectedGood,
+              ),
             ),
-          ),
-          SpacerWidth.m,
-        ],
+            SpacerWidth.m,
+          ],
+        ),
       ),
     );
   }

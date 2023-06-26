@@ -67,6 +67,7 @@ Widget view(
 
   return BaseLayout(
     title: title,
+    isBackGround: false,
     onTap: () => textFieldFocusNode.unfocus(),
     badgeNumForListener: badgeNumForListener,
     onClickRightMenu: () => onClickRightMenu(context),

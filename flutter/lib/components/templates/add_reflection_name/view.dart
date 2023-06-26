@@ -67,6 +67,7 @@ Widget view(
 
   return BaseLayout(
     title: "振り返り名の追加",
+    isBackGround: false,
     child: cloumn,
   );
 }

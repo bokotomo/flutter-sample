@@ -91,6 +91,7 @@ Widget view(
 
   return BaseLayout(
     title: "解決案",
+    isBackGround: true,
     child: content,
   );
 }

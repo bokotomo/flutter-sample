@@ -11,9 +11,11 @@ class BaseLayout extends HookWidget {
     super.key,
     required this.child,
     required this.title,
+    required this.isBackGround,
     this.onTap,
     this.badgeNumForListener,
     this.onClickRightMenu,
+    this.onClickDoneButton,
     this.onWillPop,
   });
 
@@ -26,11 +28,17 @@ class BaseLayout extends HookWidget {
   /// バッジの数
   final ValueNotifier<int>? badgeNumForListener;
 
+  /// 背景あり
+  final bool isBackGround;
+
   /// 外部を押した
   final void Function()? onTap;
 
   /// 右のメニューをクリックした
   final void Function()? onClickRightMenu;
+
+  /// メニューの完了ボタンをクリックした
+  final void Function()? onClickDoneButton;
 
   /// 戻る時のアクション
   final Future<bool> Function()? onWillPop;
@@ -38,6 +46,16 @@ class BaseLayout extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final u = useColorBase();
+
+    final backGroundBody = Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('images/backGroundIcons.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: child,
+    );
 
     return WillPopScope(
       onWillPop: onWillPop,
@@ -47,10 +65,11 @@ class BaseLayout extends HookWidget {
           title: title,
           badgeNumForListener: badgeNumForListener,
           onClickRightMenu: onClickRightMenu,
+          onClickDoneButton: onClickDoneButton,
         ),
         body: GestureDetector(
           onTap: onTap,
-          child: child,
+          child: isBackGround ? backGroundBody : child,
         ),
       ),
     );

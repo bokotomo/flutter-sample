@@ -84,7 +84,7 @@ UseReturn useFetch(int groupId) {
 
   /// 追加している振り返りページへ移動
   void pushReflectionAddedList(
-    BuildContext context,
+    BuildContext c,
     bool isSavePage,
     List<DomainReflectionAdded> reflections,
   ) {
@@ -94,7 +94,7 @@ UseReturn useFetch(int groupId) {
       isSavePage: isSavePage,
     );
     Navigator.push(
-      context,
+      c,
       MaterialPageRoute(
         builder: (c) => page,
       ),

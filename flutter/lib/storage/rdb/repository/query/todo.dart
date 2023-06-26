@@ -21,10 +21,10 @@ class RepositoryTodoQuery extends IRepositoryTodoQuery {
     int groupId,
   ) async {
     final List<Map<String, Object?>> res = await db.rawQuery(
-      'SELECT * FROM todo as t LEFT JOIN reflection as r ON r.id = t.reflection_id WHERE r.reflection_group_id = ? LIMIT ?',
+      'SELECT * FROM todo as t LEFT JOIN reflection as r ON r.id = t.reflection_id WHERE r.reflection_group_id = ? ORDER BY created_at DESC LIMIT ?',
       [
         groupId,
-        150,
+        200,
       ],
     );
 

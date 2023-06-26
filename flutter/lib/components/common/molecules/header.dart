@@ -11,10 +11,15 @@ import 'package:flutter/material.dart'
         Size,
         IconButton,
         Icon,
-        Icons;
+        Icons,
+        SizedBox,
+        Padding,
+        EdgeInsets;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show HookWidget, useEffect, useState;
+import 'package:gamer_reflection/components/common/atoms/button/done_menu.dart'
+    show ButtonDoneMenu;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/base.dart'
@@ -27,6 +32,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
     super.key,
     required this.title,
     this.onClickRightMenu,
+    this.onClickDoneButton,
     this.badgeNumForListener,
   });
 
@@ -36,11 +42,11 @@ class Header extends HookWidget implements PreferredSizeWidget {
   /// バッジの数
   final ValueNotifier<int>? badgeNumForListener;
 
-  /// バッジの初期数
-  // final int? badgeDefaultNum;
-
-  /// 右のメニューをクリックした
+  /// 右のハンバーガーメニューをクリックした
   final void Function()? onClickRightMenu;
+
+  /// メニューの完了ボタンをクリックした
+  final void Function()? onClickDoneButton;
 
   /// 高さのサイズ
   @override
@@ -67,6 +73,24 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
     /// 右上のアイコンを追加
     List<Widget> getActions() {
+      if (onClickDoneButton != null) {
+        return [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: ConstantSizeUI.l2,
+              bottom: ConstantSizeUI.l2,
+              right: ConstantSizeUI.l2,
+            ),
+            child: SizedBox(
+              width: 80,
+              child: ButtonDoneMenu(
+                text: "完了",
+                onPressed: onClickDoneButton,
+              ),
+            ),
+          ),
+        ];
+      }
       if (onClickRightMenu == null) return [];
       // 数字なしなら非表示
       if (badgeNum.value == 0) return [];

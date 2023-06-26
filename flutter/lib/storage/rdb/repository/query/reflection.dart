@@ -23,7 +23,7 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
       where: '"reflection_group_id" = ?',
       whereArgs: [groupId],
       columns: ['*'],
-      limit: 150,
+      limit: 200,
     );
 
     return List.generate(res.length, (i) {

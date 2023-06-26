@@ -67,13 +67,6 @@ Widget view(
         onPressed: () => toggleEditMode(),
       ),
       SpacerHeight.xm,
-      ButtonDone(
-        text: "このタスクを完了する",
-        onPressed: () => {
-          onPressedTaskDone(context),
-        },
-      ),
-      SpacerHeight.xm,
       ButtonCancel(
         text: todoExist ? "やることから外す" : "やることに追加する",
         onPressed: () async => await onPressedToggleTodo(),
@@ -116,7 +109,9 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "タスク詳細",
+    title: "振り返り詳細",
+    isBackGround: false,
+    onClickDoneButton: () => onPressedTaskDone(context),
     onTap: () => {
       titleFocusNode.unfocus(),
       detailFocusNode.unfocus(),

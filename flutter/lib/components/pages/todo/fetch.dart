@@ -41,10 +41,12 @@ UseReturn useFetch() {
     final String? id = await selectReflectionGroupId.get();
     final int groupId = getReflectionGroupId(id);
 
+    // 振り返りグループの取得
     final List<DomainReflectionGroup> rg =
         await FetchTodoPage().fetchReflectionGroups();
     reflectionGroups.value = rg;
 
+    // やることの取得
     final List<DomainTodo> tds = await FetchTodoPage().fetchTodos(groupId);
     todos.value = tds;
   }

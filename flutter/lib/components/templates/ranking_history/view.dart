@@ -11,6 +11,7 @@ Widget view(
 
   return BaseLayout(
     title: "振り返りの追加",
+    isBackGround: false,
     child: cloumn,
   );
 }

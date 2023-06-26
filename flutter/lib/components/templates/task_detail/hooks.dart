@@ -128,7 +128,7 @@ UseReturn useHooks(
     await RequestReflection().updateReflection(
       reflectionId,
       titleController.value.text,
-      detailController.value.text,
+      detailController.value.text.trim(),
       groupValue.value == "good" ? ReflectionType.good : ReflectionType.bad,
     );
 

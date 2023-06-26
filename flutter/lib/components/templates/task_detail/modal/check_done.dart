@@ -24,10 +24,10 @@ void showModal(
     builder: (BuildContext contextBuilder) {
       return StatefulBuilder(
         builder: (BuildContext contextStatefulBuilder, _) => ModalBase(
-          title: "このタスクを完了しますか？",
+          title: "完了しますか？",
           children: [
             const TextAnnotation(
-              text: "※一覧から削除されます。",
+              text: "※削除され、復元はできません。",
               size: "M",
             ),
             SpacerHeight.m,

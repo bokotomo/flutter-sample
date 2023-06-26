@@ -25,13 +25,13 @@ class ConstantColorButton {
   static const Color thinActiveBorder = Color.fromARGB(255, 68, 79, 118);
 
   /// 完了ボタン: 背景色
-  static const Color done = Color.fromARGB(255, 85, 129, 91);
+  static const Color done = Color.fromARGB(255, 79, 125, 85);
 
   /// 完了ボタン: 背景色 非選択状態
   static const Color doneDisable = Color.fromARGB(255, 98, 123, 100);
 
   /// 完了ボタン: 枠線色
-  static const Color doneBorder = Color.fromARGB(255, 92, 159, 105);
+  static const Color doneBorder = Color.fromARGB(255, 85, 148, 97);
 
   /// 完了ボタン: 枠線色 非選択状態
   static const Color doneBorderDisable = Color.fromARGB(255, 61, 109, 70);

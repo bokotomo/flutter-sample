@@ -199,6 +199,7 @@ UseReturn useHooks(
       toast.showAlert("振り返りを追加していません。", 2500);
       return;
     }
+
     // 追加した振り返りページへ移動
     pushReflectionAddedList(c, true, reflectionsForRegister);
   }
