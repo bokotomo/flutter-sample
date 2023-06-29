@@ -106,10 +106,11 @@ Widget view(
         text: '振り返りを始める',
         onPressed: () => onPressedStart(context),
       ),
-      SpacerHeight.m,
+      SpacerHeight.xm,
       const BasicText(
         text: 'ブロンズ',
         size: "M",
+        isBold: true,
         textAlign: TextAlign.center,
       ),
       SpacerHeight.s,
@@ -118,6 +119,11 @@ Widget view(
       //   listenable: null,
       //   widget: null,
       // ),
+      const BasicText(
+        text: '100 / 1000',
+        size: "S",
+        isBold: true,
+      ),
     ],
   );
 
