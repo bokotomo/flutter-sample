@@ -1,52 +1,103 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Widget,
+        BuildContext,
+        BoxDecoration,
+        Border,
+        BorderRadius,
+        Container,
+        Column,
+        ElevatedButton,
+        Size,
+        EdgeInsets,
+        Row,
+        Expanded,
+        Icon,
+        Icons;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
+import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/modules/const/color/button.dart'
+    show ConstantColorButton;
+import 'package:url_launcher/url_launcher.dart' show canLaunchUrl, launchUrl;
+
+/// ボタンの設定値
+class ButtonLinksParam {
+  const ButtonLinksParam({
+    required this.text,
+    required this.link,
+  });
+
+  final String text;
+  final String link;
+}
 
 /// ボタン: リンク
 class ButtonLinks extends StatelessWidget {
   const ButtonLinks({
     super.key,
-    required this.text,
-    required this.onPressed,
+    required this.params,
   });
 
   /// 文字
-  final String text;
-
-  /// クリックした
-  final void Function() onPressed;
+  final List<ButtonLinksParam> params;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: ConstantColor.box,
-        minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
-        padding: const EdgeInsets.only(
-          left: ConstantSizeUI.l3,
-          right: 0,
-        ),
-      ),
-      child: Row(
+    // クリックした
+    onPressed(String url) async {
+      final Uri uri = Uri.parse(url);
+      if (!await canLaunchUrl(uri)) return;
+      if (!await launchUrl(uri)) throw Exception('Could not launch $uri');
+    }
+
+    // 背景色の設定
+    final decoration = BoxDecoration(
+      color: ConstantColor.box,
+      border: Border.all(color: ConstantColor.boxBorder),
+      borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
+    );
+
+    return Container(
+      decoration: decoration,
+      child: Column(
         children: [
-          Expanded(
-            child: BasicText(
-              text: text,
-              size: "M",
+          for (var i = 0; i < params.length; i++) ...{
+            if (i != 0) const Bar(color: ConstantColorButton.taskListBorder),
+            ElevatedButton(
+              onPressed: () async => await onPressed(params[i].link),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ConstantColor.box,
+                minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
+                padding: const EdgeInsets.only(
+                  left: ConstantSizeUI.l3,
+                  right: 0,
+                ),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: BasicText(
+                      text: params[i].text,
+                      size: "M",
+                    ),
+                  ),
+                  SpacerWidth.s,
+                  const Icon(
+                    Icons.arrow_right,
+                    color: ConstantColor.taskListArrow,
+                    size: 40.0,
+                  ),
+                ],
+              ),
             ),
-          ),
-          SpacerWidth.s,
-          const Icon(
-            Icons.arrow_right,
-            color: ConstantColor.taskListArrow,
-            size: 40.0,
-          ),
+          }
         ],
       ),
     );

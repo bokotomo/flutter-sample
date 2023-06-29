@@ -33,8 +33,7 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
 import 'package:gamer_reflection/components/templates/account_setting/organisms/edit_reflection_name.dart'
     show EditReflectionName;
 import 'package:gamer_reflection/components/templates/account_setting/molecules/button_links.dart'
-    show ButtonLinks;
-import 'package:url_launcher/url_launcher.dart' show canLaunchUrl, launchUrl;
+    show ButtonLinks, ButtonLinksParam;
 
 /// アカウント設定
 Widget view(
@@ -113,27 +112,28 @@ Widget view(
         ),
       ),
       SpacerHeight.m,
-      ButtonLinks(
-        text: '利用規約',
-        onPressed: () async {
-          final Uri url = Uri.parse('https://flutter.dev');
-          if (!await canLaunchUrl(url)) return;
-          if (!await launchUrl(url)) throw Exception('Could not launch $url');
-        },
-      ),
-      ButtonLinks(
-        text: 'プライバシーポリシー',
-        onPressed: () async {
-          final Uri url = Uri.parse('https://flutter.dev');
-          if (!await canLaunchUrl(url)) return;
-          if (!await launchUrl(url)) throw Exception('Could not launch $url');
-        },
+      const ButtonLinks(
+        params: [
+          ButtonLinksParam(
+            text: '利用規約',
+            link: 'https://flutter.dev',
+          ),
+          ButtonLinksParam(
+            text: 'プライバシーポリシー',
+            link: 'https://flutter.dev',
+          ),
+        ],
       ),
       SpacerHeight.m,
       const Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            BasicText(
+              text: 'アプリ情報',
+              size: "M",
+            ),
+            SpacerHeight.m,
             BasicText(
               text: 'Version 1.0.0',
               size: "M",
