@@ -17,7 +17,7 @@ class UseReturn {
 /// トースト
 UseReturn useToast(BuildContext context) {
   final FToast fToast = FToast();
-  if (fToast.context == null) fToast.init(context);
+  fToast.init(context);
 
   /// トーストを表示: 基本
   void showNotification(String text, int milliseconds) {

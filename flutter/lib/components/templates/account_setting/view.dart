@@ -32,6 +32,9 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
     show NewReflectionName;
 import 'package:gamer_reflection/components/templates/account_setting/organisms/edit_reflection_name.dart'
     show EditReflectionName;
+import 'package:gamer_reflection/components/templates/account_setting/molecules/button_links.dart'
+    show ButtonLinks;
+import 'package:url_launcher/url_launcher.dart' show canLaunchUrl, launchUrl;
 
 /// アカウント設定
 Widget view(
@@ -110,20 +113,27 @@ Widget view(
         ),
       ),
       SpacerHeight.m,
+      ButtonLinks(
+        text: '利用規約',
+        onPressed: () async {
+          final Uri url = Uri.parse('https://flutter.dev');
+          if (!await canLaunchUrl(url)) return;
+          if (!await launchUrl(url)) throw Exception('Could not launch $url');
+        },
+      ),
+      ButtonLinks(
+        text: 'プライバシーポリシー',
+        onPressed: () async {
+          final Uri url = Uri.parse('https://flutter.dev');
+          if (!await canLaunchUrl(url)) return;
+          if (!await launchUrl(url)) throw Exception('Could not launch $url');
+        },
+      ),
+      SpacerHeight.m,
       const Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BasicText(
-              text: '利用規約',
-              size: "M",
-            ),
-            SpacerHeight.m,
-            BasicText(
-              text: 'プライバシーポリシー',
-              size: "M",
-            ),
-            SpacerHeight.m,
             BasicText(
               text: 'Version 1.0.0',
               size: "M",

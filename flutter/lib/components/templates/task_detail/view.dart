@@ -14,8 +14,6 @@ import 'package:gamer_reflection/components/templates/task_detail/organisms/top.
     show TaskDetailTop;
 import 'package:gamer_reflection/components/templates/task_detail/organisms/top_edit.dart'
     show TaskDetailTopEdit;
-import 'package:gamer_reflection/components/common/atoms/button/done.dart'
-    show ButtonDone;
 import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;
 import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
@@ -111,7 +109,7 @@ Widget view(
   return BaseLayout(
     title: "振り返り詳細",
     isBackGround: false,
-    onClickDoneButton: () => onPressedTaskDone(context),
+    onClickDoneButton: isEditMode ? null : () => onPressedTaskDone(context),
     onTap: () => {
       titleFocusNode.unfocus(),
       detailFocusNode.unfocus(),
