@@ -7,10 +7,6 @@ cd ./flutter
 flutter run
 ```
 
-## demo
-
-demo(web)
-
 ## design
 
 ![デザイン](https://github.com/bokotomo/flutter-sample/blob/main/docs/images/gamerreflection_design_img_thumb.jpg?raw=true)
@@ -50,13 +46,3 @@ root
 ### ページ遷移 - メモ
 
 - ログイン不要のツールなのでログアウトはない。
-- ユーザビリティを考えた結果、編集画面への遷移は少なくそのページでできる。
-
-### ページ遷移 - ユーザー価値優先順位
-
-優先順位の高いものから実装と検証を行う。
-
-- 1. Add Reflection, Task, Task Detail
-- 2. Register Reflection Name
-- 3. Ranking
-- 4. Account Setting
