@@ -4,6 +4,9 @@ import 'package:path/path.dart' show join;
 import 'package:gamer_reflection/storage/rdb/repository/table.dart'
     show TableSetUp;
 
+import 'package:gamer_reflection/storage/rdb/repository/debug.dart'
+    show TableDebug;
+
 /// sqliteの管理
 
 /// DBConnection
@@ -27,10 +30,12 @@ Future<Database> initDatabase() async {
       await TableSetUp().createTables(db);
     },
   );
-  // const bool isDebugMode = true;
-  // await TableSetUp().createTables(db);
-  // await TableSetUp().dropAllTables(isDebugMode, db);
-  // await TableSetUp().showRecords(isDebugMode, db);
+
+  /// DEBUG MODE
+  // await TableSetUp().createTables(db); // 消す
+  // await TableDebug().dropKVS(db); // 消す
+  // await TableDebug().dropAllTablesR(db); // 消す
+  await TableDebug().showRecords(db); // コメントアウトする
 
   return db;
 }
