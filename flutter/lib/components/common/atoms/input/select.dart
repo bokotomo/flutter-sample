@@ -31,7 +31,7 @@ class InputSelect extends StatelessWidget {
   final FocusNode? focusNode;
 
   /// 値
-  final String value;
+  final String? value;
 
   /// 一覧
   final List<SelectItem> items;

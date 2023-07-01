@@ -15,7 +15,9 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 
 /// 振り返りがない場合
 Widget candidatesNone(bool isNotAdd) {
-  final text = isNotAdd ? 'リプレイを見て、\n良かったこと悪かったことを書きましょう!' : '候補が見つかりません';
+  final text = isNotAdd
+      ? 'リプレイを見て、\n良かったこと悪かったことを書きましょう!\nまたは、試合の直後に追加しましょう。'
+      : '候補が見つかりません';
 
   return Column(
     children: [

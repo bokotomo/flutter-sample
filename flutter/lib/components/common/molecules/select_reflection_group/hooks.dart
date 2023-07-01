@@ -15,7 +15,7 @@ class UseReturn {
     required this.onChanged,
   });
   final List<SelectItem> reflectionNames;
-  final String reflectionId;
+  final String? reflectionId;
   final void Function(String?) onChanged;
 }
 
@@ -31,9 +31,7 @@ UseReturn useHooks(
       useFuture(memoedReflectionGroupId);
 
   /// 選択グループID
-  ValueNotifier<String> reflectionId = useState<String>(
-    reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString(),
-  );
+  ValueNotifier<String?> reflectionId = useState<String?>(null);
 
   /// 変更を押した
   void onChangedSelect(String? t) {
@@ -41,10 +39,23 @@ UseReturn useHooks(
     onChanged(t);
   }
 
+  /// 選択IDの取得
+  String? getReflectionId(String? id) {
+    // 問題なければキャッシュされたIDを返す
+    if (id != null && id.isNotEmpty) return id;
+    // IDが空文字でかつ、グループが存在すれば、先頭のグループを返す
+    if (id != null && id.isEmpty && reflectionGroups.isNotEmpty) {
+      return reflectionGroups[0].id.toString();
+    }
+    // idがnullで未設定なら、先頭のグループを返す
+    if (reflectionGroups.isNotEmpty) return reflectionGroups[0].id.toString();
+    // 該当がなければnullで非表示
+    return null;
+  }
+
   /// 選択IDの更新
   void updateReflectionId(String? id) {
-    reflectionId.value = id ??
-        (reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString());
+    reflectionId.value = getReflectionId(id);
   }
 
   /// 振り返りグループ名一覧
@@ -58,10 +69,9 @@ UseReturn useHooks(
       .toList();
 
   useEffect(() {
-    if (futuredReflectionGroupId.data == null) return;
-
     /// 初期選択グループ
     updateReflectionId(futuredReflectionGroupId.data);
+    return;
   }, [futuredReflectionGroupId.data]);
 
   return UseReturn(

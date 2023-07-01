@@ -5,6 +5,7 @@ import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
+import 'package:gamer_reflection/modules/request/game.dart' show RequestGame;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
@@ -63,6 +64,11 @@ UseReturn useHooks(
     Navigator.of(context)
       ..pop()
       ..pop();
+
+    // 経験値は固定
+    const exp = 350;
+    // 経験値を加算
+    RequestGame().updateAddExp(exp);
 
     toast.showNotification("振り返りを追加しました。", 2500);
   }

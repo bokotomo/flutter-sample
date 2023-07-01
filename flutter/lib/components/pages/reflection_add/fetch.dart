@@ -98,14 +98,12 @@ UseReturn useFetch(int groupId) {
       MaterialPageRoute(
         builder: (c) => page,
       ),
-    ).then(
-      (v) {
-        if (v == null) return;
+    ).then((v) {
+      if (v == null) return;
 
-        addedReflectionsFromOtherPage.value = v;
-        fetch(v);
-      },
-    );
+      addedReflectionsFromOtherPage.value = v;
+      fetch(v);
+    });
   }
 
   useEffect(() {

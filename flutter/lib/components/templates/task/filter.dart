@@ -36,7 +36,9 @@ List<int> getHighPriorityIds(List<DomainTaskReflection> domains) {
 /// 期間でフィルターする
 /// month: month以内の月でフィルターする
 List<DomainTaskReflection> filteredMonth(
-    int month, List<DomainTaskReflection> rs) {
+  int month,
+  List<DomainTaskReflection> rs,
+) {
   /// 現在からmonth前の日付を返す
   final DateTime monthAgo = getMonthAgo(DateTime.now(), month);
   return rs.where((e) => e.updatedAt.isAfter(monthAgo)).toList();

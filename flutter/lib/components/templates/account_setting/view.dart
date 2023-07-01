@@ -8,7 +8,9 @@ import 'package:flutter/material.dart'
         Column,
         CrossAxisAlignment,
         GlobalKey,
-        FormState;
+        FormState,
+        Localizations,
+        Locale;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
@@ -50,6 +52,8 @@ Widget view(
   GlobalKey<FormState> formKeyNewName,
   GlobalKey<FormState> formKeyEditName,
 ) {
+  Locale locale = Localizations.localeOf(context);
+
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
@@ -89,11 +93,11 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
-              text: '言語の変更',
+              text: 'カラーモードの変更',
               size: "M",
             ),
             SpacerHeight.m,
-            SelectLanguage(),
+            SelectColorMode(),
           ],
         ),
       ),
@@ -103,11 +107,11 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
-              text: 'カラーモードの変更',
+              text: '言語の変更',
               size: "M",
             ),
             SpacerHeight.m,
-            SelectColorMode(),
+            SelectLanguage(),
           ],
         ),
       ),
@@ -125,17 +129,22 @@ Widget view(
         ],
       ),
       SpacerHeight.m,
-      const Box(
+      Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BasicText(
+            const BasicText(
               text: 'アプリ情報',
               size: "M",
             ),
             SpacerHeight.m,
-            BasicText(
+            const BasicText(
               text: 'Version 1.0.0',
+              size: "M",
+            ),
+            SpacerHeight.m,
+            BasicText(
+              text: locale.languageCode.toString(),
               size: "M",
             ),
           ],
@@ -166,7 +175,6 @@ Widget view(
       SpacerHeight.m,
     ],
   );
-
   return BaseLayoutPadding(
     title: "アカウント設定",
     onTap: () => {

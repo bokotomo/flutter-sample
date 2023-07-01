@@ -75,6 +75,8 @@ class Bar extends AnimatedWidget {
 Widget view(
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
+  String expText,
+  String rank,
   Function(BuildContext) onPressedStart,
 ) {
   ListView cloumn = ListView(
@@ -83,6 +85,25 @@ Widget view(
       SelectReflectionGroup(
         reflectionGroups: reflectionGroups,
         onChanged: (t) {},
+      ),
+      SpacerHeight.m,
+      BasicText(
+        text: rank,
+        size: "M",
+        isBold: true,
+        textAlign: TextAlign.center,
+      ),
+      SpacerHeight.s,
+      // Bar(
+      //   animation: Tween<double>(begin: 1, end: 2).animate(),
+      //   listenable: null,
+      //   widget: null,
+      // ),
+      BasicText(
+        text: expText,
+        size: "S",
+        isBold: true,
+        textAlign: TextAlign.center,
       ),
       SpacerHeight.m,
       const Box(
@@ -105,24 +126,6 @@ Widget view(
       ButtonBasic(
         text: '振り返りを始める',
         onPressed: () => onPressedStart(context),
-      ),
-      SpacerHeight.xm,
-      const BasicText(
-        text: 'ブロンズ',
-        size: "M",
-        isBold: true,
-        textAlign: TextAlign.center,
-      ),
-      SpacerHeight.s,
-      // Bar(
-      //   animation: Tween<double>(begin: 1, end: 2).animate(),
-      //   listenable: null,
-      //   widget: null,
-      // ),
-      const BasicText(
-        text: '100 / 1000',
-        size: "S",
-        isBold: true,
       ),
     ],
   );

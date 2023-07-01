@@ -64,11 +64,9 @@ UseReturn useFetch(ValueNotifier<bool> canDC) {
       MaterialPageRoute(
         builder: (c) => page,
       ),
-    ).then(
-      (v) {
-        fetch();
-      },
-    );
+    ).then((v) {
+      fetch();
+    });
   }
 
   /// 振り返りグループの更新

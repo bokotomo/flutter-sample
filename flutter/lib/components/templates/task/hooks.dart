@@ -185,21 +185,22 @@ UseReturn useHooks(
   }
 
   useEffect(() {
-    if (futuredPeriod.data == null) return;
-    if (futuredReflectionType.data == null) return;
+    if (reflections.isEmpty) return;
 
     /// ローカルデータ: 選択期間
-    final Period kvsPeriod =
-        getPeriodByKVS(futuredPeriod.data ?? "period-three-month");
+    final String p = futuredPeriod.data ?? 'period-three-month';
+    final Period kvsPeriod = getPeriodByKVS(p);
     period.value = kvsPeriod;
 
     /// ローカルデータ: 振り返り種類
-    final String kvsReflectionType = futuredReflectionType.data ?? "bad";
-    final bool isGood = kvsReflectionType == "good";
+    final String r = futuredReflectionType.data ?? 'bad';
+    final bool isGood = r == "good";
     isSelectedGood.value = isGood;
 
     /// 初期値は「3ヶ月,改善点」でフィルターする
     updateFilteredReflections(kvsPeriod, isGood);
+
+    return;
   }, [reflections]);
 
   return UseReturn(

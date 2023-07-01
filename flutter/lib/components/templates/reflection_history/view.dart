@@ -10,7 +10,7 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "振り返りの追加",
+    title: "振り返り履歴",
     isBackGround: false,
     child: cloumn,
   );

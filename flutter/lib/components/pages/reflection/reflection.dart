@@ -17,6 +17,8 @@ class PageReflection extends HookWidget {
     return Scaffold(
       body: TemplateReflection(
         reflectionGroups: d.reflectionGroups,
+        game: d.game,
+        pushReflection: d.pushReflection,
       ),
     );
   }

@@ -156,6 +156,24 @@ UseReturn useHooks(
     fetchReflectionGroups();
   }
 
+  /// キャッシュを先頭のグループに選択する
+  void resetReflectionGroupId(String id) {
+    final filteredGroups =
+        reflectionGroups.where((r) => r.id != int.parse(id)).toList();
+    if (filteredGroups.isEmpty) {
+      // 選択中のGroupIdの更新
+      selectReflectionGroupId.save('');
+      // 名前の更新
+      textReflectionName.value.text = '';
+    } else {
+      final DomainReflectionGroup newSelected = filteredGroups[0];
+      // 選択中のGroupIdの更新
+      selectReflectionGroupId.save(newSelected.id.toString());
+      // 名前の更新
+      textReflectionName.value.text = newSelected.name;
+    }
+  }
+
   /// モーダル削除: 振り返りグループを削除する
   void deleteRefletionGroup(String? id, String name) async {
     if (id == null) return;
@@ -169,21 +187,11 @@ UseReturn useHooks(
     /// DB削除
     await RequestReflectionGroup().deleteReflection(int.parse(id));
 
-    /// キャッシュを先頭のグループにする
-    final int groupId = reflectionGroups.isEmpty ? 1 : reflectionGroups[0].id;
-    selectReflectionGroupId.save(groupId.toString());
+    /// キャッシュを先頭のグループに選択する
+    resetReflectionGroupId(id);
 
     /// 振り返りグループ再読み込み
     fetchReflectionGroups();
-
-    /// 振り返りグループの取得
-    final DomainReflectionGroup d = reflectionGroups.firstWhere(
-      (r) => r.id == groupId,
-      orElse: () => const DomainReflectionGroup(id: 0, name: ""),
-    );
-
-    /// 名前の更新
-    textReflectionName.value.text = d.name;
 
     toast.showNotification("「$name」を削除しました。", 2500);
   }
