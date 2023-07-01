@@ -20,6 +20,10 @@ class TableDebug {
         await db.rawQuery('SELECT * FROM todo');
     final List<Map<String, Object?>> reflections =
         await db.rawQuery('SELECT * FROM reflection');
+    final List<Map<String, Object?>> reflectionHistorys =
+        await db.rawQuery('SELECT * FROM reflection_history');
+    final List<Map<String, Object?>> reflectionHistoryGroups =
+        await db.rawQuery('SELECT * FROM reflection_history_group');
     final List<Map<String, Object?>> reflectionGroups =
         await db.rawQuery('SELECT * FROM reflection_group');
     final List<Map<String, Object?>> game =
@@ -33,6 +37,10 @@ class TableDebug {
 $todos
 - Reflections
 $reflections
+- ReflectionHistorys
+$reflectionHistorys
+- ReflectionHistoryGroups
+$reflectionHistoryGroups
 - ReflectionGroups
 $reflectionGroups
 - Game
@@ -60,6 +68,8 @@ ${await selectColorMode.get()}
   Future<void> dropAllTables(Database db) async {
     print("---- Drop Tables Start ----");
     await db.execute("DROP TABLE reflection");
+    await db.execute("DROP TABLE reflection_history");
+    await db.execute("DROP TABLE reflection_history_group");
     await db.execute("DROP TABLE reflection_group");
     await db.execute("DROP TABLE todo");
     await db.execute("DROP TABLE game");

@@ -26,6 +26,28 @@ CREATE TABLE IF NOT EXISTS reflection(
 )
 ''');
 
+      // 振り返りの履歴グループ
+      await db.execute('''
+CREATE TABLE IF NOT EXISTS reflection_history_group(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  reflection_group_id INTEGER NOT NULL,
+  date DATETIME NOT NULL,
+  foreign key (reflection_group_id) references reflection_group(id) on delete cascade
+)
+''');
+
+      // 振り返りの履歴
+      await db.execute('''
+CREATE TABLE IF NOT EXISTS reflection_history(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  reflection_history_group_id INTEGER NOT NULL,
+  text TEXT NOT NULL,
+  reflection_type INTEGER NOT NULL,
+  count INTEGER NOT NULL,
+  foreign key (reflection_history_group_id) references reflection_history_group(id) on delete cascade
+)
+''');
+
       // 振り返りグループ
       await db.execute('''
 CREATE TABLE IF NOT EXISTS reflection_group(
