@@ -2,18 +2,17 @@
 class DomainReflectionHistory {
   const DomainReflectionHistory({
     this.id,
-    required this.reflectionGroupId,
+    required this.reflectionHistoryGroupId,
     required this.isGood,
     required this.text,
     required this.count,
-    required this.date,
   });
 
   /// ID
   final int? id;
 
   /// GROUP_ID
-  final int reflectionGroupId;
+  final int reflectionHistoryGroupId;
 
   /// 振り返りの種類
   final bool isGood;
@@ -23,7 +22,4 @@ class DomainReflectionHistory {
 
   /// 回数
   final int count;
-
-  /// 追加日
-  final DateTime date;
 }

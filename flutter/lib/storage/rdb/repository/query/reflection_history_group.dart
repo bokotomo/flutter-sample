@@ -7,6 +7,7 @@ import 'package:gamer_reflection/storage/rdb/model/reflection_history_group.dart
 abstract class IRepositoryReflectionHistoryGroupQuery {
   Future<List<ModelReflectionHistoryGroup>> getReflectionHistoryGroups(
     Database db,
+    int reflectionGroupId,
   );
 }
 
@@ -17,10 +18,14 @@ class RepositoryReflectionHistoryGroupQuery
   /// 取得: 振り返り履歴のグループ一覧
   @override
   Future<List<ModelReflectionHistoryGroup>> getReflectionHistoryGroups(
-      Database db) async {
+    Database db,
+    int reflectionGroupId,
+  ) async {
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflectionHistoryGroup,
       columns: ['*'],
+      where: '"reflection_group_id" = ?',
+      whereArgs: [reflectionGroupId],
       orderBy: "id DESC",
       limit: 100,
     );

@@ -7,7 +7,7 @@ import 'package:gamer_reflection/storage/rdb/model/reflection_history.dart'
 abstract class IRepositoryReflectionHisotryQuery {
   Future<List<ModelReflectionHistory>> getReflectionHistoryByGroupId(
     Database db,
-    int groupId,
+    int reflectionHistoryGroupId,
   );
 }
 
@@ -19,7 +19,7 @@ class RepositoryReflectionHistoryQuery
   @override
   Future<List<ModelReflectionHistory>> getReflectionHistoryByGroupId(
     Database db,
-    int groupId,
+    int reflectionHistoryGroupId,
   ) async {
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflectionHistory,

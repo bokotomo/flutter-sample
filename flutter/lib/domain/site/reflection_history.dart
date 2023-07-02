@@ -24,9 +24,3 @@ class DomainReflectionHistoryType {
   const DomainReflectionHistoryType({required this.reflectionType});
   final ReflectionType reflectionType;
 }
-
-/// ドメイン: 振り返り日付
-class DomainReflectionHistoryDate {
-  const DomainReflectionHistoryDate({required this.date});
-  final DateTime date;
-}

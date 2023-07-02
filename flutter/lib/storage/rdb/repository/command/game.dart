@@ -18,6 +18,8 @@ class RepositoryGameCommand extends IRepositoryGameCommand {
     final List<Map<String, Object?>> res = await db.query(
       tableNameGame,
       columns: ['*'],
+      orderBy: 'id DESC',
+      limit: 1,
     );
     final int resId = res.first['id'] as int;
     final int resExp = res.first['exp'] as int;

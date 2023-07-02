@@ -78,6 +78,7 @@ Widget view(
   String expText,
   String rank,
   Function(BuildContext) onPressedStart,
+  Function(BuildContext) onPressedHistory,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -133,6 +134,7 @@ Widget view(
   return BaseLayoutPadding(
     title: "振り返りの追加",
     isBackGround: true,
+    onClickHistory: () => onPressedHistory(context),
     child: cloumn,
   );
 }

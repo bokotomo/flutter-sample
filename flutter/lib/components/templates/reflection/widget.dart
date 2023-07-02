@@ -16,6 +16,7 @@ class TemplateReflection extends HookWidget {
     required this.reflectionGroups,
     required this.game,
     required this.pushReflection,
+    required this.pushHistory,
   });
 
   /// 振り返りグループ一覧
@@ -24,12 +25,20 @@ class TemplateReflection extends HookWidget {
   /// ゲーミフィケーション
   final DomainReflectionGame game;
 
-  /// ページ詳細へ飛ぶ
+  /// 振り返り追加ページへ飛ぶ
   final void Function(BuildContext, String, int) pushReflection;
+
+  /// 振り返り履歴ページへ飛ぶ
+  final void Function(BuildContext, int) pushHistory;
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks(reflectionGroups, game, pushReflection);
+    final h = useHooks(
+      reflectionGroups,
+      game,
+      pushReflection,
+      pushHistory,
+    );
 
     return view(
       context,
@@ -37,6 +46,7 @@ class TemplateReflection extends HookWidget {
       h.expText(),
       game.rank,
       h.onPressedStart,
+      h.onPressedHistory,
     );
   }
 }

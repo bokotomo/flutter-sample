@@ -19,6 +19,7 @@ class PageReflection extends HookWidget {
         reflectionGroups: d.reflectionGroups,
         game: d.game,
         pushReflection: d.pushReflection,
+        pushHistory: d.pushHistory,
       ),
     );
   }

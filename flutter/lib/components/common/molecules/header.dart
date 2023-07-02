@@ -20,6 +20,8 @@ import 'package:flutter_hooks/flutter_hooks.dart'
     show HookWidget, useEffect, useState;
 import 'package:gamer_reflection/components/common/atoms/button/done_menu.dart'
     show ButtonDoneMenu;
+import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
+    show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/base.dart'
@@ -33,6 +35,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
     required this.title,
     this.onClickRightMenu,
     this.onClickDoneButton,
+    this.onClickHistory,
     this.badgeNumForListener,
   });
 
@@ -47,6 +50,9 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
   /// メニューの完了ボタンをクリックした
   final void Function()? onClickDoneButton;
+
+  /// メニューの履歴ボタンをクリックした
+  final void Function()? onClickHistory;
 
   /// 高さのサイズ
   @override
@@ -72,6 +78,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
     }, [badgeNumForListener]);
 
     /// 右上のアイコンを追加
+    /// todo: リファクタ
     List<Widget> getActions() {
       if (onClickDoneButton != null) {
         return [
@@ -86,6 +93,24 @@ class Header extends HookWidget implements PreferredSizeWidget {
               child: ButtonDoneMenu(
                 text: "完了",
                 onPressed: onClickDoneButton,
+              ),
+            ),
+          ),
+        ];
+      }
+      if (onClickHistory != null) {
+        return [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: ConstantSizeUI.l2,
+              bottom: ConstantSizeUI.l2,
+              right: ConstantSizeUI.l2,
+            ),
+            child: SizedBox(
+              width: 80,
+              child: ButtonBasic(
+                text: "履歴",
+                onPressed: onClickHistory,
               ),
             ),
           ),

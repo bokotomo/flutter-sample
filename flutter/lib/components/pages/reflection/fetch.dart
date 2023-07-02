@@ -5,6 +5,8 @@ import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/components/pages/reflection_add/reflection_add.dart'
     show PageReflectionAdd;
+import 'package:gamer_reflection/components/pages/reflection_history_group/widget.dart'
+    show PageReflectionHistoryGroup;
 import 'package:gamer_reflection/domain/reflection/game.dart'
     show DomainReflectionGame;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
@@ -15,11 +17,13 @@ class UseReturn {
     required this.reflectionGroups,
     required this.game,
     required this.pushReflection,
+    required this.pushHistory,
   });
 
   final List<DomainReflectionGroup> reflectionGroups;
   final DomainReflectionGame game;
   final void Function(BuildContext, String, int) pushReflection;
+  final void Function(BuildContext, int) pushHistory;
 }
 
 /// データ取得: 振り返りグループ一覧
@@ -40,10 +44,25 @@ UseReturn useFetch() {
     game.value = g;
   }
 
-  /// タスク詳細ページへ移動
+  /// 振り返り追加ページへ移動
   void pushReflection(BuildContext context, String name, int groupId) {
     final PageReflectionAdd page = PageReflectionAdd(
       title: name,
+      groupId: groupId,
+    );
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (c) => page,
+      ),
+    ).then((v) {
+      fetch();
+    });
+  }
+
+  /// 振り返り履歴ページへ移動
+  void pushHistory(BuildContext context, int groupId) {
+    final PageReflectionHistoryGroup page = PageReflectionHistoryGroup(
       groupId: groupId,
     );
     Navigator.push(
@@ -65,5 +84,6 @@ UseReturn useFetch() {
     reflectionGroups: reflectionGroups.value,
     game: game.value,
     pushReflection: pushReflection,
+    pushHistory: pushHistory,
   );
 }

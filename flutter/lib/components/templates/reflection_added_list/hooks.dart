@@ -5,9 +5,9 @@ import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;
 import 'package:gamer_reflection/modules/request/reflection.dart'
     show RequestReflection;
+import 'package:gamer_reflection/modules/request/reflection_history_group.dart'
+    show RequestReflectionHistoryGroup;
 import 'package:gamer_reflection/modules/request/game.dart' show RequestGame;
-import 'package:gamer_reflection/modules/type/reflection.dart'
-    show ReflectionType;
 import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;
 
@@ -49,28 +49,30 @@ UseReturn useHooks(
 
   /// 完了を押した
   void onPressedReflectionDone(BuildContext context) {
-    // DBに保存する
-    // todo バルクインサートに変える
-    for (var r in reflectionsOnPage.value) {
-      RequestReflection().addReflection(
-        r.text,
-        r.reflectionType == ReflectionType.good,
-        r.count,
-        groupId,
-      );
-    }
+    // todo: 複数のDB処理はトランザクションにする
+    // 振り返りをDBに保存する
+    RequestReflection().addReflection(
+      reflectionsOnPage.value,
+      groupId,
+    );
+
+    // 履歴をDBに保存する
+    RequestReflectionHistoryGroup().addReflectionHisotry(
+      reflectionsOnPage.value,
+      groupId,
+    );
+
+    // 経験値は固定
+    const exp = 350;
+    // 経験値加算をDBに保存する
+    RequestGame().updateAddExp(exp);
+
+    toast.showNotification("振り返りを追加しました。", 2500);
 
     // 二つ前のページへ戻る
     Navigator.of(context)
       ..pop()
       ..pop();
-
-    // 経験値は固定
-    const exp = 350;
-    // 経験値を加算
-    RequestGame().updateAddExp(exp);
-
-    toast.showNotification("振り返りを追加しました。", 2500);
   }
 
   useEffect(() {

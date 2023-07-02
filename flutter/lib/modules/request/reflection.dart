@@ -6,6 +6,8 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
+import 'package:gamer_reflection/domain/common/reflection_added.dart'
+    show DomainReflectionAdded;
 
 /// Request: Reflection
 class RequestReflection {
@@ -14,10 +16,11 @@ class RequestReflection {
 
   /// 新規追加: Reflection
   Future<void> addReflection(
-      String text, bool isGood, int count, int groupId) async {
+    List<DomainReflectionAdded> reflections,
+    int groupId,
+  ) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflection.insertReflection(
-        db, text, isGood, count, groupId);
+    await repositoryReflection.insertReflection(db, reflections, groupId);
   }
 
   /// 更新: Reflection

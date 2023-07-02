@@ -32,7 +32,7 @@ Future<Database> initDatabase() async {
   );
 
   /// DEBUG MODE
-  await TableSetUp().createTables(db); // 消す
+  // await TableSetUp().createTables(db); // 消す
   // await TableDebug().dropKVS(db); // 消す
   // await TableDebug().dropAllTables(db); // 消す
   await TableDebug().showRecords(db); // コメントアウトする
