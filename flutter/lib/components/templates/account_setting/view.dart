@@ -38,10 +38,12 @@ import 'package:gamer_reflection/components/templates/account_setting/molecules/
     show ButtonLinks, ButtonLinksParam;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
+import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 
 /// アカウント設定
 Widget view(
   BuildContext context,
+  void Function(LocaleCode) changeLocale,
   List<DomainReflectionGroup> reflectionGroups,
   void Function() onPressedEdit,
   void Function(BuildContext context) onPressedDelete,
@@ -55,8 +57,7 @@ Widget view(
   GlobalKey<FormState> formKeyEditName,
 ) {
   Locale locale = Localizations.localeOf(context);
-  final i18n = AppLocalizations.of(context);
-  i18n!.accountPageAppInfo;
+  final i18n = AppLocalizations.of(context)!;
 
   ListView cloumn = ListView(
     children: [
@@ -106,16 +107,16 @@ Widget view(
         ),
       ),
       SpacerHeight.m,
-      const Box(
+      Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BasicText(
+            const BasicText(
               text: '言語の変更',
               size: "M",
             ),
             SpacerHeight.m,
-            SelectLanguage(),
+            SelectLanguage(changeLocale: changeLocale),
           ],
         ),
       ),
@@ -138,7 +139,7 @@ Widget view(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
-              text: AppLocalizations.of(context)!.accountPageAppInfo,
+              text: i18n.accountPageAppInfo,
               size: "M",
             ),
             SpacerHeight.m,

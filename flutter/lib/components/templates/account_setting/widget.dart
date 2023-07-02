@@ -6,14 +6,19 @@ import 'package:gamer_reflection/components/templates/account_setting/hooks.dart
     show useHooks;
 import 'package:gamer_reflection/components/templates/account_setting/view.dart'
     show view;
+import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 
 /// テンプレート: アカウント設定
 class TemplateAccountSetting extends HookWidget {
   const TemplateAccountSetting({
     super.key,
+    required this.changeLocale,
     required this.reflectionGroups,
     required this.fetchReflectionGroups,
   });
+
+  /// 言語を変更する
+  final void Function(LocaleCode) changeLocale;
 
   /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;
@@ -31,6 +36,7 @@ class TemplateAccountSetting extends HookWidget {
 
     return view(
       context,
+      changeLocale,
       reflectionGroups,
       hooks.onPressedEdit,
       hooks.onPressedDelete,

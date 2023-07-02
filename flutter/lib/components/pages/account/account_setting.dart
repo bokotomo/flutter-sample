@@ -4,10 +4,17 @@ import 'package:gamer_reflection/components/templates/account_setting/widget.dar
     show TemplateAccountSetting;
 import 'package:gamer_reflection/components/pages/account/fetch.dart'
     show useFetch;
+import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 
 /// ページ: アカウント設定
 class PageAccountSetting extends HookWidget {
-  const PageAccountSetting({super.key});
+  const PageAccountSetting({
+    super.key,
+    required this.changeLocale,
+  });
+
+  /// 言語を変更する
+  final void Function(LocaleCode) changeLocale;
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +22,7 @@ class PageAccountSetting extends HookWidget {
 
     return Scaffold(
       body: TemplateAccountSetting(
+        changeLocale: changeLocale,
         reflectionGroups: d.reflectionGroups,
         fetchReflectionGroups: d.fetchReflectionGroups,
       ),

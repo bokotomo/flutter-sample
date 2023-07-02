@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart'
-    show Widget, BuildContext, MaterialApp, ThemeData, VisualDensity, Locale;
+    show Widget, BuildContext, MaterialApp, ThemeData, VisualDensity;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/layouts/tabbar/tabbar.dart'
     show Tabbar;
@@ -17,17 +17,21 @@ class App extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks();
+    final h = useHooks(context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: title,
+      locale: h.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Tabbar(canDC: hooks.canDC),
+      home: Tabbar(
+        canDC: h.canDC,
+        changeLocale: h.changeLocale,
+      ),
     );
   }
 }

@@ -4,9 +4,10 @@ import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/molecules/footer/widget.dart'
     show Footer;
 import 'package:gamer_reflection/components/layouts/tabbar/hooks.dart'
-    show Hooks;
+    show useHooks;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
+import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 
 /// home
 Scaffold view(
@@ -30,19 +31,23 @@ class Tabbar extends HookWidget {
   const Tabbar({
     super.key,
     required this.canDC,
+    required this.changeLocale,
   });
+
   final ValueNotifier<bool> canDC;
+
+  /// 言語を変更する
+  final void Function(LocaleCode) changeLocale;
 
   @override
   Widget build(BuildContext context) {
-    final Hooks hooks = Hooks();
-    final i18n = AppLocalizations.of(context)!;
+    final h = useHooks(context, changeLocale);
 
     return view(
-      i18n,
-      hooks.tabPage(canDC),
-      hooks.selectedIndex.value,
-      hooks.onClickTab,
+      h.i18n,
+      h.tabPage(canDC),
+      h.selectedIndex,
+      h.onClickTab,
     );
   }
 }
