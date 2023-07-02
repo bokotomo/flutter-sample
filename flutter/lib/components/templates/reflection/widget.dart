@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart' show Widget, BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/reflection/game.dart'
@@ -13,11 +15,15 @@ import 'package:gamer_reflection/components/templates/reflection/view.dart'
 class TemplateReflection extends HookWidget {
   const TemplateReflection({
     super.key,
+    required this.i18n,
     required this.reflectionGroups,
     required this.game,
     required this.pushReflection,
     required this.pushHistory,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;

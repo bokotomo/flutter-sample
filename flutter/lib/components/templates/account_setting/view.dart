@@ -66,8 +66,8 @@ Widget view(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const BasicText(
-              text: '選択中の振り返り名',
+            BasicText(
+              text: i18n.accountPageCurrentReflectionName,
               size: "M",
             ),
             SpacerHeight.m,
@@ -80,6 +80,7 @@ Widget view(
       ),
       SpacerHeight.m,
       EditReflectionName(
+        i18n: i18n,
         textReflectionName: textReflectionName,
         textReflectionNameFocusNode: textReflectionNameFocusNode,
         onPressedEdit: onPressedEdit,
@@ -87,22 +88,23 @@ Widget view(
       ),
       SpacerHeight.m,
       NewReflectionName(
+        i18n: i18n,
         textReflectionNewName: textReflectionNewName,
         textReflectionNewNameFocusNode: textReflectionNewNameFocusNode,
         onPressedNewName: onPressedNewName,
         formKey: formKeyNewName,
       ),
       SpacerHeight.m,
-      const Box(
+      Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
-              text: 'カラーモードの変更',
+              text: i18n.accountPageChangeColorMode,
               size: "M",
             ),
             SpacerHeight.m,
-            SelectColorMode(),
+            const SelectColorMode(),
           ],
         ),
       ),
@@ -111,8 +113,8 @@ Widget view(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const BasicText(
-              text: '言語の変更',
+            BasicText(
+              text: i18n.accountPageChangeLanguage,
               size: "M",
             ),
             SpacerHeight.m,
@@ -121,14 +123,14 @@ Widget view(
         ),
       ),
       SpacerHeight.m,
-      const ButtonLinks(
+      ButtonLinks(
         params: [
           ButtonLinksParam(
-            text: '利用規約',
+            text: i18n.accountPageTermsOfService,
             link: 'https://flutter.dev',
           ),
           ButtonLinksParam(
-            text: 'プライバシーポリシー',
+            text: i18n.accountPagePrivacyPolicy,
             link: 'https://flutter.dev',
           ),
         ],
@@ -160,18 +162,18 @@ Widget view(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const BasicText(
-              text: '選択中の振り返りの削除',
+            BasicText(
+              text: i18n.accountPageDeleteReflection,
               size: "M",
             ),
             SpacerHeight.xs,
-            const TextAnnotation(
-              text: "※振り返りした内容も削除されます。",
+            TextAnnotation(
+              text: i18n.accountPageDeleteReflectionDetail,
               size: "S",
             ),
             SpacerHeight.m,
             ButtonDelete(
-              text: "削除する",
+              text: i18n.accountPageDeleteButton,
               onPressed: () => onPressedDelete(context),
             ),
           ],
@@ -181,7 +183,7 @@ Widget view(
     ],
   );
   return BaseLayoutPadding(
-    title: "アカウント設定",
+    title: i18n.accountPageTitle,
     onTap: () => {
       textReflectionNameFocusNode.unfocus(),
       textReflectionNewNameFocusNode.unfocus(),

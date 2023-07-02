@@ -1,6 +1,23 @@
 {
   "@@locale": "ja",
+  
+  "accountPageTitle": "アカウント設定",
+  "accountPageCurrentReflectionName": "選択中の振り返り名",
+  "accountPageChangeReflectionName": "振り返り名の変更",
+  "accountPageChangeReflectionNamePlaceHolder": "ゲーム名+キャラ名など",
+  "accountPageChangeReflectionNameButton": "変更する",
+  "accountPageAddReflection": "振り返りの新規作成",
+  "accountPageAddReflectionPlaceHolder": "ゲーム名+キャラ名など",
+  "accountPageAddReflectionButton": "新規で作成する",
+  "accountPageChangeColorMode": "カラーモードの変更",
+  "accountPageChangeLanguage": "言語の変更",
+  "accountPageTermsOfService": "利用規約",
+  "accountPagePrivacyPolicy": "プライバシーポリシー",
   "accountPageAppInfo": "アプリ情報",
+  "accountPageDeleteReflection": "選択中の振り返りの削除",
+  "accountPageDeleteReflectionDetail": "※振り返りした内容も削除されます。",
+  "accountPageDeleteButton": "削除する",
+  
   "footerSolution": "解決案",
   "footerReflection": "振り返る",
   "footerTodo": "やること",

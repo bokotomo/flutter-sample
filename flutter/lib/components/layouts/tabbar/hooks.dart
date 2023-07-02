@@ -45,10 +45,18 @@ UseReturn useHooks(
   /// タブを押すと表示するページ
   Widget tabPage(ValueNotifier<bool> canDC) {
     final List<Widget> pages = [
-      PageTask(canDC: canDC),
-      const PageReflection(),
-      const PageTodo(),
+      PageTask(
+        i18n: i18n,
+        canDC: canDC,
+      ),
+      PageReflection(
+        i18n: i18n,
+      ),
+      PageTodo(
+        i18n: i18n,
+      ),
       PageAccountSetting(
+        i18n: i18n,
         changeLocale: changeLocale,
       ),
     ];

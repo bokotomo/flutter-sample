@@ -1,8 +1,25 @@
 {
   "@@locale": "en",
+
+  "accountPageTitle": "Account setting",
+  "accountPageCurrentReflectionName": "Selected reflection name",
+  "accountPageChangeReflectionName": "Change reflection name",
+  "accountPageChangeReflectionNamePlaceHolder": "game name + character name",
+  "accountPageChangeReflectionNameButton": "Change",
+  "accountPageAddReflection": "Create a new reflection",
+  "accountPageAddReflectionPlaceHolder": "game name + character name",
+  "accountPageAddReflectionButton": "Create new",
+  "accountPageChangeColorMode": "Change color mode",
+  "accountPageChangeLanguage": "Change language",
+  "accountPageTermsOfService": "Terms of service",
+  "accountPagePrivacyPolicy": "Privacy Policy",
   "accountPageAppInfo": "App info",
+  "accountPageDeleteReflection": "Delete selected reflection",
+  "accountPageDeleteReflectionDetail": "*Reflection content will also be deleted.",
+  "accountPageDeleteButton": "Delete",
+
   "footerSolution": "Solution",
-  "footerReflection": "Reflection",
+  "footerReflection": "Reflect",
   "footerTodo": "Todo",
   "footerAccount": "Account"
 }
