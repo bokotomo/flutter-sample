@@ -11,6 +11,15 @@ class TableSetUp {
       // 外部キー有効化
       await db.execute("PRAGMA foreign_keys=true");
 
+      // 振り返りグループ
+      await db.execute('''
+CREATE TABLE IF NOT EXISTS reflection_group(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'localtime'))
+)
+''');
+
       // 振り返り
       await db.execute('''
 CREATE TABLE IF NOT EXISTS reflection(
@@ -45,15 +54,6 @@ CREATE TABLE IF NOT EXISTS reflection_history(
   reflection_type INTEGER NOT NULL,
   count INTEGER NOT NULL,
   foreign key (reflection_history_group_id) references reflection_history_group(id) on delete cascade
-)
-''');
-
-      // 振り返りグループ
-      await db.execute('''
-CREATE TABLE IF NOT EXISTS reflection_group(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  created_at TIMESTAMP DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'localtime'))
 )
 ''');
 

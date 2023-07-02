@@ -36,6 +36,8 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
     show EditReflectionName;
 import 'package:gamer_reflection/components/templates/account_setting/molecules/button_links.dart'
     show ButtonLinks, ButtonLinksParam;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 
 /// アカウント設定
 Widget view(
@@ -53,6 +55,8 @@ Widget view(
   GlobalKey<FormState> formKeyEditName,
 ) {
   Locale locale = Localizations.localeOf(context);
+  final i18n = AppLocalizations.of(context);
+  i18n!.accountPageAppInfo;
 
   ListView cloumn = ListView(
     children: [
@@ -133,8 +137,8 @@ Widget view(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const BasicText(
-              text: 'アプリ情報',
+            BasicText(
+              text: AppLocalizations.of(context)!.accountPageAppInfo,
               size: "M",
             ),
             SpacerHeight.m,

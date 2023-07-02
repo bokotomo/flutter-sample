@@ -29,7 +29,7 @@ class TemplateReflection extends HookWidget {
   final void Function(BuildContext, String, int) pushReflection;
 
   /// 振り返り履歴ページへ飛ぶ
-  final void Function(BuildContext, int) pushHistory;
+  final void Function(BuildContext, String, int) pushHistory;
 
   @override
   Widget build(BuildContext context) {

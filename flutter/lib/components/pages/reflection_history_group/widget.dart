@@ -9,9 +9,11 @@ import 'package:gamer_reflection/components/pages/reflection_history_group/fetch
 class PageReflectionHistoryGroup extends HookWidget {
   const PageReflectionHistoryGroup({
     super.key,
+    required this.title,
     required this.groupId,
   });
 
+  final String title;
   final int groupId;
 
   @override
@@ -22,6 +24,7 @@ class PageReflectionHistoryGroup extends HookWidget {
       body: TemplateReflectionHistoryGroup(
         historyGroups: d.historyGroups,
         pushDetail: d.pushDetail,
+        title: title,
       ),
     );
   }

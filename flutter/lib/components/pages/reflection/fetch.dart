@@ -23,7 +23,7 @@ class UseReturn {
   final List<DomainReflectionGroup> reflectionGroups;
   final DomainReflectionGame game;
   final void Function(BuildContext, String, int) pushReflection;
-  final void Function(BuildContext, int) pushHistory;
+  final void Function(BuildContext, String, int) pushHistory;
 }
 
 /// データ取得: 振り返りグループ一覧
@@ -61,9 +61,10 @@ UseReturn useFetch() {
   }
 
   /// 振り返り履歴ページへ移動
-  void pushHistory(BuildContext context, int groupId) {
+  void pushHistory(BuildContext context, String name, int groupId) {
     final PageReflectionHistoryGroup page = PageReflectionHistoryGroup(
       groupId: groupId,
+      title: name,
     );
     Navigator.push(
       context,

@@ -14,6 +14,7 @@ import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
 /// View: 振り返り履歴グループ一覧
 Widget view(
   BuildContext c,
+  String title,
   final List<DomainReflectionHistoryGroup> historyGroups,
   final void Function(BuildContext, String, int) onClickRow,
 ) {
@@ -23,7 +24,7 @@ Widget view(
         SpacerHeight.m,
         const TextAnnotation(
           text: "振り返り履歴がありません。",
-          size: "S",
+          size: "M",
           textAlign: TextAlign.center,
         ),
       },
@@ -50,7 +51,7 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "振り返り履歴",
+    title: "$title 履歴",
     isBackGround: false,
     child: cloumn,
   );

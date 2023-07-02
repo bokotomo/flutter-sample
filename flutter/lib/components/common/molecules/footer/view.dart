@@ -6,6 +6,8 @@ import 'package:flutter/material.dart'
         Icons,
         BottomNavigationBar,
         BottomNavigationBarType;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/modules/const/color/base.dart'
@@ -13,28 +15,29 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
 
 ///
 Widget view(
+  AppLocalizations i18n,
   int currentIndex,
   void Function(int) onClickTab,
 ) {
   final u = useColorBase();
 
   /// タブの一覧
-  const items = <BottomNavigationBarItem>[
+  final items = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
-      icon: Icon(Icons.mode_edit),
-      label: "解決案",
+      icon: const Icon(Icons.mode_edit),
+      label: i18n.footerSolution,
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.add),
-      label: "振り返る",
+      icon: const Icon(Icons.add),
+      label: i18n.footerReflection,
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.list),
-      label: "やること",
+      icon: const Icon(Icons.list),
+      label: i18n.footerTodo,
     ),
     BottomNavigationBarItem(
-      icon: Icon(Icons.account_circle),
-      label: "アカウント",
+      icon: const Icon(Icons.account_circle),
+      label: i18n.footerAccount,
     ),
   ];
 

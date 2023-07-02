@@ -14,6 +14,7 @@ class PageReflection extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final d = useFetch();
+
     return Scaffold(
       body: TemplateReflection(
         reflectionGroups: d.reflectionGroups,

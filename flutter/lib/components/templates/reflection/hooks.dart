@@ -22,7 +22,7 @@ UseReturn useHooks(
   List<DomainReflectionGroup> reflectionGroups,
   DomainReflectionGame game,
   void Function(BuildContext, String, int) pushReflection,
-  void Function(BuildContext, int) pushHistory,
+  void Function(BuildContext, String, int) pushHistory,
 ) {
   /// 振り返りの開始を押した
   Future<void> onPressedStart(BuildContext c) async {
@@ -45,9 +45,13 @@ UseReturn useHooks(
     if (cacheGroupId == null) return;
 
     final int groupId = int.parse(cacheGroupId.toString());
+    final DomainReflectionGroup d = reflectionGroups.firstWhere(
+      (r) => r.id == groupId,
+      orElse: () => const DomainReflectionGroup(id: 0, name: ""),
+    );
 
     // 履歴ページを開く
-    if (c.mounted) pushHistory(c, groupId);
+    if (c.mounted) pushHistory(c, d.name, groupId);
   }
 
   /// 経験値と次の経験値の文言を返す

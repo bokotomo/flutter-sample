@@ -11,10 +11,12 @@ import 'package:gamer_reflection/domain/reflection_history_group/reflection_hist
 class TemplateReflectionHistoryGroup extends HookWidget {
   const TemplateReflectionHistoryGroup({
     super.key,
+    required this.title,
     required this.historyGroups,
     required this.pushDetail,
   });
 
+  final String title;
   final List<DomainReflectionHistoryGroup> historyGroups;
   final void Function(BuildContext, String, int) pushDetail;
 
@@ -24,6 +26,7 @@ class TemplateReflectionHistoryGroup extends HookWidget {
 
     return view(
       context,
+      title,
       historyGroups,
       h.onClickRow,
     );

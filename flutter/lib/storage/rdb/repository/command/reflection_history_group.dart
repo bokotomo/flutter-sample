@@ -33,14 +33,16 @@ class RepositoryReflectionHistoryGroupCommand
     // トランザクション
     db.transaction((txn) async {
       final resCount = await txn.rawQuery(
-          'SELECT COUNT(*) as count FROM $tableNameReflectionHistoryGroup');
+          'SELECT COUNT(*) as count FROM $tableNameReflectionHistoryGroup WHERE reflection_group_id=$reflectionGroupId');
       final count = resCount.first['count'] as int;
 
       // 10個以上は保存しないので削除
-      if (count >= 5) {
+      if (count >= 10) {
         final List<Map<String, Object?>> resLastRecord = await txn.query(
           tableNameReflectionHistoryGroup,
           columns: ['id'],
+          where: 'reflection_group_id = ?',
+          whereArgs: [reflectionGroupId],
           orderBy: 'id ASC',
           limit: 1,
         );
