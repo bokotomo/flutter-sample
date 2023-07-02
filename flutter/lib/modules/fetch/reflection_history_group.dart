@@ -15,7 +15,7 @@ class FetchReflectionHistoryGroupPage {
       repositoryReflectionHistoryGroup =
       GetIt.I<IRepositoryReflectionHistoryGroupQuery>();
 
-  /// 取得:  振り返り履歴グループ一覧
+  /// 取得: 振り返り履歴グループ一覧
   Future<List<DomainReflectionHistoryGroup>> fetchReflectionHistoryGroups(
       int reflectionGroupId) async {
     final Database db = GetIt.I<DBConnection>().db;

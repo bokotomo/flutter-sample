@@ -24,7 +24,10 @@ class RepositoryReflectionHistoryQuery
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflectionHistory,
       columns: ['*'],
-      limit: 100,
+      where: '"reflection_history_group_id" = ?',
+      whereArgs: [reflectionHistoryGroupId],
+      orderBy: 'count DESC',
+      limit: 30,
     );
 
     return List.generate(res.length, (i) {

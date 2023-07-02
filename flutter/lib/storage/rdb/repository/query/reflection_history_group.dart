@@ -27,7 +27,7 @@ class RepositoryReflectionHistoryGroupQuery
       where: '"reflection_group_id" = ?',
       whereArgs: [reflectionGroupId],
       orderBy: "id DESC",
-      limit: 100,
+      limit: 10,
     );
 
     return List.generate(res.length, (i) {

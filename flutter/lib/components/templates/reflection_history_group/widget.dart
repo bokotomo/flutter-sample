@@ -20,10 +20,12 @@ class TemplateReflectionHistoryGroup extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks();
+    final h = useHooks(pushDetail);
 
     return view(
       context,
+      historyGroups,
+      h.onClickRow,
     );
   }
 }

@@ -15,7 +15,7 @@ class DomainReflectionHistoryGroup
   @override
   final int id;
 
-  /// 回数
+  /// 日付
   @override
   final DateTime date;
 }

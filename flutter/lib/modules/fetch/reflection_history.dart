@@ -14,8 +14,8 @@ class FetchReflectionHistoryPage {
   final IRepositoryReflectionHisotryQuery repositoryReflectionHistory =
       GetIt.I<IRepositoryReflectionHisotryQuery>();
 
-  /// 取得:  振り返り履歴グループ一覧
-  Future<List<DomainReflectionHistory>> fetchReflectionHistoryGroups(
+  /// 取得: 振り返り履歴一覧
+  Future<List<DomainReflectionHistory>> fetchReflectionHistory(
       int historyGroupId) async {
     final Database db = GetIt.I<DBConnection>().db;
     final models = await repositoryReflectionHistory

@@ -4,8 +4,6 @@ import 'package:gamer_reflection/domain/reflection_history/reflection_history.da
     show DomainReflectionHistory;
 import 'package:gamer_reflection/components/templates/reflection_history/view.dart'
     show view;
-import 'package:gamer_reflection/components/templates/reflection_history/hooks.dart'
-    show useHooks;
 
 /// テンプレート: 振り返り履歴グループ詳細
 class TemplateReflectionHistory extends HookWidget {
@@ -20,11 +18,10 @@ class TemplateReflectionHistory extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks();
-
     return view(
       context,
       title,
+      historys,
     );
   }
 }

@@ -21,7 +21,7 @@ UseReturn useFetch(int historyGroupId) {
   /// データ取得
   Future<void> fetch() async {
     final List<DomainReflectionHistory> r = await FetchReflectionHistoryPage()
-        .fetchReflectionHistoryGroups(historyGroupId);
+        .fetchReflectionHistory(historyGroupId);
     historys.value = r;
   }
 
