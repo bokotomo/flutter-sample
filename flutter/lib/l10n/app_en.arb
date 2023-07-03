@@ -1,6 +1,14 @@
 {
   "@@locale": "en",
 
+  "addReflectionNameTitle": "Let's decide the reflection name!",
+  "addReflectionNameSubTitle": "It is used to look back\nat each character/weapon.",
+  "addReflectionNameFormTitle": "Reflection name",
+  "addReflectionNameFormAnnotation": "*You can change it later.",
+  "addReflectionNameFormPlaceHolder": "game name + character name",
+  "addReflectionNameFormButton": "Register",
+  "addReflectionNameLanguageTitle": "Change language",
+
   "accountPageTitle": "Account setting",
   "accountPageCurrentReflectionName": "Selected reflection name",
   "accountPageChangeReflectionName": "Change reflection name",

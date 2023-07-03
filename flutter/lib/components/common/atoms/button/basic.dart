@@ -11,16 +11,22 @@ class ButtonBasic extends StatelessWidget {
     super.key,
     required this.text,
     this.onPressed,
+    this.isThin,
   });
 
   /// 文字
   final String text;
+
+  /// 薄いか
+  final bool? isThin;
 
   /// クリックした
   final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
+    final isThinColor = isThin ?? false;
+
     /// クリックされた
     void onPressed() {
       if (this.onPressed == null) return;
@@ -28,15 +34,21 @@ class ButtonBasic extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.basic,
+      backgroundColor: isThinColor
+          ? ConstantColorButton.basicThin
+          : ConstantColorButton.basic,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.basicBorder,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(100)),
+      shadowColor: isThinColor
+          ? ConstantColorButton.basicBorderThin
+          : ConstantColorButton.basicBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.basicBorder,
+          color: isThinColor
+              ? ConstantColorButton.basicBorderThin
+              : ConstantColorButton.basicBorder,
         ),
       ),
     );

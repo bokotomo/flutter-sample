@@ -40,12 +40,44 @@ UseReturn useHooks(
   /// 変更を押した
   void onChanged(String? t) {
     switch (t) {
-      case 'ja':
-        changeLocale(LocaleCode.ja);
+      case 'da':
+        changeLocale(LocaleCode.da);
+        selectLanguage.save(t!);
+        break;
+      case 'de':
+        changeLocale(LocaleCode.de);
         selectLanguage.save(t!);
         break;
       case 'en':
         changeLocale(LocaleCode.en);
+        selectLanguage.save(t!);
+        break;
+      case 'fr':
+        changeLocale(LocaleCode.fr);
+        selectLanguage.save(t!);
+        break;
+      case 'it':
+        changeLocale(LocaleCode.it);
+        selectLanguage.save(t!);
+        break;
+      case 'ja':
+        changeLocale(LocaleCode.ja);
+        selectLanguage.save(t!);
+        break;
+      case 'ko':
+        changeLocale(LocaleCode.ko);
+        selectLanguage.save(t!);
+        break;
+      case 'ru':
+        changeLocale(LocaleCode.ru);
+        selectLanguage.save(t!);
+        break;
+      case 'zh':
+        changeLocale(LocaleCode.zh);
+        selectLanguage.save(t!);
+        break;
+      case 'zh_TW':
+        changeLocale(LocaleCode.zhTW);
         selectLanguage.save(t!);
         break;
       default:
@@ -54,22 +86,35 @@ UseReturn useHooks(
 
   /// 表示言語一覧
   const List<SelectItem> languages = [
-    SelectItem(text: '日本語', value: 'ja'),
+    /// デンマーク
+    SelectItem(text: 'Dansk', value: 'da'),
+
+    /// ドイツ語
+    SelectItem(text: 'Deutsch', value: 'de'),
 
     /// 英語
     SelectItem(text: 'English', value: 'en'),
 
-    // /// ドイツ語
-    // SelectItem(text: 'German', value: 'de'),
+    /// フランス語
+    SelectItem(text: 'Français', value: 'fr'),
 
-    // /// イタリア語
-    // SelectItem(text: 'Italian', value: 'it'),
+    /// イタリア語
+    SelectItem(text: 'Italiano', value: 'it'),
 
-    // /// 韓国語
-    // SelectItem(text: '한국어', value: 'ko'),
+    /// 日本語
+    SelectItem(text: '日本語', value: 'ja'),
 
-    // /// フランス語
-    // SelectItem(text: 'Français', value: 'fr'),
+    /// 韓国語
+    SelectItem(text: '한국어', value: 'ko'),
+
+    /// ロシア語
+    SelectItem(text: 'Русский', value: 'ru'),
+
+    /// 中国語 簡体
+    SelectItem(text: '中文（简体）', value: 'zh'),
+
+    /// 中国語 繁体
+    SelectItem(text: '中文（繁體）', value: 'zh_TW'),
   ];
 
   useEffect(() {

@@ -1,6 +1,14 @@
 {
   "@@locale": "ja",
-  
+
+  "addReflectionNameTitle": "振り返り名を決めましょう！",
+  "addReflectionNameSubTitle": "キャラ/武器などでそれぞれ\n振り返るために必要です。",
+  "addReflectionNameFormTitle": "振り返り名",
+  "addReflectionNameFormAnnotation": "※後で変更できます。",
+  "addReflectionNameFormPlaceHolder": "ゲーム名+キャラ名など",
+  "addReflectionNameFormButton": "登録する",
+  "addReflectionNameLanguageTitle": "言語の変更",
+
   "accountPageTitle": "アカウント設定",
   "accountPageCurrentReflectionName": "選択中の振り返り名",
   "accountPageChangeReflectionName": "振り返り名の変更",
@@ -17,7 +25,7 @@
   "accountPageDeleteReflection": "選択中の振り返りの削除",
   "accountPageDeleteReflectionDetail": "※振り返りした内容も削除されます。",
   "accountPageDeleteButton": "削除する",
-  
+
   "footerSolution": "解決案",
   "footerReflection": "振り返る",
   "footerTodo": "やること",

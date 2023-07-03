@@ -6,10 +6,27 @@ import 'package:flutter/material.dart'
         Column,
         Icons,
         TextEditingController,
-        FocusNode;
+        FocusNode,
+        TextAlign,
+        FormState,
+        GlobalKey,
+        Form,
+        Container,
+        EdgeInsets,
+        Padding,
+        Expanded,
+        AutovalidateMode,
+        CrossAxisAlignment;
 import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
-import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
+    show TextAnnotation;
+import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
+    show SelectLanguage;
+import 'package:gamer_reflection/components/layouts/base_padding.dart'
+    show BaseLayoutPadding;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
@@ -17,57 +34,101 @@ import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 
 /// 見た目
 Widget view(
   BuildContext context,
-  TextEditingController textReflection,
+  AppLocalizations i18n,
+  GlobalKey<FormState> formKey,
+  TextEditingController textReflectionName,
   FocusNode textFieldFocusNode,
+  void Function() onPressedRegister,
+  void Function(LocaleCode) changeLocale,
 ) {
   ListView cloumn = ListView(
     children: [
-      const BasicText(
-        size: "XM",
-        text: "振り返り名を決めましょう！",
-      ),
-      SpacerHeight.m,
-      const BasicText(
+      SpacerHeight.xl,
+      BasicText(
         size: "M",
-        text: "キャラ/武器/ポジションを別々で振り返るために必要です。",
+        text: i18n.addReflectionNameTitle,
+        isBold: true,
+        textAlign: TextAlign.center,
       ),
       SpacerHeight.m,
+      BasicText(
+        size: "M",
+        text: i18n.addReflectionNameSubTitle,
+        textAlign: TextAlign.center,
+      ),
+      SpacerHeight.l,
       Box(
-        child: Column(children: [
-          const BasicText(
-            size: "M",
-            text: "振り返り名 (20文字まで)",
-          ),
-          SpacerHeight.m,
-          const BasicText(
-            size: "M",
-            text: "※後で変更できます。",
-          ),
-          SpacerHeight.m,
-          const ButtonIcon(
-            icon: Icons.add,
-            text: "登録する",
-            // onPressed: () => {},
-          ),
-          SpacerHeight.m,
-          InputText(
-            text: textReflection,
-            hintText: '振り返りを書く',
-            focusNode: textFieldFocusNode,
-            maxLength: 30,
-          ),
-        ]),
-      )
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BasicText(
+              size: "M",
+              text: i18n.addReflectionNameFormTitle,
+              isBold: true,
+            ),
+            SpacerHeight.s,
+            TextAnnotation(
+                size: "M", text: i18n.addReflectionNameFormAnnotation),
+            SpacerHeight.xm,
+            InputText(
+              text: textReflectionName,
+              hintText: i18n.addReflectionNameFormPlaceHolder,
+              focusNode: textFieldFocusNode,
+              maxLength: 20,
+            ),
+            SpacerHeight.xm,
+            ButtonIcon(
+              icon: Icons.add,
+              text: i18n.addReflectionNameFormButton,
+              onPressed: onPressedRegister,
+            ),
+          ],
+        ),
+      ),
     ],
   );
 
-  return BaseLayout(
-    title: "振り返り名の追加",
-    isBackGround: false,
+  final form = Form(
+    autovalidateMode: AutovalidateMode.onUserInteraction,
+    key: formKey,
     child: cloumn,
+  );
+  final bottomContent = Container(
+    color: ConstantColor.content,
+    child: Padding(
+      padding: const EdgeInsets.symmetric(vertical: ConstantSizeUI.l3),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          BasicText(
+            text: i18n.addReflectionNameLanguageTitle,
+            size: "M",
+          ),
+          SpacerHeight.s,
+          SelectLanguage(changeLocale: changeLocale),
+        ],
+      ),
+    ),
+  );
+
+  final content = Column(
+    children: <Widget>[
+      Expanded(child: form),
+      bottomContent,
+    ],
+  );
+
+  return BaseLayoutPadding(
+    title: "Ref",
+    isBackGround: true,
+    child: content,
   );
 }

@@ -8,9 +8,7 @@ import 'package:flutter/material.dart'
         Column,
         CrossAxisAlignment,
         GlobalKey,
-        FormState,
-        Localizations,
-        Locale;
+        FormState;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
@@ -56,7 +54,6 @@ Widget view(
   GlobalKey<FormState> formKeyNewName,
   GlobalKey<FormState> formKeyEditName,
 ) {
-  Locale locale = Localizations.localeOf(context);
   final i18n = AppLocalizations.of(context)!;
 
   ListView cloumn = ListView(
@@ -149,11 +146,6 @@ Widget view(
               text: 'Version 1.0.0',
               size: "M",
             ),
-            SpacerHeight.m,
-            BasicText(
-              text: locale.languageCode.toString(),
-              size: "M",
-            ),
           ],
         ),
       ),
@@ -182,6 +174,7 @@ Widget view(
       SpacerHeight.m,
     ],
   );
+
   return BaseLayoutPadding(
     title: i18n.accountPageTitle,
     onTap: () => {

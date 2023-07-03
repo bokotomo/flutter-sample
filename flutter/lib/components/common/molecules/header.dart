@@ -111,6 +111,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
               child: ButtonBasic(
                 text: "履歴",
                 onPressed: onClickHistory,
+                isThin: true,
               ),
             ),
           ),

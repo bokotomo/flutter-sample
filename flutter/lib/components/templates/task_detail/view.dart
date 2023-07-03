@@ -69,6 +69,7 @@ Widget view(
         text: todoExist ? "やることから外す" : "やることに追加する",
         onPressed: () async => await onPressedToggleTodo(),
       ),
+      SpacerHeight.xm,
     ],
   );
 
@@ -98,6 +99,7 @@ Widget view(
         text: "キャンセル",
         onPressed: () => onPressedCancel(),
       ),
+      SpacerHeight.xm,
     ],
   );
 

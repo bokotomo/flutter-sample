@@ -9,8 +9,14 @@ class ConstantColorButton {
   /// ボタン: 背景色
   static const Color basic = Color.fromARGB(255, 37, 39, 93);
 
+  /// ボタン: 背景色 薄い
+  static const Color basicThin = Color.fromARGB(150, 37, 39, 93);
+
   /// ボタン: 枠線色
   static const Color basicBorder = blue;
+
+  /// ボタン: 枠線色 薄い
+  static const Color basicBorderThin = Color.fromARGB(150, 38, 43, 114);
 
   /// 薄いボタン: 背景色
   static const Color thin = Color.fromARGB(255, 8, 8, 13);
