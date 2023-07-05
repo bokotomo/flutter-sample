@@ -64,6 +64,7 @@ class ButtonDelete extends StatelessWidget {
       label: BasicText(
         text: text,
         size: "M",
+        isNoSelect: true,
       ),
     );
   }

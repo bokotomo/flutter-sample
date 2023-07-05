@@ -65,6 +65,7 @@ class ButtonHistory extends StatelessWidget {
             child: BasicText(
               text: text,
               size: "S",
+              isNoSelect: true,
             ),
           ),
         ],

@@ -86,6 +86,7 @@ class ButtonLinks extends StatelessWidget {
                     child: BasicText(
                       text: params[i].text,
                       size: "M",
+                      isNoSelect: true,
                     ),
                   ),
                   SpacerWidth.s,

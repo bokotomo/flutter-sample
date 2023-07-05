@@ -68,6 +68,7 @@ class ButtonDone extends StatelessWidget {
       label: BasicText(
         text: text,
         size: "M",
+        isNoSelect: true,
       ),
     );
   }

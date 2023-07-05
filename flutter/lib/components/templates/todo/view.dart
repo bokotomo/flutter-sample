@@ -23,6 +23,7 @@ Widget view(
   List<DomainReflectionGroup> reflectionGroups,
   void Function(String?) onChangeReflectionGroup,
   void Function(int) onClickRemove,
+  void Function(BuildContext context, int taskId) pushTaskDetail,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -49,6 +50,7 @@ Widget view(
                 text: todos[i].title,
                 size: "M",
                 isBold: true,
+                isNoSelect: true,
               ),
               SpacerHeight.s,
               TextAnnotation(
@@ -57,7 +59,8 @@ Widget view(
               ),
             ],
           ),
-          onClickRemove: () => onClickRemove(todos[i].reflectionId),
+          onPressed: () => pushTaskDetail(context, todos[i].reflectionId),
+          onPressedRemove: () => onClickRemove(todos[i].reflectionId),
         ),
         SpacerHeight.m,
       }

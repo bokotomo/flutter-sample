@@ -78,6 +78,7 @@ class InputSelect extends StatelessWidget {
             child: BasicText(
               size: "M",
               text: item.text,
+              isNoSelect: true,
             ),
           ),
         )

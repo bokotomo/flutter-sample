@@ -5,6 +5,7 @@ import 'package:flutter/material.dart'
         TextAlign,
         BuildContext,
         Text,
+        SelectableText,
         TextStyle,
         FontWeight;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
@@ -18,6 +19,7 @@ class BasicText extends StatelessWidget {
     required this.text,
     required this.size,
     this.textAlign,
+    this.isNoSelect,
     this.isBold,
   });
 
@@ -29,6 +31,9 @@ class BasicText extends StatelessWidget {
 
   /// 太字
   final bool? isBold;
+
+  /// 選択可能か
+  final bool? isNoSelect;
 
   /// 寄せる方向
   final TextAlign? textAlign;
@@ -53,7 +58,20 @@ class BasicText extends StatelessWidget {
   Widget build(BuildContext context) {
     final isBoldFont = isBold != null && isBold!;
 
-    return Text(
+    /// 選択不能なテキスト
+    if (isNoSelect != null && isNoSelect!) {
+      return Text(
+        text,
+        textAlign: textAlign ?? TextAlign.left,
+        style: TextStyle(
+          fontSize: getFontSize(),
+          fontWeight: isBoldFont ? FontWeight.bold : FontWeight.normal,
+          color: isBoldFont ? ConstantColor.textBold : ConstantColor.text,
+        ),
+      );
+    }
+
+    return SelectableText(
       text,
       textAlign: textAlign ?? TextAlign.left,
       style: TextStyle(

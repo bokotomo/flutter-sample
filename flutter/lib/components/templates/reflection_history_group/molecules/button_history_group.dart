@@ -53,6 +53,7 @@ class ButtonHistoryGroup extends StatelessWidget {
             child: BasicText(
               text: text,
               size: "M",
+              isNoSelect: true,
             ),
           ),
           SpacerWidth.s,

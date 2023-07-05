@@ -57,37 +57,39 @@ class App extends HookWidget {
       );
     }
 
+    const supportedLocales = [
+      ...AppLocalizations.supportedLocales,
+      Locale.fromSubtags(
+        languageCode: 'zh',
+        scriptCode: 'Hans',
+      ),
+      Locale.fromSubtags(
+        languageCode: 'zh',
+        scriptCode: 'Hant',
+      ),
+      Locale.fromSubtags(
+        languageCode: 'zh',
+        scriptCode: 'Hans',
+        countryCode: 'CN',
+      ),
+      Locale.fromSubtags(
+        languageCode: 'zh',
+        scriptCode: 'Hant',
+        countryCode: 'TW',
+      ),
+      Locale.fromSubtags(
+        languageCode: 'zh',
+        scriptCode: 'Hant',
+        countryCode: 'HK',
+      ),
+    ];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: title,
       locale: h.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: const [
-        ...AppLocalizations.supportedLocales,
-        Locale.fromSubtags(
-          languageCode: 'zh',
-          scriptCode: 'Hans',
-        ),
-        Locale.fromSubtags(
-          languageCode: 'zh',
-          scriptCode: 'Hant',
-        ),
-        Locale.fromSubtags(
-          languageCode: 'zh',
-          scriptCode: 'Hans',
-          countryCode: 'CN',
-        ),
-        Locale.fromSubtags(
-          languageCode: 'zh',
-          scriptCode: 'Hant',
-          countryCode: 'TW',
-        ),
-        Locale.fromSubtags(
-          languageCode: 'zh',
-          scriptCode: 'Hant',
-          countryCode: 'HK',
-        ),
-      ],
+      supportedLocales: supportedLocales,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

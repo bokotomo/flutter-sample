@@ -22,8 +22,8 @@ import 'package:gamer_reflection/components/common/atoms/button/delete.dart'
     show ButtonDelete;
 import 'package:gamer_reflection/components/common/molecules/select_language/widget.dart'
     show SelectLanguage;
-import 'package:gamer_reflection/components/common/molecules/select_color_mode/widget.dart'
-    show SelectColorMode;
+// import 'package:gamer_reflection/components/common/molecules/select_color_mode/widget.dart'
+//     show SelectColorMode;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
@@ -92,20 +92,20 @@ Widget view(
         formKey: formKeyNewName,
       ),
       SpacerHeight.m,
-      Box(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BasicText(
-              text: i18n.accountPageChangeColorMode,
-              size: "M",
-            ),
-            SpacerHeight.m,
-            const SelectColorMode(),
-          ],
-        ),
-      ),
-      SpacerHeight.m,
+      // Box(
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       BasicText(
+      //         text: i18n.accountPageChangeColorMode,
+      //         size: "M",
+      //       ),
+      //       SpacerHeight.m,
+      //       const SelectColorMode(),
+      //     ],
+      //   ),
+      // ),
+      // SpacerHeight.m,
       Box(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

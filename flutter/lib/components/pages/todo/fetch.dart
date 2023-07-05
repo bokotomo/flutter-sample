@@ -1,9 +1,12 @@
-import 'package:flutter/material.dart' show ValueNotifier;
+import 'package:flutter/material.dart'
+    show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 import 'package:gamer_reflection/modules/fetch/todo.dart' show FetchTodoPage;
+import 'package:gamer_reflection/components/pages/task_detail/widget.dart'
+    show PageTaskDetail;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 
@@ -11,6 +14,7 @@ class UseReturn {
   const UseReturn({
     required this.reflectionGroups,
     required this.todos,
+    required this.pushTaskDetail,
     required this.fetchTodos,
   });
 
@@ -22,6 +26,9 @@ class UseReturn {
 
   /// 取得
   final Future<void> Function() fetchTodos;
+
+  /// タスク詳細へ飛ぶ
+  final void Function(BuildContext, int) pushTaskDetail;
 }
 
 /// データ取得: タスク一覧
@@ -56,6 +63,19 @@ UseReturn useFetch() {
     fetch();
   }
 
+  /// タスク詳細ページへ移動
+  void pushTaskDetail(BuildContext context, int taskId) {
+    final PageTaskDetail page = PageTaskDetail(taskId: taskId);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (c) => page,
+      ),
+    ).then((v) {
+      fetch();
+    });
+  }
+
   useEffect(() {
     fetch();
     return;
@@ -65,5 +85,6 @@ UseReturn useFetch() {
     reflectionGroups: reflectionGroups.value,
     todos: todos.value,
     fetchTodos: fetchTodos,
+    pushTaskDetail: pushTaskDetail,
   );
 }

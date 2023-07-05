@@ -45,6 +45,7 @@ class ButtonCandidate extends StatelessWidget {
       child: BasicText(
         text: text,
         size: "S",
+        isNoSelect: true,
       ),
     );
   }

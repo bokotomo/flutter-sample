@@ -80,6 +80,7 @@ class ButtonRadio extends StatelessWidget {
           BasicText(
             text: text,
             size: "M",
+            isNoSelect: true,
           ),
         ],
       ),

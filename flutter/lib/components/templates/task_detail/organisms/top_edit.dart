@@ -72,7 +72,7 @@ class TaskDetailTopEdit extends HookWidget {
     final String countText = "回数: $count回";
     final String detailTitle = isGood ? "良かった点を伸ばす方法" : "対策方法";
     final String detailHintText =
-        isGood ? "良かった点を伸ばす方法を書きましょう。(500文字以内)" : "対策方法を書きましょう。(500文字以内)";
+        isGood ? "良かった点を伸ばす方法を書きましょう。(300文字以内)" : "対策方法を書きましょう。(300文字以内)";
 
     final InputText titleForm = InputText(
       text: titleController,
@@ -84,7 +84,7 @@ class TaskDetailTopEdit extends HookWidget {
       text: detailController,
       hintText: detailHintText,
       focusNode: detailFocusNode,
-      maxLength: 500,
+      maxLength: 300,
     );
 
     return Column(

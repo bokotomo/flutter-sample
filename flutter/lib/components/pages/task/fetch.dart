@@ -24,6 +24,8 @@ class UseReturn {
 
   /// 振り返りグループ一覧
   final List<DomainReflectionGroup> reflectionGroups;
+
+  /// タスク詳細へ飛ぶ
   final void Function(BuildContext, int) pushTaskDetail;
 }
 

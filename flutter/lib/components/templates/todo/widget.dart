@@ -17,6 +17,7 @@ class TemplateTodo extends HookWidget {
     required this.reflectionGroups,
     required this.todos,
     required this.fetchTodos,
+    required this.pushTaskDetail,
   });
 
   /// 言語
@@ -31,6 +32,9 @@ class TemplateTodo extends HookWidget {
   /// やることを取得
   final Future<void> Function() fetchTodos;
 
+  /// タスク詳細へ飛ぶ
+  final void Function(BuildContext context, int taskId) pushTaskDetail;
+
   @override
   Widget build(BuildContext context) {
     final hooks = useHooks(reflectionGroups, fetchTodos);
@@ -41,6 +45,7 @@ class TemplateTodo extends HookWidget {
       reflectionGroups,
       hooks.onChangeReflectionGroup,
       hooks.onClickRemove,
+      pushTaskDetail,
     );
   }
 }
