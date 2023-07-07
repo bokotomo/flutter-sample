@@ -2,8 +2,9 @@ import 'package:sqflite/sqflite.dart'
     show Database, getDatabasesPath, openDatabase;
 import 'package:path/path.dart' show join;
 import 'package:gamer_reflection/storage/rdb/repository/table.dart'
-    show TableSetUp;
-
+    show TableSetUp, TableOpenSetUp;
+import 'package:gamer_reflection/storage/rdb/repository/migration.dart'
+    show TableMigration;
 import 'package:gamer_reflection/storage/rdb/repository/debug.dart'
     show TableDebug;
 
@@ -28,6 +29,14 @@ Future<Database> initDatabase() async {
     version: version,
     onCreate: (Database db, int version) async {
       await TableSetUp().createTables(db);
+    },
+    onOpen: (Database db) async {
+      await TableOpenSetUp().setUpTable(db);
+    },
+    onUpgrade: (Database db, int oldVersion, int newVersion) async {
+      for (int i = oldVersion; i < newVersion; i++) {
+        await TableMigration().migrate(db, i);
+      }
     },
   );
 

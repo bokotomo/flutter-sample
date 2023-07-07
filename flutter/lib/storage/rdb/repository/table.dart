@@ -1,15 +1,24 @@
 import 'package:sqflite/sqflite.dart' show Database;
 
 /// DB: テーブルのセットアップ
+class TableOpenSetUp {
+  /// 開いたときに実行する
+  Future<void> setUpTable(Database db) async {
+    print("---- Open Setup Table ----");
+
+    // 外部キー有効化
+    // デフォルトで無効化されるのでコネクションを開くたびにやる
+    await db.execute("PRAGMA foreign_keys=true");
+  }
+}
+
+/// DB: テーブルのセットアップ
 class TableSetUp {
   /// テーブルの作成
   /// TODO: 後でマイグレーションファイルに合わせるので一時的
   Future<void> createTables(Database db) async {
     try {
       print("---- Setup Table ----");
-
-      // 外部キー有効化
-      await db.execute("PRAGMA foreign_keys=true");
 
       // 振り返りグループ
       await db.execute('''
