@@ -13,6 +13,8 @@ import 'package:flutter/material.dart'
         EdgeInsets,
         Row,
         Container;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/button.dart'
@@ -31,12 +33,16 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class ButtonCandidate extends StatelessWidget {
   const ButtonCandidate({
     super.key,
+    required this.i18n,
     required this.text,
     required this.isThin,
     required this.count,
     required this.onClickRemove,
     required this.isSavePage,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// 文字
   final String text;
@@ -69,7 +75,7 @@ class ButtonCandidate extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
-            text: "+$count回",
+            text: i18n.reflectionAddedListPageCountValue(count),
             colorType: TagTextColor.blue,
           ),
           SpacerWidth.m,

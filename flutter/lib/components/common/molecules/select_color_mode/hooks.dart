@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart' show AsyncSnapshot, ValueNotifier;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState;
 import 'package:gamer_reflection/components/common/atoms/input/select.dart'
     show SelectItem;
@@ -20,7 +22,7 @@ class UseReturn {
 }
 
 ///
-UseReturn useHooks() {
+UseReturn useHooks(AppLocalizations i18n) {
   /// 選択している期間
   final Future<String?> memoedColorMode =
       useMemoized(() => selectColorMode.get());
@@ -35,9 +37,9 @@ UseReturn useHooks() {
   }
 
   /// カラーモード
-  const List<SelectItem> colors = [
-    SelectItem(text: 'ダーク', value: 'dark'), // TODO: 言語
-    SelectItem(text: 'ライト', value: 'light'),
+  final List<SelectItem> colors = [
+    SelectItem(text: i18n.commonSelectColorModeDark, value: 'dark'),
+    SelectItem(text: i18n.commonSelectColorModeLight, value: 'light'),
   ];
 
   useEffect(() {

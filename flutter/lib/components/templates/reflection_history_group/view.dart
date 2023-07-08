@@ -25,8 +25,8 @@ Widget view(
     children: [
       if (historyGroups.isEmpty) ...{
         SpacerHeight.m,
-        const TextAnnotation(
-          text: "振り返り履歴がありません。", // TODO: 言語
+        TextAnnotation(
+          text: i18n.reflectionHistoryGroupPageNoList,
           size: "M",
           textAlign: TextAlign.center,
         ),
@@ -44,8 +44,8 @@ Widget view(
       },
       if (historyGroups.isNotEmpty) ...{
         SpacerHeight.m,
-        const TextAnnotation(
-          text: "保存されるのは10件までです。",
+        TextAnnotation(
+          text: i18n.reflectionHistoryGroupPageAnnotation,
           size: "S",
           textAlign: TextAlign.center,
         ),
@@ -54,7 +54,8 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "$title 履歴",
+    i18n: i18n,
+    title: i18n.reflectionHistoryGroupPageTitle(title),
     isBackGround: false,
     child: cloumn,
   );

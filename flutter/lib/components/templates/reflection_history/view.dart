@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart' show Widget, BuildContext, ListView;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/reflection_history/molecules/button_history.dart'
     show ButtonHistory;
@@ -7,6 +9,7 @@ import 'package:gamer_reflection/domain/reflection_history/reflection_history.da
 
 /// View: 振り返り履歴グループ詳細
 Widget view(
+  AppLocalizations i18n,
   BuildContext context,
   String title,
   List<DomainReflectionHistory> historys,
@@ -15,6 +18,7 @@ Widget view(
     children: [
       for (int i = 0; i < historys.length; i++) ...{
         ButtonHistory(
+          i18n: i18n,
           text: historys[i].text,
           count: historys[i].count,
           isThin: i % 2 == 0,
@@ -24,6 +28,7 @@ Widget view(
   );
 
   return BaseLayout(
+    i18n: i18n,
     title: title,
     isBackGround: false,
     child: cloumn,

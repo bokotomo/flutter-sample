@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/base.dart'
@@ -17,12 +19,15 @@ import 'package:gamer_reflection/modules/type/tag_text_color.dart'
 class ButtonSolution extends StatelessWidget {
   const ButtonSolution({
     super.key,
+    required this.i18n,
     required this.text,
     required this.isThin,
     required this.count,
     required this.tagTextColor,
     this.onPressed,
   });
+
+  final AppLocalizations i18n;
 
   /// 文字
   final String text;
@@ -62,7 +67,7 @@ class ButtonSolution extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
-            text: "$count回",
+            text: i18n.solutionPageCountValue(count),
             colorType: tagTextColor,
           ),
           SpacerWidth.m,

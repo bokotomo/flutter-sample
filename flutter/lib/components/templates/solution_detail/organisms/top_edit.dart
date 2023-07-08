@@ -75,14 +75,17 @@ class SolutionDetailTopEdit extends HookWidget {
   Widget build(BuildContext context) {
     final bool isGood = reflection?.reflectionType == ReflectionType.good;
     final int count = reflection?.count ?? 0;
-    final String countText = "回数: $count回"; // TODO: 言語
-    final String detailTitle = isGood ? "良かった点を伸ばす方法" : "対策方法";
-    final String detailHintText =
-        isGood ? "良かった点を伸ばす方法を書きましょう。(300文字以内)" : "対策方法を書きましょう。(300文字以内)";
+    final String countText = i18n.solutionDetailPageTopEditCountValue(count);
+    final String detailTitle = isGood
+        ? i18n.solutionDetailPageTopEditDetailGood
+        : i18n.solutionDetailPageTopEditDetailBad;
+    final String detailHintText = isGood
+        ? i18n.solutionDetailPageTopEditDetailHintGood
+        : i18n.solutionDetailPageTopEditDetailHintBad;
 
     final InputText titleForm = InputText(
       text: titleController,
-      hintText: "振り返り名(30文字以内)",
+      hintText: i18n.solutionDetailPageTopEditTitleHint,
       focusNode: titleFocusNode,
       maxLength: 30,
     );
@@ -104,6 +107,7 @@ class SolutionDetailTopEdit extends HookWidget {
         ),
         SpacerHeight.m,
         RadioGoodBadButton(
+          i18n: i18n,
           groupValue: groupValue,
           onChangedGood: onChangedGood,
           onChangedBad: onChangedBad,

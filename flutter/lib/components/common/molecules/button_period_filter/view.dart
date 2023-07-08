@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show Widget, ButtonBar, MainAxisAlignment;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/button/period.dart'
     show ButtonPeriod;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
@@ -9,6 +11,7 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
 
 ///
 Widget view(
+  AppLocalizations i18n,
   Period period,
   void Function() onPressedAll,
   void Function() onPressedThreeMonth,
@@ -18,19 +21,19 @@ Widget view(
     alignment: MainAxisAlignment.center,
     children: [
       ButtonPeriod(
-        text: "全期間", // TODO: 言語
+        text: i18n.commonButtonPeriodFilterAll,
         isActive: period == Period.all,
         onPressed: onPressedAll,
       ),
       SpacerWidth.s,
       ButtonPeriod(
-        text: "3ヶ月",
+        text: i18n.commonButtonPeriodFilterThreeMonth,
         isActive: period == Period.threeMonth,
         onPressed: onPressedThreeMonth,
       ),
       SpacerWidth.s,
       ButtonPeriod(
-        text: "1ヶ月",
+        text: i18n.commonButtonPeriodFilteroOneMonth,
         isActive: period == Period.oneMonth,
         onPressed: onPressedMonth,
       ),

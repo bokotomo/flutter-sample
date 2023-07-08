@@ -44,7 +44,7 @@ class TemplateReflectionAdd extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(
+    final h = useHooks(
       i18n,
       context,
       reflections,
@@ -58,18 +58,18 @@ class TemplateReflectionAdd extends HookWidget {
       context,
       reflections,
       title,
-      hooks.badgeNumForListener,
-      hooks.textFieldFocusNode,
-      hooks.formKey,
-      hooks.textReflection,
-      hooks.onPressedAddReflection,
-      hooks.onPressedAddCandidate,
-      hooks.onPressedReflectionDone,
-      hooks.onPressedRemoveText,
-      hooks.onChangeTextReflection,
-      hooks.onClickRightMenu,
-      hooks.candidatesForListener,
-      hooks.onWillPop,
+      h.badgeNumForListener,
+      h.textFieldFocusNode,
+      h.formKey,
+      h.textReflection,
+      h.onPressedAddReflection,
+      h.onPressedAddCandidate,
+      h.onPressedReflectionDone,
+      h.onPressedRemoveText,
+      h.onChangeTextReflection,
+      h.onClickRightMenu,
+      h.candidatesForListener,
+      h.onWillPop,
     );
   }
 }

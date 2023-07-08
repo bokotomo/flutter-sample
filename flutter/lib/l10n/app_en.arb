@@ -1,29 +1,99 @@
 {
   "@@locale": "en",
 
+
   "addReflectionNameTitle": "Let's decide the reflection name!",
   "addReflectionNameSubTitle": "It is used to look back\nat each character/weapon.",
   "addReflectionNameFormTitle": "Reflection name",
   "addReflectionNameFormAnnotation": "*You can change it later.",
-  "addReflectionNameFormPlaceHolder": "game name + character name",
+  "addReflectionNameFormPlaceHolder": "Game name + Character name",
   "addReflectionNameFormButton": "Register",
   "addReflectionNameLanguageTitle": "Change language",
 
+
+  "solutionPageTitle": "Solution",
+  "solutionPageCountValue": "{count} times",
+  "solutionPageNoList": "There is no reflection. \n Let's add it from [reflection]",
+  "solutionPageButtonGood": "to improve",
+  "solutionPageButtonBad": "to grow",
+
+
+  "solutionDetailPageTitle": "Reflection details",
+  "solutionDetailPageButtonEdit": "To edit",
+  "solutionDetailPageButtonRemoveTodo": "Remove from todo",
+  "solutionDetailPageButtonAddTodo": "Add to todo",
+  "solutionDetailPageButtonDone": "Finish editing",
+  "solutionDetailPageButtonCancel": "Cancel",
+  "solutionDetailPageModalCheckTitle": "Are you sure you want to finish?",
+  "solutionDetailPageModalCheckAnnotation": "* Deleted and cannot be restored.",
+  "solutionDetailPageModalCheckButtonDone": "Done",
+  "solutionDetailPageModalCheckButtonCancel": "Cancel",
+  "solutionDetailPageHooksAlertAddGood": "You need to write [how to grow] to add.",
+  "solutionDetailPageHooksAlertAddBad": "You need to write [how to improve] to add.",
+  "solutionDetailPageHooksAlertRemoveTodo": "Removed from todo.",
+  "solutionDetailPageHooksAlertAddTodo": "Added from todo.",
+  "solutionDetailPageTopTypeGood": "Type: good points",
+  "solutionDetailPageTopTypeBad": "Type: Bad points",
+  "solutionDetailPageTopCountValue": "{count} times",
+  "solutionDetailPageTopDetailGood": "How to improve your good points",
+  "solutionDetailPageTopDetailBad": "Countermeasure",
+  "solutionDetailPageTopUpdateAt": "Last Occurrence Date: {updateAtText}",
+  "solutionDetailPageTopNoData": "Not added yet",
+  "solutionDetailPageTopEditCountValue": "Times: {count} times",
+  "solutionDetailPageTopEditDetailGood": "How to improve your good points",
+  "solutionDetailPageTopEditDetailBad": "Countermeasure",
+  "solutionDetailPageTopEditDetailHintGood": "Write down how you can improve your strengths. (within 300 characters)",
+  "solutionDetailPageTopEditDetailHintBad": "Write a countermeasure. (within 300 characters)",
+  "solutionDetailPageTopEditTitleHint": "Reflection name (within 30 characters)",
+
+
   "reflectionPageTitle": "Add reflection",
-  "reflectionPageHowToTitle": "how to reflection",
+  "reflectionPageHowToTitle": "How to reflection",
   "reflectionPageHowToDetail": "1. Watch the replay\n\n2. Write good and bad\n\n3. Add the same reflection from the suggestions",
-  "reflectionPageButtonStart": "start reflection",
+  "reflectionPageButtonStart": "Start reflection",
+
+
+  "reflectionAddPageModalAddType": "Classification of reflection",
+  "reflectionAddPageModalAddCountTitle": "Number of times it happened",
+  "reflectionAddPageModalAddCountValue": "{count} times",
+  "reflectionAddPageModalAddButton": "Add",
+  "reflectionAddPageModalAddButtonCancel": "Cancel",
+  "reflectionAddPageModalConfirmTitle": "I have an added review. \nAre you sure you want to go back?",
+  "reflectionAddPageModalConfirmBack": "Return without saving",
+  "reflectionAddPageModalConfirmCancel": "Cancel",
+  "reflectionAddPageBottomDone": "complete reflection",
+  "reflectionAddPageBottomHint": "write a review",
+  "reflectionAddPageBottomButtonAdd": "Add",
+  "reflectionAddPageCandidateNoList": "No Candidates Found",
+  "reflectionAddPageCandidateFirstText": "Watch the replay and\nwrite what went wrong!\nOr add it right after the match.",
+  "reflectionAddPageDoneAlert": "You haven't added any reflections.",
+
+
+  "reflectionAddedListPageTitle": "Added reflection list",
+  "reflectionAddedListPageButtonSave": "Save",
+  "reflectionAddedListPageDoneAlert": "Added reflection.",
+  "reflectionAddedListPageCountValue": "+{count} times",
+
+
+  "reflectionHistoryPageCountValue": "+{count} times",
+
+
+  "reflectionHistoryGroupPageTitle": "{title} History",
+  "reflectionHistoryGroupPageNoList": "There is no reflection history.",
+  "reflectionHistoryGroupPageAnnotation": "Up to 10 items can be saved.",
+
 
   "todoPageTitle": "Todo list",
   "todoPageNoData": "No to-dos have been added. \nLet's add from the solution!",
 
+
   "accountPageTitle": "Account setting",
   "accountPageCurrentReflectionName": "Selected reflection name",
   "accountPageChangeReflectionName": "Change reflection name",
-  "accountPageChangeReflectionNamePlaceHolder": "game name + character name",
+  "accountPageChangeReflectionNamePlaceHolder": "Game name + Character name",
   "accountPageChangeReflectionNameButton": "Change",
   "accountPageAddReflection": "Create a new reflection",
-  "accountPageAddReflectionPlaceHolder": "game name + character name",
+  "accountPageAddReflectionPlaceHolder": "Game name + Character name",
   "accountPageAddReflectionButton": "Create new",
   "accountPageChangeColorMode": "Change color mode",
   "accountPageChangeLanguage": "Change language",
@@ -45,8 +115,37 @@
   "accountPageHooksDeleteLastGroup": "The last one cannot be deleted.",
   "accountPageHooksDoneDelete": "Removed {name}.",
 
+
   "footerSolution": "Solution",
   "footerReflection": "Reflect",
   "footerTodo": "Todo",
-  "footerAccount": "Account"
+  "footerAccount": "Account",
+
+
+  "headerMenuRightDone": "Done",
+  "headerMenuRightHistory": "History",
+
+
+  "commonButtonPeriodFilterAll": "All",
+  "commonButtonPeriodFilterThreeMonth": "3 month",
+  "commonButtonPeriodFilteroOneMonth": "1 month",
+
+
+  "commonSelectColorModeDark": "Dark",
+  "commonSelectColorModeLight": "Light",
+
+
+  "commonRadioGoodBadButtonGood": "Good",
+  "commonRadioGoodBadButtonBad": "Bad",
+
+
+  "commonRankBronze": "Bronze",
+  "commonRankSilver": "Silver",
+  "commonRankGold": "Gold",
+  "commonRankPlatinum3": "Platinum3",
+  "commonRankPlatinum2": "Platinum2",
+  "commonRankPlatinum1": "Platinum1",
+  "commonRankDiamond3": "Diamond3",
+  "commonRankDiamond2": "Diamond2",
+  "commonRankDiamond1": "Diamond1"
 }

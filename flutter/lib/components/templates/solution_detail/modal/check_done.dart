@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show BuildContext, showDialog, Navigator, StatefulBuilder;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
@@ -15,6 +17,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
 
 ///
 void showModal(
+  AppLocalizations i18n,
   BuildContext context,
   void Function() onPressedDone,
 ) {
@@ -24,15 +27,15 @@ void showModal(
     builder: (BuildContext contextBuilder) {
       return StatefulBuilder(
         builder: (BuildContext contextStatefulBuilder, _) => ModalBase(
-          title: "完了しますか？", // TODO: 言語
+          title: i18n.solutionDetailPageModalCheckTitle,
           children: [
-            const TextAnnotation(
-              text: "※削除され、復元はできません。",
+            TextAnnotation(
+              text: i18n.solutionDetailPageModalCheckAnnotation,
               size: "M",
             ),
             SpacerHeight.m,
             ButtonDone(
-              text: "完了する",
+              text: i18n.solutionDetailPageModalCheckButtonDone,
               onPressed: () => {
                 onPressedDone(),
                 Navigator.pop(contextStatefulBuilder),
@@ -41,7 +44,7 @@ void showModal(
             ),
             SpacerHeight.m,
             ButtonCancel(
-              text: "キャンセル",
+              text: i18n.solutionDetailPageModalCheckButtonCancel,
               onPressed: () => {
                 Navigator.pop(contextStatefulBuilder),
               },

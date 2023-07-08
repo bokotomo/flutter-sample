@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;
@@ -26,6 +28,7 @@ class UseReturn {
 
 /// ロジック: 振り返り追加ページ
 UseReturn useHooks(
+  AppLocalizations i18n,
   BuildContext context,
   List<DomainReflectionAdded> reflections,
   int groupId,
@@ -67,7 +70,7 @@ UseReturn useHooks(
     // 経験値加算をDBに保存する
     RequestGame().updateAddExp(exp);
 
-    toast.showNotification("振り返りを追加しました。", 2500); // TODO: 言語
+    toast.showNotification(i18n.reflectionAddedListPageDoneAlert, 2500);
 
     // 二つ前のページへ戻る
     Navigator.of(context)

@@ -28,10 +28,10 @@ void showModalConfirmBack(
           void Function(void Function()) setState,
         ) =>
             ModalBase(
-          title: "追加した振り返りがあります。\n戻ってもよろしいですか？", // TODO: 言語
+          title: i18n.reflectionAddPageModalConfirmTitle,
           children: [
             ButtonBasic(
-              text: "保存せずに戻る",
+              text: i18n.reflectionAddPageModalConfirmBack,
               onPressed: () => {
                 Navigator.pop(contextStatefulBuilder),
                 Navigator.pop(context),
@@ -39,7 +39,7 @@ void showModalConfirmBack(
             ),
             SpacerHeight.m,
             ButtonCancel(
-              text: "キャンセル",
+              text: i18n.reflectionAddPageModalConfirmCancel,
               onPressed: () => {
                 Navigator.pop(contextStatefulBuilder),
               },

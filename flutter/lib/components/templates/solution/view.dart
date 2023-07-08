@@ -40,6 +40,7 @@ Widget view(
   void Function(String?) onChangeReflectionGroup,
 ) {
   final list = SolutionList(
+    i18n: i18n,
     reflections: filteredReflections,
     onPressed: (int index) => pushSolutionDetail(
       context,
@@ -71,6 +72,7 @@ Widget view(
 
       /// 期間選択ボタン
       ButtonPeriodFilter(
+        i18n: i18n,
         period: period,
         onPressedAll: () => onPressedAll(),
         onPressedThreeMonth: () => onPressedThreeMonth(),
@@ -88,6 +90,7 @@ Widget view(
     children: <Widget>[
       Expanded(child: body),
       BottomButtons(
+        i18n: i18n,
         isSelectedGood: isSelectedGood,
         onPressedBad: () => onPressedBad(),
         onPressedGood: () => onPressedGood(),
@@ -96,7 +99,8 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "解決案", // TODO: 言語
+    i18n: i18n,
+    title: i18n.solutionPageTitle,
     isBackGround: true,
     child: content,
   );

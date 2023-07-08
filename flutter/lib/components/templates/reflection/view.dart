@@ -99,6 +99,7 @@ Widget view(
   );
 
   return BaseLayoutPadding(
+    i18n: i18n,
     title: i18n.reflectionPageTitle,
     isBackGround: true,
     onClickHistory: () => onPressedHistory(context),

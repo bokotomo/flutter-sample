@@ -127,6 +127,7 @@ Widget view(
   );
 
   return BaseLayoutPadding(
+    i18n: i18n,
     title: "Ref",
     isBackGround: true,
     child: content,

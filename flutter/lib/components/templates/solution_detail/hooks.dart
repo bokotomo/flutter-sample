@@ -107,6 +107,7 @@ UseReturn useHooks(
   /// タスク完了ボタンを押した
   void onPressedDone(BuildContext context) async {
     showModal(
+      i18n,
       context,
       () async => await RequestReflection().deleteReflection(reflectionId),
     );
@@ -148,17 +149,19 @@ UseReturn useHooks(
       // 詳細が空の場合
       if (detailController.value.text.isEmpty) {
         final bool isGood = reflection!.reflectionType == ReflectionType.good;
-        final String text =
-            isGood ? "追加するには「伸ばす方法」を書く必要があります。" : "追加するには「対策方法」を書く必要があります。";
-        toast.showAlert(text, 2500); // TODO: 言語
+        final String text = isGood
+            ? i18n.solutionDetailPageHooksAlertAddGood
+            : i18n.solutionDetailPageHooksAlertAddBad;
+        toast.showAlert(text, 2500);
         return;
       }
       // なければ新規追加
       await RequestTodo().insertTodo(reflectionId);
     }
 
-    final String textNotificatoin =
-        todoExist.value ? "やることから外しました。" : "やることに追加しました。";
+    final String textNotificatoin = todoExist.value
+        ? i18n.solutionDetailPageHooksAlertRemoveTodo
+        : i18n.solutionDetailPageHooksAlertAddTodo;
     toast.showNotification(textNotificatoin, 2500);
 
     todoExist.value = !todoExist.value;

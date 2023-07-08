@@ -42,7 +42,7 @@ UseReturn useFetch(AppLocalizations i18n) {
         await FetchReflectionPage().fetchReflectionGroups();
     reflectionGroups.value = r;
 
-    final DomainReflectionGame g = await FetchReflectionPage().fetchGame();
+    final DomainReflectionGame g = await FetchReflectionPage().fetchGame(i18n);
     game.value = g;
   }
 

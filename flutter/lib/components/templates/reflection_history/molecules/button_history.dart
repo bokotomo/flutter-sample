@@ -9,6 +9,8 @@ import 'package:flutter/material.dart'
         EdgeInsets,
         Row,
         Container;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/button.dart'
@@ -27,10 +29,14 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class ButtonHistory extends StatelessWidget {
   const ButtonHistory({
     super.key,
+    required this.i18n,
     required this.text,
     required this.isThin,
     required this.count,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// 文字
   final String text;
@@ -57,7 +63,7 @@ class ButtonHistory extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
-            text: "+$count回",
+            text: i18n.reflectionHistoryPageCountValue(count),
             colorType: TagTextColor.blue,
           ),
           SpacerWidth.m,

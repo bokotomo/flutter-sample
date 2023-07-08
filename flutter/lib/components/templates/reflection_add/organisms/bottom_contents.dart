@@ -49,7 +49,7 @@ Widget view(
           horizontal: ConstantSizeUI.l2,
         ),
         child: ButtonDone(
-          text: '振り返りを完了する', // TODO: 言語
+          text: i18n.reflectionAddPageBottomDone,
           onPressed: () => onPressedReflectionDone(context),
         ),
       ),
@@ -63,7 +63,7 @@ Widget view(
               child: InputText(
                 autofocus: false,
                 text: textReflection,
-                hintText: '振り返りを書く',
+                hintText: i18n.reflectionAddPageBottomHint,
                 focusNode: textFieldFocusNode,
                 maxLength: 30,
                 onChanged: onChangeTextReflection,
@@ -74,7 +74,7 @@ Widget view(
             SizedBox(
               width: 80,
               child: ButtonBasic(
-                text: '追加',
+                text: i18n.reflectionAddPageBottomButtonAdd,
                 onPressed: () => onPressedAddReflection(context),
               ),
             ),

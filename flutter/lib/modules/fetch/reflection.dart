@@ -1,5 +1,7 @@
 import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/reflection/game.dart'
@@ -29,9 +31,9 @@ class FetchReflectionPage {
   }
 
   /// 取得: ゲーミフィケーション情報
-  Future<DomainReflectionGame> fetchGame() async {
+  Future<DomainReflectionGame> fetchGame(AppLocalizations i18n) async {
     final Database db = GetIt.I<DBConnection>().db;
     final model = await repositoryGame.getGame(db);
-    return AdapterReflection().domainGame(model);
+    return AdapterReflection().domainGame(model, i18n);
   }
 }

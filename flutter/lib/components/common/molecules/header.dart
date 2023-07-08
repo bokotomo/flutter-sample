@@ -15,6 +15,8 @@ import 'package:flutter/material.dart'
         SizedBox,
         Padding,
         EdgeInsets;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show HookWidget, useEffect, useState;
@@ -32,12 +34,16 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class Header extends HookWidget implements PreferredSizeWidget {
   const Header({
     super.key,
+    required this.i18n,
     required this.title,
     this.onClickRightMenu,
     this.onClickDoneButton,
     this.onClickHistory,
     this.badgeNumForListener,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// ヘッダータイトル
   final String title;
@@ -80,6 +86,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
     /// 右上のアイコンを追加
     /// todo: リファクタ
     List<Widget> getActions() {
+      // 完了
       if (onClickDoneButton != null) {
         return [
           Padding(
@@ -91,13 +98,14 @@ class Header extends HookWidget implements PreferredSizeWidget {
             child: SizedBox(
               width: 80,
               child: ButtonDoneMenu(
-                text: "完了", // TODO: 言語
+                text: i18n.headerMenuRightDone,
                 onPressed: onClickDoneButton,
               ),
             ),
           ),
         ];
       }
+      // 履歴
       if (onClickHistory != null) {
         return [
           Padding(
@@ -107,9 +115,9 @@ class Header extends HookWidget implements PreferredSizeWidget {
               right: ConstantSizeUI.l2,
             ),
             child: SizedBox(
-              width: 80,
+              width: 96,
               child: ButtonBasic(
-                text: "履歴",
+                text: i18n.headerMenuRightHistory,
                 onPressed: onClickHistory,
                 isThin: true,
               ),

@@ -71,6 +71,7 @@ Widget view(
   );
 
   return BaseLayout(
+    i18n: i18n,
     title: title,
     isBackGround: false,
     onTap: () => textFieldFocusNode.unfocus(),

@@ -14,24 +14,25 @@ class SolutionNoDataAnnotation extends StatelessWidget {
     super.key,
     required this.i18n,
   });
+
   final AppLocalizations i18n;
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SpacerHeight.xl,
-          Icon(
+          const Icon(
             Icons.info,
             color: ConstantColor.textOpacity,
             size: 56,
           ),
           SpacerHeight.m,
           TextAnnotation(
-            text: '振り返りがありません。\n「振り返る」から追加しましょう!', // TODO: 言語
+            text: i18n.solutionPageNoList,
             size: "M",
             textAlign: TextAlign.center,
           ),

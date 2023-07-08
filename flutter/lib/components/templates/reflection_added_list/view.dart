@@ -35,6 +35,7 @@ Widget view(
               color: ConstantColorButton.taskListBorder,
             ),
             ButtonCandidate(
+              i18n: i18n,
               text: reflections[i].text,
               isThin: i % 2 == 0,
               count: reflections[i].count,
@@ -60,7 +61,7 @@ Widget view(
           vertical: ConstantSizeUI.l3,
         ),
         child: ButtonDone(
-          text: '保存する', // TODO: 言語
+          text: i18n.reflectionAddedListPageButtonSave,
           onPressed: () => onPressedReflectionDone(context),
         ),
       ),
@@ -68,7 +69,8 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "追加した振り返り",
+    i18n: i18n,
+    title: i18n.reflectionAddedListPageTitle,
     isBackGround: false,
     child: isSavePage ? content : column,
     onWillPop: () => onWillPop(context),

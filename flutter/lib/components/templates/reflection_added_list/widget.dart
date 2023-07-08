@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show Widget, BuildContext;
-import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
+import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/templates/reflection_added_list/hooks.dart'
     show useHooks;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
@@ -33,7 +33,12 @@ class TemplateReflectionAddedList extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks(context, reflections, groupId);
+    final h = useHooks(
+      i18n,
+      context,
+      reflections,
+      groupId,
+    );
 
     return view(
       i18n,

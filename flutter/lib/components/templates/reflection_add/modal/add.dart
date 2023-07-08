@@ -35,12 +35,13 @@ Widget reflectionTypeButton(
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const BasicText(
-        text: "振り返りの分類", // TODO: 言語
+      BasicText(
+        text: i18n.reflectionAddPageModalAddType,
         size: "M",
       ),
       SpacerHeight.s,
       RadioGoodBadButton(
+        i18n: i18n,
         groupValue: groupValue,
         onChangedGood: onChangedGood,
         onChangedBad: onChangedBad,
@@ -57,13 +58,13 @@ Widget reflectionCount(
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      const BasicText(
-        text: "発生した回数",
+      BasicText(
+        text: i18n.reflectionAddPageModalAddCountTitle,
         size: "M",
       ),
       SpacerHeight.s,
       BasicText(
-        text: "$count回",
+        text: i18n.reflectionAddPageModalAddCountValue(count),
         size: "M",
       ),
     ],
@@ -118,12 +119,12 @@ void showAddModal(
             SpacerHeight.m,
             ButtonIcon(
               icon: Icons.add,
-              text: "追加する",
+              text: i18n.reflectionAddPageModalAddButton,
               onPressed: () => onPressedAdd(contextStatefulBuilder),
             ),
             SpacerHeight.m,
             ButtonCancel(
-              text: "キャンセル",
+              text: i18n.reflectionAddPageModalAddButtonCancel,
               onPressed: () => {
                 Navigator.pop(contextStatefulBuilder),
               },

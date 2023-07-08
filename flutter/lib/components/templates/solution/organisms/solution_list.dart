@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/solution/molecules/button_solution.dart'
     show ButtonSolution;
@@ -13,9 +15,11 @@ import 'package:gamer_reflection/domain/solution/reflection.dart'
 class SolutionList extends StatelessWidget {
   const SolutionList({
     super.key,
+    required this.i18n,
     required this.reflections,
     required this.onPressed,
   });
+  final AppLocalizations i18n;
 
   /// 振り返り一覧
   final List<DomainSolutionReflection> reflections;
@@ -30,6 +34,7 @@ class SolutionList extends StatelessWidget {
         for (int i = 0; i < reflections.length; i++) ...{
           const Bar(color: ConstantColorButton.taskListBorder),
           ButtonSolution(
+            i18n: i18n,
             text: reflections[i].text,
             isThin: i % 2 == 0,
             count: reflections[i].count,

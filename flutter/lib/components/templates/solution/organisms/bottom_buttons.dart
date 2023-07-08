@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, Padding, EdgeInsets, Row, Expanded, Container;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
@@ -13,10 +15,14 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class BottomButtons extends HookWidget {
   const BottomButtons({
     super.key,
+    required this.i18n,
     required this.isSelectedGood,
     required this.onPressedBad,
     required this.onPressedGood,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// 伸ばすことを選択
   final bool isSelectedGood;
@@ -38,7 +44,7 @@ class BottomButtons extends HookWidget {
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
-                text: "改善すること", // TODO: 言語
+                text: i18n.solutionPageButtonGood,
                 onPressed: () => onPressedBad(),
                 isActive: !isSelectedGood,
               ),
@@ -46,7 +52,7 @@ class BottomButtons extends HookWidget {
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
-                text: "伸ばすこと",
+                text: i18n.solutionPageButtonBad,
                 onPressed: () => onPressedGood(),
                 isActive: isSelectedGood,
               ),

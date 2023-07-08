@@ -25,6 +25,7 @@ class TemplateReflectionHistory extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return view(
+      i18n,
       context,
       title,
       historys,

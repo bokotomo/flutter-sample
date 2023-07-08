@@ -21,8 +21,8 @@ Widget candidatesNone(
   bool isNotAdd,
 ) {
   final text = isNotAdd
-      ? 'リプレイを見て、\n良かったこと悪かったことを書きましょう!\nまたは、試合の直後に追加しましょう。'
-      : '候補が見つかりません'; // TODO: 言語
+      ? i18n.reflectionAddPageCandidateFirstText
+      : i18n.reflectionAddPageCandidateNoList;
 
   return Column(
     children: [

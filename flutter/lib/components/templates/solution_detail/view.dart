@@ -64,12 +64,14 @@ Widget view(
       SpacerHeight.xm,
       ButtonIcon(
         icon: Icons.edit,
-        text: "編集する", // TODO: 言語
+        text: i18n.solutionDetailPageButtonEdit,
         onPressed: () => toggleEditMode(),
       ),
       SpacerHeight.xm,
       ButtonCancel(
-        text: todoExist ? "やることから外す" : "やることに追加する",
+        text: todoExist
+            ? i18n.solutionDetailPageButtonRemoveTodo
+            : i18n.solutionDetailPageButtonAddTodo,
         onPressed: () async => await onPressedToggleTodo(),
       ),
       SpacerHeight.xm,
@@ -95,12 +97,12 @@ Widget view(
       SpacerHeight.xm,
       ButtonIcon(
         icon: Icons.check_circle,
-        text: "編集を完了",
+        text: i18n.solutionDetailPageButtonDone,
         onPressed: () => onPressedEditDone(),
       ),
       SpacerHeight.xm,
       ButtonCancel(
-        text: "キャンセル",
+        text: i18n.solutionDetailPageButtonCancel,
         onPressed: () => onPressedCancel(),
       ),
       SpacerHeight.xm,
@@ -113,7 +115,8 @@ Widget view(
   );
 
   return BaseLayout(
-    title: "振り返り詳細",
+    i18n: i18n,
+    title: i18n.solutionDetailPageTitle,
     isBackGround: false,
     onClickDoneButton: isEditMode ? null : () => onPressedDone(context),
     onTap: () => {

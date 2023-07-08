@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show StatelessWidget, Widget, BuildContext, Row, Expanded;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/button/radio.dart'
@@ -9,11 +11,15 @@ import 'package:gamer_reflection/components/common/atoms/button/radio.dart'
 class RadioGoodBadButton extends StatelessWidget {
   const RadioGoodBadButton({
     super.key,
+    required this.i18n,
     required this.groupValue,
     this.heightSize,
     required this.onChangedGood,
     required this.onChangedBad,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// 文字
   final String groupValue;
@@ -35,7 +41,7 @@ class RadioGoodBadButton extends StatelessWidget {
           child: ButtonRadio(
             groupValue: groupValue,
             value: "good",
-            text: "良かった", // TODO: 言語
+            text: i18n.commonRadioGoodBadButtonGood,
             minimumSize: heightSize,
             onPressed: (v) => onChangedGood(v),
           ),
@@ -45,7 +51,7 @@ class RadioGoodBadButton extends StatelessWidget {
           child: ButtonRadio(
             groupValue: groupValue,
             value: "bad",
-            text: "悪かった",
+            text: i18n.commonRadioGoodBadButtonBad,
             minimumSize: heightSize,
             onPressed: (v) => onChangedBad(v),
           ),

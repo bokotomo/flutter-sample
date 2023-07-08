@@ -9,13 +9,82 @@
   "addReflectionNameFormButton": "登録する",
   "addReflectionNameLanguageTitle": "言語の変更",
 
+ 
+  "solutionPageTitle": "解決案",
+  "solutionPageCountValue": "{count}回",
+  "solutionPageNoList": "振り返りがありません。\n「振り返る」から追加しましょう!",
+  "solutionPageButtonGood": "改善すること",
+  "solutionPageButtonBad": "伸ばすこと",
+
+
+  "solutionDetailPageTitle": "振り返り詳細",
+  "solutionDetailPageButtonEdit": "編集する",
+  "solutionDetailPageButtonRemoveTodo": "やることから外す",
+  "solutionDetailPageButtonAddTodo": "やることに追加する",
+  "solutionDetailPageButtonDone": "編集を完了",
+  "solutionDetailPageButtonCancel": "キャンセル",
+  "solutionDetailPageModalCheckTitle": "完了しますか？",
+  "solutionDetailPageModalCheckAnnotation": "※削除され、復元はできません。",
+  "solutionDetailPageModalCheckButtonDone": "完了する",
+  "solutionDetailPageModalCheckButtonCancel": "キャンセル",
+  "solutionDetailPageHooksAlertAddGood": "追加するには「伸ばす方法」を書く必要があります。",
+  "solutionDetailPageHooksAlertAddBad": "追加するには「対策方法」を書く必要があります。",
+  "solutionDetailPageHooksAlertRemoveTodo": "やることから外しました。",
+  "solutionDetailPageHooksAlertAddTodo": "やることに追加しました。",
+  "solutionDetailPageTopTypeGood": "種類: 良かった点",
+  "solutionDetailPageTopTypeBad": "種類: 悪かった点",
+  "solutionDetailPageTopCountValue": "回数: {count}回",
+  "solutionDetailPageTopDetailGood": "良かった点を伸ばす方法",
+  "solutionDetailPageTopDetailBad": "対策方法",
+  "solutionDetailPageTopUpdateAt": "最終発生日: {updateAtText}",
+  "solutionDetailPageTopNoData": "まだ追加していません",
+  "solutionDetailPageTopEditCountValue": "回数: {count}回",
+  "solutionDetailPageTopEditDetailGood": "良かった点を伸ばす方法",
+  "solutionDetailPageTopEditDetailBad": "対策方法",
+  "solutionDetailPageTopEditDetailHintGood": "良かった点を伸ばす方法を書きましょう。(300文字以内)",
+  "solutionDetailPageTopEditDetailHintBad": "対策方法を書きましょう。(300文字以内)",
+  "solutionDetailPageTopEditTitleHint": "振り返り名(30文字以内)",
+  
+
   "reflectionPageTitle": "振り返りの追加",
   "reflectionPageHowToTitle": "振り返りのやり方",
   "reflectionPageHowToDetail": "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
   "reflectionPageButtonStart": "振り返りを始める",
 
+
+  "reflectionAddPageModalAddType": "振り返りの分類",
+  "reflectionAddPageModalAddCountTitle": "発生した回数",
+  "reflectionAddPageModalAddCountValue": "{count}回",
+  "reflectionAddPageModalAddButton": "追加する",
+  "reflectionAddPageModalAddButtonCancel": "キャンセル",
+  "reflectionAddPageModalConfirmTitle": "追加した振り返りがあります。\n戻ってもよろしいですか？",
+  "reflectionAddPageModalConfirmBack": "保存せずに戻る",
+  "reflectionAddPageModalConfirmCancel": "キャンセル",
+  "reflectionAddPageBottomDone": "振り返りを完了する",
+  "reflectionAddPageBottomHint": "振り返りを書く",
+  "reflectionAddPageBottomButtonAdd": "追加",
+  "reflectionAddPageCandidateNoList": "候補が見つかりません",
+  "reflectionAddPageCandidateFirstText": "リプレイを見て、\n良かったこと悪かったことを書きましょう!\nまたは、試合の直後に追加しましょう。",
+  "reflectionAddPageDoneAlert": "振り返りを追加していません。",
+
+
+  "reflectionAddedListPageTitle": "追加した振り返り",
+  "reflectionAddedListPageButtonSave": "保存する",
+  "reflectionAddedListPageDoneAlert": "振り返りを追加しました。",
+  "reflectionAddedListPageCountValue": "+{count}回",
+
+
+  "reflectionHistoryPageCountValue": "+{count}回",
+
+
+  "reflectionHistoryGroupPageTitle": "{title} 履歴",
+  "reflectionHistoryGroupPageNoList": "振り返り履歴がありません。",
+  "reflectionHistoryGroupPageAnnotation": "保存されるのは10件までです。",
+
+
   "todoPageTitle": "やることリスト",
   "todoPageNoData": "やることが追加されていません。\n解決案から追加しましょう!",
+
 
   "accountPageTitle": "アカウント設定",
   "accountPageCurrentReflectionName": "選択中の振り返り名",
@@ -45,8 +114,37 @@
   "accountPageHooksDeleteLastGroup": "最後の一つは削除できません。",
   "accountPageHooksDoneDelete": "「{name}」を削除しました。",
  
+
   "footerSolution": "解決案",
   "footerReflection": "振り返る",
   "footerTodo": "やること",
-  "footerAccount": "アカウント"
+  "footerAccount": "アカウント",
+
+
+  "headerMenuRightDone": "完了",
+  "headerMenuRightHistory": "履歴",
+
+
+  "commonButtonPeriodFilterAll": "全期間",
+  "commonButtonPeriodFilterThreeMonth": "3ヶ月",
+  "commonButtonPeriodFilteroOneMonth": "1ヶ月",
+
+
+  "commonSelectColorModeDark": "ダーク",
+  "commonSelectColorModeLight": "ライト",
+
+
+  "commonRadioGoodBadButtonGood": "良かった",
+  "commonRadioGoodBadButtonBad": "悪かった",
+
+
+  "commonRankBronze": "ブロンズ",
+  "commonRankSilver": "シルバー",
+  "commonRankGold": "ゴールド",
+  "commonRankPlatinum3": "プラチナ3",
+  "commonRankPlatinum2": "プラチナ2",
+  "commonRankPlatinum1": "プラチナ1",
+  "commonRankDiamond3": "ダイヤ3",
+  "commonRankDiamond2": "ダイヤ2",
+  "commonRankDiamond1": "ダイヤ1"
 }

@@ -200,7 +200,7 @@ UseReturn useHooks(
   /// 振り返りの完了を押した
   void onPressedReflectionDone(BuildContext c) {
     if (reflectionsForRegister.isEmpty) {
-      toast.showAlert("振り返りを追加していません。", 2500); // TODO: 言語
+      toast.showAlert(i18n.reflectionAddPageDoneAlert, 2500);
       return;
     }
 

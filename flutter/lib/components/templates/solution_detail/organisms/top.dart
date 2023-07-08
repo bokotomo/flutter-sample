@@ -66,12 +66,17 @@ class SolutionDetailTop extends StatelessWidget {
     final bool detailNotExist = reflection?.detail == "";
     final String reflectionText = reflection?.text ?? "";
     final String reflectionDetail = reflection?.detail ?? "";
-    final String countText = "回数: $count回"; // TODO: 言語
-    final String reflectionTypeText = isGood ? "種類: 良かった点" : "種類: 悪かった点";
-    final String detailTitle = isGood ? "良かった点を伸ばす方法" : "対策方法";
+    final String countText = i18n.solutionDetailPageTopCountValue(count);
+    final String reflectionTypeText = isGood
+        ? i18n.solutionDetailPageTopTypeGood
+        : i18n.solutionDetailPageTopTypeBad;
+    final String detailTitle = isGood
+        ? i18n.solutionDetailPageTopDetailGood
+        : i18n.solutionDetailPageTopDetailBad;
     final String updateAtText = DateFormat("yyyy.MM.dd")
         .format(reflection?.updatedAt ?? DateTime.now());
-    final String reflectionUpdateAtText = "最終発生日: $updateAtText";
+    final String reflectionUpdateAtText =
+        i18n.solutionDetailPageTopUpdateAt(updateAtText);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,8 +114,8 @@ class SolutionDetailTop extends StatelessWidget {
         SpacerHeight.m,
         Box(
           child: detailNotExist
-              ? const TextAnnotation(
-                  text: "まだ追加していません",
+              ? TextAnnotation(
+                  text: i18n.solutionDetailPageTopNoData,
                   size: "M",
                 )
               : BasicText(
