@@ -36,6 +36,8 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
     show EditReflectionName;
 import 'package:gamer_reflection/components/templates/account_setting/molecules/button_links.dart'
     show ButtonLinks, ButtonLinksParam;
+import 'package:gamer_reflection/modules/const/app_info.dart'
+    show ConstantAppInfo;
 import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 
 /// アカウント設定
@@ -144,7 +146,7 @@ Widget view(
             ),
             SpacerHeight.m,
             const BasicText(
-              text: 'Version 1.0.0',
+              text: 'Version ${ConstantAppInfo.version}',
               size: "M",
             ),
           ],

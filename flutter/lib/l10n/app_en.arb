@@ -2,20 +2,20 @@
   "@@locale": "en",
 
 
-  "addReflectionNameTitle": "Let's decide the reflection name!",
-  "addReflectionNameSubTitle": "It is used to look back\nat each character/weapon.",
-  "addReflectionNameFormTitle": "Reflection name",
-  "addReflectionNameFormAnnotation": "*You can change it later.",
-  "addReflectionNameFormPlaceHolder": "Game name + Character name",
-  "addReflectionNameFormButton": "Register",
-  "addReflectionNameLanguageTitle": "Change language",
+  "pageAddReflectionNameTitle": "Let's decide the reflection name!",
+  "pageAddReflectionNameSubTitle": "It is used to reflection\nat each character/weapon.",
+  "pageAddReflectionNameFormTitle": "Reflection name",
+  "pageAddReflectionNameFormAnnotation": "*You can change it later.",
+  "pageAddReflectionNameFormPlaceHolder": "Game name + Character name",
+  "pageAddReflectionNameFormButton": "Register",
+  "pageAddReflectionNameLanguageTitle": "Change language",
 
 
-  "solutionPageTitle": "Solution",
-  "solutionPageCountValue": "{count} times",
-  "solutionPageNoList": "There is no reflection. \n Let's add it from [reflection]",
-  "solutionPageButtonGood": "to improve",
-  "solutionPageButtonBad": "to grow",
+  "pageSolutionTitle": "Solution",
+  "pageSolutionCountValue": "{count} times",
+  "pageSolutionNoList": "There is no reflection. \n Let's add it from Reflect",
+  "pageSolutionButtonGood": "to improve",
+  "pageSolutionButtonBad": "to grow",
 
 
   "solutionDetailPageTitle": "Reflection details",
@@ -39,7 +39,7 @@
   "solutionDetailPageTopDetailBad": "Countermeasure",
   "solutionDetailPageTopUpdateAt": "Last Occurrence Date: {updateAtText}",
   "solutionDetailPageTopNoData": "Not added yet",
-  "solutionDetailPageTopEditCountValue": "Times: {count} times",
+  "solutionDetailPageTopEditCountValue": "{count} times",
   "solutionDetailPageTopEditDetailGood": "How to improve your good points",
   "solutionDetailPageTopEditDetailBad": "Countermeasure",
   "solutionDetailPageTopEditDetailHintGood": "Write down how you can improve your strengths. (within 300 characters)",
@@ -47,10 +47,10 @@
   "solutionDetailPageTopEditTitleHint": "Reflection name (within 30 characters)",
 
 
-  "reflectionPageTitle": "Add reflection",
-  "reflectionPageHowToTitle": "How to reflection",
-  "reflectionPageHowToDetail": "1. Watch the replay\n\n2. Write good and bad\n\n3. Add the same reflection from the suggestions",
-  "reflectionPageButtonStart": "Start reflection",
+  "pageReflectionTitle": "Add reflection",
+  "pageReflectionHowToTitle": "How to reflection",
+  "pageReflectionHowToDetail": "1. Watch the replay\n\n2. Write good and bad\n\n3. Add the same reflection from the suggestions",
+  "pageReflectionButtonStart": "Start reflection",
 
 
   "reflectionAddPageModalAddType": "Classification of reflection",
@@ -61,30 +61,30 @@
   "reflectionAddPageModalConfirmTitle": "I have an added review. \nAre you sure you want to go back?",
   "reflectionAddPageModalConfirmBack": "Return without saving",
   "reflectionAddPageModalConfirmCancel": "Cancel",
-  "reflectionAddPageBottomDone": "complete reflection",
-  "reflectionAddPageBottomHint": "write a review",
+  "reflectionAddPageBottomDone": "Complete reflection",
+  "reflectionAddPageBottomHint": "Write a review",
   "reflectionAddPageBottomButtonAdd": "Add",
   "reflectionAddPageCandidateNoList": "No Candidates Found",
   "reflectionAddPageCandidateFirstText": "Watch the replay and\nwrite what went wrong!\nOr add it right after the match.",
   "reflectionAddPageDoneAlert": "You haven't added any reflections.",
 
 
-  "reflectionAddedListPageTitle": "Added reflection list",
-  "reflectionAddedListPageButtonSave": "Save",
-  "reflectionAddedListPageDoneAlert": "Added reflection.",
-  "reflectionAddedListPageCountValue": "+{count} times",
+  "pageReflectionAddedListTitle": "Added reflection list",
+  "pageReflectionAddedListButtonSave": "Save",
+  "pageReflectionAddedListDoneAlert": "Added reflection.",
+  "pageReflectionAddedListCountValue": "+{count} times",
 
 
-  "reflectionHistoryPageCountValue": "+{count} times",
+  "pageReflectionHistoryCountValue": "+{count} times",
 
 
-  "reflectionHistoryGroupPageTitle": "{title} History",
-  "reflectionHistoryGroupPageNoList": "There is no reflection history.",
-  "reflectionHistoryGroupPageAnnotation": "Up to 10 items can be saved.",
+  "pageReflectionHistoryGroupTitle": "{title} History",
+  "pageReflectionHistoryGroupNoList": "There is no reflection history.",
+  "pageReflectionHistoryGroupAnnotation": "Up to 10 items can be saved.",
 
 
-  "todoPageTitle": "Todo list",
-  "todoPageNoData": "No to-dos have been added. \nLet's add from the solution!",
+  "pageTodoTitle": "Todo list",
+  "pageTodoNoData": "No todos have been added. \nLet's add from the Solution.",
 
 
   "accountPageTitle": "Account setting",
@@ -137,6 +137,13 @@
 
   "commonRadioGoodBadButtonGood": "Good",
   "commonRadioGoodBadButtonBad": "Bad",
+
+
+  "commonInputTextValidationEmpty": "*No characters have been entered.",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength} characters or less.",
+  "commonInputTextValidationAllSpace": "*You cannot add all blanks.",
+  "commonInputTextValidationFisrtSpace": "*No space is allowed at the beginning.",
+  "commonInputTextValidationLastSpace": "*No space is allowed at the end.",
 
 
   "commonRankBronze": "Bronze",

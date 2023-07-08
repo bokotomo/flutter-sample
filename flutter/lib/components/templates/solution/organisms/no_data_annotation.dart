@@ -32,7 +32,7 @@ class SolutionNoDataAnnotation extends StatelessWidget {
           ),
           SpacerHeight.m,
           TextAnnotation(
-            text: i18n.solutionPageNoList,
+            text: i18n.pageSolutionNoList,
             size: "M",
             textAlign: TextAlign.center,
           ),

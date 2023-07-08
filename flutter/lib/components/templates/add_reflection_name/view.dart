@@ -54,14 +54,14 @@ Widget view(
       SpacerHeight.xl,
       BasicText(
         size: "M",
-        text: i18n.addReflectionNameTitle,
+        text: i18n.pageAddReflectionNameTitle,
         isBold: true,
         textAlign: TextAlign.center,
       ),
       SpacerHeight.m,
       BasicText(
         size: "M",
-        text: i18n.addReflectionNameSubTitle,
+        text: i18n.pageAddReflectionNameSubTitle,
         textAlign: TextAlign.center,
       ),
       SpacerHeight.l,
@@ -71,23 +71,26 @@ Widget view(
           children: [
             BasicText(
               size: "M",
-              text: i18n.addReflectionNameFormTitle,
+              text: i18n.pageAddReflectionNameFormTitle,
               isBold: true,
             ),
             SpacerHeight.s,
             TextAnnotation(
-                size: "M", text: i18n.addReflectionNameFormAnnotation),
+              size: "M",
+              text: i18n.pageAddReflectionNameFormAnnotation,
+            ),
             SpacerHeight.xm,
             InputText(
+              i18n: i18n,
               text: textReflectionName,
-              hintText: i18n.addReflectionNameFormPlaceHolder,
+              hintText: i18n.pageAddReflectionNameFormPlaceHolder,
               focusNode: textFieldFocusNode,
               maxLength: 20,
             ),
             SpacerHeight.xm,
             ButtonIcon(
               icon: Icons.add,
-              text: i18n.addReflectionNameFormButton,
+              text: i18n.pageAddReflectionNameFormButton,
               onPressed: onPressedRegister,
             ),
           ],
@@ -109,7 +112,7 @@ Widget view(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BasicText(
-            text: i18n.addReflectionNameLanguageTitle,
+            text: i18n.pageAddReflectionNameLanguageTitle,
             size: "M",
           ),
           SpacerHeight.s,

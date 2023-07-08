@@ -70,7 +70,7 @@ UseReturn useHooks(
     // 経験値加算をDBに保存する
     RequestGame().updateAddExp(exp);
 
-    toast.showNotification(i18n.reflectionAddedListPageDoneAlert, 2500);
+    toast.showNotification(i18n.pageReflectionAddedListDoneAlert, 2500);
 
     // 二つ前のページへ戻る
     Navigator.of(context)

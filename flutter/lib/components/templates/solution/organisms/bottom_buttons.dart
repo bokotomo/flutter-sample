@@ -44,7 +44,7 @@ class BottomButtons extends HookWidget {
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
-                text: i18n.solutionPageButtonGood,
+                text: i18n.pageSolutionButtonGood,
                 onPressed: () => onPressedBad(),
                 isActive: !isSelectedGood,
               ),
@@ -52,7 +52,7 @@ class BottomButtons extends HookWidget {
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
-                text: i18n.solutionPageButtonBad,
+                text: i18n.pageSolutionButtonBad,
                 onPressed: () => onPressedGood(),
                 isActive: isSelectedGood,
               ),

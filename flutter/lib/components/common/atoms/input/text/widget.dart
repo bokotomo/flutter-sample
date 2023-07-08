@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 import 'package:gamer_reflection/modules/const/color/input.dart'
@@ -11,6 +13,7 @@ import 'package:gamer_reflection/components/common/atoms/input/text/validate.dar
 class InputText extends StatelessWidget {
   const InputText({
     super.key,
+    required this.i18n,
     required this.hintText,
     required this.text,
     this.autofocus,
@@ -19,6 +22,9 @@ class InputText extends StatelessWidget {
     this.maxLength,
     this.onPressedRemove,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// プレフィックス
   final TextEditingController text;
@@ -43,7 +49,7 @@ class InputText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final v = useValidate(maxLength);
+    final v = useValidate(maxLength, i18n);
 
     /// 変更された
     void onChanged(String? t) {

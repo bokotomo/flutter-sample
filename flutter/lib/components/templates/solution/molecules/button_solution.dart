@@ -67,7 +67,7 @@ class ButtonSolution extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
-            text: i18n.solutionPageCountValue(count),
+            text: i18n.pageSolutionCountValue(count),
             colorType: tagTextColor,
           ),
           SpacerWidth.m,

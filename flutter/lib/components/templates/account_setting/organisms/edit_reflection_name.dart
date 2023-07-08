@@ -44,6 +44,7 @@ Widget view(
           ),
           SpacerHeight.m,
           InputText(
+            i18n: i18n,
             text: textReflectionName,
             hintText: i18n.accountPageChangeReflectionNamePlaceHolder,
             focusNode: textReflectionNameFocusNode,

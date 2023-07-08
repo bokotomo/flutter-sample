@@ -1,5 +1,7 @@
 import 'package:gamer_reflection/modules/validate/text.dart'
     show fisrtSpace, lastSpace, allSpace, maxLengthOver;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 
 class UseReturn {
   const UseReturn({
@@ -10,14 +12,19 @@ class UseReturn {
 }
 
 /// バリデーションを返す
-UseReturn useValidate(int? maxLength) {
+UseReturn useValidate(
+  int? maxLength,
+  AppLocalizations i18n,
+) {
   /// バリデーション
   String? validateForm(String? v) {
-    if (v == null || v.isEmpty) return "※文字が未入力です。";
-    if (maxLengthOver(v, maxLength)) return "※文字数は$maxLength以内です。";
-    if (allSpace(v)) return "※全て空白では追加できません。";
-    if (fisrtSpace(v)) return "※先頭に空白は入れられません。";
-    if (lastSpace(v)) return "※末尾に空白は入れられません。";
+    if (v == null || v.isEmpty) return i18n.commonInputTextValidationEmpty;
+    if (maxLengthOver(v, maxLength)) {
+      return i18n.commonInputTextValidationMaxLengthOver(maxLength!);
+    }
+    if (allSpace(v)) return i18n.commonInputTextValidationAllSpace;
+    if (fisrtSpace(v)) return i18n.commonInputTextValidationFisrtSpace;
+    if (lastSpace(v)) return i18n.commonInputTextValidationLastSpace;
 
     return null;
   }

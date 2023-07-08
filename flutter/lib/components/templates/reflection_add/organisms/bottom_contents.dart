@@ -61,6 +61,7 @@ Widget view(
           children: [
             Expanded(
               child: InputText(
+                i18n: i18n,
                 autofocus: false,
                 text: textReflection,
                 hintText: i18n.reflectionAddPageBottomHint,

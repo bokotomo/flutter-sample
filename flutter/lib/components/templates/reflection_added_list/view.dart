@@ -61,7 +61,7 @@ Widget view(
           vertical: ConstantSizeUI.l3,
         ),
         child: ButtonDone(
-          text: i18n.reflectionAddedListPageButtonSave,
+          text: i18n.pageReflectionAddedListButtonSave,
           onPressed: () => onPressedReflectionDone(context),
         ),
       ),
@@ -70,7 +70,7 @@ Widget view(
 
   return BaseLayout(
     i18n: i18n,
-    title: i18n.reflectionAddedListPageTitle,
+    title: i18n.pageReflectionAddedListTitle,
     isBackGround: false,
     child: isSavePage ? content : column,
     onWillPop: () => onWillPop(context),

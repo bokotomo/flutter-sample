@@ -100,7 +100,7 @@ Widget view(
 
   return BaseLayout(
     i18n: i18n,
-    title: i18n.solutionPageTitle,
+    title: i18n.pageSolutionTitle,
     isBackGround: true,
     child: content,
   );

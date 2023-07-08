@@ -75,7 +75,7 @@ class ButtonCandidate extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
-            text: i18n.reflectionAddedListPageCountValue(count),
+            text: i18n.pageReflectionAddedListCountValue(count),
             colorType: TagTextColor.blue,
           ),
           SpacerWidth.m,

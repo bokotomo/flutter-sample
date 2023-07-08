@@ -33,7 +33,7 @@ class TodoNoDataAnnotation extends StatelessWidget {
           ),
           SpacerHeight.m,
           TextAnnotation(
-            text: i18n.todoPageNoData,
+            text: i18n.pageTodoNoData,
             size: "M",
             textAlign: TextAlign.center,
           ),

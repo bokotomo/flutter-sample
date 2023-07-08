@@ -26,7 +26,7 @@ Widget view(
       if (historyGroups.isEmpty) ...{
         SpacerHeight.m,
         TextAnnotation(
-          text: i18n.reflectionHistoryGroupPageNoList,
+          text: i18n.pageReflectionHistoryGroupNoList,
           size: "M",
           textAlign: TextAlign.center,
         ),
@@ -45,7 +45,7 @@ Widget view(
       if (historyGroups.isNotEmpty) ...{
         SpacerHeight.m,
         TextAnnotation(
-          text: i18n.reflectionHistoryGroupPageAnnotation,
+          text: i18n.pageReflectionHistoryGroupAnnotation,
           size: "S",
           textAlign: TextAlign.center,
         ),
@@ -55,7 +55,7 @@ Widget view(
 
   return BaseLayout(
     i18n: i18n,
-    title: i18n.reflectionHistoryGroupPageTitle(title),
+    title: i18n.pageReflectionHistoryGroupTitle(title),
     isBackGround: false,
     child: cloumn,
   );

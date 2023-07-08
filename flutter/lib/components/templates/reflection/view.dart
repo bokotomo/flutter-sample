@@ -78,13 +78,13 @@ Widget view(
         child: Column(
           children: [
             BasicText(
-              text: i18n.reflectionPageHowToTitle,
+              text: i18n.pageReflectionHowToTitle,
               size: "M",
               isBold: true,
             ),
             SpacerHeight.m,
             BasicText(
-              text: i18n.reflectionPageHowToDetail,
+              text: i18n.pageReflectionHowToDetail,
               size: "M",
             ),
           ],
@@ -92,7 +92,7 @@ Widget view(
       ),
       SpacerHeight.m,
       ButtonBasic(
-        text: i18n.reflectionPageButtonStart,
+        text: i18n.pageReflectionButtonStart,
         onPressed: () => onPressedStart(context),
       ),
     ],
@@ -100,7 +100,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
-    title: i18n.reflectionPageTitle,
+    title: i18n.pageReflectionTitle,
     isBackGround: true,
     onClickHistory: () => onPressedHistory(context),
     child: cloumn,

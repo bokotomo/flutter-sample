@@ -115,7 +115,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
               right: ConstantSizeUI.l2,
             ),
             child: SizedBox(
-              width: 96,
+              width: 88,
               child: ButtonBasic(
                 text: i18n.headerMenuRightHistory,
                 onPressed: onClickHistory,

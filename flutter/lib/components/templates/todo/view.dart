@@ -75,7 +75,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
-    title: i18n.todoPageTitle,
+    title: i18n.pageTodoTitle,
     isBackGround: true,
     child: cloumn,
   );

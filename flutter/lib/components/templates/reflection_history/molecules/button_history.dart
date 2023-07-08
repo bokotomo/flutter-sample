@@ -63,7 +63,7 @@ class ButtonHistory extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
-            text: i18n.reflectionHistoryPageCountValue(count),
+            text: i18n.pageReflectionHistoryCountValue(count),
             colorType: TagTextColor.blue,
           ),
           SpacerWidth.m,

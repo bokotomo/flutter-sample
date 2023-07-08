@@ -84,6 +84,7 @@ class SolutionDetailTopEdit extends HookWidget {
         : i18n.solutionDetailPageTopEditDetailHintBad;
 
     final InputText titleForm = InputText(
+      i18n: i18n,
       text: titleController,
       hintText: i18n.solutionDetailPageTopEditTitleHint,
       focusNode: titleFocusNode,

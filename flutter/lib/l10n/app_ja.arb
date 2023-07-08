@@ -1,20 +1,21 @@
 {
   "@@locale": "ja",
 
-  "addReflectionNameTitle": "振り返り名を決めましょう！",
-  "addReflectionNameSubTitle": "キャラ/武器などでそれぞれ\n振り返るために必要です。",
-  "addReflectionNameFormTitle": "振り返り名",
-  "addReflectionNameFormAnnotation": "※後で変更できます。",
-  "addReflectionNameFormPlaceHolder": "ゲーム名+キャラ名など",
-  "addReflectionNameFormButton": "登録する",
-  "addReflectionNameLanguageTitle": "言語の変更",
+
+  "pageAddReflectionNameTitle": "振り返り名を決めましょう！",
+  "pageAddReflectionNameSubTitle": "キャラ/武器などでそれぞれ\n振り返るために必要です。",
+  "pageAddReflectionNameFormTitle": "振り返り名",
+  "pageAddReflectionNameFormAnnotation": "※後で変更できます。",
+  "pageAddReflectionNameFormPlaceHolder": "ゲーム名+キャラ名など",
+  "pageAddReflectionNameFormButton": "登録する",
+  "pageAddReflectionNameLanguageTitle": "言語の変更",
 
  
-  "solutionPageTitle": "解決案",
-  "solutionPageCountValue": "{count}回",
-  "solutionPageNoList": "振り返りがありません。\n「振り返る」から追加しましょう!",
-  "solutionPageButtonGood": "改善すること",
-  "solutionPageButtonBad": "伸ばすこと",
+  "pageSolutionTitle": "解決案",
+  "pageSolutionCountValue": "{count}回",
+  "pageSolutionNoList": "振り返りがありません。\n「振り返る」から追加しましょう!",
+  "pageSolutionButtonGood": "改善すること",
+  "pageSolutionButtonBad": "伸ばすこと",
 
 
   "solutionDetailPageTitle": "振り返り詳細",
@@ -46,10 +47,10 @@
   "solutionDetailPageTopEditTitleHint": "振り返り名(30文字以内)",
   
 
-  "reflectionPageTitle": "振り返りの追加",
-  "reflectionPageHowToTitle": "振り返りのやり方",
-  "reflectionPageHowToDetail": "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
-  "reflectionPageButtonStart": "振り返りを始める",
+  "pageReflectionTitle": "振り返りの追加",
+  "pageReflectionHowToTitle": "振り返りのやり方",
+  "pageReflectionHowToDetail": "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
+  "pageReflectionButtonStart": "振り返りを始める",
 
 
   "reflectionAddPageModalAddType": "振り返りの分類",
@@ -68,22 +69,22 @@
   "reflectionAddPageDoneAlert": "振り返りを追加していません。",
 
 
-  "reflectionAddedListPageTitle": "追加した振り返り",
-  "reflectionAddedListPageButtonSave": "保存する",
-  "reflectionAddedListPageDoneAlert": "振り返りを追加しました。",
-  "reflectionAddedListPageCountValue": "+{count}回",
+  "pageReflectionAddedListTitle": "追加した振り返り",
+  "pageReflectionAddedListButtonSave": "保存する",
+  "pageReflectionAddedListDoneAlert": "振り返りを追加しました。",
+  "pageReflectionAddedListCountValue": "+{count}回",
 
 
-  "reflectionHistoryPageCountValue": "+{count}回",
+  "pageReflectionHistoryCountValue": "+{count}回",
 
 
-  "reflectionHistoryGroupPageTitle": "{title} 履歴",
-  "reflectionHistoryGroupPageNoList": "振り返り履歴がありません。",
-  "reflectionHistoryGroupPageAnnotation": "保存されるのは10件までです。",
+  "pageReflectionHistoryGroupTitle": "{title} 履歴",
+  "pageReflectionHistoryGroupNoList": "振り返り履歴がありません。",
+  "pageReflectionHistoryGroupAnnotation": "保存されるのは10件までです。",
 
 
-  "todoPageTitle": "やることリスト",
-  "todoPageNoData": "やることが追加されていません。\n解決案から追加しましょう!",
+  "pageTodoTitle": "やることリスト",
+  "pageTodoNoData": "やることが追加されていません。\n解決案から追加しましょう!",
 
 
   "accountPageTitle": "アカウント設定",
@@ -136,6 +137,13 @@
 
   "commonRadioGoodBadButtonGood": "良かった",
   "commonRadioGoodBadButtonBad": "悪かった",
+
+
+  "commonInputTextValidationEmpty": "※文字が未入力です。",
+  "commonInputTextValidationMaxLengthOver": "※文字数は{maxLength}以内です。",
+  "commonInputTextValidationAllSpace": "※全て空白では追加できません。",
+  "commonInputTextValidationFisrtSpace": "※先頭に空白は入れられません。",
+  "commonInputTextValidationLastSpace": "※末尾に空白は入れられません。",
 
 
   "commonRankBronze": "ブロンズ",
