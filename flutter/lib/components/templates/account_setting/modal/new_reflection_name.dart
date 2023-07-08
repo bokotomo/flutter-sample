@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show BuildContext, Color, Icons, showDialog, Navigator;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -13,6 +15,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
 
 ///
 void showModal(
+  AppLocalizations i18n,
   BuildContext context,
   String text,
   void Function(BuildContext) onPressed,
@@ -22,7 +25,7 @@ void showModal(
     context: context,
     builder: (contextDialog) {
       return ModalBase(
-        title: "振り返りの新規作成",
+        title: i18n.accountPageModalNewTitle,
         children: [
           BasicText(
             text: text,
@@ -31,12 +34,12 @@ void showModal(
           SpacerHeight.m,
           ButtonIcon(
             icon: Icons.add,
-            text: "新規で作成する",
+            text: i18n.accountPageModalNewButtonAdd,
             onPressed: () => onPressed(contextDialog),
           ),
           SpacerHeight.m,
           ButtonCancel(
-            text: "キャンセル",
+            text: i18n.accountPageModalNewCancel,
             onPressed: () => Navigator.pop(contextDialog),
           ),
           SpacerHeight.m,

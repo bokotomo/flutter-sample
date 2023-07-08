@@ -9,6 +9,8 @@ import 'package:flutter/material.dart'
         CrossAxisAlignment,
         GlobalKey,
         FormState;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
@@ -34,12 +36,11 @@ import 'package:gamer_reflection/components/templates/account_setting/organisms/
     show EditReflectionName;
 import 'package:gamer_reflection/components/templates/account_setting/molecules/button_links.dart'
     show ButtonLinks, ButtonLinksParam;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'
-    show AppLocalizations;
 import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 
 /// アカウント設定
 Widget view(
+  AppLocalizations i18n,
   BuildContext context,
   void Function(LocaleCode) changeLocale,
   List<DomainReflectionGroup> reflectionGroups,

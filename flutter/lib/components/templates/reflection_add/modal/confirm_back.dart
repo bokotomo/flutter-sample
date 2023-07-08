@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show BuildContext, showDialog, Navigator, StatefulBuilder;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/modules/const/color/base.dart'
@@ -12,7 +14,10 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
 
 /// モーダル: 戻るのを確認
-void showModalConfirmBack(BuildContext context) {
+void showModalConfirmBack(
+  AppLocalizations i18n,
+  BuildContext context,
+) {
   showDialog(
     barrierColor: ConstantColor.modalBackground,
     context: context,
@@ -23,7 +28,7 @@ void showModalConfirmBack(BuildContext context) {
           void Function(void Function()) setState,
         ) =>
             ModalBase(
-          title: "追加した振り返りがあります。\n戻ってもよろしいですか？",
+          title: "追加した振り返りがあります。\n戻ってもよろしいですか？", // TODO: 言語
           children: [
             ButtonBasic(
               text: "保存せずに戻る",

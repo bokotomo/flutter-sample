@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 import 'package:gamer_reflection/modules/fetch/todo.dart' show FetchTodoPage;
-import 'package:gamer_reflection/components/pages/task_detail/widget.dart'
-    show PageTaskDetail;
+import 'package:gamer_reflection/components/pages/solution_detail/widget.dart'
+    show PageSolutionDetail;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 
@@ -14,7 +16,7 @@ class UseReturn {
   const UseReturn({
     required this.reflectionGroups,
     required this.todos,
-    required this.pushTaskDetail,
+    required this.pushSolutionDetail,
     required this.fetchTodos,
   });
 
@@ -28,11 +30,11 @@ class UseReturn {
   final Future<void> Function() fetchTodos;
 
   /// タスク詳細へ飛ぶ
-  final void Function(BuildContext, int) pushTaskDetail;
+  final void Function(BuildContext, int) pushSolutionDetail;
 }
 
 /// データ取得: タスク一覧
-UseReturn useFetch() {
+UseReturn useFetch(AppLocalizations i18n) {
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
   final ValueNotifier<List<DomainTodo>> todos = useState<List<DomainTodo>>([]);
@@ -63,9 +65,12 @@ UseReturn useFetch() {
     fetch();
   }
 
-  /// タスク詳細ページへ移動
-  void pushTaskDetail(BuildContext context, int taskId) {
-    final PageTaskDetail page = PageTaskDetail(taskId: taskId);
+  /// 解決案詳細ページへ移動
+  void pushSolutionDetail(BuildContext context, int reflectionId) {
+    final PageSolutionDetail page = PageSolutionDetail(
+      i18n: i18n,
+      reflectionId: reflectionId,
+    );
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -85,6 +90,6 @@ UseReturn useFetch() {
     reflectionGroups: reflectionGroups.value,
     todos: todos.value,
     fetchTodos: fetchTodos,
-    pushTaskDetail: pushTaskDetail,
+    pushSolutionDetail: pushSolutionDetail,
   );
 }

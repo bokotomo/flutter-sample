@@ -3,7 +3,7 @@ class ConstantRank {
   ConstantRank._();
 
   /// ブロンズ
-  static const String bronze = 'ブロンズ';
+  static const String bronze = 'ブロンズ'; // TODO: 言語
 
   /// シルバー
   static const String silver = 'シルバー';

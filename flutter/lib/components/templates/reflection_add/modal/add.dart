@@ -8,6 +8,8 @@ import 'package:flutter/material.dart'
         Widget,
         Column,
         CrossAxisAlignment;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
@@ -25,6 +27,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
 
 /// 新規振り返りの場合
 Widget reflectionTypeButton(
+  AppLocalizations i18n,
   String groupValue,
   void Function(String?) onChangedGood,
   void Function(String?) onChangedBad,
@@ -33,7 +36,7 @@ Widget reflectionTypeButton(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       const BasicText(
-        text: "振り返りの分類",
+        text: "振り返りの分類", // TODO: 言語
         size: "M",
       ),
       SpacerHeight.s,
@@ -47,7 +50,10 @@ Widget reflectionTypeButton(
 }
 
 /// すでに同じ振り返りがある場合
-Widget reflectionCount(int count) {
+Widget reflectionCount(
+  AppLocalizations i18n,
+  int count,
+) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -66,6 +72,7 @@ Widget reflectionCount(int count) {
 
 ///
 void showAddModal(
+  AppLocalizations i18n,
   BuildContext context,
   String title,
   bool candidateExist,
@@ -91,6 +98,7 @@ void showAddModal(
             // 新規追加
             if (!candidateExist)
               reflectionTypeButton(
+                i18n,
                 groupValue,
                 (v) => {
                   setState(() {
@@ -106,7 +114,7 @@ void showAddModal(
                 },
               ),
             // すでに追加したもの
-            if (candidateExist) reflectionCount(count),
+            if (candidateExist) reflectionCount(i18n, count),
             SpacerHeight.m,
             ButtonIcon(
               icon: Icons.add,

@@ -9,6 +9,14 @@
   "addReflectionNameFormButton": "登録する",
   "addReflectionNameLanguageTitle": "言語の変更",
 
+  "reflectionPageTitle": "振り返りの追加",
+  "reflectionPageHowToTitle": "振り返りのやり方",
+  "reflectionPageHowToDetail": "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
+  "reflectionPageButtonStart": "振り返りを始める",
+
+  "todoPageTitle": "やることリスト",
+  "todoPageNoData": "やることが追加されていません。\n解決案から追加しましょう!",
+
   "accountPageTitle": "アカウント設定",
   "accountPageCurrentReflectionName": "選択中の振り返り名",
   "accountPageChangeReflectionName": "振り返り名の変更",
@@ -25,7 +33,18 @@
   "accountPageDeleteReflection": "選択中の振り返りの削除",
   "accountPageDeleteReflectionDetail": "※振り返りした内容も削除されます。",
   "accountPageDeleteButton": "削除する",
-
+  "accountPageModalDeleteTitle": "振り返りの削除",
+  "accountPageModalDeleteSubTitle": "振り返りした内容も削除されます。\n復元はできません。",
+  "accountPageModalDeleteButtonDelete": "削除する",
+  "accountPageModalDeleteCancel": "キャンセル",
+  "accountPageModalNewTitle": "振り返りの新規作成",
+  "accountPageModalNewButtonAdd": "新規で作成する",
+  "accountPageModalNewCancel": "キャンセル",
+  "accountPageHooksDoneChangedName": "「{name}」に変更しました。",
+  "accountPageHooksDoneAddedName": "「{name}」を追加しました。",
+  "accountPageHooksDeleteLastGroup": "最後の一つは削除できません。",
+  "accountPageHooksDoneDelete": "「{name}」を削除しました。",
+ 
   "footerSolution": "解決案",
   "footerReflection": "振り返る",
   "footerTodo": "やること",

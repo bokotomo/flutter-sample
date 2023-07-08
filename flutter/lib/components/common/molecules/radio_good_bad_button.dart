@@ -35,7 +35,7 @@ class RadioGoodBadButton extends StatelessWidget {
           child: ButtonRadio(
             groupValue: groupValue,
             value: "good",
-            text: "良かった",
+            text: "良かった", // TODO: 言語
             minimumSize: heightSize,
             onPressed: (v) => onChangedGood(v),
           ),

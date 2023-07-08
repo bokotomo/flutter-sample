@@ -67,7 +67,7 @@ UseReturn useHooks(
     // 経験値加算をDBに保存する
     RequestGame().updateAddExp(exp);
 
-    toast.showNotification("振り返りを追加しました。", 2500);
+    toast.showNotification("振り返りを追加しました。", 2500); // TODO: 言語
 
     // 二つ前のページへ戻る
     Navigator.of(context)

@@ -9,6 +9,14 @@
   "addReflectionNameFormButton": "Register",
   "addReflectionNameLanguageTitle": "Change language",
 
+  "reflectionPageTitle": "Add reflection",
+  "reflectionPageHowToTitle": "how to reflection",
+  "reflectionPageHowToDetail": "1. Watch the replay\n\n2. Write good and bad\n\n3. Add the same reflection from the suggestions",
+  "reflectionPageButtonStart": "start reflection",
+
+  "todoPageTitle": "Todo list",
+  "todoPageNoData": "No to-dos have been added. \nLet's add from the solution!",
+
   "accountPageTitle": "Account setting",
   "accountPageCurrentReflectionName": "Selected reflection name",
   "accountPageChangeReflectionName": "Change reflection name",
@@ -25,6 +33,17 @@
   "accountPageDeleteReflection": "Delete selected reflection",
   "accountPageDeleteReflectionDetail": "*Reflection content will also be deleted.",
   "accountPageDeleteButton": "Delete",
+  "accountPageModalDeleteTitle": "Delete reflection",
+  "accountPageModalDeleteSubTitle": "Reviewed content will also be deleted. \nRestore is not possible.",
+  "accountPageModalDeleteButtonDelete": "Delete",
+  "accountPageModalDeleteCancel": "Cancel",
+  "accountPageModalNewTitle": "Create a new reflection",
+  "accountPageModalNewButtonAdd": "Create new",
+  "accountPageModalNewCancel": "Cancel",
+  "accountPageHooksDoneChangedName": "Changed to {name}.",
+  "accountPageHooksDoneAddedName": "Added {name}.",
+  "accountPageHooksDeleteLastGroup": "The last one cannot be deleted.",
+  "accountPageHooksDoneDelete": "Removed {name}.",
 
   "footerSolution": "Solution",
   "footerReflection": "Reflect",

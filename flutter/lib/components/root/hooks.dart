@@ -98,6 +98,7 @@ UseReturn useHooks(BuildContext context) {
 
   useEffect(() {
     setData();
+    return;
   }, []);
 
   useEffect(() {

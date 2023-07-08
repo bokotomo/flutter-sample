@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show BuildContext, Color, showDialog, Navigator;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
@@ -15,6 +17,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
 
 ///
 void showDeleteModal(
+  AppLocalizations i18n,
   BuildContext context,
   String name,
   void Function(BuildContext) onPressed,
@@ -24,25 +27,25 @@ void showDeleteModal(
     context: context,
     builder: (contextDialog) {
       return ModalBase(
-        title: "振り返りの削除",
+        title: i18n.accountPageModalDeleteTitle,
         children: [
           BasicText(
             text: name,
             size: "M",
           ),
           SpacerHeight.xs,
-          const TextAnnotation(
-            text: "振り返りした内容も削除されます。\n復元はできません。",
+          TextAnnotation(
+            text: i18n.accountPageModalDeleteSubTitle,
             size: "S",
           ),
           SpacerHeight.m,
           ButtonDelete(
-            text: "削除する",
+            text: i18n.accountPageModalDeleteButtonDelete,
             onPressed: () => onPressed(contextDialog),
           ),
           SpacerHeight.m,
           ButtonCancel(
-            text: "キャンセル",
+            text: i18n.accountPageModalDeleteCancel,
             onPressed: () => Navigator.pop(contextDialog),
           ),
           SpacerHeight.m,

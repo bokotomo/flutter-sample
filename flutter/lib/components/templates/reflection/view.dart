@@ -1,6 +1,8 @@
 // import 'package:flutter/material.dart'
 //     show Widget, BuildContext, ListView, Column;
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
@@ -21,6 +23,7 @@ import 'package:gamer_reflection/components/common/atoms/gauge_bar.dart'
 
 ///
 Widget view(
+  AppLocalizations i18n,
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   String expText,
@@ -71,17 +74,17 @@ Widget view(
         )
       ]),
       SpacerHeight.m,
-      const Box(
+      Box(
         child: Column(
           children: [
             BasicText(
-              text: "振り返りのやり方",
+              text: i18n.reflectionPageHowToTitle,
               size: "M",
               isBold: true,
             ),
             SpacerHeight.m,
             BasicText(
-              text: "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
+              text: i18n.reflectionPageHowToDetail,
               size: "M",
             ),
           ],
@@ -89,14 +92,14 @@ Widget view(
       ),
       SpacerHeight.m,
       ButtonBasic(
-        text: '振り返りを始める',
+        text: i18n.reflectionPageButtonStart,
         onPressed: () => onPressedStart(context),
       ),
     ],
   );
 
   return BaseLayoutPadding(
-    title: "振り返りの追加",
+    title: i18n.reflectionPageTitle,
     isBackGround: true,
     onClickHistory: () => onPressedHistory(context),
     child: cloumn,

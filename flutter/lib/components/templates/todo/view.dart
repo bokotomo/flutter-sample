@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, Column, CrossAxisAlignment;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
@@ -7,7 +9,7 @@ import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/templates/todo/organisms/no_data_annotation.dart'
-    show TaskNoDataAnnotation;
+    show TodoNoDataAnnotation;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/atoms/card.dart' show Card;
@@ -18,12 +20,13 @@ import 'package:gamer_reflection/domain/common/reflection_group.dart'
 import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 
 Widget view(
+  AppLocalizations i18n,
   BuildContext context,
   List<DomainTodo> todos,
   List<DomainReflectionGroup> reflectionGroups,
   void Function(String?) onChangeReflectionGroup,
   void Function(int) onClickRemove,
-  void Function(BuildContext context, int taskId) pushTaskDetail,
+  void Function(BuildContext, int) pushSolutionDetail,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -38,7 +41,10 @@ Widget view(
       SpacerHeight.m,
 
       /// ない場合
-      if (todos.isEmpty) const TaskNoDataAnnotation(),
+      if (todos.isEmpty)
+        TodoNoDataAnnotation(
+          i18n: i18n,
+        ),
 
       /// やること一覧
       for (int i = 0; i < todos.length; i++) ...{
@@ -59,7 +65,7 @@ Widget view(
               ),
             ],
           ),
-          onPressed: () => pushTaskDetail(context, todos[i].reflectionId),
+          onPressed: () => pushSolutionDetail(context, todos[i].reflectionId),
           onPressedRemove: () => onClickRemove(todos[i].reflectionId),
         ),
         SpacerHeight.m,
@@ -68,7 +74,7 @@ Widget view(
   );
 
   return BaseLayoutPadding(
-    title: "やることリスト",
+    title: i18n.todoPageTitle,
     isBackGround: true,
     child: cloumn,
   );

@@ -30,6 +30,7 @@ UseReturn useColorBase() {
   useEffect(() {
     if (futuredColorMode.data == null) return;
     isDark.value = futuredColorMode.data == "dark";
+    return;
   }, [futuredColorMode.data]);
 
   final header =

@@ -36,7 +36,7 @@ UseReturn useHooks() {
 
   /// カラーモード
   const List<SelectItem> colors = [
-    SelectItem(text: 'ダーク', value: 'dark'),
+    SelectItem(text: 'ダーク', value: 'dark'), // TODO: 言語
     SelectItem(text: 'ライト', value: 'light'),
   ];
 
@@ -45,6 +45,7 @@ UseReturn useHooks() {
 
     /// 初期選択言語
     colorMode.value = futuredColorMode.data ?? "dark";
+    return;
   }, [futuredColorMode.data]);
 
   return UseReturn(

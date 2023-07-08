@@ -47,6 +47,7 @@ class TemplateReflection extends HookWidget {
     );
 
     return view(
+      i18n,
       context,
       reflectionGroups,
       h.expText(),

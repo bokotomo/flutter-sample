@@ -35,12 +35,14 @@ class TemplateAccountSetting extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final hooks = useHooks(
+      i18n,
       context,
       reflectionGroups,
       fetchReflectionGroups,
     );
 
     return view(
+      i18n,
       context,
       changeLocale,
       reflectionGroups,

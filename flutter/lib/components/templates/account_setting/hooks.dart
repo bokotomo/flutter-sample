@@ -8,6 +8,8 @@ import 'package:flutter/material.dart'
         FormState,
         AsyncSnapshot,
         Navigator;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/modules/request/reflection_group.dart'
@@ -51,6 +53,7 @@ class UseReturn {
 
 /// ロジック: アカウント設定ページ
 UseReturn useHooks(
+  AppLocalizations i18n,
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   Future<void> Function() fetchReflectionGroups,
@@ -90,7 +93,7 @@ UseReturn useHooks(
     /// DB更新
     await RequestReflectionGroup().updateReflectionGroup(id, name);
 
-    toast.showNotification("「$name」に変更しました。", 2500);
+    toast.showNotification(i18n.accountPageHooksDoneChangedName(name), 2500);
 
     /// 振り返りグループ再読み込み
     fetchReflectionGroups();
@@ -120,7 +123,7 @@ UseReturn useHooks(
     ///
     if (context.mounted) Navigator.pop(context);
 
-    toast.showNotification("「$name」を追加しました。", 2500);
+    toast.showNotification(i18n.accountPageHooksDoneAddedName(name), 2500);
   }
 
   /// 新規振り返り名の追加を押した
@@ -128,6 +131,7 @@ UseReturn useHooks(
     if (!formKeyNewName.currentState!.validate()) return;
 
     showModal(
+      i18n,
       context,
       textReflectionNewName.value.text,
       onPressedAddRefletionGroup,
@@ -180,7 +184,7 @@ UseReturn useHooks(
 
     /// グループが1個なら削除できない
     if (reflectionGroups.length <= 1) {
-      toast.showAlert("最後の一つは削除できません。", 2500);
+      toast.showAlert(i18n.accountPageHooksDeleteLastGroup, 2500);
       return;
     }
 
@@ -193,7 +197,7 @@ UseReturn useHooks(
     /// 振り返りグループ再読み込み
     fetchReflectionGroups();
 
-    toast.showNotification("「$name」を削除しました。", 2500);
+    toast.showNotification(i18n.accountPageHooksDoneDelete(name), 2500);
   }
 
   /// 削除を押した
@@ -208,6 +212,7 @@ UseReturn useHooks(
     );
     if (context.mounted) {
       showDeleteModal(
+        i18n,
         context,
         d.name,
         (context) {

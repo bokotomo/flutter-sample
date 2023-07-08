@@ -18,7 +18,7 @@ Widget view(
     alignment: MainAxisAlignment.center,
     children: [
       ButtonPeriod(
-        text: "全期間",
+        text: "全期間", // TODO: 言語
         isActive: period == Period.all,
         onPressed: onPressedAll,
       ),

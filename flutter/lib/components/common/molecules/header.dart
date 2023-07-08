@@ -91,7 +91,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
             child: SizedBox(
               width: 80,
               child: ButtonDoneMenu(
-                text: "完了",
+                text: "完了", // TODO: 言語
                 onPressed: onClickDoneButton,
               ),
             ),

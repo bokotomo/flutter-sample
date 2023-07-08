@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/components/pages/reflection_add/reflection_add.dart'
@@ -27,7 +29,7 @@ class UseReturn {
 }
 
 /// データ取得: 振り返りグループ一覧
-UseReturn useFetch() {
+UseReturn useFetch(AppLocalizations i18n) {
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
   final ValueNotifier<DomainReflectionGame> game =
@@ -47,6 +49,7 @@ UseReturn useFetch() {
   /// 振り返り追加ページへ移動
   void pushReflection(BuildContext context, String name, int groupId) {
     final PageReflectionAdd page = PageReflectionAdd(
+      i18n: i18n,
       title: name,
       groupId: groupId,
     );
@@ -63,6 +66,7 @@ UseReturn useFetch() {
   /// 振り返り履歴ページへ移動
   void pushHistory(BuildContext context, String name, int groupId) {
     final PageReflectionHistoryGroup page = PageReflectionHistoryGroup(
+      i18n: i18n,
       groupId: groupId,
       title: name,
     );

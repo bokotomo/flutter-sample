@@ -12,6 +12,8 @@ import 'package:flutter/material.dart'
         Expanded,
         Form,
         AutovalidateMode;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
     show ReflectionAddCandidate;
@@ -24,6 +26,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 
 ///
 Widget view(
+  AppLocalizations i18n,
   BuildContext context,
   List<DomainReflectionAddReflection> reflections,
   String title,
@@ -43,6 +46,7 @@ Widget view(
   ListView column = ListView(
     children: [
       ReflectionAddCandidate(
+        i18n: i18n,
         reflections: reflections,
         onPressCandidate: (String text) => onPressedAddCandidate(text),
         candidatesForListener: candidatesForListener,
@@ -55,6 +59,7 @@ Widget view(
     children: <Widget>[
       Expanded(child: column),
       BottomContents(
+        i18n: i18n,
         textReflection: textReflection,
         textFieldFocusNode: textFieldFocusNode,
         onPressedReflectionDone: onPressedReflectionDone,

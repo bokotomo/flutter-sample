@@ -7,6 +7,8 @@ import 'package:flutter/material.dart'
         GlobalKey,
         FormState,
         Navigator;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
@@ -54,6 +56,7 @@ class UseReturn {
 
 /// ロジック: 振り返り追加ページ
 UseReturn useHooks(
+  AppLocalizations i18n,
   BuildContext context,
   List<DomainReflectionAddReflection> reflections,
   List<DomainReflectionAdded> addedReflectionsFromOtherPage,
@@ -174,6 +177,7 @@ UseReturn useHooks(
 
     // 追加するモーダルを表示する
     showAddModal(
+      i18n,
       context,
       text,
       candidateExist,
@@ -196,7 +200,7 @@ UseReturn useHooks(
   /// 振り返りの完了を押した
   void onPressedReflectionDone(BuildContext c) {
     if (reflectionsForRegister.isEmpty) {
-      toast.showAlert("振り返りを追加していません。", 2500);
+      toast.showAlert("振り返りを追加していません。", 2500); // TODO: 言語
       return;
     }
 
@@ -235,7 +239,7 @@ UseReturn useHooks(
     if (reflectionNotExist) return Future.value(true);
 
     // 追加するモーダルを表示する
-    showModalConfirmBack(context);
+    showModalConfirmBack(i18n, context);
 
     // 戻らない
     return Future.value(false);

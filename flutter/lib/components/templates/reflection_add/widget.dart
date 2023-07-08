@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart' show Widget, BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/components/templates/reflection_add/hooks.dart'
     show useHooks;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
@@ -13,12 +15,16 @@ import 'package:gamer_reflection/components/templates/reflection_add/view.dart'
 class TemplateReflectionAdd extends HookWidget {
   const TemplateReflectionAdd({
     super.key,
+    required this.i18n,
     required this.reflections,
     required this.title,
     required this.groupId,
     required this.addedReflectionsFromOtherPage,
     required this.pushReflectionAddedList,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   /// 振り返りの一覧
   final List<DomainReflectionAddReflection> reflections;
@@ -39,6 +45,7 @@ class TemplateReflectionAdd extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final hooks = useHooks(
+      i18n,
       context,
       reflections,
       addedReflectionsFromOtherPage,
@@ -47,6 +54,7 @@ class TemplateReflectionAdd extends HookWidget {
     );
 
     return view(
+      i18n,
       context,
       reflections,
       title,

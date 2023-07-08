@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, TextAlign;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/domain/reflection_history_group/reflection_history_group.dart'
@@ -13,6 +15,7 @@ import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
 
 /// View: 振り返り履歴グループ一覧
 Widget view(
+  AppLocalizations i18n,
   BuildContext c,
   String title,
   final List<DomainReflectionHistoryGroup> historyGroups,
@@ -23,7 +26,7 @@ Widget view(
       if (historyGroups.isEmpty) ...{
         SpacerHeight.m,
         const TextAnnotation(
-          text: "振り返り履歴がありません。",
+          text: "振り返り履歴がありません。", // TODO: 言語
           size: "M",
           textAlign: TextAlign.center,
         ),

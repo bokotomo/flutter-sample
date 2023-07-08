@@ -2,8 +2,8 @@ import 'package:flutter/material.dart' show Widget, ValueNotifier, BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState;
 import 'package:gamer_reflection/components/pages/account/account_setting.dart'
     show PageAccountSetting;
-import 'package:gamer_reflection/components/pages/task/widget.dart'
-    show PageTask;
+import 'package:gamer_reflection/components/pages/solution/widget.dart'
+    show PageSolution;
 import 'package:gamer_reflection/components/pages/todo/widget.dart'
     show PageTodo;
 import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
@@ -45,7 +45,7 @@ UseReturn useHooks(
   /// タブを押すと表示するページ
   Widget tabPage(ValueNotifier<bool> canDC) {
     final List<Widget> pages = [
-      PageTask(
+      PageSolution(
         i18n: i18n,
         canDC: canDC,
       ),

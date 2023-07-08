@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show HookWidget, useEffect, useState;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
-import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_task_candidate.dart'
-    show ButtonTaskCandidate;
+import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_candidate.dart'
+    show ButtonCandidate;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/modules/const/color/button.dart'
@@ -14,10 +16,13 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
 /// 振り返りがない場合
-Widget candidatesNone(bool isNotAdd) {
+Widget candidatesNone(
+  AppLocalizations i18n,
+  bool isNotAdd,
+) {
   final text = isNotAdd
       ? 'リプレイを見て、\n良かったこと悪かったことを書きましょう!\nまたは、試合の直後に追加しましょう。'
-      : '候補が見つかりません';
+      : '候補が見つかりません'; // TODO: 言語
 
   return Column(
     children: [
@@ -34,6 +39,7 @@ Widget candidatesNone(bool isNotAdd) {
 }
 
 Widget view(
+  AppLocalizations i18n,
   List<DomainReflectionAddReflection> reflections,
   bool isNotAdd,
   Function(String text) onPressCandidate,
@@ -44,7 +50,7 @@ Widget view(
         const Bar(
           color: ConstantColorButton.taskListBorder,
         ),
-        ButtonTaskCandidate(
+        ButtonCandidate(
           text: reflections[i].text,
           isThin: i % 2 == 0,
           onPressed: () => onPressCandidate(reflections[i].text),
@@ -56,8 +62,12 @@ Widget view(
     ],
   );
 
-  final candidates =
-      reflections.isEmpty ? candidatesNone(isNotAdd) : candidateTitles;
+  final candidates = reflections.isEmpty
+      ? candidatesNone(
+          i18n,
+          isNotAdd,
+        )
+      : candidateTitles;
 
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,10 +81,14 @@ Widget view(
 class ReflectionAddCandidate extends HookWidget {
   const ReflectionAddCandidate({
     super.key,
+    required this.i18n,
     required this.reflections,
     required this.onPressCandidate,
     required this.candidatesForListener,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
   final List<DomainReflectionAddReflection> reflections;
   final Function(String text) onPressCandidate;
   final ValueNotifier<List<DomainReflectionAddReflection>>
@@ -115,6 +129,7 @@ class ReflectionAddCandidate extends HookWidget {
     }, []);
 
     return view(
+      i18n,
       candidates.value,
       isNotAdd,
       onPressCandidate,

@@ -13,6 +13,8 @@ import 'package:flutter/material.dart'
         Expanded,
         SizedBox,
         Builder;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
@@ -29,6 +31,7 @@ import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
 
 Widget view(
+  AppLocalizations i18n,
   BuildContext context,
   FocusNode textFieldFocusNode,
   TextEditingController textReflection,
@@ -46,7 +49,7 @@ Widget view(
           horizontal: ConstantSizeUI.l2,
         ),
         child: ButtonDone(
-          text: '振り返りを完了する',
+          text: '振り返りを完了する', // TODO: 言語
           onPressed: () => onPressedReflectionDone(context),
         ),
       ),
@@ -86,6 +89,7 @@ Widget view(
 class BottomContents extends HookWidget {
   const BottomContents({
     super.key,
+    required this.i18n,
     required this.textFieldFocusNode,
     required this.textReflection,
     required this.onPressedReflectionDone,
@@ -93,6 +97,9 @@ class BottomContents extends HookWidget {
     required this.onPressedRemoveText,
     required this.onChangeTextReflection,
   });
+
+  /// 言語
+  final AppLocalizations i18n;
 
   ///
   final FocusNode textFieldFocusNode;
@@ -117,6 +124,7 @@ class BottomContents extends HookWidget {
     return Builder(
       builder: (context) {
         return view(
+          i18n,
           context,
           textFieldFocusNode,
           textReflection,

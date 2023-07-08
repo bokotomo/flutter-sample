@@ -19,13 +19,13 @@ class PageTodo extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final d = useFetch();
+    final d = useFetch(i18n);
 
     return Scaffold(
       body: TemplateTodo(
         i18n: i18n,
         reflectionGroups: d.reflectionGroups,
-        pushTaskDetail: d.pushTaskDetail,
+        pushSolutionDetail: d.pushSolutionDetail,
         todos: d.todos,
         fetchTodos: d.fetchTodos,
       ),
