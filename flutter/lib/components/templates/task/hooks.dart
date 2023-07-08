@@ -185,8 +185,6 @@ UseReturn useHooks(
   }
 
   useEffect(() {
-    if (reflections.isEmpty) return;
-
     /// ローカルデータ: 選択期間
     final String p = futuredPeriod.data ?? 'period-three-month';
     final Period kvsPeriod = getPeriodByKVS(p);

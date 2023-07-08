@@ -14,7 +14,7 @@ class ConstantRankSystem {
   final int index;
   final String rank;
   final int prevExp;
-  final int nextExp;
+  final int? nextExp;
 }
 
 /// ランクシステムのマスター情報
@@ -71,6 +71,6 @@ List<ConstantRankSystem> constantRankSystems = [
     index: 8,
     rank: ConstantRank.diamond1,
     prevExp: ConstantRankExp.diamond1,
-    nextExp: 99999999, //todo
+    nextExp: null,
   ),
 ];

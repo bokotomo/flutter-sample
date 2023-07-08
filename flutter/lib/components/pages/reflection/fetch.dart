@@ -32,7 +32,7 @@ UseReturn useFetch() {
       useState<List<DomainReflectionGroup>>([]);
   final ValueNotifier<DomainReflectionGame> game =
       useState<DomainReflectionGame>(
-          const DomainReflectionGame(exp: 0, nextExp: 0, rank: ''));
+          const DomainReflectionGame(exp: 0, nextExp: 0, prevExp: 0, rank: ''));
 
   /// データ取得
   Future<void> fetch() async {

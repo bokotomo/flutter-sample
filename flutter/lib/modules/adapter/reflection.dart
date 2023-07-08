@@ -8,13 +8,16 @@ import 'package:gamer_reflection/modules/const/rank/rank_system.dart'
 class AdapterReflection {
   /// ゲーミフィケーション
   DomainReflectionGame domainGame(ModelGame model) {
-    final currentRank = constantRankSystems
-        .firstWhere((e) => e.prevExp <= model.exp && model.exp < e.nextExp);
+    final currentRank = constantRankSystems.firstWhere((e) {
+      if (e.nextExp == null && e.prevExp <= model.exp) return true;
+      return e.prevExp <= model.exp && model.exp < e.nextExp!;
+    });
 
     /// ドメインに変換
     return DomainReflectionGame(
       exp: model.exp,
       nextExp: currentRank.nextExp,
+      prevExp: currentRank.prevExp,
       rank: currentRank.rank,
     );
   }

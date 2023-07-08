@@ -11,7 +11,9 @@ class UseReturn {
     required this.onPressedStart,
     required this.onPressedHistory,
     required this.expText,
+    required this.gaugePercent,
   });
+  final double gaugePercent;
   final Future<void> Function(BuildContext) onPressedStart;
   final Future<void> Function(BuildContext) onPressedHistory;
   final String Function() expText;
@@ -56,10 +58,23 @@ UseReturn useHooks(
 
   /// 経験値と次の経験値の文言を返す
   String expText() {
+    if (game.nextExp == null) return '${game.exp}';
     return '${game.exp} / ${game.nextExp}';
   }
 
+  /// ゲージ
+  double getGaugePercent() {
+    if (game.nextExp == null) return 1;
+    final current = game.exp - game.prevExp;
+    final max = game.nextExp! - game.prevExp;
+    if (max == 0) return 0;
+
+    final v = current / max;
+    return double.parse((v).toStringAsFixed(3));
+  }
+
   return UseReturn(
+    gaugePercent: getGaugePercent(),
     onPressedStart: onPressedStart,
     onPressedHistory: onPressedHistory,
     expText: expText,

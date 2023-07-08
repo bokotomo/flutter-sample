@@ -51,6 +51,7 @@ class TemplateReflection extends HookWidget {
       reflectionGroups,
       h.expText(),
       game.rank,
+      h.gaugePercent,
       h.onPressedStart,
       h.onPressedHistory,
     );

@@ -5,6 +5,8 @@ import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
+import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
+    show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
@@ -14,62 +16,8 @@ import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
-
-class Bar extends AnimatedWidget {
-  const Bar({
-    super.key,
-    required this.animation,
-    required this.widget,
-    required super.listenable,
-  });
-  final Animation<double> animation;
-  final Widget widget;
-
-  @override
-  Widget build(BuildContext context) {
-    List<Widget> progressWidgets = [];
-    Widget progressWidget = Container(
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        // gradient: ,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          width: 1.0,
-          color: Colors.blue,
-        ),
-      ),
-    );
-    progressWidgets.add(progressWidget);
-
-    return Container(
-      height: 16,
-      decoration: BoxDecoration(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(
-          width: 1.0,
-          color: Colors.blue,
-        ),
-      ),
-      child: Flex(
-        direction: Axis.horizontal,
-        verticalDirection: VerticalDirection.down,
-        children: <Widget>[
-          Expanded(
-            flex: (animation.value * 100).toInt(),
-            child: Stack(
-              children: progressWidgets,
-            ),
-          ),
-          Expanded(
-            flex: 100 - (animation.value * 100).toInt(),
-            child: Container(),
-          )
-        ],
-      ),
-    );
-  }
-}
+import 'package:gamer_reflection/components/common/atoms/gauge_bar.dart'
+    show GaugeBar;
 
 ///
 Widget view(
@@ -77,6 +25,7 @@ Widget view(
   List<DomainReflectionGroup> reflectionGroups,
   String expText,
   String rank,
+  double gaugePercent,
   Function(BuildContext) onPressedStart,
   Function(BuildContext) onPressedHistory,
 ) {
@@ -88,24 +37,39 @@ Widget view(
         onChanged: (t) {},
       ),
       SpacerHeight.m,
-      BasicText(
-        text: rank,
-        size: "M",
-        isBold: true,
-        textAlign: TextAlign.center,
-      ),
-      SpacerHeight.s,
-      // Bar(
-      //   animation: Tween<double>(begin: 1, end: 2).animate(),
-      //   listenable: null,
-      //   widget: null,
-      // ),
-      BasicText(
-        text: expText,
-        size: "S",
-        isBold: true,
-        textAlign: TextAlign.center,
-      ),
+      Row(children: [
+        Image.asset(
+          'images/rankSilver.png',
+          width: 48,
+          height: 48,
+        ),
+        SpacerWidth.s,
+        Expanded(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  BasicText(
+                    text: rank,
+                    size: "M",
+                    isBold: true,
+                    textAlign: TextAlign.center,
+                  ),
+                  BasicText(
+                    text: expText,
+                    size: "S",
+                    isBold: true,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              SpacerHeight.s,
+              GaugeBar(percent: gaugePercent),
+            ],
+          ),
+        )
+      ]),
       SpacerHeight.m,
       const Box(
         child: Column(

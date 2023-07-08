@@ -5,6 +5,7 @@ class DomainReflectionGame implements DomainGameEXP {
   const DomainReflectionGame({
     required this.exp,
     required this.nextExp,
+    required this.prevExp,
     required this.rank,
   });
 
@@ -13,7 +14,10 @@ class DomainReflectionGame implements DomainGameEXP {
   final int exp;
 
   /// 次のランクに上がる経験値
-  final int nextExp;
+  final int? nextExp;
+
+  /// 現在のランクに上がる経験値
+  final int prevExp;
 
   /// 現在のランク
   final String rank;

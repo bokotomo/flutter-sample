@@ -63,7 +63,7 @@ UseReturn useHooks(
     );
 
     // 経験値は固定
-    const exp = 350;
+    const exp = 35;
     // 経験値加算をDBに保存する
     RequestGame().updateAddExp(exp);
 

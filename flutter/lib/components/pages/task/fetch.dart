@@ -71,7 +71,7 @@ UseReturn useFetch(ValueNotifier<bool> canDC) {
     });
   }
 
-  /// 振り返りグループの更新
+  /// 振り返りの更新
   Future<void> fetchReflections() async {
     fetch();
   }
