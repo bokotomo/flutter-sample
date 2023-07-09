@@ -28,6 +28,7 @@ Widget view(
   List<DomainReflectionGroup> reflectionGroups,
   String expText,
   String rank,
+  String rankImage,
   double gaugePercent,
   Function(BuildContext) onPressedStart,
   Function(BuildContext) onPressedHistory,
@@ -41,11 +42,12 @@ Widget view(
       ),
       SpacerHeight.m,
       Row(children: [
-        Image.asset(
-          'images/rankSilver.png',
-          width: 48,
-          height: 48,
-        ),
+        if (rankImage.isNotEmpty)
+          Image.asset(
+            rankImage,
+            width: 48,
+            height: 48,
+          ),
         SpacerWidth.s,
         Expanded(
           child: Column(

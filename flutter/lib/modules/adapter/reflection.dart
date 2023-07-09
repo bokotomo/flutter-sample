@@ -21,6 +21,7 @@ class AdapterReflection {
       nextExp: currentRank.nextExp,
       prevExp: currentRank.prevExp,
       rank: currentRank.rank,
+      rankImage: currentRank.rankImg,
     );
   }
 }

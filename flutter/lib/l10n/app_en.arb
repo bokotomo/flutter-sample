@@ -62,10 +62,10 @@
   "reflectionAddPageModalConfirmBack": "Return without saving",
   "reflectionAddPageModalConfirmCancel": "Cancel",
   "reflectionAddPageBottomDone": "Complete reflection",
-  "reflectionAddPageBottomHint": "Write a review",
+  "reflectionAddPageBottomHint": "Write a reflection",
   "reflectionAddPageBottomButtonAdd": "Add",
   "reflectionAddPageCandidateNoList": "No Candidates Found",
-  "reflectionAddPageCandidateFirstText": "Watch the replay and\nwrite what went wrong!\nOr add it right after the match.",
+  "reflectionAddPageCandidateFirstText": "Watch the replay\nand write down what you good point and bad point.\nOr add it right after the match.",
   "reflectionAddPageDoneAlert": "You haven't added any reflections.",
 
 

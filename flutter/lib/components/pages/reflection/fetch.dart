@@ -33,8 +33,13 @@ UseReturn useFetch(AppLocalizations i18n) {
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
   final ValueNotifier<DomainReflectionGame> game =
-      useState<DomainReflectionGame>(
-          const DomainReflectionGame(exp: 0, nextExp: 0, prevExp: 0, rank: ''));
+      useState<DomainReflectionGame>(const DomainReflectionGame(
+    exp: 0,
+    nextExp: 0,
+    prevExp: 0,
+    rank: '',
+    rankImage: '',
+  ));
 
   /// データ取得
   Future<void> fetch() async {

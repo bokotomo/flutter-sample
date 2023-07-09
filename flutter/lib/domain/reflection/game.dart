@@ -7,6 +7,7 @@ class DomainReflectionGame implements DomainGameEXP {
     required this.nextExp,
     required this.prevExp,
     required this.rank,
+    required this.rankImage,
   });
 
   /// 経験値
@@ -21,4 +22,7 @@ class DomainReflectionGame implements DomainGameEXP {
 
   /// 現在のランク
   final String rank;
+
+  /// ランク画像
+  final String rankImage;
 }

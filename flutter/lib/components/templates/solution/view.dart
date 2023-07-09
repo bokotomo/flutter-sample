@@ -68,7 +68,7 @@ Widget view(
         ),
       ),
 
-      SpacerHeight.s,
+      SpacerHeight.m,
 
       /// 期間選択ボタン
       ButtonPeriodFilter(
@@ -79,7 +79,7 @@ Widget view(
         onPressedMonth: () => onPressedMonth(),
       ),
 
-      SpacerHeight.s,
+      SpacerHeight.m,
 
       /// 振り返り一覧
       layoutChild,
