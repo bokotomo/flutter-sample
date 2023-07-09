@@ -5,5 +5,40 @@
   "footerSolution": "Soluzione",
   "footerReflection": "Riflettere",
   "footerTodo": "Fare",
-  "footerAccount": "Account"
+  "footerAccount": "Account",
+
+
+  "headerMenuRightDone": "Fatto",
+  "headerMenuRightHistory": "Cronologia",
+
+
+  "commonButtonPeriodFilterAll": "Tutto",
+  "commonButtonPeriodFilterThreeMonth": "3 mesi",
+  "commonButtonPeriodFilteroOneMonth": "1 mese",
+
+
+  "commonSelectColorModeDark": "Scuro",
+  "commonSelectColorModeLight": "Luce",
+
+
+  "commonRadioGoodBadButtonGood": "Buono",
+  "commonRadioGoodBadButtonBad": "Cattivo",
+
+
+  "commonInputTextValidationEmpty": "*Non sono stati inseriti caratteri.",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength} caratteri o meno.",
+  "commonInputTextValidationAllSpace": "*Non puoi aggiungere tutti gli spazi vuoti.",
+  "commonInputTextValidationFisrtSpace": "*Non è consentito alcuno spazio all'inizio.",
+  "commonInputTextValidationLastSpace": "*Non è consentito alcuno spazio alla fine.",
+
+
+  "commonRankBronze": "Bronzo",
+  "commonRankSilver": "Argento",
+  "commonRankGold": "Oro",
+  "commonRankPlatinum3": "Platino3",
+  "commonRankPlatinum2": "Platino2",
+  "commonRankPlatinum1": "Platino1",
+  "commonRankDiamond3": "Diamante3",
+  "commonRankDiamond2": "Diamante2",
+  "commonRankDiamond1": "Diamante1"
 }

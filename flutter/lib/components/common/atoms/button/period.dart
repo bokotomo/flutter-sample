@@ -37,8 +37,8 @@ class ButtonPeriod extends StatelessWidget {
           : ConstantColorButton.period,
       elevation: 4,
       padding: const EdgeInsets.only(
-        left: ConstantSizeUI.l4,
-        right: ConstantSizeUI.l4,
+        left: ConstantSizeUI.l0,
+        right: ConstantSizeUI.l0,
         top: ConstantSizeUI.l1,
         bottom: ConstantSizeUI.l1,
       ),

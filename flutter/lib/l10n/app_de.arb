@@ -5,5 +5,40 @@
   "footerSolution": "Lösung",
   "footerReflection": "Rezension",
   "footerTodo": "Machen",
-  "footerAccount": "Konto"
+  "footerAccount": "Konto",
+
+
+  "headerMenuRightDone": "Fertig",
+  "headerMenuRightHistory": "Verlauf",
+
+
+  "commonButtonPeriodFilterAll": "Alle",
+  "commonButtonPeriodFilterThreeMonth": "3 Monate",
+  "commonButtonPeriodFilteroOneMonth": "1 Monat",
+
+
+  "commonSelectColorModeDark": "Dunkel",
+  "commonSelectColorModeLight": "Licht",
+
+
+  "commonRadioGoodBadButtonGood": "Gut",
+  "commonRadioGoodBadButtonBad": "Schlecht",
+
+
+  "commonInputTextValidationEmpty": "*Es wurden keine Zeichen eingegeben.",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength} Zeichen oder weniger.",
+  "commonInputTextValidationAllSpace": "*Sie können nicht alle Leerzeichen hinzufügen.",
+  "commonInputTextValidationFisrtSpace": "*Am Anfang ist kein Leerzeichen zulässig.",
+  "commonInputTextValidationLastSpace": "*Am Ende ist kein Leerzeichen zulässig.",
+
+
+  "commonRankBronze": "Bronze",
+  "commonRankSilver": "Silber",
+  "commonRankGold": "Gold",
+  "commonRankPlatinum3": "Platinum3",
+  "commonRankPlatinum2": "Platinum2",
+  "commonRankPlatinum1": "Platinum1",
+  "commonRankDiamond3": "Diamond3",
+  "commonRankDiamond2": "Diamond2",
+  "commonRankDiamond1": "Diamond1"
 }

@@ -5,5 +5,40 @@
   "footerSolution": "解决方案",
   "footerReflection": "回顾",
   "footerTodo": "去做",
-  "footerAccount": "帐户"
+  "footerAccount": "帐户",
+
+
+  "headerMenuRightDone": "完成",
+  "headerMenuRightHistory": "历史记录",
+
+
+  "commonButtonPeriodFilterAll": "全部",
+  "commonButtonPeriodFilterThreeMonth": "3 个月",
+  "commonButtonPeriodFilteroOneMonth": "1 个月",
+
+
+  "commonSelectColorModeDark": "深色",
+  "commonSelectColorModeLight": "光",
+
+
+  "commonRadioGoodBadButtonGood": "好",
+  "commonRadioGoodBadButtonBad": "坏",
+
+
+  "commonInputTextValidationEmpty": "*尚未输入任何字符。",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength} 个字符或更少。",
+  "commonInputTextValidationAllSpace": "*您不能添加所有空格。",
+  "commonInputTextValidationFisrtSpace": "*开头不允许有空格。",
+  "commonInputTextValidationLastSpace": "*末尾不允许有空格。",
+
+
+  "commonRankBronze": "青铜",
+  "commonRankSilver": "白银",
+  "commonRankGold": "黄金",
+  "commonRankPlatinum3": "白金3",
+  "commonRankPlatinum2": "白金2",
+  "commonRankPlatinum1": "白金1",
+  "commonRankDiamond3": "钻石3",
+  "commonRankDiamond2": "钻石2",
+  "commonRankDiamond1": "钻石1"
 }

@@ -8,5 +8,40 @@
   "footerSolution": "Løsning",
   "footerReflection": "Anmeldelse",
   "footerTodo": "Alle",
-  "footerAccount": "Konto"
+  "footerAccount": "Konto",
+
+
+  "headerMenuRightDone": "Udfør",
+  "headerMenuRightHistory": "Historie",
+
+
+  "commonButtonPeriodFilterAll": "Alle",
+  "commonButtonPeriodFilterThreeMonth": "3 måneder",
+  "commonButtonPeriodFilteroOneMonth": "1 måned",
+
+
+  "commonSelectColorModeDark": "Mørk",
+  "commonSelectColorModeLight": "Lys",
+
+
+  "commonRadioGoodBadButtonGood": "Godt",
+  "commonRadioGoodBadButtonBad": "Dårlig",
+
+
+  "commonInputTextValidationEmpty": "*Der er ikke indtastet nogen tegn.",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength} tegn eller mindre.",
+  "commonInputTextValidationAllSpace": "*Du kan ikke tilføje alle tomme felter.",
+  "commonInputTextValidationFisrtSpace": "*Ingen plads er tilladt i begyndelsen.",
+  "commonInputTextValidationLastSpace": "*Ingen mellemrum er tilladt i slutningen.",
+
+
+  "commonRankBronze": "Bronze",
+  "commonRankSilver": "Sølv",
+  "commonRankGold": "Guld",
+  "commonRankPlatinum3": "Platinum3",
+  "commonRankPlatinum2": "Platinum2",
+  "commonRankPlatinum1": "Platinum1",
+  "commonRankDiamond3": "Diamond3",
+  "commonRankDiamond2": "Diamond2",
+  "commonRankDiamond1": "Diamond1"
 }

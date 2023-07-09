@@ -5,5 +5,40 @@
   "footerSolution": "해결책",
   "footerReflection": "돌아보다",
   "footerTodo": "할것",
-  "footerAccount": "계정"
+  "footerAccount": "계정",
+
+
+  "headerMenuRightDone": "완료",
+  "headerMenuRightHistory": "기록",
+
+
+  "commonButtonPeriodFilterAll": "모두",
+  "commonButtonPeriodFilterThreeMonth": "3개월",
+  "commonButtonPeriodFilteroOneMonth": "1개월",
+
+
+  "commonSelectColorModeDark": "어둡게",
+  "commonSelectColorModeLight": "조명",
+
+
+  "commonRadioGoodBadButtonGood": "좋음",
+  "commonRadioGoodBadButtonBad": "나쁨",
+
+
+  "commonInputTextValidationEmpty": "*입력한 문자가 없습니다.",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength}자 이하입니다.",
+  "commonInputTextValidationAllSpace": "*모든 공백을 추가할 수 없습니다.",
+  "commonInputTextValidationFisrtSpace": "*처음에는 공백이 허용되지 않습니다.",
+  "commonInputTextValidationLastSpace": "*끝에는 공백이 허용되지 않습니다.",
+
+
+  "commonRankBronze": "브론즈",
+  "commonRankSilver": "실버",
+  "commonRankGold": "골드",
+  "commonRankPlatinum3": "플래티넘3",
+  "commonRankPlatinum2": "플래티넘2",
+  "commonRankPlatinum1": "플래티넘1",
+  "commonRankDiamond3": "다이아몬드3",
+  "commonRankDiamond2": "다이아몬드2",
+  "commonRankDiamond1": "다이아몬드1"
 }

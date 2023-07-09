@@ -14,7 +14,7 @@ class ModelGame {
   final int? id;
 
   /// 経験値
-  final int exp;
+  late final int exp;
 
   /// 更新日
   final DateTime updatedAt;

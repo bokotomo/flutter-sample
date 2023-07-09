@@ -5,5 +5,40 @@
   "footerSolution": "Решение",
   "footerReflection": "Самоанализ",
   "footerTodo": "Делать",
-  "footerAccount": "Счет"
+  "footerAccount": "Счет",
+
+
+  "headerMenuRightDone": "Готово",
+  "headerMenuRightHistory": "История",
+
+
+  "commonButtonPeriodFilterAll": "Все",
+  "commonButtonPeriodFilterThreeMonth": "3 месяца",
+  "commonButtonPeriodFilteroOneMonth": "1 месяц",
+
+
+  "commonSelectColorModeDark": "Темный",
+  "commonSelectColorModeLight": "Светлый",
+
+
+  "commonRadioGoodBadButtonGood": "Хорошо",
+  "commonRadioGoodBadButtonBad": "Плохо",
+
+
+  "commonInputTextValidationEmpty": "*Не введено ни одного символа.",
+  "commonInputTextValidationMaxLengthOver": "*{maxLength} символов или меньше.",
+  "commonInputTextValidationAllSpace": "*Вы не можете добавить все пробелы.",
+  "commonInputTextValidationFisrtSpace": "*В начале не допускается пробел.",
+  "commonInputTextValidationLastSpace": "*Пробел в конце не допускается.",
+
+
+  "commonRankBronze": "Бронза",
+  "commonRankSilver": "Серебро",
+  "commonRankGold": "Золото",
+  "commonRankPlatinum3": "Платина3",
+  "commonRankPlatinum2": "Платина2",
+  "commonRankPlatinum1": "Платина1",
+  "commonRankDiamond3": "Бриллиант3",
+  "commonRankDiamond2": "Бриллиант2",
+  "commonRankDiamond1": "Бриллиант1"
 }
