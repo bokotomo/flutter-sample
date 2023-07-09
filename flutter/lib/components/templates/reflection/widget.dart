@@ -20,6 +20,7 @@ class TemplateReflection extends HookWidget {
     required this.game,
     required this.pushReflection,
     required this.pushHistory,
+    required this.pushRankDetail,
   });
 
   /// 言語
@@ -37,6 +38,9 @@ class TemplateReflection extends HookWidget {
   /// 振り返り履歴ページへ飛ぶ
   final void Function(BuildContext, String, int) pushHistory;
 
+  /// ランク説明ページへ移動
+  final void Function(BuildContext) pushRankDetail;
+
   @override
   Widget build(BuildContext context) {
     final h = useHooks(
@@ -44,6 +48,7 @@ class TemplateReflection extends HookWidget {
       game,
       pushReflection,
       pushHistory,
+      pushRankDetail,
     );
 
     return view(
@@ -56,6 +61,7 @@ class TemplateReflection extends HookWidget {
       h.gaugePercent,
       h.onPressedStart,
       h.onPressedHistory,
+      h.onPressedRankDetail,
     );
   }
 }

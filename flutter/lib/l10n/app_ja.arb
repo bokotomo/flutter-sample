@@ -42,15 +42,19 @@
   "solutionDetailPageTopEditCountValue": "回数: {count}回",
   "solutionDetailPageTopEditDetailGood": "良かった点を伸ばす方法",
   "solutionDetailPageTopEditDetailBad": "対策方法",
-  "solutionDetailPageTopEditDetailHintGood": "良かった点を伸ばす方法を書きましょう。(300文字以内)",
-  "solutionDetailPageTopEditDetailHintBad": "対策方法を書きましょう。(300文字以内)",
-  "solutionDetailPageTopEditTitleHint": "振り返り名(30文字以内)",
+  "solutionDetailPageTopEditDetailHintGood": "良かった点を伸ばす方法を書きましょう。\n(300文字以内)",
+  "solutionDetailPageTopEditDetailHintBad": "対策方法を書きましょう。\n(300文字以内)",
+  "solutionDetailPageTopEditTitleHint": "振り返り名(35文字以内)",
   
 
   "pageReflectionTitle": "振り返りの追加",
   "pageReflectionHowToTitle": "振り返りのやり方",
   "pageReflectionHowToDetail": "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
   "pageReflectionButtonStart": "振り返りを始める",
+
+
+  "pageRankDetailTitle": "ランク",
+  "pageRankDetailSubTitle": "振り返りの熟練度の指標となります。",
 
 
   "reflectionAddPageModalAddType": "振り返りの分類",

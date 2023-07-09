@@ -2,9 +2,9 @@
   "@@locale": "ru",
 
 
-  "pageAddReflectionNameTitle": "Давайте определимся с именем отражения!",
-  "pageAddReflectionNameSubTitle": "Используется для отражения каждого персонажа/оружия.",
-  "pageAddReflectionNameFormTitle": "Имя отражения",
+  "pageAddReflectionNameTitle": "Давайте определимся с именем самоанализ!",
+  "pageAddReflectionNameSubTitle": "Используется для самоанализ каждого персонажа/оружия.",
+  "pageAddReflectionNameFormTitle": "Имя самоанализ",
   "pageAddReflectionNameFormAnnotation": "*Вы можете изменить это позже.",
   "pageAddReflectionNameFormPlaceHolder": "Название игры + имя персонажа",
   "pageAddReflectionNameFormButton": "Зарегистрироваться",
@@ -18,7 +18,7 @@
   "pageSolutionButtonBad": "для роста",
 
 
-  "solutionDetailPageTitle": "Детали отражения",
+  "solutionDetailPageTitle": "Детали самоанализ",
   "solutionDetailPageButtonEdit": "Для редактирования",
   "solutionDetailPageButtonRemoveTodo": "Удалить из списка дел",
   "solutionDetailPageButtonAddTodo": "Добавить в список дел",
@@ -42,15 +42,19 @@
   "solutionDetailPageTopEditCountValue": "{count} раз",
   "solutionDetailPageTopEditDetailGood": "Как улучшить свои положительные стороны",
   "solutionDetailPageTopEditDetailBad": "Контрмера",
-  "solutionDetailPageTopEditDetailHintGood": "Запишите, как вы можете улучшить свои сильные стороны. (до 300 символов)",
-  "solutionDetailPageTopEditDetailHintBad": "Напишите контрмеру. (до 300 символов)",
-  "solutionDetailPageTopEditTitleHint": "Имя отражения (до 30 символов)",
+  "solutionDetailPageTopEditDetailHintGood": "Запишите, как вы можете улучшить свои сильные стороны.\n(до 300 символов)",
+  "solutionDetailPageTopEditDetailHintBad": "Напишите контрмеру.\n(до 300 символов)",
+  "solutionDetailPageTopEditTitleHint": "Имя самоанализ (до 35 символов)",
 
 
   "pageReflectionTitle": "Добавить отражение",
   "pageReflectionHowToTitle": "Как отразить",
   "pageReflectionHowToDetail": "1. Посмотрите повтор\n\n2. Напишите хорошее и плохое\n\n3. Добавьте такое же отражение из предложений",
   "pageReflectionButtonStart": "Начать отражение",
+
+
+  "pageRankDetailTitle": "Ранг",
+  "pageRankDetailSubTitle": "Это показатель мастерства рефлексии.",
 
 
   "reflectionAddPageModalAddType": "Классификация отражений",
@@ -79,7 +83,7 @@
 
 
   "pageReflectionHistoryGroupTitle": "История {title}",
-  "pageReflectionHistoryGroupNoList": "Истории отражения нет.",
+  "pageReflectionHistoryGroupNoList": "Истории самоанализ нет.",
   "pageReflectionHistoryGroupAnnotation": "Можно сохранить до 10 элементов.",
 
 
@@ -88,8 +92,8 @@
 
 
   "accountPageTitle": "Настройка аккаунта",
-  "accountPageCurrentReflectionName": "Выбранное имя отражения",
-  "accountPageChangeReflectionName": "Изменить имя отражения",
+  "accountPageCurrentReflectionName": "Выбранное имя самоанализ",
+  "accountPageChangeReflectionName": "Изменить имя самоанализ",
   "accountPageChangeReflectionNamePlaceHolder": "Имя игры + имя персонажа",
   "accountPageChangeReflectionNameButton": "Изменить",
   "accountPageAddReflection": "Создать новое отражение",
@@ -101,7 +105,7 @@
   "accountPagePrivacyPolicy": "Политика конфиденциальности",
   "accountPageAppInfo": "Информация о приложении",
   "accountPageDeleteReflection": "Удалить выбранное отражение",
-  "accountPageDeleteReflectionDetail": "*Содержимое отражения также будет удалено.",
+  "accountPageDeleteReflectionDetail": "*Содержимое самоанализ также будет удалено.",
   "accountPageDeleteButton": "Удалить",
   "accountPageModalDeleteTitle": "Удалить отражение",
   "accountPageModalDeleteSubTitle": "Просмотренный контент также будет удален. \nВосстановление невозможно.",

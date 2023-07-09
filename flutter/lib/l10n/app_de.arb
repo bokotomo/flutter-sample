@@ -42,15 +42,19 @@
   "solutionDetailPageTopEditCountValue": "{count} mal",
   "solutionDetailPageTopEditDetailGood": "So verbessern Sie Ihre guten Punkte",
   "solutionDetailPageTopEditDetailBad": "Gegenmaßnahme",
-  "solutionDetailPageTopEditDetailHintGood": "Schreiben Sie auf, wie Sie Ihre Stärken verbessern können. (innerhalb von 300 Zeichen)",
-  "solutionDetailPageTopEditDetailHintBad": "Schreiben Sie eine Gegenmaßnahme. (innerhalb von 300 Zeichen)",
-  "solutionDetailPageTopEditTitleHint": "Reflection-Name (innerhalb von 30 Zeichen)",
+  "solutionDetailPageTopEditDetailHintGood": "Schreiben Sie auf, wie Sie Ihre Stärken verbessern können.\n(innerhalb von 300 Zeichen)",
+  "solutionDetailPageTopEditDetailHintBad": "Schreiben Sie eine Gegenmaßnahme.\n(innerhalb von 300 Zeichen)",
+  "solutionDetailPageTopEditTitleHint": "Reflection-Name (innerhalb von 35 Zeichen)",
 
 
   "pageReflectionTitle": "Reflexion hinzufügen",
   "pageReflectionHowToTitle": "Wie man reflektiert",
   "pageReflectionHowToDetail": "1. Sehen Sie sich die Wiederholung an\n\n2. Schreiben Sie Gutes und Schlechtes\n\n3. Fügen Sie die gleiche Reflexion aus den Vorschlägen hinzu",
   "pageReflectionButtonStart": "Reflexion starten",
+
+
+  "pageRankDetailTitle": "Rang",
+  "pageRankDetailSubTitle": "Es ist ein Indikator für die Fähigkeit zur Reflexion.",
 
 
   "reflectionAddPageModalAddType": "Klassifizierung der Reflexion",

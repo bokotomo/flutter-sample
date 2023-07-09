@@ -20,6 +20,9 @@ import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/gauge_bar.dart'
     show GaugeBar;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 
 ///
 Widget view(
@@ -32,6 +35,7 @@ Widget view(
   double gaugePercent,
   Function(BuildContext) onPressedStart,
   Function(BuildContext) onPressedHistory,
+  Function(BuildContext) onPressedRankDetail,
 ) {
   ListView cloumn = ListView(
     children: [
@@ -55,11 +59,29 @@ Widget view(
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  BasicText(
-                    text: rank,
-                    size: "M",
-                    isBold: true,
-                    textAlign: TextAlign.center,
+                  Row(
+                    children: [
+                      BasicText(
+                        text: rank,
+                        size: "M",
+                        isBold: true,
+                        textAlign: TextAlign.center,
+                      ),
+                      CircleAvatar(
+                        radius: 8,
+                        backgroundColor: ConstantColor.iconBackGround,
+                        child: IconButton(
+                          iconSize: ConstantSizeUI.l3,
+                          padding: const EdgeInsets.all(0),
+                          icon: const Icon(
+                            Icons.question_mark,
+                            color: ConstantColor.iconDark,
+                          ),
+                          onPressed: () => onPressedRankDetail(context),
+                          splashRadius: 0.1,
+                        ),
+                      ),
+                    ],
                   ),
                   BasicText(
                     text: expText,

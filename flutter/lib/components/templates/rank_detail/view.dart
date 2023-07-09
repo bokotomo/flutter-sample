@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart'
+    show Widget, Row, ListView, Image, TextAlign;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
+import 'package:gamer_reflection/components/layouts/base_padding.dart'
+    show BaseLayoutPadding;
+import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
+    show SpacerHeight;
+import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
+    show SpacerWidth;
+import 'package:gamer_reflection/modules/const/rank/rank_system.dart'
+    show ConstantRankSystem;
+import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
+    show BasicText;
+
+///
+Widget view(
+  AppLocalizations i18n,
+  List<ConstantRankSystem> ranks,
+) {
+  ListView cloumn = ListView(
+    children: [
+      SpacerHeight.xm,
+      BasicText(
+        text: i18n.pageRankDetailSubTitle,
+        size: 'S',
+        textAlign: TextAlign.center,
+      ),
+      SpacerHeight.xm,
+      for (var i = 0; i < ranks.length; i++) ...{
+        if (i != 0) SpacerHeight.m,
+        Row(
+          children: [
+            Image.asset(
+              ranks[i].rankImg,
+              width: 48,
+              height: 48,
+            ),
+            SpacerWidth.m,
+            BasicText(
+              text: ranks[i].rank,
+              size: 'S',
+            )
+          ],
+        )
+      },
+      SpacerHeight.m,
+    ],
+  );
+
+  return BaseLayoutPadding(
+    i18n: i18n,
+    title: i18n.pageRankDetailTitle,
+    isBackGround: false,
+    child: cloumn,
+  );
+}

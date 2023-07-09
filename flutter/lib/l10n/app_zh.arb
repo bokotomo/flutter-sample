@@ -2,9 +2,9 @@
   "@@locale": "zh",
 
 
-  "pageAddReflectionNameTitle": "让我们决定反射名称！",
-  "pageAddReflectionNameSubTitle": "它用于每个角色/武器的反射。",
-  "pageAddReflectionNameFormTitle": "反射名称",
+  "pageAddReflectionNameTitle": "让我们决定回顾名称！",
+  "pageAddReflectionNameSubTitle": "它用于每个角色/武器的回顾。",
+  "pageAddReflectionNameFormTitle": "回顾名称",
   "pageAddReflectionNameFormAnnotation": "*您可以稍后更改。",
   "pageAddReflectionNameFormPlaceHolder": "游戏名称+角色名称",
   "pageAddReflectionNameFormButton": "注册",
@@ -13,12 +13,12 @@
 
   "pageSolutionTitle": "解决方案",
   "pageSolutionCountValue": "{count} 次",
-  "pageSolutionNoList": "没有反射。\n让我们从 回顾 添加它。",
+  "pageSolutionNoList": "没有回顾。\n让我们从 回顾 添加它。",
   "pageSolutionButtonGood": "改进",
   "pageSolutionButtonBad": "成长",
 
 
-  "solutionDetailPageTitle": "反射详细信息",
+  "solutionDetailPageTitle": "回顾详细信息",
   "solutionDetailPageButtonEdit": "编辑",
   "solutionDetailPageButtonRemoveTodo": "从待办事项中删除",
   "solutionDetailPageButtonAddTodo": "添加到待办事项",
@@ -42,18 +42,22 @@
   "solutionDetailPageTopEditCountValue": "{count} 次",
   "solutionDetailPageTopEditDetailGood": "如何提高你的优点",
   "solutionDetailPageTopEditDetailBad": "对策",
-  "solutionDetailPageTopEditDetailHintGood": "写下如何提高自己的优势。（300 个字符以内）",
-  "solutionDetailPageTopEditDetailHintBad": "请写出对策。（300 个字符以内）",
-  "solutionDetailPageTopEditTitleHint": "反射名称（30 个字符以内）",
+  "solutionDetailPageTopEditDetailHintGood": "写下如何提高自己的优势。\n（300 个字符以内）",
+  "solutionDetailPageTopEditDetailHintBad": "请写出对策。\n（300 个字符以内）",
+  "solutionDetailPageTopEditTitleHint": "回顾名称（35 个字符以内）",
 
 
-  "pageReflectionTitle": "添加反射",
-  "pageReflectionHowToTitle": "如何反射",
+  "pageReflectionTitle": "添加回顾",
+  "pageReflectionHowToTitle": "如何回顾",
   "pageReflectionHowToDetail": "1. 观看重播\n\n2. 写出好的和坏的\n\n3. 从建议中添加相同的反思",
-  "pageReflectionButtonStart": "开始反射",
+  "pageReflectionButtonStart": "开始回顾",
 
 
-  "reflectionAddPageModalAddType": "反射的分类",
+  "pageRankDetailTitle": "排名",
+  "pageRankDetailSubTitle": "它是反思熟练程度的指标。",
+
+
+  "reflectionAddPageModalAddType": "回顾的分类",
   "reflectionAddPageModalAddCountTitle": "发生的次数",
   "reflectionAddPageModalAddCountValue": "{count} 次",
   "reflectionAddPageModalAddButton": "添加",
@@ -61,17 +65,17 @@
   "reflectionAddPageModalConfirmTitle": "我添加了一条评论。\n您确定要返回吗？",
   "reflectionAddPageModalConfirmBack": "返回而不保存",
   "reflectionAddPageModalConfirmCancel": "取消",
-  "reflectionAddPageBottomDone": "完全反射",
-  "reflectionAddPageBottomHint": "写入反射",
+  "reflectionAddPageBottomDone": "完成回望",
+  "reflectionAddPageBottomHint": "写入回顾",
   "reflectionAddPageBottomButtonAdd": "添加",
   "reflectionAddPageCandidateNoList": "未找到候选者",
   "reflectionAddPageCandidateFirstText": "观看重播\n并写下你的优点和缺点。\n或者在比赛后立即添加。",
-  "reflectionAddPageDoneAlert": "您尚未添加任何反射。",
+  "reflectionAddPageDoneAlert": "您尚未添加任何回顾。",
 
 
-  "pageReflectionAddedListTitle": "添加反射列表",
+  "pageReflectionAddedListTitle": "添加回顾列表",
   "pageReflectionAddedListButtonSave": "保存",
-  "pageReflectionAddedListDoneAlert": "添加了反射。",
+  "pageReflectionAddedListDoneAlert": "添加了回顾。",
   "pageReflectionAddedListCountValue": "+{count} 次",
 
 
@@ -79,7 +83,7 @@
 
 
   "pageReflectionHistoryGroupTitle": "{title} 历史记录",
-  "pageReflectionHistoryGroupNoList": "没有反射历史记录。",
+  "pageReflectionHistoryGroupNoList": "没有回顾历史记录。",
   "pageReflectionHistoryGroupAnnotation": "最多可以保存 10 条。",
 
 
@@ -88,11 +92,11 @@
 
 
   "accountPageTitle": "账户设置",
-  "accountPageCurrentReflectionName": "选定的反射名称",
-  "accountPageChangeReflectionName": "更改反射名称",
+  "accountPageCurrentReflectionName": "选定的回顾名称",
+  "accountPageChangeReflectionName": "更改回顾名称",
   "accountPageChangeReflectionNamePlaceHolder": "游戏名称+角色名称",
   "accountPageChangeReflectionNameButton": "更改",
-  "accountPageAddReflection": "创建新反射",
+  "accountPageAddReflection": "创建新回顾",
   "accountPageAddReflectionPlaceHolder": "游戏名称+角色名称",
   "accountPageAddReflectionButton": "新建",
   "accountPageChangeColorMode": "更改颜色模式",
@@ -101,13 +105,13 @@
   "accountPagePrivacyPolicy": "隐私政策",
   "accountPageAppInfo": "应用程序信息",
   "accountPageDeleteReflection": "删除选定的倒影",
-  "accountPageDeleteReflectionDetail": "*反射内容也会被删除。",
+  "accountPageDeleteReflectionDetail": "*回顾内容也会被删除。",
   "accountPageDeleteButton": "删除",
-  "accountPageModalDeleteTitle": "删除反射",
+  "accountPageModalDeleteTitle": "删除回顾",
   "accountPageModalDeleteSubTitle": "审阅的内容也将被删除。\n无法恢复。",
   "accountPageModalDeleteButtonDelete": "删除",
   "accountPageModalDeleteCancel": "取消",
-  "accountPageModalNewTitle": "创建一个新的反射",
+  "accountPageModalNewTitle": "创建一个新的回顾",
   "accountPageModalNewButtonAdd": "新建",
   "accountPageModalNewCancel": "取消",
   "accountPageHooksDoneChangedName": "已更改为 {name}。",

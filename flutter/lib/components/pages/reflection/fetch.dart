@@ -9,6 +9,8 @@ import 'package:gamer_reflection/components/pages/reflection_add/reflection_add.
     show PageReflectionAdd;
 import 'package:gamer_reflection/components/pages/reflection_history_group/widget.dart'
     show PageReflectionHistoryGroup;
+import 'package:gamer_reflection/components/pages/rank_detail/widget.dart'
+    show PageRankDetail;
 import 'package:gamer_reflection/domain/reflection/game.dart'
     show DomainReflectionGame;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
@@ -20,12 +22,14 @@ class UseReturn {
     required this.game,
     required this.pushReflection,
     required this.pushHistory,
+    required this.pushRankDetail,
   });
 
   final List<DomainReflectionGroup> reflectionGroups;
   final DomainReflectionGame game;
   final void Function(BuildContext, String, int) pushReflection;
   final void Function(BuildContext, String, int) pushHistory;
+  final void Function(BuildContext) pushRankDetail;
 }
 
 /// データ取得: 振り返りグループ一覧
@@ -85,6 +89,21 @@ UseReturn useFetch(AppLocalizations i18n) {
     });
   }
 
+  /// ランク説明ページへ移動
+  void pushRankDetail(BuildContext context) {
+    final PageRankDetail page = PageRankDetail(
+      i18n: i18n,
+    );
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (c) => page,
+      ),
+    ).then((v) {
+      fetch();
+    });
+  }
+
   useEffect(() {
     fetch();
     return;
@@ -95,5 +114,6 @@ UseReturn useFetch(AppLocalizations i18n) {
     game: game.value,
     pushReflection: pushReflection,
     pushHistory: pushHistory,
+    pushRankDetail: pushRankDetail,
   );
 }

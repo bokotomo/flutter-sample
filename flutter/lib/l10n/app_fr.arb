@@ -42,15 +42,19 @@
   "solutionDetailPageTopEditCountValue": "{count} fois",
   "solutionDetailPageTopEditDetailGood": "Comment améliorer vos bons points",
   "solutionDetailPageTopEditDetailBad": "Contre-mesure",
-  "solutionDetailPageTopEditDetailHintGood": "Écrivez comment vous pouvez améliorer vos points forts. (jusqu'à 300 caractères)",
-  "solutionDetailPageTopEditDetailHintBad": "Écrivez une contre-mesure. (jusqu'à 300 caractères)",
-  "solutionDetailPageTopEditTitleHint": "Nom de la réflexion (jusqu'à 30 caractères)",
+  "solutionDetailPageTopEditDetailHintGood": "Écrivez comment vous pouvez améliorer vos points forts.\n(jusqu'à 300 caractères)",
+  "solutionDetailPageTopEditDetailHintBad": "Écrivez une contre-mesure.\n(jusqu'à 300 caractères)",
+  "solutionDetailPageTopEditTitleHint": "Nom de la réflexion (jusqu'à 35 caractères)",
 
 
   "pageReflectionTitle": "Ajouter une réflexion",
   "pageReflectionHowToTitle": "Comment réfléchir",
   "pageReflectionHowToDetail": "1. Regardez la rediffusion\n\n2. Écrivez le bien et le mal\n\n3. Ajoutez la même réflexion à partir des suggestions",
   "pageReflectionButtonStart": "Démarrer la réflexion",
+
+
+  "pageRankDetailTitle": "Classement",
+  "pageRankDetailSubTitle": "C'est un indicateur de compétence en réflexion.",
 
 
   "reflectionAddPageModalAddType": "Classification de la réflexion",

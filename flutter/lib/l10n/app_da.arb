@@ -42,15 +42,19 @@
   "solutionDetailPageTopEditCountValue": "{count} gange",
   "solutionDetailPageTopEditDetailGood": "Sådan forbedrer du dine gode pointer",
   "solutionDetailPageTopEditDetailBad": "Modforanstaltning",
-  "solutionDetailPageTopEditDetailHintGood": "Skriv ned, hvordan du kan forbedre dine styrker. (inden for 300 tegn)",
-  "solutionDetailPageTopEditDetailHintBad": "Skriv en modforanstaltning. (inden for 300 tegn)",
-  "solutionDetailPageTopEditTitleHint": "Refleksionsnavn (inden for 30 tegn)",
+  "solutionDetailPageTopEditDetailHintGood": "Skriv ned, hvordan du kan forbedre dine styrker.\n(inden for 300 tegn)",
+  "solutionDetailPageTopEditDetailHintBad": "Skriv en modforanstaltning.\n(inden for 300 tegn)",
+  "solutionDetailPageTopEditTitleHint": "Refleksionsnavn (inden for 35 tegn)",
 
 
   "pageReflectionTitle": "Tilføj refleksion",
   "pageReflectionHowToTitle": "Sådan reflekteres",
   "pageReflectionHowToDetail": "1. Se replayet\n\n2. Skriv godt og dårligt\n\n3. Tilføj den samme refleksion fra forslagene",
   "pageReflectionButtonStart": "Start refleksion",
+
+
+  "pageRankDetailTitle": "Rank",
+  "pageRankDetailSubTitle": "Det er en indikator for færdigheder i refleksion.",
 
 
   "reflectionAddPageModalAddType": "Klassificering af refleksion",

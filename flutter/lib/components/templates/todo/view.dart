@@ -41,10 +41,7 @@ Widget view(
       SpacerHeight.m,
 
       /// ない場合
-      if (todos.isEmpty)
-        TodoNoDataAnnotation(
-          i18n: i18n,
-        ),
+      if (todos.isEmpty) TodoNoDataAnnotation(i18n: i18n),
 
       /// やること一覧
       for (int i = 0; i < todos.length; i++) ...{

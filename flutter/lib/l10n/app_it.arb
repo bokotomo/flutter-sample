@@ -4,7 +4,7 @@
 
   "pageAddReflectionNameTitle": "Decidiamo il nome del riflesso!",
   "pageAddReflectionNameSubTitle": "Serve per riflettere su ogni personaggio/arma.",
-  "pageAddReflectionNameFormTitle": "Nome riflesso",
+  "pageAddReflectionNameFormTitle": "Riflesso nome",
   "pageAddReflectionNameFormAnnotation": "*Puoi cambiarlo in seguito.",
   "pageAddReflectionNameFormPlaceHolder": "Nome gioco + nome personaggio",
   "pageAddReflectionNameFormButton": "Registrati",
@@ -42,15 +42,19 @@
   "solutionDetailPageTopEditCountValue": "{count} volte",
   "solutionDetailPageTopEditDetailGood": "Come migliorare i tuoi punti positivi",
   "solutionDetailPageTopEditDetailBad": "Contromisura",
-  "solutionDetailPageTopEditDetailHintGood": "Scrivi come puoi migliorare i tuoi punti di forza. (entro 300 caratteri)",
-  "solutionDetailPageTopEditDetailHintBad": "Scrivi una contromisura. (entro 300 caratteri)",
-  "solutionDetailPageTopEditTitleHint": "Nome della riflessione (entro 30 caratteri)",
+  "solutionDetailPageTopEditDetailHintGood": "Scrivi come puoi migliorare i tuoi punti di forza.\n(entro 300 caratteri)",
+  "solutionDetailPageTopEditDetailHintBad": "Scrivi una contromisura.\n(entro 300 caratteri)",
+  "solutionDetailPageTopEditTitleHint": "Nome della riflessione (entro 35 caratteri)",
 
 
   "pageReflectionTitle": "Aggiungi riflesso",
   "pageReflectionHowToTitle": "Come riflettere",
   "pageReflectionHowToDetail": "1. Guarda il replay\n\n2. Scrivi bene e male\n\n3. Aggiungi la stessa riflessione dai suggerimenti",
   "pageReflectionButtonStart": "Avvia riflessione",
+
+
+  "pageRankDetailTitle": "Posizione",
+  "pageRankDetailSubTitle": "È un indicatore di competenza nella riflessione.",
 
 
   "reflectionAddPageModalAddType": "Classificazione della riflessione",

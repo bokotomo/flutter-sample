@@ -64,30 +64,36 @@ class TextTag extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: getBackGroundColor(),
-        borderRadius: BorderRadius.circular(40),
-        border: Border.all(color: getBorderColor()),
-        boxShadow: [
-          BoxShadow(
-            color: getBorderColor(),
-            spreadRadius: 0,
-            blurRadius: ConstantSizeUI.l0,
+    return ConstrainedBox(
+      constraints: const BoxConstraints(
+        minWidth: ConstantSizeUI.l7,
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: getBackGroundColor(),
+          borderRadius: BorderRadius.circular(40),
+          border: Border.all(color: getBorderColor()),
+          boxShadow: [
+            BoxShadow(
+              color: getBorderColor(),
+              spreadRadius: 0,
+              blurRadius: ConstantSizeUI.l0,
+            ),
+          ],
+        ),
+        padding: const EdgeInsets.only(
+          top: ConstantSizeUI.l0,
+          bottom: ConstantSizeUI.l0,
+          left: ConstantSizeUI.l2,
+          right: ConstantSizeUI.l2,
+        ),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: ConstantSizeFont.xs,
+            color: getTextColor(),
           ),
-        ],
-      ),
-      padding: const EdgeInsets.only(
-        top: ConstantSizeUI.l0,
-        bottom: ConstantSizeUI.l0,
-        left: ConstantSizeUI.l3,
-        right: ConstantSizeUI.l3,
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: ConstantSizeFont.xs,
-          color: getTextColor(),
         ),
       ),
     );

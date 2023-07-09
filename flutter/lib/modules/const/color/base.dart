@@ -82,7 +82,10 @@ class ConstantColor {
   static const Color icon = Color.fromARGB(200, 255, 255, 255);
 
   /// アイコンの背景の円の色
-  static const Color iconBackGround = Color.fromARGB(54, 255, 255, 255);
+  static const Color iconBackGround = Color.fromARGB(110, 255, 255, 255);
+
+  /// アイコンの背景の円の色 薄い
+  static const Color iconBackGroundThin = Color.fromARGB(55, 255, 255, 255);
 
   /// アイコンの色
   static const Color iconDark = Color.fromARGB(199, 26, 26, 55);

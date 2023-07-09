@@ -10,12 +10,14 @@ class UseReturn {
   const UseReturn({
     required this.onPressedStart,
     required this.onPressedHistory,
+    required this.onPressedRankDetail,
     required this.expText,
     required this.gaugePercent,
   });
   final double gaugePercent;
   final Future<void> Function(BuildContext) onPressedStart;
   final Future<void> Function(BuildContext) onPressedHistory;
+  final void Function(BuildContext) onPressedRankDetail;
   final String Function() expText;
 }
 
@@ -25,6 +27,7 @@ UseReturn useHooks(
   DomainReflectionGame game,
   void Function(BuildContext, String, int) pushReflection,
   void Function(BuildContext, String, int) pushHistory,
+  void Function(BuildContext) pushRankDetail,
 ) {
   /// 振り返りの開始を押した
   Future<void> onPressedStart(BuildContext c) async {
@@ -56,6 +59,11 @@ UseReturn useHooks(
     if (c.mounted) pushHistory(c, d.name, groupId);
   }
 
+  /// ランク説明を押した
+  void onPressedRankDetail(BuildContext c) {
+    pushRankDetail(c);
+  }
+
   /// 経験値と次の経験値の文言を返す
   String expText() {
     if (game.nextExp == null) return '${game.exp}';
@@ -77,6 +85,7 @@ UseReturn useHooks(
     gaugePercent: getGaugePercent(),
     onPressedStart: onPressedStart,
     onPressedHistory: onPressedHistory,
+    onPressedRankDetail: onPressedRankDetail,
     expText: expText,
   );
 }

@@ -28,6 +28,7 @@ class PageReflection extends HookWidget {
         game: d.game,
         pushReflection: d.pushReflection,
         pushHistory: d.pushHistory,
+        pushRankDetail: d.pushRankDetail,
       ),
     );
   }
