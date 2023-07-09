@@ -38,6 +38,12 @@ class ButtonBasic extends StatelessWidget {
           ? ConstantColorButton.basicThin
           : ConstantColorButton.basic,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+      padding: const EdgeInsets.only(
+        left: ConstantSizeUI.l0,
+        right: ConstantSizeUI.l0,
+        top: ConstantSizeUI.l1,
+        bottom: ConstantSizeUI.l1,
+      ),
       elevation: 2,
       shadowColor: isThinColor
           ? ConstantColorButton.basicBorderThin
