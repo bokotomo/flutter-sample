@@ -11,6 +11,7 @@ class ButtonBasic extends StatelessWidget {
     super.key,
     required this.text,
     this.onPressed,
+    this.textSize,
     this.isThin,
   });
 
@@ -19,6 +20,9 @@ class ButtonBasic extends StatelessWidget {
 
   /// 薄いか
   final bool? isThin;
+
+  /// 文字サイズ
+  final String? textSize;
 
   /// クリックした
   final void Function()? onPressed;
@@ -64,7 +68,7 @@ class ButtonBasic extends StatelessWidget {
       style: style,
       child: BasicText(
         text: text,
-        size: "M",
+        size: textSize ?? "M",
         isNoSelect: true,
       ),
     );

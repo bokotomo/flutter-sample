@@ -86,6 +86,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
     /// 右上のアイコンを追加
     /// todo: リファクタ
     List<Widget> getActions() {
+      final isSizeS = i18n.localeName == 'fr' || i18n.localeName == 'it';
       // 完了
       if (onClickDoneButton != null) {
         return [
@@ -105,6 +106,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
           ),
         ];
       }
+
       // 履歴
       if (onClickHistory != null) {
         return [
@@ -120,6 +122,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
                 text: i18n.headerMenuRightHistory,
                 onPressed: onClickHistory,
                 isThin: true,
+                textSize: isSizeS ? 'S' : 'M',
               ),
             ),
           ),

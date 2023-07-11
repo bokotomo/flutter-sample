@@ -94,8 +94,9 @@ class InputText extends StatelessWidget {
             width: 2.0,
           ),
         ),
-        errorStyle: const TextStyle(
+        errorStyle: TextStyle(
           color: ConstantColorInput.inputErrorText,
+          fontSize: i18n.localeName == 'de' ? 10 : 12,
         ),
         filled: true,
         fillColor: ConstantColorInput.input,

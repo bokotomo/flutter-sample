@@ -40,6 +40,9 @@ Widget view(
   void Function() onPressedRemoveText,
   void Function(String?) onChangeTextReflection,
 ) {
+  final isTextSizeS = i18n.localeName == 'ru' ||
+      i18n.localeName == 'de' ||
+      i18n.localeName == 'it';
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -76,6 +79,7 @@ Widget view(
               width: 80,
               child: ButtonBasic(
                 text: i18n.reflectionAddPageBottomButtonAdd,
+                textSize: isTextSizeS ? 'S' : 'M',
                 onPressed: () => onPressedAddReflection(context),
               ),
             ),

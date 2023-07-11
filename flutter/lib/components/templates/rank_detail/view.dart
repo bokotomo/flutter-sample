@@ -38,9 +38,11 @@ Widget view(
             ),
             SpacerWidth.m,
             BasicText(
-              text: ranks[i].rank,
+              text: ranks[i].prevExp == 0
+                  ? ranks[i].rank
+                  : "${ranks[i].rank}  ${ranks[i].prevExp}exp",
               size: 'S',
-            )
+            ),
           ],
         )
       },

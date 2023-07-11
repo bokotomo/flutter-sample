@@ -20,8 +20,8 @@
 
   "solutionDetailPageTitle": "Reflexionsdetails",
   "solutionDetailPageButtonEdit": "Zu bearbeiten",
-  "solutionDetailPageButtonRemoveTodo": "Aus Todo entfernen",
-  "solutionDetailPageButtonAddTodo": "Zu ToDo hinzufügen",
+  "solutionDetailPageButtonRemoveTodo": "Aus Aufgabenliste entfernen",
+  "solutionDetailPageButtonAddTodo": "Zu Aufgabenliste hinzufügen",
   "solutionDetailPageButtonDone": "Bearbeitung abschließen",
   "solutionDetailPageButtonCancel": "Abbrechen",
   "solutionDetailPageModalCheckTitle": "Sind Sie sicher, dass Sie den Vorgang beenden möchten?",
@@ -30,8 +30,8 @@
   "solutionDetailPageModalCheckButtonCancel": "Abbrechen",
   "solutionDetailPageHooksAlertAddGood": "Sie müssen schreiben, wie man wächst, um hinzuzufügen.",
   "solutionDetailPageHooksAlertAddBad": "Sie müssen schreiben, wie Sie etwas verbessern können, um es hinzuzufügen.",
-  "solutionDetailPageHooksAlertRemoveTodo": "Aus todo entfernt.",
-  "solutionDetailPageHooksAlertAddTodo": "Von todo hinzugefügt.",
+  "solutionDetailPageHooksAlertRemoveTodo": "Aus Aufgabenliste entfernt.",
+  "solutionDetailPageHooksAlertAddTodo": "Von Aufgabenliste hinzugefügt.",
   "solutionDetailPageTopTypeGood": "Typ: gute Punkte",
   "solutionDetailPageTopTypeBad": "Typ: Fehlerhafte Punkte",
   "solutionDetailPageTopCountValue": "{count} mal",
@@ -122,7 +122,7 @@
 
   "footerSolution": "Lösung",
   "footerReflection": "Rezension",
-  "footerTodo": "Machen",
+  "footerTodo": "Aufgabenliste",
   "footerAccount": "Konto",
 
 
@@ -143,11 +143,11 @@
   "commonRadioGoodBadButtonBad": "Schlecht",
 
 
-  "commonInputTextValidationEmpty": "*Es wurden keine Zeichen eingegeben.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} Zeichen oder weniger.",
-  "commonInputTextValidationAllSpace": "*Sie können nicht alle Leerzeichen hinzufügen.",
-  "commonInputTextValidationFisrtSpace": "*Am Anfang ist kein Leerzeichen zulässig.",
-  "commonInputTextValidationLastSpace": "*Am Ende ist kein Leerzeichen zulässig.",
+  "commonInputTextValidationEmpty": "Es wurden keine Zeichen eingegeben.",
+  "commonInputTextValidationMaxLengthOver": "{maxLength} Zeichen oder weniger.",
+  "commonInputTextValidationAllSpace": "Nur Leerzeichen sind nicht zulässig.",
+  "commonInputTextValidationFisrtSpace": "Am Anfang ist kein Leerzeichen zulässig.",
+  "commonInputTextValidationLastSpace": "Am Ende ist kein Leerzeichen zulässig.",
 
 
   "commonRankBronze": "Bronze",
