@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show StatelessWidget, TextAlign, Widget, BuildContext, Text, TextStyle;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;

@@ -1,4 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Widget,
+        BuildContext,
+        SizedBox,
+        Column,
+        MainAxisAlignment,
+        Icon,
+        Icons,
+        TextAlign;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'

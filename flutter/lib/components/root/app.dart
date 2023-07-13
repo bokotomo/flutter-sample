@@ -3,7 +3,6 @@ import 'package:flutter/material.dart'
         Widget,
         BuildContext,
         MaterialApp,
-        Locale,
         ThemeData,
         VisualDensity,
         SizedBox,
@@ -18,8 +17,6 @@ import 'package:gamer_reflection/components/pages/add_reflection_name/add_reflec
 import 'package:gamer_reflection/components/root/hooks.dart' show useHooks;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
-
-const title = 'Gamer Reflection';
 
 /// ページ: ルート
 class App extends HookWidget {
@@ -57,39 +54,11 @@ class App extends HookWidget {
       );
     }
 
-    const supportedLocales = [
-      ...AppLocalizations.supportedLocales,
-      Locale.fromSubtags(
-        languageCode: 'zh',
-        scriptCode: 'Hans',
-      ),
-      Locale.fromSubtags(
-        languageCode: 'zh',
-        scriptCode: 'Hant',
-      ),
-      Locale.fromSubtags(
-        languageCode: 'zh',
-        scriptCode: 'Hans',
-        countryCode: 'CN',
-      ),
-      Locale.fromSubtags(
-        languageCode: 'zh',
-        scriptCode: 'Hant',
-        countryCode: 'TW',
-      ),
-      Locale.fromSubtags(
-        languageCode: 'zh',
-        scriptCode: 'Hant',
-        countryCode: 'HK',
-      ),
-    ];
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: title,
       locale: h.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: supportedLocales,
+      supportedLocales: h.supportedLocales,
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

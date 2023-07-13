@@ -5,8 +5,8 @@ import 'package:gamer_reflection/components/common/atoms/toast/alert.dart'
     show ToastAlert;
 import 'package:fluttertoast/fluttertoast.dart' show FToast, ToastGravity;
 
-class UseReturn {
-  const UseReturn({
+class UseToastParam {
+  const UseToastParam({
     required this.showNotification,
     required this.showAlert,
   });
@@ -15,7 +15,7 @@ class UseReturn {
 }
 
 /// トースト
-UseReturn useToast(BuildContext context) {
+UseToastParam useToast(BuildContext context) {
   final FToast fToast = FToast();
   fToast.init(context);
 
@@ -37,7 +37,7 @@ UseReturn useToast(BuildContext context) {
     );
   }
 
-  return UseReturn(
+  return UseToastParam(
     showNotification: showNotification,
     showAlert: showAlert,
   );

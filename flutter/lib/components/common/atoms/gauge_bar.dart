@@ -1,4 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Widget,
+        BuildContext,
+        ClipRRect,
+        BorderRadius,
+        Radius,
+        LinearProgressIndicator,
+        AlwaysStoppedAnimation,
+        Color;
 
 /// ゲージのバー
 class GaugeBar extends StatelessWidget {

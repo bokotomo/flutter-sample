@@ -1,4 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Color,
+        Widget,
+        BuildContext,
+        ConstrainedBox,
+        BoxConstraints,
+        Container,
+        BoxDecoration,
+        BorderRadius,
+        Border,
+        BoxShadow,
+        EdgeInsets,
+        Text,
+        TextAlign,
+        TextStyle;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
 import 'package:gamer_reflection/modules/const/color/text_tag.dart'
     show ConstantColorTextTag;

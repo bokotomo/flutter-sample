@@ -10,11 +10,14 @@ import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 import 'package:gamer_reflection/storage/kvs/selected_language.dart'
     show selectLanguage;
 import 'package:gamer_reflection/modules/fetch/root.dart' show FetchRootPage;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 
 class UseReturn {
   const UseReturn({
     required this.isNoSetReflectionGroup,
     required this.locale,
+    required this.supportedLocales,
     required this.canDC,
     required this.changeLocale,
     required this.changeTabPage,
@@ -22,6 +25,7 @@ class UseReturn {
 
   final bool? isNoSetReflectionGroup;
   final Locale? locale;
+  final List<Locale> supportedLocales;
   final ValueNotifier<bool> canDC;
   final void Function(LocaleCode) changeLocale;
   final void Function() changeTabPage;
@@ -142,9 +146,38 @@ UseReturn useHooks(BuildContext context) {
     return;
   }, [futuredLanguage.data]);
 
+  /// 言語
+  const supportedLocales = [
+    ...AppLocalizations.supportedLocales,
+    Locale.fromSubtags(
+      languageCode: 'zh',
+      scriptCode: 'Hans',
+    ),
+    Locale.fromSubtags(
+      languageCode: 'zh',
+      scriptCode: 'Hant',
+    ),
+    Locale.fromSubtags(
+      languageCode: 'zh',
+      scriptCode: 'Hans',
+      countryCode: 'CN',
+    ),
+    Locale.fromSubtags(
+      languageCode: 'zh',
+      scriptCode: 'Hant',
+      countryCode: 'TW',
+    ),
+    Locale.fromSubtags(
+      languageCode: 'zh',
+      scriptCode: 'Hant',
+      countryCode: 'HK',
+    ),
+  ];
+
   return UseReturn(
     isNoSetReflectionGroup: isNoSetReflectionGroup.value,
     locale: locale.value,
+    supportedLocales: supportedLocales,
     canDC: canDC,
     changeLocale: changeLocale,
     changeTabPage: changeTabPage,

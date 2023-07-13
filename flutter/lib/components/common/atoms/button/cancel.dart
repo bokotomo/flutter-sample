@@ -1,4 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Widget,
+        BuildContext,
+        ElevatedButton,
+        Size,
+        RoundedRectangleBorder,
+        BorderRadius,
+        Radius,
+        BorderSide;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/color/button.dart'
