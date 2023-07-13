@@ -34,7 +34,7 @@ class TemplateAccountSetting extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(
+    final h = useHooks(
       i18n,
       context,
       reflectionGroups,
@@ -46,16 +46,16 @@ class TemplateAccountSetting extends HookWidget {
       context,
       changeLocale,
       reflectionGroups,
-      hooks.onPressedEdit,
-      hooks.onPressedDelete,
-      hooks.onPressedNewName,
-      hooks.onChangeReflectionGroup,
-      hooks.textReflectionName,
-      hooks.textReflectionNameFocusNode,
-      hooks.textReflectionNewName,
-      hooks.textReflectionNewNameFocusNode,
-      hooks.formKeyNewName,
-      hooks.formKeyEditName,
+      h.onPressedEdit,
+      h.onPressedDelete,
+      h.onPressedNewName,
+      h.onChangeReflectionGroup,
+      h.textReflectionName,
+      h.textReflectionNameFocusNode,
+      h.textReflectionNewName,
+      h.textReflectionNewNameFocusNode,
+      h.formKeyNewName,
+      h.formKeyEditName,
     );
   }
 }

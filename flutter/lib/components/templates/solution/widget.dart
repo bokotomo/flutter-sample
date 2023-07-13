@@ -39,22 +39,22 @@ class TemplateSolution extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflections, reflectionGroups, fetchReflections);
+    final h = useHooks(reflections, reflectionGroups, fetchReflections);
 
     return view(
       i18n,
       context,
       reflectionGroups,
       pushSolutionDetail,
-      hooks.period,
-      hooks.filteredReflections,
-      hooks.isSelectedGood,
-      hooks.onPressedAll,
-      hooks.onPressedThreeMonth,
-      hooks.onPressedMonth,
-      hooks.onPressedBad,
-      hooks.onPressedGood,
-      hooks.onChangeReflectionGroup,
+      h.period,
+      h.filteredReflections,
+      h.isSelectedGood,
+      h.onPressedAll,
+      h.onPressedThreeMonth,
+      h.onPressedMonth,
+      h.onPressedBad,
+      h.onPressedGood,
+      h.onChangeReflectionGroup,
     );
   }
 }

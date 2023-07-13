@@ -22,15 +22,15 @@ class SelectLanguage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(
+    final h = useHooks(
       context,
       changeLocale,
     );
 
     return InputSelect(
-      items: hooks.languages,
-      value: hooks.language,
-      onChanged: hooks.onChanged,
+      items: h.languages,
+      value: h.language,
+      onChanged: h.onChanged,
       focusNode: focusNode,
     );
   }

@@ -37,15 +37,15 @@ class TemplateTodo extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflectionGroups, fetchTodos);
+    final h = useHooks(reflectionGroups, fetchTodos);
 
     return view(
       i18n,
       context,
       todos,
       reflectionGroups,
-      hooks.onChangeReflectionGroup,
-      hooks.onClickRemove,
+      h.onChangeReflectionGroup,
+      h.onClickRemove,
       pushSolutionDetail,
     );
   }

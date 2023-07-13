@@ -27,12 +27,12 @@ class SelectReflectionGroup extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(reflectionGroups, onChanged);
+    final h = useHooks(reflectionGroups, onChanged);
 
     return InputSelect(
-      items: hooks.reflectionNames,
-      value: hooks.reflectionId,
-      onChanged: hooks.onChanged,
+      items: h.reflectionNames,
+      value: h.reflectionId,
+      onChanged: h.onChanged,
       focusNode: focusNode,
     );
   }

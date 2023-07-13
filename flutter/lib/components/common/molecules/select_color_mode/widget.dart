@@ -23,12 +23,12 @@ class SelectColorMode extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final hooks = useHooks(i18n);
+    final h = useHooks(i18n);
 
     return InputSelect(
-      items: hooks.colors,
-      value: hooks.colorMode,
-      onChanged: hooks.onChanged,
+      items: h.colors,
+      value: h.colorMode,
+      onChanged: h.onChanged,
       focusNode: focusNode,
     );
   }
