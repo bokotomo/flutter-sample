@@ -40,52 +40,61 @@ UseReturn useHooks(
   /// 変更を押した
   void onChanged(String? t) {
     switch (t) {
+      case 'ar':
+        changeLocale(LocaleCode.ar);
+        break;
       case 'da':
         changeLocale(LocaleCode.da);
-        selectLanguage.save(t!);
         break;
       case 'de':
         changeLocale(LocaleCode.de);
-        selectLanguage.save(t!);
         break;
       case 'en':
         changeLocale(LocaleCode.en);
-        selectLanguage.save(t!);
+        break;
+      case 'es':
+        changeLocale(LocaleCode.es);
         break;
       case 'fr':
         changeLocale(LocaleCode.fr);
-        selectLanguage.save(t!);
+        break;
+      case 'id':
+        changeLocale(LocaleCode.id);
         break;
       case 'it':
         changeLocale(LocaleCode.it);
-        selectLanguage.save(t!);
         break;
       case 'ja':
         changeLocale(LocaleCode.ja);
-        selectLanguage.save(t!);
         break;
       case 'ko':
         changeLocale(LocaleCode.ko);
-        selectLanguage.save(t!);
+        break;
+      case 'pt':
+        changeLocale(LocaleCode.pt);
         break;
       case 'ru':
         changeLocale(LocaleCode.ru);
-        selectLanguage.save(t!);
+        break;
+      case 'tr':
+        changeLocale(LocaleCode.tr);
         break;
       case 'zh':
         changeLocale(LocaleCode.zh);
-        selectLanguage.save(t!);
         break;
       case 'zh_TW':
         changeLocale(LocaleCode.zhTW);
-        selectLanguage.save(t!);
         break;
       default:
     }
+    selectLanguage.save(t!);
   }
 
   /// 表示言語一覧
   const List<SelectItem> languages = [
+    /// アラビア
+    SelectItem(text: 'اللغة العربية', value: 'ar'),
+
     /// デンマーク
     SelectItem(text: 'Dansk', value: 'da'),
 
@@ -95,8 +104,14 @@ UseReturn useHooks(
     /// 英語
     SelectItem(text: 'English', value: 'en'),
 
+    /// スペイン語
+    SelectItem(text: 'Español', value: 'es'),
+
     /// フランス語
     SelectItem(text: 'Français', value: 'fr'),
+
+    /// インドネシア語
+    SelectItem(text: 'bahasa Indonesia', value: 'id'),
 
     /// イタリア語
     SelectItem(text: 'Italiano', value: 'it'),
@@ -107,8 +122,14 @@ UseReturn useHooks(
     /// 韓国語
     SelectItem(text: '한국어', value: 'ko'),
 
+    /// ポルトガル語
+    SelectItem(text: 'Português', value: 'pt'),
+
     /// ロシア語
     SelectItem(text: 'Русский', value: 'ru'),
+
+    /// トルコ語
+    SelectItem(text: 'Türkçe', value: 'tr'),
 
     /// 中国語 簡体
     SelectItem(text: '中文（简体）', value: 'zh'),

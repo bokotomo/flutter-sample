@@ -61,6 +61,9 @@ UseReturn useHooks(BuildContext context) {
   /// 言語を変更する
   void changeLocale(LocaleCode localeCode) {
     switch (localeCode) {
+      case LocaleCode.ar:
+        locale.value = const Locale('ar');
+        break;
       case LocaleCode.da:
         locale.value = const Locale('da');
         break;
@@ -70,8 +73,14 @@ UseReturn useHooks(BuildContext context) {
       case LocaleCode.en:
         locale.value = const Locale('en');
         break;
+      case LocaleCode.es:
+        locale.value = const Locale('es');
+        break;
       case LocaleCode.fr:
         locale.value = const Locale('fr');
+        break;
+      case LocaleCode.id:
+        locale.value = const Locale('id');
         break;
       case LocaleCode.it:
         locale.value = const Locale('it');
@@ -82,8 +91,14 @@ UseReturn useHooks(BuildContext context) {
       case LocaleCode.ko:
         locale.value = const Locale('ko');
         break;
+      case LocaleCode.pt:
+        locale.value = const Locale('pt');
+        break;
       case LocaleCode.ru:
         locale.value = const Locale('ru');
+        break;
+      case LocaleCode.tr:
+        locale.value = const Locale('tr');
         break;
       case LocaleCode.zh:
         locale.value = const Locale('zh');
@@ -110,6 +125,9 @@ UseReturn useHooks(BuildContext context) {
 
     final machineLocaleCode = futuredLanguage.data;
     switch (machineLocaleCode) {
+      case 'ar':
+        changeLocale(LocaleCode.ar);
+        break;
       case 'da':
         changeLocale(LocaleCode.da);
         break;
@@ -119,8 +137,14 @@ UseReturn useHooks(BuildContext context) {
       case 'en':
         changeLocale(LocaleCode.en);
         break;
+      case 'es':
+        changeLocale(LocaleCode.es);
+        break;
       case 'fr':
         changeLocale(LocaleCode.fr);
+        break;
+      case 'id':
+        changeLocale(LocaleCode.id);
         break;
       case 'it':
         changeLocale(LocaleCode.it);
@@ -131,8 +155,14 @@ UseReturn useHooks(BuildContext context) {
       case 'ko':
         changeLocale(LocaleCode.ko);
         break;
+      case 'pt':
+        changeLocale(LocaleCode.pt);
+        break;
       case 'ru':
         changeLocale(LocaleCode.ru);
+        break;
+      case 'tr':
+        changeLocale(LocaleCode.tr);
         break;
       case 'zh':
         changeLocale(LocaleCode.zh);

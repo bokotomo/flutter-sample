@@ -42,7 +42,8 @@ Widget view(
 ) {
   final isTextSizeS = i18n.localeName == 'ru' ||
       i18n.localeName == 'de' ||
-      i18n.localeName == 'it';
+      i18n.localeName == 'it' ||
+      i18n.localeName == 'pt';
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
