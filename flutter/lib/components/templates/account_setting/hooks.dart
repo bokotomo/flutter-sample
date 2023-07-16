@@ -110,17 +110,17 @@ UseReturn useHooks(
     /// 選択しているキャッシュに保存
     selectReflectionGroupId.save(id.toString());
 
-    /// 入力欄をリセットする
+    /// 振り返り名追加の入力欄をリセットする
     textReflectionNewName.value.text = "";
     formKeyNewName.currentState?.reset();
 
     /// 振り返りグループ再読み込み
     fetchReflectionGroups();
 
-    ///
+    /// 名前を更新する
     textReflectionName.value.text = name;
 
-    ///
+    /// モーダルを閉じる
     if (context.mounted) Navigator.pop(context);
 
     toast.showNotification(i18n.accountPageHooksDoneAddedName(name), 2500);
@@ -128,7 +128,13 @@ UseReturn useHooks(
 
   /// 新規振り返り名の追加を押した
   void onPressedNewName(BuildContext context) {
+    // 入力バリデーション
     if (!formKeyNewName.currentState!.validate()) return;
+    // 追加上限は30まで
+    if (reflectionGroups.length >= 30) {
+      toast.showAlert(i18n.accountPageHooksAddedNameValidation(30), 2500);
+      return;
+    }
 
     showModal(
       i18n,
@@ -198,6 +204,10 @@ UseReturn useHooks(
     fetchReflectionGroups();
 
     toast.showNotification(i18n.accountPageHooksDoneDelete(name), 2500);
+
+    /// 振り返り名追加の入力欄をリセットする
+    textReflectionNewName.value.text = "";
+    formKeyNewName.currentState?.reset();
   }
 
   /// 削除を押した

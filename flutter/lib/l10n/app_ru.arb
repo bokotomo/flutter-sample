@@ -116,6 +116,7 @@
   "accountPageModalNewCancel": "Отмена",
   "accountPageHooksDoneChangedName": "Изменено на {name}.",
   "accountPageHooksDoneAddedName": "Добавлено {name}.",
+  "accountPageHooksAddedNameValidation": "Можно добавить до {num} элементов.",
   "accountPageHooksDeleteLastGroup": "Последний не может быть удален.",
   "accountPageHooksDoneDelete": "Удалено {name}.",
 

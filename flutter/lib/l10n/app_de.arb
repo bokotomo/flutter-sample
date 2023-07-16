@@ -116,6 +116,7 @@
   "accountPageModalNewCancel": "Abbrechen",
   "accountPageHooksDoneChangedName": "Geändert in {name}.",
   "accountPageHooksDoneAddedName": "{name} hinzugefügt.",
+  "accountPageHooksAddedNameValidation": "Es können bis zu {num} Artikel hinzugefügt werden.",
   "accountPageHooksDeleteLastGroup": "Der letzte kann nicht gelöscht werden.",
   "accountPageHooksDoneDelete": "{name} entfernt.",
 

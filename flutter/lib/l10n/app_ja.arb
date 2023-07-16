@@ -116,6 +116,7 @@
   "accountPageModalNewCancel": "キャンセル",
   "accountPageHooksDoneChangedName": "「{name}」に変更しました。",
   "accountPageHooksDoneAddedName": "「{name}」を追加しました。",
+  "accountPageHooksAddedNameValidation": "上限は{num}件までです。",
   "accountPageHooksDeleteLastGroup": "最後の一つは削除できません。",
   "accountPageHooksDoneDelete": "「{name}」を削除しました。",
  

@@ -116,6 +116,7 @@
   "accountPageModalNewCancel": "Annulla",
   "accountPageHooksDoneChangedName": "Modificato in {name}.",
   "accountPageHooksDoneAddedName": "Aggiunto {name}.",
+  "accountPageHooksAddedNameValidation": "È possibile aggiungere fino a {num} elementi.",
   "accountPageHooksDeleteLastGroup": "L'ultimo non può essere eliminato.",
   "accountPageHooksDoneDelete": "Rimosso {name}.",
 

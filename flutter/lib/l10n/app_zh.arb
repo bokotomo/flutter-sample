@@ -116,6 +116,7 @@
   "accountPageModalNewCancel": "取消",
   "accountPageHooksDoneChangedName": "已更改为 {name}。",
   "accountPageHooksDoneAddedName": "已添加 {name}。",
+  "accountPageHooksAddedNameValidation": "最多可以添加 {num} 个项目。",
   "accountPageHooksDeleteLastGroup": "最后一个无法删除。",
   "accountPageHooksDoneDelete": "已删除 {name}。",
 

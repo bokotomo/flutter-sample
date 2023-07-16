@@ -116,6 +116,7 @@
   "accountPageModalNewCancel": "Annuller",
   "accountPageHooksDoneChangedName": "Ændret til {name}.",
   "accountPageHooksDoneAddedName": "Tilføjet {name}.",
+  "accountPageHooksAddedNameValidation": "Der kan tilføjes op til {num} varer.",
   "accountPageHooksDeleteLastGroup": "Den sidste kan ikke slettes.",
   "accountPageHooksDoneDelete": "Fjernet {name}.",
 
