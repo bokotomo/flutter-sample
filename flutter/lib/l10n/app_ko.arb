@@ -11,7 +11,7 @@
   "pageAddReflectionNameLanguageTitle": "언어 변경",
 
 
-  "pageSolutionTitle": "솔루션",
+  "pageSolutionTitle": "해결책",
   "pageSolutionCountValue": "{count}번",
   "pageSolutionNoList": "반사가 없습니다.\n회고 에서 추가해 봅시다.",
   "pageSolutionButtonGood": "개선하기 위해",
@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "리플렉션 방법",
   "pageReflectionHowToDetail": "1. 다시보기를 시청하세요.\n\n2. 좋은 점과 나쁜 점을 작성하세요.\n\n3. 제안에서 동일한 반영을 추가하세요.",
   "pageReflectionButtonStart": "반영 시작",
+  "pageReflectionHooksAddValidation": "추가 한도를 초과합니다.\n[해결책] 에서 삭제할 수 있습니다.\n{numStr}",
 
 
   "pageRankDetailTitle": "순위",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "후보자 없음",
   "reflectionAddPageCandidateFirstText": "리플레이를 보고\n좋은 점과 나쁜 점을 적으세요.\n또는 경기 직후에 추가하세요.",
   "reflectionAddPageDoneAlert": "반사를 추가하지 않았습니다.",
+  "reflectionAddPageAddValidate": "한 번에 최대 30개까지 추가할 수 있습니다.",
 
 
   "pageReflectionAddedListTitle": "추가된 반사 목록",
@@ -88,7 +90,7 @@
 
 
   "pageTodoTitle": "할 일 목록",
-  "pageTodoNoData": "할 일이 추가되지 않았습니다. \n솔루션 추가해 봅시다.",
+  "pageTodoNoData": "할 일이 추가되지 않았습니다. \n해결책 추가해 봅시다.",
 
 
   "accountPageTitle": "계정 설정",

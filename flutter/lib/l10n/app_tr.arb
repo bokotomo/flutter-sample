@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Yansıma nasıl yapılır",
   "pageReflectionHowToDetail": "1. Tekrarı izleyin\n\n2. İyi ve kötüyü yazın\n\n3. Önerilerden aynı yansımayı ekleyin",
   "pageReflectionButtonStart": "Yansıtmayı başlat",
+  "pageReflectionHooksAddValidation": "Ek sınırın aşılması.\n[Çözüm]'den silebilirsiniz.\n{numStr}",
 
 
   "pageRankDetailTitle": "Sıra",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "Aday Bulunamadı",
   "reflectionAddPageCandidateFirstText": "Tekrarını izleyin\nve iyi ve kötü noktalarınızı yazın.\nYa da maçtan hemen sonra ekleyin.",
   "reflectionAddPageDoneAlert": "Herhangi bir yansıma eklemediniz.",
+  "reflectionAddPageAddValidate": "Aynı anda 30 adede kadar eklenebilir.",
 
 
   "pageReflectionAddedListTitle": "Yansıma listesi eklendi",

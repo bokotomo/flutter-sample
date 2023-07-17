@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Comment réfléchir",
   "pageReflectionHowToDetail": "1. Regardez la rediffusion\n\n2. Écrivez le bien et le mal\n\n3. Ajoutez la même réflexion à partir des suggestions",
   "pageReflectionButtonStart": "Démarrer la réflexion",
+  "pageReflectionHooksAddValidation": "Dépassement de la limite supplémentaire.\nVous pouvez le supprimer de [Solution].\n{numStr}",
 
 
   "pageRankDetailTitle": "Rang",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "Aucun candidat trouvé",
   "reflectionAddPageCandidateFirstText": "Regardez la rediffusion\net notez ce que vous avez de bon et de mauvais.\nOu ajoutez-le juste après le match.",
   "reflectionAddPageDoneAlert": "Vous n'avez ajouté aucun reflet.",
+  "reflectionAddPageAddValidate": "Jusqu'à 30 peuvent être ajoutés à la fois.",
 
 
   "pageReflectionAddedListTitle": "Liste de réflexion ajoutée",

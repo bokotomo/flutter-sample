@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "如何回顧",
   "pageReflectionHowToDetail": "1. 觀看重播\n\n2. 寫出好的和壞的\n\n3. 從建議中添加相同的反思",
   "pageReflectionButtonStart": "開始回顧",
+  "pageReflectionHooksAddValidation": "超出額外限制。\n您可以從[解決方案]中將其刪除。\n{numStr}",
 
 
   "pageRankDetailTitle": "秩",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "未找到候選者",
   "reflectionAddPageCandidateFirstText": "觀看重播\n並寫下你的優點和缺點。\n或者在比賽后立即添加。",
   "reflectionAddPageDoneAlert": "您尚未添加任何回顧。",
+  "reflectionAddPageAddValidate": "一次最多可以添加30個。",
 
 
   "pageReflectionAddedListTitle": "添加回顧列表",

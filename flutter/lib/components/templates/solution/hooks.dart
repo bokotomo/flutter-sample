@@ -20,8 +20,6 @@ import 'package:gamer_reflection/storage/kvs/selected_period.dart'
     show selectedTaskPagePeriod;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_type.dart'
     show selectReflectionType;
-import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
-    show selectReflectionGroupId;
 
 class UseReturn {
   const UseReturn({
@@ -161,12 +159,8 @@ UseReturn useHooks(
     await selectReflectionType.save("good");
   }
 
-  /// 振り返りグループ
+  /// 振り返りグループが変更された
   void onChangeReflectionGroup(String? id) {
-    String groupId = id ??
-        (reflectionGroups.isEmpty ? "1" : reflectionGroups[0].id.toString());
-    selectReflectionGroupId.save(groupId);
-
     fetchReflections();
   }
 

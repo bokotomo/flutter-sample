@@ -78,6 +78,7 @@ UseReturn useHooks(
   // 表示する候補の一覧
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
+  // トースト通知
   final toast = useToast(context);
 
   /// 入力欄をリセットする
@@ -173,6 +174,13 @@ UseReturn useHooks(
         (c) => c.text == text,
       );
       reflectionCount = domain.count;
+    }
+
+    // 一度に追加できる上限は30件まで。
+    // 重複する場合は加算可能
+    if (!candidateExist && reflectionsForRegister.length >= 30) {
+      toast.showAlert(i18n.reflectionAddPageAddValidate, 2500);
+      return;
     }
 
     // 追加するモーダルを表示する

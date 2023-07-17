@@ -36,13 +36,14 @@ Widget view(
   Function(BuildContext) onPressedStart,
   Function(BuildContext) onPressedHistory,
   Function(BuildContext) onPressedRankDetail,
+  void Function(String?) onChangeReflectionGroup,
 ) {
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
       SelectReflectionGroup(
         reflectionGroups: reflectionGroups,
-        onChanged: (t) {},
+        onChanged: onChangeReflectionGroup,
       ),
       SpacerHeight.m,
       Row(children: [

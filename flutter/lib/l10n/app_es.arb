@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Cómo reflexionar",
   "pageReflectionHowToDetail": "1. Mira la repetición\n\n2. Escribe bueno y malo\n\n3. Agrega el mismo reflejo de las sugerencias",
   "pageReflectionButtonStart": "Iniciar reflexión",
+  "pageReflectionHooksAddValidation": "Exceder el límite adicional.\nPuede eliminarlo desde [Solución].\n{numStr}",
 
 
   "pageRankDetailTitle": "Clasificación",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "No se encontraron candidatos",
   "reflectionAddPageCandidateFirstText": "Mira la repetición\ny escribe lo bueno y lo malo.\nO añádelo justo después del partido.",
   "reflectionAddPageDoneAlert": "No has agregado ningún reflejo.",
+  "reflectionAddPageAddValidate": "Se pueden agregar hasta 30 a la vez.",
 
 
   "pageReflectionAddedListTitle": "Lista de reflejos agregada",

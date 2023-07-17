@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Como refletir",
   "pageReflectionHowToDetail": "1. Assista ao replay\n\n2. Escreva bom e ruim\n\n3. Adicione o mesmo reflexo das sugestões",
   "pageReflectionButtonStart": "Iniciar reflexão",
+  "pageReflectionHooksAddValidation": "Excedendo o limite adicional.\nVocê pode excluí-lo de [Solução].\n{numStr}",
 
 
   "pageRankDetailTitle": "Classificação",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "Nenhum candidato encontrado",
   "reflectionAddPageCandidateFirstText": "Assista ao replay\ne anote o que você achou bom e ruim.\nOu adicione logo após a partida.",
   "reflectionAddPageDoneAlert": "Você não adicionou nenhum reflexo.",
+  "reflectionAddPageAddValidate": "Até 30 podem ser adicionados de uma só vez.",
 
 
   "pageReflectionAddedListTitle": "Lista de reflexão adicionada",

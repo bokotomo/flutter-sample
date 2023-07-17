@@ -8,6 +8,8 @@ import 'package:gamer_reflection/domain/reflection/game.dart'
     show DomainReflectionGame;
 import 'package:gamer_reflection/storage/rdb/repository/query/reflection_group.dart'
     show IRepositoryReflectionGroupQuery;
+import 'package:gamer_reflection/storage/rdb/repository/query/reflection.dart'
+    show IRepositoryReflectionQuery;
 import 'package:gamer_reflection/storage/rdb/repository/query/game.dart'
     show IRepositoryGameQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
@@ -22,6 +24,8 @@ class FetchReflectionPage {
   final IRepositoryReflectionGroupQuery repositoryReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupQuery>();
   final IRepositoryGameQuery repositoryGame = GetIt.I<IRepositoryGameQuery>();
+  final IRepositoryReflectionQuery repositoryReflection =
+      GetIt.I<IRepositoryReflectionQuery>();
 
   /// 取得: 振り返りグループ一覧
   Future<List<DomainReflectionGroup>> fetchReflectionGroups() async {
@@ -35,5 +39,11 @@ class FetchReflectionPage {
     final Database db = GetIt.I<DBConnection>().db;
     final model = await repositoryGame.getGame(db);
     return AdapterReflection().domainGame(model, i18n);
+  }
+
+  /// 取得: 振り返り総数
+  Future<int> fetchReflectionCount(int groupId) async {
+    final Database db = GetIt.I<DBConnection>().db;
+    return await repositoryReflection.getReflectionCount(db, groupId);
   }
 }

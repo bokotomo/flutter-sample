@@ -24,7 +24,7 @@ UseReturn useHooks(
   List<DomainReflectionGroup> reflectionGroups,
   final void Function(String?) onChanged,
 ) {
-  /// 選択している期間
+  /// 選択しているグループID
   final Future<String?> memoedReflectionGroupId =
       useMemoized(() => selectReflectionGroupId.get(), [reflectionGroups]);
   final AsyncSnapshot<String?> futuredReflectionGroupId =

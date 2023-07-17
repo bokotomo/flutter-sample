@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "كيف تفكر",
   "pageReflectionHowToDetail": "1. شاهد الإعادة\n\n2. اكتب الخير والشر\n\n3. أضف نفس التفكير من الاقتراحات",
   "pageReflectionButtonStart": "ابدأ التفكير",
+  "pageReflectionHooksAddValidation": "تجاوز الحد الإضافي.\nيمكنك حذفه من [حل].\n{numStr}",
 
 
   "pageRankDetailTitle": "رتبة",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "لم يتم العثور على مرشحين",
   "reflectionAddPageCandidateFirstText": "شاهد الاعادة\nواكتب النقطة الجيدة والنقطة السيئة.\nأو قم بإضافته مباشرة بعد المباراة.",
   "reflectionAddPageDoneAlert": "لم تقم بإضافة أي انعكاسات.",
+  "reflectionAddPageAddValidate": "يمكن إضافة ما يصل إلى 30 مرة واحدة.",
 
 
   "pageReflectionAddedListTitle": "قائمة انعكاسات مضافة",

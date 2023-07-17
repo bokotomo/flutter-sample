@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "How to reflection",
   "pageReflectionHowToDetail": "1. Watch the replay\n\n2. Write good and bad\n\n3. Add the same reflection from the suggestions",
   "pageReflectionButtonStart": "Start reflection",
+  "pageReflectionHooksAddValidation": "Exceeding additional limit.\nYou can delete it from [Solution].\n{numStr}",
 
 
   "pageRankDetailTitle": "Rank",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "No Candidates Found",
   "reflectionAddPageCandidateFirstText": "Watch the replay\nand write down what you good point and bad point.\nOr add it right after the match.",
   "reflectionAddPageDoneAlert": "You haven't added any reflections.",
+  "reflectionAddPageAddValidate": "Up to 30 can be added at once.",
 
 
   "pageReflectionAddedListTitle": "Added reflection list",

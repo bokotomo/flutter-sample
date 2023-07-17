@@ -17,10 +17,12 @@ class TemplateReflection extends HookWidget {
     super.key,
     required this.i18n,
     required this.reflectionGroups,
+    required this.reflectionCount,
     required this.game,
     required this.pushReflection,
     required this.pushHistory,
     required this.pushRankDetail,
+    required this.fetchCounts,
   });
 
   /// 言語
@@ -32,6 +34,9 @@ class TemplateReflection extends HookWidget {
   /// ゲーミフィケーション
   final DomainReflectionGame game;
 
+  /// 振り返り総数
+  final int reflectionCount;
+
   /// 振り返り追加ページへ飛ぶ
   final void Function(BuildContext, String, int) pushReflection;
 
@@ -41,14 +46,21 @@ class TemplateReflection extends HookWidget {
   /// ランク説明ページへ移動
   final void Function(BuildContext) pushRankDetail;
 
+  /// 振り返り総数の取得をする
+  final Future<void> Function() fetchCounts;
+
   @override
   Widget build(BuildContext context) {
     final h = useHooks(
+      i18n,
+      context,
       reflectionGroups,
       game,
+      reflectionCount,
       pushReflection,
       pushHistory,
       pushRankDetail,
+      fetchCounts,
     );
 
     return view(
@@ -62,6 +74,7 @@ class TemplateReflection extends HookWidget {
       h.onPressedStart,
       h.onPressedHistory,
       h.onPressedRankDetail,
+      h.onChangeReflectionGroup,
     );
   }
 }

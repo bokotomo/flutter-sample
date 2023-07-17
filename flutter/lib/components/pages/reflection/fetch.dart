@@ -15,18 +15,24 @@ import 'package:gamer_reflection/domain/reflection/game.dart'
     show DomainReflectionGame;
 import 'package:gamer_reflection/modules/fetch/reflection.dart'
     show FetchReflectionPage;
+import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
+    show selectReflectionGroupId;
 
 class UseReturn {
   const UseReturn({
     required this.reflectionGroups,
+    required this.fetchCounts,
     required this.game,
+    required this.reflectionCount,
     required this.pushReflection,
     required this.pushHistory,
     required this.pushRankDetail,
   });
 
   final List<DomainReflectionGroup> reflectionGroups;
+  final Future<void> Function() fetchCounts;
   final DomainReflectionGame game;
+  final int reflectionCount;
   final void Function(BuildContext, String, int) pushReflection;
   final void Function(BuildContext, String, int) pushHistory;
   final void Function(BuildContext) pushRankDetail;
@@ -44,6 +50,14 @@ UseReturn useFetch(AppLocalizations i18n) {
     rank: '',
     rankImage: '',
   ));
+  // 振り返り総数
+  final ValueNotifier<int> reflectionCount = useState<int>(0);
+
+  /// 振り返りグループIDの取得
+  int getReflectionGroupId(String? id) {
+    if (id != null) return int.parse(id);
+    return reflectionGroups.value.isEmpty ? 1 : reflectionGroups.value[0].id;
+  }
 
   /// データ取得
   Future<void> fetch() async {
@@ -53,6 +67,12 @@ UseReturn useFetch(AppLocalizations i18n) {
 
     final DomainReflectionGame g = await FetchReflectionPage().fetchGame(i18n);
     game.value = g;
+
+    // 振り返りの総数を取得
+    final String? id = await selectReflectionGroupId.get();
+    final int groupId = getReflectionGroupId(id);
+    final int count = await FetchReflectionPage().fetchReflectionCount(groupId);
+    reflectionCount.value = count;
   }
 
   /// 振り返り追加ページへ移動
@@ -104,6 +124,11 @@ UseReturn useFetch(AppLocalizations i18n) {
     });
   }
 
+  /// データの更新
+  Future<void> fetchCounts() async {
+    fetch();
+  }
+
   useEffect(() {
     fetch();
     return;
@@ -112,8 +137,10 @@ UseReturn useFetch(AppLocalizations i18n) {
   return UseReturn(
     reflectionGroups: reflectionGroups.value,
     game: game.value,
+    reflectionCount: reflectionCount.value,
     pushReflection: pushReflection,
     pushHistory: pushHistory,
     pushRankDetail: pushRankDetail,
+    fetchCounts: fetchCounts,
   );
 }

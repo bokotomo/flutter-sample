@@ -14,7 +14,7 @@
   "pageSolutionTitle": "Solusi",
   "pageSolutionCountValue": "{count} kali",
   "pageSolutionNoList": "Tidak ada refleksi.\nMari kita tambahkan dari Reflect.",
-  "pageSolutionButtonGood": "untuk meningkatkan",
+  "pageSolutionButtonGood": "perbaikan",
   "pageSolutionButtonBad": "tumbuh",
 
 
@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Cara refleksi",
   "pageReflectionHowToDetail": "1. Tonton pemutaran ulang\n\n2. Tulis baik dan buruk\n\n3. Tambahkan refleksi yang sama dari saran",
   "pageReflectionButtonStart": "Mulai refleksi",
+  "pageReflectionHooksAddValidation": "Melebihi batas tambahan.\nAnda dapat menghapusnya dari [Solusi].\n{numStr}",
 
 
   "pageRankDetailTitle": "Peringkat",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "Tidak Ditemukan Kandidat",
   "reflectionAddPageCandidateFirstText": "Tonton tayangan ulang\ndan tulis poin baik dan buruk Anda.\nAtau tambahkan segera setelah pertandingan.",
   "reflectionAddPageDoneAlert": "Anda belum menambahkan refleksi apa pun.",
+  "reflectionAddPageAddValidate": "Hingga 30 dapat ditambahkan sekaligus.",
 
 
   "pageReflectionAddedListTitle": "Menambahkan daftar refleksi",

@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Come riflettere",
   "pageReflectionHowToDetail": "1. Guarda il replay\n\n2. Scrivi bene e male\n\n3. Aggiungi la stessa riflessione dai suggerimenti",
   "pageReflectionButtonStart": "Avvia riflessione",
+  "pageReflectionHooksAddValidation": "Superamento del limite aggiuntivo.\nPuoi eliminarlo da [Soluzione].\n{numStr}",
 
 
   "pageRankDetailTitle": "rango",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "Nessun candidato trovato",
   "reflectionAddPageCandidateFirstText": "Guarda il replay\ne scrivi qual è il tuo punto buono e quello cattivo.\nOppure aggiungilo subito dopo la partita.",
   "reflectionAddPageDoneAlert": "Non hai aggiunto alcun riflesso.",
+  "reflectionAddPageAddValidate": "È possibile aggiungerne fino a 30 contemporaneamente.",
 
 
   "pageReflectionAddedListTitle": "Elenco riflessioni aggiunto",

@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "Sådan reflekteres",
   "pageReflectionHowToDetail": "1. Se replayet\n\n2. Skriv godt og dårligt\n\n3. Tilføj den samme refleksion fra forslagene",
   "pageReflectionButtonStart": "Start refleksion",
+  "pageReflectionHooksAddValidation": "Overskridelse af yderligere grænse.\nDu kan slette det fra [Løsning].\n{numStr}",
 
 
   "pageRankDetailTitle": "Rank",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "Ingen kandidater fundet",
   "reflectionAddPageCandidateFirstText": "Se replayet\nog skriv ned, hvad du har gode og dårlige point.\nEller tilføj det lige efter kampen.",
   "reflectionAddPageDoneAlert": "Du har ikke tilføjet nogen refleksioner.",
+  "reflectionAddPageAddValidate": "Der kan tilføjes op til 30 på én gang.",
 
 
   "pageReflectionAddedListTitle": "Tilføjet reflektionsliste",

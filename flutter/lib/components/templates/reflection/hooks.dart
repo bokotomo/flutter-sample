@@ -3,8 +3,12 @@ import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/reflection/game.dart'
     show DomainReflectionGame;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'
+    show AppLocalizations;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
+import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
+    show useToast;
 
 class UseReturn {
   const UseReturn({
@@ -13,26 +17,44 @@ class UseReturn {
     required this.onPressedRankDetail,
     required this.expText,
     required this.gaugePercent,
+    required this.onChangeReflectionGroup,
   });
   final double gaugePercent;
   final Future<void> Function(BuildContext) onPressedStart;
   final Future<void> Function(BuildContext) onPressedHistory;
   final void Function(BuildContext) onPressedRankDetail;
   final String Function() expText;
+  final void Function(String?) onChangeReflectionGroup;
 }
 
 /// ロジック: 振り返りページ
 UseReturn useHooks(
+  AppLocalizations i18n,
+  BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   DomainReflectionGame game,
+  int reflectionCount,
   void Function(BuildContext, String, int) pushReflection,
   void Function(BuildContext, String, int) pushHistory,
   void Function(BuildContext) pushRankDetail,
+  Future<void> Function() fetchCounts,
 ) {
+  // トースト通知
+  final toast = useToast(context);
+
   /// 振り返りの開始を押した
   Future<void> onPressedStart(BuildContext c) async {
+    // グループIDがなければ実行不可
     final cacheGroupId = await selectReflectionGroupId.get();
     if (cacheGroupId == null) return;
+
+    const max = 10;
+    if (reflectionCount >= max) {
+      final current = reflectionCount;
+      final numStr = "($current / $max)";
+      toast.showAlert(i18n.pageReflectionHooksAddValidation(numStr), 4000);
+      return;
+    }
 
     final int groupId = int.parse(cacheGroupId.toString());
     final DomainReflectionGroup d = reflectionGroups.firstWhere(
@@ -81,11 +103,17 @@ UseReturn useHooks(
     return double.parse((v).toStringAsFixed(3));
   }
 
+  /// 振り返りグループが変更された
+  void onChangeReflectionGroup(String? id) {
+    fetchCounts();
+  }
+
   return UseReturn(
     gaugePercent: getGaugePercent(),
     onPressedStart: onPressedStart,
     onPressedHistory: onPressedHistory,
     onPressedRankDetail: onPressedRankDetail,
     expText: expText,
+    onChangeReflectionGroup: onChangeReflectionGroup,
   );
 }

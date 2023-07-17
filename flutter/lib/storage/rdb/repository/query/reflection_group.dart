@@ -17,7 +17,7 @@ class RepositoryReflectionQuery extends IRepositoryReflectionGroupQuery {
     final List<Map<String, Object?>> res = await db.query(
       tableNameReflectionGroup,
       columns: ['*'],
-      limit: 100,
+      limit: 40,
     );
 
     return List.generate(res.length, (i) {

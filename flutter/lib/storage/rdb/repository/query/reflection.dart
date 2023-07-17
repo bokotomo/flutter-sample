@@ -6,6 +6,7 @@ import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
 /// Interface: RepositoryReflectionQuery
 abstract class IRepositoryReflectionQuery {
   Future<List<ModelReflection>> getReflections(Database db, int groupId);
+  Future<int> getReflectionCount(Database db, int groupId);
   Future<ModelReflection> getReflectionById(Database db, int id);
 }
 
@@ -23,7 +24,7 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
       where: '"reflection_group_id" = ?',
       whereArgs: [groupId],
       columns: ['*'],
-      limit: 200,
+      limit: 400,
     );
 
     return List.generate(res.length, (i) {
@@ -40,6 +41,22 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
             DateTime.tryParse(res[i]['updated_at'] as String) ?? DateTime.now(),
       );
     });
+  }
+
+  /// 取得: 振り返り総数
+  @override
+  Future<int> getReflectionCount(
+    Database db,
+    int groupId,
+  ) async {
+    final List<Map<String, Object?>> res = await db.query(
+      tableNameReflection,
+      where: '"reflection_group_id" = ?',
+      whereArgs: [groupId],
+      columns: ['COUNT(*) as count'],
+      limit: 1,
+    );
+    return res.first['count'] as int;
   }
 
   /// 取得: 指定したIDの振り返り

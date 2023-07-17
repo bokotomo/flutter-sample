@@ -51,6 +51,7 @@
   "pageReflectionHowToTitle": "振り返りのやり方",
   "pageReflectionHowToDetail": "1. リプレイを見る\n\n2. 良かったこと悪かったことを書く\n\n3. 同じ振り返りは候補から追加する",
   "pageReflectionButtonStart": "振り返りを始める",
+  "pageReflectionHooksAddValidation": "振り返りの上限を超えています。\n[解決案]から削除ができます。\n{numStr}",
 
 
   "pageRankDetailTitle": "ランク",
@@ -71,6 +72,7 @@
   "reflectionAddPageCandidateNoList": "候補が見つかりません",
   "reflectionAddPageCandidateFirstText": "リプレイを見て、\n良かったこと悪かったことを書きましょう!\nまたは、試合の直後に追加しましょう。",
   "reflectionAddPageDoneAlert": "振り返りを追加していません。",
+  "reflectionAddPageAddValidate": "一度の追加上限は30件までです。",
 
 
   "pageReflectionAddedListTitle": "追加した振り返り",
