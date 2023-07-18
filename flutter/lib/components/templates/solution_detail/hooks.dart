@@ -8,7 +8,6 @@ import 'package:flutter/material.dart'
         BuildContext;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
-import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
 import 'package:gamer_reflection/modules/request/reflection.dart'
@@ -64,6 +63,8 @@ UseReturn useHooks(
   AppLocalizations i18n,
   BuildContext context,
   int reflectionId,
+  int reflectionGroupId,
+  int todoCount,
   DomainSolutionDetailReflection? reflection,
   Future<void> Function() updateReflection,
   bool? todoExistDB,
@@ -76,6 +77,8 @@ UseReturn useHooks(
   final ValueNotifier<TextEditingController> detailController =
       useState<TextEditingController>(TextEditingController());
   final ValueNotifier<bool> todoExist = useState<bool>(false);
+  final ValueNotifier<int> todoAddCount = useState<int>(0);
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<String> groupValue = useState<String>("");
   final toast = useToast(context);
@@ -141,10 +144,14 @@ UseReturn useHooks(
   }
 
   /// やることに追加ボタンを押した
+  /// トグル形式
   Future<void> onPressedToggleTodo() async {
     if (todoExist.value) {
       // すでにあれば削除
       await RequestTodo().deleteTodo(reflectionId);
+
+      // 追加数を1減らす
+      todoAddCount.value--;
     } else {
       // 詳細が空の場合
       if (detailController.value.text.isEmpty) {
@@ -155,10 +162,23 @@ UseReturn useHooks(
         toast.showAlert(text, 2500);
         return;
       }
-      // なければ新規追加
-      await RequestTodo().insertTodo(reflectionId);
-    }
 
+      // やることは20件までしかできない
+      const max = 20;
+      if ((todoCount + todoAddCount.value) >= max) {
+        toast.showAlert(i18n.solutionDetailPageHooksAddTodoValidate, 2500);
+        return;
+      }
+
+      // なければ新規追加
+      await RequestTodo().insertTodo(
+        reflectionId,
+        reflectionGroupId,
+      );
+
+      // 追加数を1増やす
+      todoAddCount.value++;
+    }
     final String textNotificatoin = todoExist.value
         ? i18n.solutionDetailPageHooksAlertRemoveTodo
         : i18n.solutionDetailPageHooksAlertAddTodo;

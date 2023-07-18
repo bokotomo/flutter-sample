@@ -9,6 +9,12 @@ class DomainReflectionId {
   final int id;
 }
 
+/// ドメイン: 振り返りグループID
+class DomainReflectionGroupId {
+  const DomainReflectionGroupId({required this.groupId});
+  final int groupId;
+}
+
 /// ドメイン: 振り返り内容
 class DomainReflectionText {
   const DomainReflectionText({required this.text});

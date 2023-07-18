@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Annuller",
   "solutionDetailPageHooksAlertAddGood": "Du skal skrive [hvordan du vokser] for at tilføje.",
   "solutionDetailPageHooksAlertAddBad": "Du skal skrive [hvordan man forbedrer] for at tilføje.",
+  "solutionDetailPageHooksAddTodoValidate": "Du kan tilføje op til 20 todo.",
   "solutionDetailPageHooksAlertRemoveTodo": "Fjernet fra opgave.",
   "solutionDetailPageHooksAlertAddTodo": "Tilføjet fra opgave.",
   "solutionDetailPageTopTypeGood": "Type: gode pointer",

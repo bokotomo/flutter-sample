@@ -7,6 +7,7 @@ class ModelTodo {
   ModelTodo({
     this.id,
     required this.reflectionId,
+    required this.reflectionGroupId,
     required this.createdAt,
   });
 
@@ -16,6 +17,9 @@ class ModelTodo {
   /// 対象の振り返りID
   final int reflectionId;
 
+  /// GROUP_ID
+  final int reflectionGroupId;
+
   /// 追加日
   final DateTime createdAt;
 
@@ -24,6 +28,7 @@ class ModelTodo {
     final String formatted = formatter.format(createdAt);
     return {
       'reflection_id': reflectionId,
+      'reflection_group_id': reflectionGroupId,
       'created_at': formatted,
     };
   }

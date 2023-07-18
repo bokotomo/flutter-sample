@@ -10,12 +10,16 @@ import 'package:gamer_reflection/modules/type/data_fetch.dart'
 class UseReturn {
   const UseReturn({
     required this.reflection,
+    required this.reflectionGroupId,
+    required this.todoCount,
     required this.updateReflection,
     required this.dataFetchState,
     required this.todoExist,
   });
 
   final DomainSolutionDetailReflection? reflection;
+  final int reflectionGroupId;
+  final int todoCount;
   final Future<void> Function() updateReflection;
   final DataFetchState dataFetchState;
   final bool? todoExist;
@@ -28,6 +32,10 @@ UseReturn useFetch(int reflectionId) {
   final ValueNotifier<DataFetchState> dataFetchState =
       useState<DataFetchState>(DataFetchState.none);
   final ValueNotifier<bool?> todoExist = useState<bool?>(null);
+  // やること総数
+  final ValueNotifier<int> todoCount = useState<int>(0);
+  // グループID
+  final ValueNotifier<int> reflectionGroupId = useState<int>(0);
 
   /// データ取得
   Future<void> eventRepository() async {
@@ -42,6 +50,10 @@ UseReturn useFetch(int reflectionId) {
     final bool t =
         await FetchSolutionDetailPage().fetchTodoExistById(reflectionId);
     todoExist.value = t;
+
+    final int count = await FetchSolutionDetailPage().fetchTodoCount(r.groupId);
+    todoCount.value = count;
+    reflectionGroupId.value = r.groupId;
   }
 
   ///
@@ -56,6 +68,8 @@ UseReturn useFetch(int reflectionId) {
 
   return UseReturn(
     reflection: reflection.value,
+    reflectionGroupId: reflectionGroupId.value,
+    todoCount: todoCount.value,
     updateReflection: updateReflection,
     dataFetchState: dataFetchState.value,
     todoExist: todoExist.value,

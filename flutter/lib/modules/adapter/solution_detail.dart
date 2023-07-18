@@ -15,6 +15,7 @@ class AdapterDomainSolutionDetailPage {
         model.reflectionType == 1 ? ReflectionType.good : ReflectionType.bad;
     return DomainSolutionDetailReflection(
       id: model.id ?? 0,
+      groupId: model.reflectionGroupId,
       text: model.text,
       detail: model.detail,
       count: model.count,

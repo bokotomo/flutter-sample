@@ -11,9 +11,9 @@ class RequestTodo {
       GetIt.I<IRepositoryTodoCommand>();
 
   /// 新規追加: Todo
-  Future<void> insertTodo(int reflectionId) async {
+  Future<void> insertTodo(int reflectionId, int reflectionGroupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryTodo.insertTodo(db, reflectionId);
+    await repositoryTodo.insertTodo(db, reflectionId, reflectionGroupId);
   }
 
   /// 削除: Todo

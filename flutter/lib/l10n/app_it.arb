@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Annulla",
   "solutionDetailPageHooksAlertAddGood": "Devi scrivere [come crescere] per aggiungere.",
   "solutionDetailPageHooksAlertAddBad": "Devi scrivere [come migliorare] per aggiungere.",
+  "solutionDetailPageHooksAddTodoValidate": "Puoi aggiungere fino a 20 cose da fare.",
   "solutionDetailPageHooksAlertRemoveTodo": "Rimosso da todo.",
   "solutionDetailPageHooksAlertAddTodo": "Aggiunto da todo.",
   "solutionDetailPageTopTypeGood": "Tipo: aspetti positivi",

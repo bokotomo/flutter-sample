@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "取消",
   "solutionDetailPageHooksAlertAddGood": "需要寫[如何增長]來添加。",
   "solutionDetailPageHooksAlertAddBad": "需要寫[如何改進]來添加。",
+  "solutionDetailPageHooksAddTodoValidate": "您最多可以添加 20 個待辦事項。",
   "solutionDetailPageHooksAlertRemoveTodo": "已從待辦事項中刪除。",
   "solutionDetailPageHooksAlertAddTodo": "從待辦事項添加。",
   "solutionDetailPageTopTypeGood": "類型：優點",

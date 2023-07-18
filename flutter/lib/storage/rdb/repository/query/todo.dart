@@ -8,6 +8,7 @@ import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
 /// Interface: RepositoryTodoQuery
 abstract class IRepositoryTodoQuery {
   Future<List<ModelReflection>> getTodos(Database db, int groupId);
+  Future<int> getTodoCount(Database db, int groupId);
   Future<bool> todoExist(Database db, int reflectionId);
 }
 
@@ -24,7 +25,7 @@ class RepositoryTodoQuery extends IRepositoryTodoQuery {
       'SELECT * FROM todo as t LEFT JOIN reflection as r ON r.id = t.reflection_id WHERE r.reflection_group_id = ? ORDER BY created_at DESC LIMIT ?',
       [
         groupId,
-        400,
+        100,
       ],
     );
 
@@ -42,6 +43,22 @@ class RepositoryTodoQuery extends IRepositoryTodoQuery {
             DateTime.tryParse(res[i]['created_at'] as String) ?? DateTime.now(),
       );
     });
+  }
+
+  /// 取得: やること総数
+  @override
+  Future<int> getTodoCount(
+    Database db,
+    int groupId,
+  ) async {
+    final List<Map<String, Object?>> res = await db.query(
+      tableNameTodo,
+      where: '"reflection_group_id" = ?',
+      whereArgs: [groupId],
+      columns: ['COUNT(*) as count'],
+      limit: 1,
+    );
+    return res.first['count'] as int;
   }
 
   /// 取得: やることに追加されているか

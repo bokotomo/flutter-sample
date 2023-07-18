@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Отмена",
   "solutionDetailPageHooksAlertAddGood": "Чтобы добавить, нужно написать [как увеличить].",
   "solutionDetailPageHooksAlertAddBad": "Чтобы добавить, нужно написать [как улучшить].",
+  "solutionDetailPageHooksAddTodoValidate": "Вы можете добавить до 20 задач.",
   "solutionDetailPageHooksAlertRemoveTodo": "Удалено из списка дел.",
   "solutionDetailPageHooksAlertAddTodo": "Добавлено из списка дел.",
   "solutionDetailPageTopTypeGood": "Тип: положительные моменты",

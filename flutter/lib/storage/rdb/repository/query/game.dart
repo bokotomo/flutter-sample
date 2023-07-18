@@ -17,6 +17,7 @@ class RepositoryGameQuery extends IRepositoryGameQuery {
     final List<Map<String, Object?>> res = await db.query(
       tableNameGame,
       columns: ['*'],
+      limit: 1,
     );
 
     return ModelGame(

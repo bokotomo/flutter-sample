@@ -29,4 +29,10 @@ class FetchSolutionDetailPage {
     final Database db = GetIt.I<DBConnection>().db;
     return await repositoryTodo.todoExist(db, id);
   }
+
+  /// 取得: やること総数
+  Future<int> fetchTodoCount(int groupId) async {
+    final Database db = GetIt.I<DBConnection>().db;
+    return await repositoryTodo.getTodoCount(db, groupId);
+  }
 }

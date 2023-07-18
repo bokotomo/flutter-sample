@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Abbrechen",
   "solutionDetailPageHooksAlertAddGood": "Sie müssen schreiben, wie man wächst, um hinzuzufügen.",
   "solutionDetailPageHooksAlertAddBad": "Sie müssen schreiben, wie Sie etwas verbessern können, um es hinzuzufügen.",
+  "solutionDetailPageHooksAddTodoValidate": "Sie können bis zu 20 Aufgaben hinzufügen.",
   "solutionDetailPageHooksAlertRemoveTodo": "Aus Aufgabenliste entfernt.",
   "solutionDetailPageHooksAlertAddTodo": "Von Aufgabenliste hinzugefügt.",
   "solutionDetailPageTopTypeGood": "Typ: gute Punkte",

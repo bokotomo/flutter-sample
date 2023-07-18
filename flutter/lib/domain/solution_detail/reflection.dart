@@ -5,6 +5,7 @@ import 'package:gamer_reflection/modules/type/tag_text_color.dart'
 import 'package:gamer_reflection/domain/site/reflection.dart'
     show
         DomainReflectionId,
+        DomainReflectionGroupId,
         DomainReflectionText,
         DomainReflectionDetail,
         DomainReflectionCount,
@@ -17,6 +18,7 @@ import 'package:gamer_reflection/domain/site/reflection.dart'
 class DomainSolutionDetailReflection
     implements
         DomainReflectionId,
+        DomainReflectionGroupId,
         DomainReflectionText,
         DomainReflectionDetail,
         DomainReflectionCount,
@@ -26,6 +28,7 @@ class DomainSolutionDetailReflection
         DomainReflectionUpdatedAt {
   const DomainSolutionDetailReflection({
     required this.id,
+    required this.groupId,
     required this.text,
     required this.detail,
     required this.count,
@@ -38,6 +41,10 @@ class DomainSolutionDetailReflection
   /// ID
   @override
   final int id;
+
+  /// 振り返りグループID
+  @override
+  final int groupId;
 
   /// 振り返り内容
   @override

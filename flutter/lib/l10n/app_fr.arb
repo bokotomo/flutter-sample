@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Annuler",
   "solutionDetailPageHooksAlertAddGood": "Vous devez écrire [comment grandir] pour ajouter.",
   "solutionDetailPageHooksAlertAddBad": "Vous devez écrire [comment améliorer] pour ajouter.",
+  "solutionDetailPageHooksAddTodoValidate": "Vous pouvez ajouter jusqu'à 20 tâches.",
   "solutionDetailPageHooksAlertRemoveTodo": "Supprimé de la tâche.",
   "solutionDetailPageHooksAlertAddTodo": "Ajouté depuis la tâche.",
   "solutionDetailPageTopTypeGood": "Type: bons points",

@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "İptal",
   "solutionDetailPageHooksAlertAddGood": "Eklemek için [nasıl büyütülür] yazmanız gerekir.",
   "solutionDetailPageHooksAlertAddBad": "Eklemek için [nasıl geliştirilir] yazmanız gerekir.",
+  "solutionDetailPageHooksAddTodoValidate": "En fazla 20 yapılacak iş ekleyebilirsiniz.",
   "solutionDetailPageHooksAlertRemoveTodo": "Yapılacaklar'dan kaldırıldı.",
   "solutionDetailPageHooksAlertAddTodo": "Yapılacaklar kaynağından eklendi.",
   "solutionDetailPageTopTypeGood": "Tür: iyi noktalar",

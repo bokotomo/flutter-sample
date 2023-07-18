@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Cancelar",
   "solutionDetailPageHooksAlertAddGood": "Necesitas escribir [cómo crecer] para agregar.",
   "solutionDetailPageHooksAlertAddBad": "Necesitas escribir [cómo mejorar] para agregar.",
+  "solutionDetailPageHooksAddTodoValidate": "Puede agregar hasta 20 tareas pendientes.",
   "solutionDetailPageHooksAlertRemoveTodo": "Eliminado de tareas pendientes.",
   "solutionDetailPageHooksAlertAddTodo": "Agregado desde todo.",
   "solutionDetailPageTopTypeGood": "Tipo: buenos puntos",

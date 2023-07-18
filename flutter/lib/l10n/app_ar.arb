@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "يلغي",
   "solutionDetailPageHooksAlertAddGood": "تحتاج إلى كتابة [كيف تنمو] لتضيف.",
   "solutionDetailPageHooksAlertAddBad": "تحتاج إلى كتابة [كيفية التحسين] للإضافة.",
+  "solutionDetailPageHooksAddTodoValidate": "يمكنك إضافة ما يصل إلى 20 مهمة.",
   "solutionDetailPageHooksAlertRemoveTodo": "تمت الإزالة من الجميع",
   "solutionDetailPageHooksAlertAddTodo": "تمت الإضافة من الجميع",
   "solutionDetailPageTopTypeGood": "النوع: نقاط جيدة",

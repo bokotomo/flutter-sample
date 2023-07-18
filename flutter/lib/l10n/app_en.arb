@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Cancel",
   "solutionDetailPageHooksAlertAddGood": "You need to write [how to grow] to add.",
   "solutionDetailPageHooksAlertAddBad": "You need to write [how to improve] to add.",
+  "solutionDetailPageHooksAddTodoValidate": "You can add up to 20 todo.",
   "solutionDetailPageHooksAlertRemoveTodo": "Removed from todo.",
   "solutionDetailPageHooksAlertAddTodo": "Added from todo.",
   "solutionDetailPageTopTypeGood": "Type: good points",

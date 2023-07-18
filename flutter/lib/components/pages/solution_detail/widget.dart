@@ -27,7 +27,9 @@ class PageSolutionDetail extends HookWidget {
       body: TemplateSolutionDetail(
         i18n: i18n,
         reflectionId: reflectionId,
+        reflectionGroupId: d.reflectionGroupId,
         reflection: d.reflection,
+        todoCount: d.todoCount,
         updateReflection: d.updateReflection,
         dataFetchState: d.dataFetchState,
         todoExistDB: d.todoExist,

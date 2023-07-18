@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "キャンセル",
   "solutionDetailPageHooksAlertAddGood": "追加するには「伸ばす方法」を書く必要があります。",
   "solutionDetailPageHooksAlertAddBad": "追加するには「対策方法」を書く必要があります。",
+  "solutionDetailPageHooksAddTodoValidate": "やることは20件まで追加できます。",
   "solutionDetailPageHooksAlertRemoveTodo": "やることから外しました。",
   "solutionDetailPageHooksAlertAddTodo": "やることに追加しました。",
   "solutionDetailPageTopTypeGood": "種類: 良かった点",

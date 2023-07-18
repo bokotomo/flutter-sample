@@ -18,6 +18,8 @@ class TemplateSolutionDetail extends HookWidget {
     required this.i18n,
     required this.dataFetchState,
     required this.reflectionId,
+    required this.reflectionGroupId,
+    required this.todoCount,
     required this.reflection,
     required this.updateReflection,
     required this.todoExistDB,
@@ -31,6 +33,12 @@ class TemplateSolutionDetail extends HookWidget {
 
   /// 振り返りタスクID
   final int reflectionId;
+
+  /// 振り返りグループID
+  final int reflectionGroupId;
+
+  /// やること総数
+  final int todoCount;
 
   /// 振り返り一覧
   final DomainSolutionDetailReflection? reflection;
@@ -47,6 +55,8 @@ class TemplateSolutionDetail extends HookWidget {
       i18n,
       context,
       reflectionId,
+      reflectionGroupId,
+      todoCount,
       reflection,
       updateReflection,
       todoExistDB,

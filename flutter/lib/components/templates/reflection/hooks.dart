@@ -48,7 +48,8 @@ UseReturn useHooks(
     final cacheGroupId = await selectReflectionGroupId.get();
     if (cacheGroupId == null) return;
 
-    const max = 10;
+    // そのグループの振り返り上限数を超えていたら追加できない
+    const max = 350;
     if (reflectionCount >= max) {
       final current = reflectionCount;
       final numStr = "($current / $max)";
@@ -56,6 +57,7 @@ UseReturn useHooks(
       return;
     }
 
+    // グループIDを取得する
     final int groupId = int.parse(cacheGroupId.toString());
     final DomainReflectionGroup d = reflectionGroups.firstWhere(
       (r) => r.id == groupId,

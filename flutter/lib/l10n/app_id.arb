@@ -30,6 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Batalkan",
   "solutionDetailPageHooksAlertAddGood": "Anda perlu menulis [cara mengembangkan] untuk menambahkan.",
   "solutionDetailPageHooksAlertAddBad": "Anda perlu menulis [cara meningkatkan] untuk menambahkan.",
+  "solutionDetailPageHooksAddTodoValidate": "Anda dapat menambahkan hingga 20 todo.",
   "solutionDetailPageHooksAlertRemoveTodo": "Dihapus dari todo.",
   "solutionDetailPageHooksAlertAddTodo": "Ditambahkan dari todo.",
   "solutionDetailPageTopTypeGood": "Tipe: poin bagus",
