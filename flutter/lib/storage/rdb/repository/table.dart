@@ -15,7 +15,6 @@ class TableOpenSetUp {
 /// DB: テーブルのセットアップ
 class TableSetUp {
   /// テーブルの作成
-  /// TODO: 後でマイグレーションファイルに合わせるので一時的
   Future<void> createTables(Database db) async {
     try {
       print("---- Setup Table ----");
@@ -70,6 +69,7 @@ CREATE TABLE IF NOT EXISTS reflection_history(
       await db.execute('''
 CREATE TABLE IF NOT EXISTS todo(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  index_num INTEGER NOT NULL,
   reflection_id INTEGER NOT NULL,
   reflection_group_id INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'localtime')),
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS game(
       // ゲーミフィケーションの初期値
       await db.execute('INSERT INTO game(exp) values(0)');
     } catch (e) {
-      //todo
+      // todo ログなど
       rethrow;
     }
   }

@@ -6,6 +6,7 @@ const String tableNameTodo = "todo";
 class ModelTodo {
   ModelTodo({
     this.id,
+    required this.indexNum,
     required this.reflectionId,
     required this.reflectionGroupId,
     required this.createdAt,
@@ -13,6 +14,9 @@ class ModelTodo {
 
   /// ID
   final int? id;
+
+  /// 番号
+  final int indexNum;
 
   /// 対象の振り返りID
   final int reflectionId;
@@ -27,6 +31,7 @@ class ModelTodo {
     final DateFormat formatter = DateFormat('yyyy-MM-dd HH:mm:ss');
     final String formatted = formatter.format(createdAt);
     return {
+      'index_num': indexNum,
       'reflection_id': reflectionId,
       'reflection_group_id': reflectionGroupId,
       'created_at': formatted,

@@ -21,6 +21,7 @@ class RepositoryTodoCommand extends IRepositoryTodoCommand {
   ) async {
     /// 新規登録
     final ModelTodo todo = ModelTodo(
+      indexNum: 0,
       reflectionId: reflectionId,
       reflectionGroupId: reflectionGroupId,
       createdAt: DateTime.now(),
