@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Annuller",
   "solutionDetailPageHooksAlertAddGood": "Du skal skrive [hvordan du vokser] for at tilføje.",
   "solutionDetailPageHooksAlertAddBad": "Du skal skrive [hvordan man forbedrer] for at tilføje.",
-  "solutionDetailPageHooksAddTodoValidate": "Du kan tilføje op til 20 todo.",
+  "solutionDetailPageHooksAddTodoValidate": "Du kan tilføje op til 15 todo.",
   "solutionDetailPageHooksAlertRemoveTodo": "Fjernet fra opgave.",
   "solutionDetailPageHooksAlertAddTodo": "Tilføjet fra opgave.",
   "solutionDetailPageTopTypeGood": "Type: gode pointer",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} gange",
   "solutionDetailPageTopEditDetailGood": "Sådan forbedrer du dine gode pointer",
   "solutionDetailPageTopEditDetailBad": "Modforanstaltning",
-  "solutionDetailPageTopEditDetailHintGood": "Skriv ned, hvordan du kan forbedre dine styrker.\n(inden for 300 tegn)",
-  "solutionDetailPageTopEditDetailHintBad": "Skriv en modforanstaltning.\n(inden for 300 tegn)",
-  "solutionDetailPageTopEditTitleHint": "Refleksionsnavn (inden for 35 tegn)",
+  "solutionDetailPageTopEditDetailHintGood": "Skriv ned, hvordan du kan forbedre dine styrker.",
+  "solutionDetailPageTopEditDetailHintBad": "Skriv en modforanstaltning.",
+  "solutionDetailPageTopEditTitleHint": "Refleksionsnavn",
 
 
   "pageReflectionTitle": "Tilføj refleksion",
   "pageReflectionHowToTitle": "Sådan reflekteres",
   "pageReflectionHowToDetail": "1. Se replayet\n\n2. Skriv godt og dårligt\n\n3. Tilføj den samme refleksion fra forslagene",
+  "pageReflectionHowToDetailSub": "* Gør dette hvert par spil.",
   "pageReflectionButtonStart": "Start refleksion",
   "pageReflectionHooksAddValidation": "Overskridelse af yderligere grænse.\nDu kan slette det fra [Løsning].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Opret ny",
   "accountPageChangeColorMode": "Skift farvetilstand",
   "accountPageChangeLanguage": "Skift sprog",
+  "accountPageQuestionnaire": "spørgeskema",
   "accountPageTermsOfService": "Servicevilkår",
   "accountPagePrivacyPolicy": "Privatlivspolitik",
   "accountPageAppInfo": "App info",
@@ -138,8 +140,8 @@
 
 
   "commonButtonPeriodFilterAll": "Alle",
-  "commonButtonPeriodFilterThreeMonth": "3 måneder",
-  "commonButtonPeriodFilteroOneMonth": "1 måned",
+  "commonButtonPeriodFilterCenter": "3 måneder",
+  "commonButtonPeriodFilterRight": "En uge",
 
 
   "commonSelectColorModeDark": "Mørk",
@@ -151,7 +153,7 @@
 
 
   "commonInputTextValidationEmpty": "*Der er ikke indtastet nogen tegn.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} tegn eller mindre.",
+  "commonInputTextValidationMaxLengthOver": "*Maksimalt antal tegn.",
   "commonInputTextValidationAllSpace": "*Du kan ikke tilføje alle tomme felter.",
   "commonInputTextValidationFisrtSpace": "*Ingen plads er tilladt i begyndelsen.",
   "commonInputTextValidationLastSpace": "*Ingen mellemrum er tilladt i slutningen.",

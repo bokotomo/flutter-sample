@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Cancel",
   "solutionDetailPageHooksAlertAddGood": "You need to write [how to grow] to add.",
   "solutionDetailPageHooksAlertAddBad": "You need to write [how to improve] to add.",
-  "solutionDetailPageHooksAddTodoValidate": "You can add up to 20 todo.",
+  "solutionDetailPageHooksAddTodoValidate": "You can add up to 15 todo.",
   "solutionDetailPageHooksAlertRemoveTodo": "Removed from todo.",
   "solutionDetailPageHooksAlertAddTodo": "Added from todo.",
   "solutionDetailPageTopTypeGood": "Type: good points",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} times",
   "solutionDetailPageTopEditDetailGood": "How to improve your good points",
   "solutionDetailPageTopEditDetailBad": "Countermeasure",
-  "solutionDetailPageTopEditDetailHintGood": "Write down how you can improve your strengths.\n(within 300 characters)",
-  "solutionDetailPageTopEditDetailHintBad": "Write a countermeasure.\n(within 300 characters)",
-  "solutionDetailPageTopEditTitleHint": "Reflection name (within 35 characters)",
+  "solutionDetailPageTopEditDetailHintGood": "Write down how you can improve your strengths.",
+  "solutionDetailPageTopEditDetailHintBad": "Write a countermeasure.",
+  "solutionDetailPageTopEditTitleHint": "Reflection name",
 
 
   "pageReflectionTitle": "Add reflection",
   "pageReflectionHowToTitle": "How to reflection",
   "pageReflectionHowToDetail": "1. Watch the replay\n\n2. Write good and bad\n\n3. Add the same reflection from the suggestions",
+  "pageReflectionHowToDetailSub": "*Do this every few games.",
   "pageReflectionButtonStart": "Start reflection",
   "pageReflectionHooksAddValidation": "Exceeding additional limit.\nYou can delete it from [Solution].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Create new",
   "accountPageChangeColorMode": "Change color mode",
   "accountPageChangeLanguage": "Change language",
+  "accountPageQuestionnaire": "questionnaire",
   "accountPageTermsOfService": "Terms of service",
   "accountPagePrivacyPolicy": "Privacy Policy",
   "accountPageAppInfo": "App info",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "All",
-  "commonButtonPeriodFilterThreeMonth": "3 month",
-  "commonButtonPeriodFilteroOneMonth": "1 month",
+  "commonButtonPeriodFilterCenter": "3 month",
+  "commonButtonPeriodFilterRight": "1 week",
 
 
   "commonSelectColorModeDark": "Dark",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*No characters have been entered.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} characters or less.",
+  "commonInputTextValidationMaxLengthOver": "*Maximum number of characters.",
   "commonInputTextValidationAllSpace": "*You cannot add all blanks.",
   "commonInputTextValidationFisrtSpace": "*No space is allowed at the beginning.",
   "commonInputTextValidationLastSpace": "*No space is allowed at the end.",

@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "取消",
   "solutionDetailPageHooksAlertAddGood": "需要寫[如何增長]來添加。",
   "solutionDetailPageHooksAlertAddBad": "需要寫[如何改進]來添加。",
-  "solutionDetailPageHooksAddTodoValidate": "您最多可以添加 20 個待辦事項。",
+  "solutionDetailPageHooksAddTodoValidate": "您最多可以添加 15 個待辦事項。",
   "solutionDetailPageHooksAlertRemoveTodo": "已從待辦事項中刪除。",
   "solutionDetailPageHooksAlertAddTodo": "從待辦事項添加。",
   "solutionDetailPageTopTypeGood": "類型：優點",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} 次",
   "solutionDetailPageTopEditDetailGood": "如何提高你的優點",
   "solutionDetailPageTopEditDetailBad": "對策",
-  "solutionDetailPageTopEditDetailHintGood": "寫下如何提高自己的優勢。\n（300 個字符以內）",
-  "solutionDetailPageTopEditDetailHintBad": "請寫出對策。\n（300 個字符以內）",
-  "solutionDetailPageTopEditTitleHint": "回顧名稱（35 個字符以內）",
+  "solutionDetailPageTopEditDetailHintGood": "寫下如何提高自己的優勢。",
+  "solutionDetailPageTopEditDetailHintBad": "請寫出對策。",
+  "solutionDetailPageTopEditTitleHint": "回顧名稱",
 
 
   "pageReflectionTitle": "添加回顧",
   "pageReflectionHowToTitle": "如何回顧",
   "pageReflectionHowToDetail": "1. 觀看重播\n\n2. 寫出好的和壞的\n\n3. 從建議中添加相同的反思",
+  "pageReflectionHowToDetailSub": "* 每隔幾場比賽就這樣做一次。",
   "pageReflectionButtonStart": "開始回顧",
   "pageReflectionHooksAddValidation": "超出額外限制。\n您可以從[解決方案]中將其刪除。\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "新建",
   "accountPageChangeColorMode": "更改顏色模式",
   "accountPageChangeLanguage": "更改語言",
+  "accountPageQuestionnaire": "調查問卷",
   "accountPageTermsOfService": "服務條款",
   "accountPagePrivacyPolicy": "隱私政策",
   "accountPageAppInfo": "應用程序信息",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "全部",
-  "commonButtonPeriodFilterThreeMonth": "3 個月",
-  "commonButtonPeriodFilteroOneMonth": "1 個月",
+  "commonButtonPeriodFilterCenter": "3 個月",
+  "commonButtonPeriodFilterRight": "1週",
 
 
   "commonSelectColorModeDark": "深色",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*尚未輸入任何字符。",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} 個字符或更少。",
+  "commonInputTextValidationMaxLengthOver": "*最大字符數。",
   "commonInputTextValidationAllSpace": "*您不能添加所有空格。",
   "commonInputTextValidationFisrtSpace": "*開頭不允許有空格。",
   "commonInputTextValidationLastSpace": "*末尾不允許有空格。",

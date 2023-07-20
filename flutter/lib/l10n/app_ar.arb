@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "يلغي",
   "solutionDetailPageHooksAlertAddGood": "تحتاج إلى كتابة [كيف تنمو] لتضيف.",
   "solutionDetailPageHooksAlertAddBad": "تحتاج إلى كتابة [كيفية التحسين] للإضافة.",
-  "solutionDetailPageHooksAddTodoValidate": "يمكنك إضافة ما يصل إلى 20 مهمة.",
+  "solutionDetailPageHooksAddTodoValidate": "يمكنك إضافة ما يصل إلى 15 مهمة.",
   "solutionDetailPageHooksAlertRemoveTodo": "تمت الإزالة من الجميع",
   "solutionDetailPageHooksAlertAddTodo": "تمت الإضافة من الجميع",
   "solutionDetailPageTopTypeGood": "النوع: نقاط جيدة",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} مرة",
   "solutionDetailPageTopEditDetailGood": "كيف تحسن نقاطك الجيدة",
   "solutionDetailPageTopEditDetailBad": "إجراء مضاد",
-  "solutionDetailPageTopEditDetailHintGood": "اكتب كيف يمكنك تحسين نقاط قوتك.\n(في حدود 300 حرف)",
-  "solutionDetailPageTopEditDetailHintBad": "اكتب إجراءً مضادًا.\n(في حدود 300 حرف)",
-  "solutionDetailPageTopEditTitleHint": "اسم الانعكاس (ضمن 35 حرفًا)",
+  "solutionDetailPageTopEditDetailHintGood": "اكتب كيف يمكنك تحسين نقاط قوتك.",
+  "solutionDetailPageTopEditDetailHintBad": "اكتب إجراءً مضادًا.",
+  "solutionDetailPageTopEditTitleHint": "اسم الانعكاس",
 
 
   "pageReflectionTitle": "أضف انعكاسًا",
   "pageReflectionHowToTitle": "كيف تفكر",
   "pageReflectionHowToDetail": "1. شاهد الإعادة\n\n2. اكتب الخير والشر\n\n3. أضف نفس التفكير من الاقتراحات",
+  "pageReflectionHowToDetailSub": "افعل هذا كل بضع مباريات.",
   "pageReflectionButtonStart": "ابدأ التفكير",
   "pageReflectionHooksAddValidation": "تجاوز الحد الإضافي.\nيمكنك حذفه من [حل].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "خلق جديد إبداع جديد",
   "accountPageChangeColorMode": "تغيير وضع اللون",
   "accountPageChangeLanguage": "تغيير اللغة",
+  "accountPageQuestionnaire": "استبيان",
   "accountPageTermsOfService": "شروط الخدمة",
   "accountPagePrivacyPolicy": "سياسة الخصوصية",
   "accountPageAppInfo": "معلومات التطبيق",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "الجميع",
-  "commonButtonPeriodFilterThreeMonth": "3 أشهر",
-  "commonButtonPeriodFilteroOneMonth": "شهر واحد",
+  "commonButtonPeriodFilterCenter": "3 أشهر",
+  "commonButtonPeriodFilterRight": "أسبوع 1",
 
 
   "commonSelectColorModeDark": "مظلم",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "* لم يتم إدخال أي أحرف.",
-  "commonInputTextValidationMaxLengthOver": "* {maxLength} حرفًا أو أقل.",
+  "commonInputTextValidationMaxLengthOver": "* أقصى عدد من الأحرف.",
   "commonInputTextValidationAllSpace": "* لا يمكنك إضافة كل الفراغات.",
   "commonInputTextValidationFisrtSpace": "* لا توجد مساحة مسموح بها في البداية.",
   "commonInputTextValidationLastSpace": "* لا توجد مساحة مسموح بها في النهاية.",

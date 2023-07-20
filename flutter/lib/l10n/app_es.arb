@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Cancelar",
   "solutionDetailPageHooksAlertAddGood": "Necesitas escribir [cómo crecer] para agregar.",
   "solutionDetailPageHooksAlertAddBad": "Necesitas escribir [cómo mejorar] para agregar.",
-  "solutionDetailPageHooksAddTodoValidate": "Puede agregar hasta 20 tareas pendientes.",
+  "solutionDetailPageHooksAddTodoValidate": "Puede agregar hasta 15 tareas pendientes.",
   "solutionDetailPageHooksAlertRemoveTodo": "Eliminado de tareas pendientes.",
   "solutionDetailPageHooksAlertAddTodo": "Agregado desde todo.",
   "solutionDetailPageTopTypeGood": "Tipo: buenos puntos",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} veces",
   "solutionDetailPageTopEditDetailGood": "Cómo mejorar tus puntos buenos",
   "solutionDetailPageTopEditDetailBad": "Contramedida",
-  "solutionDetailPageTopEditDetailHintGood": "Escribe cómo puedes mejorar tus fortalezas.\n(dentro de 300 caracteres)",
-  "solutionDetailPageTopEditDetailHintBad": "Escribe una contramedida.\n(dentro de 300 caracteres)",
-  "solutionDetailPageTopEditTitleHint": "Nombre de la reflexión (dentro de 35 caracteres)",
+  "solutionDetailPageTopEditDetailHintGood": "Escribe cómo puedes mejorar tus fortalezas.",
+  "solutionDetailPageTopEditDetailHintBad": "Escribe una contramedida.",
+  "solutionDetailPageTopEditTitleHint": "Nombre de la reflexión",
 
 
   "pageReflectionTitle": "Agregar reflejo",
   "pageReflectionHowToTitle": "Cómo reflexionar",
   "pageReflectionHowToDetail": "1. Mira la repetición\n\n2. Escribe bueno y malo\n\n3. Agrega el mismo reflejo de las sugerencias",
+  "pageReflectionHowToDetailSub": "* Haga esto cada pocos juegos.",
   "pageReflectionButtonStart": "Iniciar reflexión",
   "pageReflectionHooksAddValidation": "Exceder el límite adicional.\nPuede eliminarlo desde [Solución].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Crear nuevo",
   "accountPageChangeColorMode": "Cambiar modo de color",
   "accountPageChangeLanguage": "Cambiar idioma",
+  "accountPageQuestionnaire": "cuestionario",
   "accountPageTermsOfService": "Términos del servicio",
   "accountPagePrivacyPolicy": "Política de Privacidad",
   "accountPageAppInfo": "Información de la aplicación",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "Todos",
-  "commonButtonPeriodFilterThreeMonth": "3 meses",
-  "commonButtonPeriodFilteroOneMonth": "1 mes",
+  "commonButtonPeriodFilterCenter": "3 meses",
+  "commonButtonPeriodFilterRight": "1 semana",
 
 
   "commonSelectColorModeDark": "Oscuro",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*No se han ingresado caracteres.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} caracteres o menos.",
+  "commonInputTextValidationMaxLengthOver": "*Número máximo de caracteres.",
   "commonInputTextValidationAllSpace": "*No puedes agregar todos los espacios en blanco.",
   "commonInputTextValidationFisrtSpace": "*No se permiten espacios al principio.",
   "commonInputTextValidationLastSpace": "*No se permiten espacios al final.",

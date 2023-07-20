@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "İptal",
   "solutionDetailPageHooksAlertAddGood": "Eklemek için [nasıl büyütülür] yazmanız gerekir.",
   "solutionDetailPageHooksAlertAddBad": "Eklemek için [nasıl geliştirilir] yazmanız gerekir.",
-  "solutionDetailPageHooksAddTodoValidate": "En fazla 20 yapılacak iş ekleyebilirsiniz.",
+  "solutionDetailPageHooksAddTodoValidate": "En fazla 15 yapılacak iş ekleyebilirsiniz.",
   "solutionDetailPageHooksAlertRemoveTodo": "Yapılacaklar'dan kaldırıldı.",
   "solutionDetailPageHooksAlertAddTodo": "Yapılacaklar kaynağından eklendi.",
   "solutionDetailPageTopTypeGood": "Tür: iyi noktalar",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} kez",
   "solutionDetailPageTopEditDetailGood": "İyi noktalarınızı nasıl geliştirirsiniz",
   "solutionDetailPageTopEditDetailBad": "Karşı tedbir",
-  "solutionDetailPageTopEditDetailHintGood": "Güçlü yönlerinizi nasıl geliştirebileceğinizi yazın.\n(300 karakter içinde)",
-  "solutionDetailPageTopEditDetailHintBad": "Bir önlem yazın.\n(300 karakter içinde)",
-  "solutionDetailPageTopEditTitleHint": "Yansıma adı (35 karakter içinde)",
+  "solutionDetailPageTopEditDetailHintGood": "Güçlü yönlerinizi nasıl geliştirebileceğinizi yazın.",
+  "solutionDetailPageTopEditDetailHintBad": "Bir önlem yazın.",
+  "solutionDetailPageTopEditTitleHint": "Yansıma adı",
 
 
   "pageReflectionTitle": "Yansıma ekle",
   "pageReflectionHowToTitle": "Yansıma nasıl yapılır",
   "pageReflectionHowToDetail": "1. Tekrarı izleyin\n\n2. İyi ve kötüyü yazın\n\n3. Önerilerden aynı yansımayı ekleyin",
+  "pageReflectionHowToDetailSub": "* Bunu birkaç oyunda bir yapın.",
   "pageReflectionButtonStart": "Yansıtmayı başlat",
   "pageReflectionHooksAddValidation": "Ek sınırın aşılması.\n[Çözüm]'den silebilirsiniz.\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Yeni oluştur",
   "accountPageChangeColorMode": "Renk modunu değiştir",
   "accountPageChangeLanguage": "Dili değiştir",
+  "accountPageQuestionnaire": "anket",
   "accountPageTermsOfService": "Hizmet şartları",
   "accountPagePrivacyPolicy": "Gizlilik Politikası",
   "accountPageAppInfo": "Uygulama bilgisi",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "Tümü",
-  "commonButtonPeriodFilterThreeMonth": "3 ay",
-  "commonButtonPeriodFilteroOneMonth": "1 ay",
+  "commonButtonPeriodFilterCenter": "3 ay",
+  "commonButtonPeriodFilterRight": "1 hafta",
 
 
   "commonSelectColorModeDark": "Koyu",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*Hiçbir karakter girilmemiş.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} karakter veya daha az.",
+  "commonInputTextValidationMaxLengthOver": "*Maksimum karakter sayısı.",
   "commonInputTextValidationAllSpace": "*Tüm boşlukları ekleyemezsiniz.",
   "commonInputTextValidationFisrtSpace": "*Başlangıçta boşluğa izin verilmez.",
   "commonInputTextValidationLastSpace": "*Sonda boşluğa izin verilmez.",

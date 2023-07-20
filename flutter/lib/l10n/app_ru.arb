@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Отмена",
   "solutionDetailPageHooksAlertAddGood": "Чтобы добавить, нужно написать [как увеличить].",
   "solutionDetailPageHooksAlertAddBad": "Чтобы добавить, нужно написать [как улучшить].",
-  "solutionDetailPageHooksAddTodoValidate": "Вы можете добавить до 20 задач.",
+  "solutionDetailPageHooksAddTodoValidate": "Вы можете добавить до 15 задач.",
   "solutionDetailPageHooksAlertRemoveTodo": "Удалено из списка дел.",
   "solutionDetailPageHooksAlertAddTodo": "Добавлено из списка дел.",
   "solutionDetailPageTopTypeGood": "Тип: положительные моменты",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} раз",
   "solutionDetailPageTopEditDetailGood": "Как улучшить свои положительные стороны",
   "solutionDetailPageTopEditDetailBad": "Контрмера",
-  "solutionDetailPageTopEditDetailHintGood": "Запишите, как вы можете улучшить свои сильные стороны.\n(до 300 символов)",
-  "solutionDetailPageTopEditDetailHintBad": "Напишите контрмеру.\n(до 300 символов)",
-  "solutionDetailPageTopEditTitleHint": "Имя самоанализ (до 35 символов)",
+  "solutionDetailPageTopEditDetailHintGood": "Запишите, как вы можете улучшить свои сильные стороны.",
+  "solutionDetailPageTopEditDetailHintBad": "Напишите контрмеру.",
+  "solutionDetailPageTopEditTitleHint": "Имя самоанализ",
 
 
   "pageReflectionTitle": "Добавить отражение",
   "pageReflectionHowToTitle": "Как отразить",
   "pageReflectionHowToDetail": "1. Посмотрите повтор\n\n2. Напишите хорошее и плохое\n\n3. Добавьте такое же отражение из предложений",
+  "pageReflectionHowToDetailSub": "* Делайте это каждые несколько игр.",
   "pageReflectionButtonStart": "Начать отражение",
   "pageReflectionHooksAddValidation": "Превышение дополнительного лимита.\nВы можете удалить его из [Решение].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Создать новый",
   "accountPageChangeColorMode": "Изменить цветовой режим",
   "accountPageChangeLanguage": "Изменить язык",
+  "accountPageQuestionnaire": "анкета",
   "accountPageTermsOfService": "Условия использования",
   "accountPagePrivacyPolicy": "Политика конфиденциальности",
   "accountPageAppInfo": "Информация о приложении",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "Все",
-  "commonButtonPeriodFilterThreeMonth": "3 месяца",
-  "commonButtonPeriodFilteroOneMonth": "1 месяц",
+  "commonButtonPeriodFilterCenter": "3 месяца",
+  "commonButtonPeriodFilterRight": "1 неделя",
 
 
   "commonSelectColorModeDark": "Темный",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*Не введено ни одного символа.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} символов или меньше.",
+  "commonInputTextValidationMaxLengthOver": "*Максимальное количество символов.",
   "commonInputTextValidationAllSpace": "*Вы не можете добавить все пробелы.",
   "commonInputTextValidationFisrtSpace": "*В начале не допускается пробел.",
   "commonInputTextValidationLastSpace": "*Пробел в конце не допускается.",

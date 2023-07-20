@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Annulla",
   "solutionDetailPageHooksAlertAddGood": "Devi scrivere [come crescere] per aggiungere.",
   "solutionDetailPageHooksAlertAddBad": "Devi scrivere [come migliorare] per aggiungere.",
-  "solutionDetailPageHooksAddTodoValidate": "Puoi aggiungere fino a 20 cose da fare.",
+  "solutionDetailPageHooksAddTodoValidate": "Puoi aggiungere fino a 15 cose da fare.",
   "solutionDetailPageHooksAlertRemoveTodo": "Rimosso da todo.",
   "solutionDetailPageHooksAlertAddTodo": "Aggiunto da todo.",
   "solutionDetailPageTopTypeGood": "Tipo: aspetti positivi",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} volte",
   "solutionDetailPageTopEditDetailGood": "Come migliorare i tuoi punti positivi",
   "solutionDetailPageTopEditDetailBad": "Contromisura",
-  "solutionDetailPageTopEditDetailHintGood": "Scrivi come puoi migliorare i tuoi punti di forza.\n(entro 300 caratteri)",
-  "solutionDetailPageTopEditDetailHintBad": "Scrivi una contromisura.\n(entro 300 caratteri)",
-  "solutionDetailPageTopEditTitleHint": "Nome della riflessione (entro 35 caratteri)",
+  "solutionDetailPageTopEditDetailHintGood": "Scrivi come puoi migliorare i tuoi punti di forza.",
+  "solutionDetailPageTopEditDetailHintBad": "Scrivi una contromisura.",
+  "solutionDetailPageTopEditTitleHint": "Nome della riflessione",
 
 
   "pageReflectionTitle": "Aggiungi riflesso",
   "pageReflectionHowToTitle": "Come riflettere",
   "pageReflectionHowToDetail": "1. Guarda il replay\n\n2. Scrivi bene e male\n\n3. Aggiungi la stessa riflessione dai suggerimenti",
+  "pageReflectionHowToDetailSub": "* Fallo ogni pochi giochi.",
   "pageReflectionButtonStart": "Avvia riflessione",
   "pageReflectionHooksAddValidation": "Superamento del limite aggiuntivo.\nPuoi eliminarlo da [Soluzione].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Crea nuovo",
   "accountPageChangeColorMode": "Cambia modalità colore",
   "accountPageChangeLanguage": "Cambia lingua",
+  "accountPageQuestionnaire": "questionario",
   "accountPageTermsOfService": "Termini di servizio",
   "accountPagePrivacyPolicy": "Informativa sulla privacy",
   "accountPageAppInfo": "Informazioni sull'app",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "Tutto",
-  "commonButtonPeriodFilterThreeMonth": "3 mesi",
-  "commonButtonPeriodFilteroOneMonth": "1 mese",
+  "commonButtonPeriodFilterCenter": "3 mesi",
+  "commonButtonPeriodFilterRight": "1 settimana",
 
 
   "commonSelectColorModeDark": "Scuro",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*Non sono stati inseriti caratteri.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} caratteri o meno.",
+  "commonInputTextValidationMaxLengthOver": "*Numero massimo di caratteri.",
   "commonInputTextValidationAllSpace": "*Non puoi aggiungere tutti gli spazi vuoti.",
   "commonInputTextValidationFisrtSpace": "*Non è consentito alcuno spazio all'inizio.",
   "commonInputTextValidationLastSpace": "*Non è consentito alcuno spazio alla fine.",

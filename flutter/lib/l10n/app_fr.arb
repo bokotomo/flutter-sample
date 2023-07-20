@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Annuler",
   "solutionDetailPageHooksAlertAddGood": "Vous devez écrire [comment grandir] pour ajouter.",
   "solutionDetailPageHooksAlertAddBad": "Vous devez écrire [comment améliorer] pour ajouter.",
-  "solutionDetailPageHooksAddTodoValidate": "Vous pouvez ajouter jusqu'à 20 tâches.",
+  "solutionDetailPageHooksAddTodoValidate": "Vous pouvez ajouter jusqu'à 15 tâches.",
   "solutionDetailPageHooksAlertRemoveTodo": "Supprimé de la tâche.",
   "solutionDetailPageHooksAlertAddTodo": "Ajouté depuis la tâche.",
   "solutionDetailPageTopTypeGood": "Type: bons points",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} fois",
   "solutionDetailPageTopEditDetailGood": "Comment améliorer vos bons points",
   "solutionDetailPageTopEditDetailBad": "Contre-mesure",
-  "solutionDetailPageTopEditDetailHintGood": "Écrivez comment vous pouvez améliorer vos points forts.\n(jusqu'à 300 caractères)",
-  "solutionDetailPageTopEditDetailHintBad": "Écrivez une contre-mesure.\n(jusqu'à 300 caractères)",
-  "solutionDetailPageTopEditTitleHint": "Nom de la réflexion (jusqu'à 35 caractères)",
+  "solutionDetailPageTopEditDetailHintGood": "Écrivez comment vous pouvez améliorer vos points forts.",
+  "solutionDetailPageTopEditDetailHintBad": "Écrivez une contre-mesure.",
+  "solutionDetailPageTopEditTitleHint": "Nom de la réflexion",
 
 
   "pageReflectionTitle": "Ajouter une réflexion",
   "pageReflectionHowToTitle": "Comment réfléchir",
   "pageReflectionHowToDetail": "1. Regardez la rediffusion\n\n2. Écrivez le bien et le mal\n\n3. Ajoutez la même réflexion à partir des suggestions",
+  "pageReflectionHowToDetailSub": "* Faites cela tous les quelques jeux.",
   "pageReflectionButtonStart": "Démarrer la réflexion",
   "pageReflectionHooksAddValidation": "Dépassement de la limite supplémentaire.\nVous pouvez le supprimer de [Solution].\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Créer nouveau",
   "accountPageChangeColorMode": "Changer le mode de couleur",
   "accountPageChangeLanguage": "Changer de langue",
+  "accountPageQuestionnaire": "questionnaire",
   "accountPageTermsOfService": "Conditions d'utilisation",
   "accountPagePrivacyPolicy": "Politique de confidentialité",
   "accountPageAppInfo": "Informations sur l'application",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "Tous",
-  "commonButtonPeriodFilterThreeMonth": "3 mois",
-  "commonButtonPeriodFilteroOneMonth": "1 mois",
+  "commonButtonPeriodFilterCenter": "3 mois",
+  "commonButtonPeriodFilterRight": "1 semaine",
 
 
   "commonSelectColorModeDark": "Sombre",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "*Aucun caractère n'a été saisi.",
-  "commonInputTextValidationMaxLengthOver": "*{maxLength} caractères ou moins.",
+  "commonInputTextValidationMaxLengthOver": "*Nombre maximum de caractères.",
   "commonInputTextValidationAllSpace": "*Vous ne pouvez pas ajouter tous les blancs.",
   "commonInputTextValidationFisrtSpace": "*Aucun espace n'est autorisé au début.",
   "commonInputTextValidationLastSpace": "*Aucun espace n'est autorisé à la fin.",

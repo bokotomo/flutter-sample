@@ -30,7 +30,7 @@
   "solutionDetailPageModalCheckButtonCancel": "Abbrechen",
   "solutionDetailPageHooksAlertAddGood": "Sie müssen schreiben, wie man wächst, um hinzuzufügen.",
   "solutionDetailPageHooksAlertAddBad": "Sie müssen schreiben, wie Sie etwas verbessern können, um es hinzuzufügen.",
-  "solutionDetailPageHooksAddTodoValidate": "Sie können bis zu 20 Aufgaben hinzufügen.",
+  "solutionDetailPageHooksAddTodoValidate": "Sie können bis zu 15 Aufgaben hinzufügen.",
   "solutionDetailPageHooksAlertRemoveTodo": "Aus Aufgabenliste entfernt.",
   "solutionDetailPageHooksAlertAddTodo": "Von Aufgabenliste hinzugefügt.",
   "solutionDetailPageTopTypeGood": "Typ: gute Punkte",
@@ -43,14 +43,15 @@
   "solutionDetailPageTopEditCountValue": "{count} mal",
   "solutionDetailPageTopEditDetailGood": "So verbessern Sie Ihre guten Punkte",
   "solutionDetailPageTopEditDetailBad": "Gegenmaßnahme",
-  "solutionDetailPageTopEditDetailHintGood": "Schreiben Sie auf, wie Sie Ihre Stärken verbessern können.\n(innerhalb von 300 Zeichen)",
-  "solutionDetailPageTopEditDetailHintBad": "Schreiben Sie eine Gegenmaßnahme.\n(innerhalb von 300 Zeichen)",
-  "solutionDetailPageTopEditTitleHint": "Reflection-Name (innerhalb von 35 Zeichen)",
+  "solutionDetailPageTopEditDetailHintGood": "Schreiben Sie auf, wie Sie Ihre Stärken verbessern können.",
+  "solutionDetailPageTopEditDetailHintBad": "Schreiben Sie eine Gegenmaßnahme.",
+  "solutionDetailPageTopEditTitleHint": "Reflection-Name",
 
 
   "pageReflectionTitle": "Reflexion hinzufügen",
   "pageReflectionHowToTitle": "Wie man reflektiert",
   "pageReflectionHowToDetail": "1. Sehen Sie sich die Wiederholung an\n\n2. Schreiben Sie Gutes und Schlechtes\n\n3. Fügen Sie die gleiche Reflexion aus den Vorschlägen hinzu",
+  "pageReflectionHowToDetailSub": "* Tun Sie dies alle paar Spiele.",
   "pageReflectionButtonStart": "Reflexion starten",
   "pageReflectionHooksAddValidation": "Überschreitung des zusätzlichen Limits.\nSie können es aus [Lösung] löschen.\n{numStr}",
 
@@ -104,6 +105,7 @@
   "accountPageAddReflectionButton": "Neu erstellen",
   "accountPageChangeColorMode": "Farbmodus ändern",
   "accountPageChangeLanguage": "Sprache ändern",
+  "accountPageQuestionnaire": "Fragebogen",
   "accountPageTermsOfService": "Nutzungsbedingungen",
   "accountPagePrivacyPolicy": "Datenschutzrichtlinie",
   "accountPageAppInfo": "App-Info",
@@ -135,8 +137,8 @@
 
 
   "commonButtonPeriodFilterAll": "Alle",
-  "commonButtonPeriodFilterThreeMonth": "3 Monate",
-  "commonButtonPeriodFilteroOneMonth": "1 Monat",
+  "commonButtonPeriodFilterCenter": "3 Monate",
+  "commonButtonPeriodFilterRight": "1 Woche",
 
 
   "commonSelectColorModeDark": "Dunkel",
@@ -148,7 +150,7 @@
 
 
   "commonInputTextValidationEmpty": "Es wurden keine Zeichen eingegeben.",
-  "commonInputTextValidationMaxLengthOver": "{maxLength} Zeichen oder weniger.",
+  "commonInputTextValidationMaxLengthOver": "*Maximale Anzahl von Zeichen.",
   "commonInputTextValidationAllSpace": "Nur Leerzeichen sind nicht zulässig.",
   "commonInputTextValidationFisrtSpace": "Am Anfang ist kein Leerzeichen zulässig.",
   "commonInputTextValidationLastSpace": "Am Ende ist kein Leerzeichen zulässig.",
