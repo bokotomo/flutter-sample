@@ -1,5 +1,5 @@
 import 'package:gamer_reflection/modules/validate/text.dart'
-    show fisrtSpace, lastSpace, allSpace, maxLengthOver;
+    show fisrtSpace, lastSpace, allSpace, maxLengthOverForMultibyte;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 
@@ -19,8 +19,8 @@ UseReturn useValidate(
   /// バリデーション
   String? validateForm(String? v) {
     if (v == null || v.isEmpty) return i18n.commonInputTextValidationEmpty;
-    if (maxLengthOver(v, maxLength)) {
-      return i18n.commonInputTextValidationMaxLengthOver(maxLength!);
+    if (maxLengthOverForMultibyte(v, maxLength)) {
+      return i18n.commonInputTextValidationMaxLengthOver;
     }
     if (allSpace(v)) return i18n.commonInputTextValidationAllSpace;
     if (fisrtSpace(v)) return i18n.commonInputTextValidationFisrtSpace;

@@ -49,7 +49,7 @@ Widget view(
             text: textReflectionNewName,
             hintText: i18n.accountPageAddReflectionPlaceHolder,
             focusNode: textReflectionNewNameFocusNode,
-            maxLength: 20,
+            maxLength: 28,
           ),
           SpacerHeight.m,
           ButtonIcon(
@@ -83,7 +83,7 @@ class NewReflectionName extends StatelessWidget {
   ///
   final TextEditingController textReflectionNewName;
 
-  ///
+  /// 新規追加を押した
   final Function(BuildContext context) onPressedNewName;
 
   ///

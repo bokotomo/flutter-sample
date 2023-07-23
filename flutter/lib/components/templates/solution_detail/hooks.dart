@@ -163,8 +163,8 @@ UseReturn useHooks(
         return;
       }
 
-      // やることは20件までしかできない
-      const max = 20;
+      // やることは15件までしかできない
+      const max = 15;
       if ((todoCount + todoAddCount.value) >= max) {
         toast.showAlert(i18n.solutionDetailPageHooksAddTodoValidate, 2500);
         return;

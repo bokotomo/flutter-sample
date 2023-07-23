@@ -30,8 +30,8 @@ class ToastBasic extends StatelessWidget {
         vertical: 12,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
-        color: const Color.fromARGB(230, 90, 90, 130),
+        borderRadius: BorderRadius.circular(ConstantSizeUI.l3),
+        color: const Color.fromARGB(230, 76, 76, 130),
       ),
       child: BasicText(
         text: text,

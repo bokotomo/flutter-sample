@@ -76,7 +76,7 @@ Widget view(
             ),
             SpacerHeight.s,
             TextAnnotation(
-              size: "M",
+              size: "S",
               text: i18n.pageAddReflectionNameFormAnnotation,
             ),
             SpacerHeight.xm,
@@ -85,7 +85,7 @@ Widget view(
               text: textReflectionName,
               hintText: i18n.pageAddReflectionNameFormPlaceHolder,
               focusNode: textFieldFocusNode,
-              maxLength: 20,
+              maxLength: 28,
             ),
             SpacerHeight.xm,
             ButtonIcon(

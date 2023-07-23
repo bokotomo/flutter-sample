@@ -40,35 +40,43 @@ class ButtonDone extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.done,
+      backgroundColor: Colors.transparent,
       disabledBackgroundColor: ConstantColorButton.doneDisable,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
-      elevation: 2,
+      elevation: 0,
       shadowColor: isActiveMode()
           ? ConstantColorButton.doneBorder
           : ConstantColorButton.doneBorderDisable,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
+      ),
+    );
+
+    return Container(
+      padding: EdgeInsets.zero,
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: ConstantColorButton.done,
+        ),
         borderRadius: const BorderRadius.all(Radius.circular(100)),
-        side: BorderSide(
-          width: 2.0,
+        border: Border.all(
           color: isActiveMode()
               ? ConstantColorButton.doneBorder
               : ConstantColorButton.doneBorderDisable,
         ),
       ),
-    );
-
-    return ElevatedButton.icon(
-      onPressed: isActiveMode() ? onPressed : null,
-      style: style,
-      icon: const Icon(
-        Icons.check_circle,
-        color: ConstantColor.icon,
-      ),
-      label: BasicText(
-        text: text,
-        size: "M",
-        isNoSelect: true,
+      child: ElevatedButton.icon(
+        onPressed: isActiveMode() ? onPressed : null,
+        style: style,
+        icon: const Icon(
+          Icons.check_circle,
+          color: ConstantColor.icon,
+        ),
+        label: BasicText(
+          text: text,
+          size: "M",
+          isNoSelect: true,
+        ),
       ),
     );
   }

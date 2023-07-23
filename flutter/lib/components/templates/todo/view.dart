@@ -22,52 +22,55 @@ import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 Widget view(
   AppLocalizations i18n,
   BuildContext context,
-  List<DomainTodo> todos,
+  List<DomainTodo>? todos,
   List<DomainReflectionGroup> reflectionGroups,
   void Function(String?) onChangeReflectionGroup,
   void Function(int) onClickRemove,
   void Function(BuildContext, int) pushSolutionDetail,
 ) {
   ListView cloumn = ListView(
-    children: [
-      SpacerHeight.m,
+    children: todos == null
+        ? []
+        : [
+            SpacerHeight.m,
 
-      /// 振り返りグループ選択ボタン
-      SelectReflectionGroup(
-        reflectionGroups: reflectionGroups,
-        onChanged: onChangeReflectionGroup,
-      ),
+            /// 振り返りグループ選択ボタン
+            SelectReflectionGroup(
+              reflectionGroups: reflectionGroups,
+              onChanged: onChangeReflectionGroup,
+            ),
 
-      SpacerHeight.m,
+            SpacerHeight.m,
 
-      /// ない場合
-      if (todos.isEmpty) TodoNoDataAnnotation(i18n: i18n),
+            /// ない場合
+            if (todos.isEmpty) TodoNoDataAnnotation(i18n: i18n),
 
-      /// やること一覧
-      for (int i = 0; i < todos.length; i++) ...{
-        Card(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              BasicText(
-                text: todos[i].title,
-                size: "M",
-                isBold: true,
-                isNoSelect: true,
+            /// やること一覧
+            for (int i = 0; i < todos.length; i++) ...{
+              Card(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    BasicText(
+                      text: todos[i].title,
+                      size: "M",
+                      isBold: true,
+                      isNoSelect: true,
+                    ),
+                    SpacerHeight.s,
+                    TextAnnotation(
+                      text: todos[i].subTitle,
+                      size: "XS",
+                    ),
+                  ],
+                ),
+                onPressed: () =>
+                    pushSolutionDetail(context, todos[i].reflectionId),
+                onPressedRemove: () => onClickRemove(todos[i].reflectionId),
               ),
-              SpacerHeight.s,
-              TextAnnotation(
-                text: todos[i].subTitle,
-                size: "XS",
-              ),
-            ],
-          ),
-          onPressed: () => pushSolutionDetail(context, todos[i].reflectionId),
-          onPressedRemove: () => onClickRemove(todos[i].reflectionId),
-        ),
-        SpacerHeight.m,
-      }
-    ],
+              SpacerHeight.m,
+            }
+          ],
   );
 
   return BaseLayoutPadding(

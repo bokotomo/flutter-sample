@@ -22,28 +22,35 @@ class ButtonDoneMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.done,
+      backgroundColor: Colors.transparent,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l4),
       padding: EdgeInsets.zero,
-      elevation: 2,
+      elevation: 0,
       fixedSize: const Size.fromHeight(ConstantSizeUI.l4),
       shadowColor: ConstantColorButton.doneBorder,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
-        side: BorderSide(
-          width: 2.0,
-          color: ConstantColorButton.doneBorder,
-        ),
       ),
     );
 
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: style,
-      child: BasicText(
-        text: text,
-        size: "M",
-        isNoSelect: true,
+    return Container(
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          colors: ConstantColorButton.done,
+        ),
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
+        border: Border.all(
+          color: ConstantColorButton.doneBorder,
+        ),
+      ),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: style,
+        child: BasicText(
+          text: text,
+          size: "M",
+          isNoSelect: true,
+        ),
       ),
     );
   }

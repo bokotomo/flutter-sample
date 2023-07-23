@@ -30,7 +30,7 @@ class ToastAlert extends StatelessWidget {
         vertical: 12,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(ConstantSizeUI.l3),
         color: const Color.fromARGB(230, 200, 80, 135),
       ),
       child: BasicText(

@@ -62,22 +62,26 @@ Widget view(
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
-      Box(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BasicText(
-              text: i18n.accountPageCurrentReflectionName,
-              size: "M",
-            ),
-            SpacerHeight.m,
-            SelectReflectionGroup(
-              reflectionGroups: reflectionGroups,
-              onChanged: onChangeReflectionGroup,
-            ),
-          ],
-        ),
+      SelectReflectionGroup(
+        reflectionGroups: reflectionGroups,
+        onChanged: onChangeReflectionGroup,
       ),
+      // Box(
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       BasicText(
+      //         text: i18n.accountPageCurrentReflectionName,
+      //         size: "M",
+      //       ),
+      //       SpacerHeight.m,
+      //       SelectReflectionGroup(
+      //         reflectionGroups: reflectionGroups,
+      //         onChanged: onChangeReflectionGroup,
+      //       ),
+      //     ],
+      //   ),
+      // ),
       SpacerHeight.m,
       EditReflectionName(
         i18n: i18n,
@@ -125,6 +129,11 @@ Widget view(
       SpacerHeight.m,
       ButtonLinks(
         params: [
+          if (i18n.localeName == 'ja')
+            ButtonLinksParam(
+              text: i18n.accountPageQuestionnaire,
+              link: 'https://flutter.dev',
+            ),
           ButtonLinksParam(
             text: i18n.accountPageTermsOfService,
             link: 'https://flutter.dev',

@@ -70,7 +70,7 @@ Widget view(
                 text: textReflection,
                 hintText: i18n.reflectionAddPageBottomHint,
                 focusNode: textFieldFocusNode,
-                maxLength: 35,
+                maxLength: 74,
                 onChanged: onChangeTextReflection,
                 onPressedRemove: onPressedRemoveText,
               ),

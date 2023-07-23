@@ -1,11 +1,11 @@
 /// 期間
 enum Period {
   /// 全期間
-  all,
+  leftButton,
 
   /// 3ヶ月
-  threeMonth,
+  centerButton,
 
-  /// 1ヶ月
-  oneMonth,
+  /// 右のボタン
+  rightButton,
 }

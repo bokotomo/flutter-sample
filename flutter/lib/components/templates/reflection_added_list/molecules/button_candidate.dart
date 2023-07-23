@@ -13,6 +13,7 @@ import 'package:flutter/material.dart'
         EdgeInsets,
         Row,
         Container;
+import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -66,7 +67,9 @@ class ButtonCandidate extends StatelessWidget {
         color: isThin
             ? ConstantColorButton.taskListThin
             : ConstantColorButton.taskList,
-        border: Border.all(color: ConstantColor.boxBorder),
+        border: const Border.symmetric(
+          vertical: BorderSide(color: ConstantColor.boxBorder),
+        ),
       ),
       padding: const EdgeInsets.symmetric(
         vertical: ConstantSizeUI.l2,

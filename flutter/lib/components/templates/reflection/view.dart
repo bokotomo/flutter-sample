@@ -11,6 +11,8 @@ import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
+import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
+    show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
 import 'package:gamer_reflection/components/common/molecules/select_reflection_group/widget.dart'
     show SelectReflectionGroup;
@@ -111,6 +113,11 @@ Widget view(
             BasicText(
               text: i18n.pageReflectionHowToDetail,
               size: "M",
+            ),
+            SpacerHeight.s,
+            TextAnnotation(
+              text: i18n.pageReflectionHowToDetailSub,
+              size: "XS",
             ),
           ],
         ),

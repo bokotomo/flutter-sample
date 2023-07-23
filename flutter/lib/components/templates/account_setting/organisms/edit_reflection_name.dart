@@ -48,7 +48,7 @@ Widget view(
             text: textReflectionName,
             hintText: i18n.accountPageChangeReflectionNamePlaceHolder,
             focusNode: textReflectionNameFocusNode,
-            maxLength: 20,
+            maxLength: 28,
           ),
           SpacerHeight.m,
           ButtonIcon(
@@ -82,7 +82,7 @@ class EditReflectionName extends StatelessWidget {
   ///
   final TextEditingController textReflectionName;
 
-  ///
+  /// 編集を押した
   final Function() onPressedEdit;
 
   ///

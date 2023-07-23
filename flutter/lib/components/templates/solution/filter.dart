@@ -6,7 +6,8 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
     show Period;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
-import 'package:gamer_reflection/modules/date/date.dart' show getMonthAgo;
+import 'package:gamer_reflection/modules/date/date.dart'
+    show getMonthAgo, getDayAgo;
 
 /// 優先度からTagの色を返す
 TagTextColor getTagColor(int priority) {
@@ -44,6 +45,17 @@ List<DomainSolutionReflection> filteredMonth(
   return rs.where((e) => e.updatedAt.isAfter(monthAgo)).toList();
 }
 
+/// 期間でフィルターする
+/// day: day以内でフィルターする
+List<DomainSolutionReflection> filteredDay(
+  int day,
+  List<DomainSolutionReflection> rs,
+) {
+  /// 現在からmonth前の日付を返す
+  final DateTime dayAgo = getDayAgo(DateTime.now(), day);
+  return rs.where((e) => e.updatedAt.isAfter(dayAgo)).toList();
+}
+
 /// 3位まで優先度を返す
 int getPriority(List<int> counts, int count) {
   final int length = counts.length;
@@ -58,12 +70,12 @@ List<DomainSolutionReflection> getFilteredPeriod(
   List<DomainSolutionReflection> domains,
 ) {
   switch (p) {
-    case Period.all:
+    case Period.leftButton:
       return domains;
-    case Period.threeMonth:
+    case Period.centerButton:
       return filteredMonth(3, domains);
-    case Period.oneMonth:
-      return filteredMonth(1, domains);
+    case Period.rightButton:
+      return filteredDay(7, domains);
     default:
       return [];
   }

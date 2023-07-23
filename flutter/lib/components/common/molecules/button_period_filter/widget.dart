@@ -13,9 +13,9 @@ class ButtonPeriodFilter extends StatelessWidget {
     super.key,
     required this.i18n,
     required this.period,
-    required this.onPressedAll,
-    required this.onPressedThreeMonth,
-    required this.onPressedMonth,
+    required this.onPressedLeft,
+    required this.onPressedCenter,
+    required this.onPressedRight,
   });
 
   /// 言語
@@ -24,23 +24,23 @@ class ButtonPeriodFilter extends StatelessWidget {
   /// 選択しているボタン
   final Period period;
 
-  /// 全期間をクリックした
-  final void Function() onPressedAll;
+  /// 左をクリックした
+  final void Function() onPressedLeft;
 
-  /// 3ヶ月をクリックした
-  final void Function() onPressedThreeMonth;
+  /// 真ん中をクリックした
+  final void Function() onPressedCenter;
 
-  /// 1ヶ月をクリックした
-  final void Function() onPressedMonth;
+  /// 右をクリックした
+  final void Function() onPressedRight;
 
   @override
   Widget build(BuildContext context) {
     return view(
       i18n,
       period,
-      onPressedAll,
-      onPressedThreeMonth,
-      onPressedMonth,
+      onPressedLeft,
+      onPressedCenter,
+      onPressedRight,
     );
   }
 }

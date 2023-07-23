@@ -88,7 +88,7 @@ class SolutionDetailTopEdit extends HookWidget {
       text: titleController,
       hintText: i18n.solutionDetailPageTopEditTitleHint,
       focusNode: titleFocusNode,
-      maxLength: 35,
+      maxLength: 74,
     );
     final InputTextForm detailForm = InputTextForm(
       text: detailController,

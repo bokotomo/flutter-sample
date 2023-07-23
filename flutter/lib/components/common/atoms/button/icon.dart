@@ -34,7 +34,7 @@ class ButtonIcon extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColorButton.basic,
+      backgroundColor: Colors.transparent,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
       shadowColor: ConstantColorButton.basicBorder,
@@ -47,17 +47,26 @@ class ButtonIcon extends StatelessWidget {
       ),
     );
 
-    return ElevatedButton.icon(
-      onPressed: onPressed,
-      style: style,
-      icon: Icon(
-        icon,
-        color: ConstantColor.icon,
+    return Container(
+      padding: EdgeInsets.zero,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: ConstantColorButton.basic,
+        ),
+        borderRadius: BorderRadius.all(Radius.circular(100)),
       ),
-      label: BasicText(
-        text: text,
-        size: "M",
-        isNoSelect: true,
+      child: ElevatedButton.icon(
+        onPressed: onPressed,
+        style: style,
+        icon: Icon(
+          icon,
+          color: ConstantColor.icon,
+        ),
+        label: BasicText(
+          text: text,
+          size: "M",
+          isNoSelect: true,
+        ),
       ),
     );
   }

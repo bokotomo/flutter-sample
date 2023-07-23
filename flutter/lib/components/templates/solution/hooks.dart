@@ -26,9 +26,9 @@ class UseReturn {
     required this.period,
     required this.filteredReflections,
     required this.isSelectedGood,
-    required this.onPressedAll,
-    required this.onPressedThreeMonth,
-    required this.onPressedMonth,
+    required this.onPressedLeft,
+    required this.onPressedCenter,
+    required this.onPressedRight,
     required this.onPressedBad,
     required this.onPressedGood,
     required this.onChangeReflectionGroup,
@@ -37,9 +37,9 @@ class UseReturn {
   final Period period;
   final List<DomainSolutionReflection> filteredReflections;
   final bool isSelectedGood;
-  final Future<void> Function() onPressedAll;
-  final Future<void> Function() onPressedThreeMonth;
-  final Future<void> Function() onPressedMonth;
+  final Future<void> Function() onPressedLeft;
+  final Future<void> Function() onPressedCenter;
+  final Future<void> Function() onPressedRight;
   final Future<void> Function() onPressedBad;
   final Future<void> Function() onPressedGood;
   final void Function(String?) onChangeReflectionGroup;
@@ -52,7 +52,7 @@ UseReturn useHooks(
   Future<void> Function() fetchReflections,
 ) {
   /// 期間: 初期値は3ヶ月
-  final ValueNotifier<Period> period = useState<Period>(Period.threeMonth);
+  final ValueNotifier<Period> period = useState<Period>(Period.centerButton);
 
   /// 改善すること伸ばすことを選択
   final ValueNotifier<bool> isSelectedGood = useState<bool>(false);
@@ -114,31 +114,34 @@ UseReturn useHooks(
     filteredReflections.value = adapterReflections(filteredPeriodReflections);
   }
 
-  /// 期間変更をクリック：全期間
-  Future<void> onPressedAll() async {
-    period.value = Period.all;
-    updateFilteredReflections(Period.all, isSelectedGood.value);
+  /// 期間選択: 左をクリック
+  /// 全期間
+  Future<void> onPressedLeft() async {
+    period.value = Period.leftButton;
+    updateFilteredReflections(Period.leftButton, isSelectedGood.value);
 
     /// 端末に保存
-    await selectedTaskPagePeriod.save("period-all");
+    await selectedTaskPagePeriod.save("period-button-left");
   }
 
-  /// 期間変更をクリック：3ヶ月
-  Future<void> onPressedThreeMonth() async {
-    period.value = Period.threeMonth;
-    updateFilteredReflections(Period.threeMonth, isSelectedGood.value);
+  /// 期間選択: 真ん中をクリック
+  /// 3ヶ月
+  Future<void> onPressedCenter() async {
+    period.value = Period.centerButton;
+    updateFilteredReflections(Period.centerButton, isSelectedGood.value);
 
     /// 端末に保存
-    await selectedTaskPagePeriod.save("period-three-month");
+    await selectedTaskPagePeriod.save("period-button-center");
   }
 
-  /// 期間変更をクリック：1ヶ月
-  Future<void> onPressedMonth() async {
-    period.value = Period.oneMonth;
-    updateFilteredReflections(Period.oneMonth, isSelectedGood.value);
+  /// 期間選択: 右をクリック
+  /// 1週間
+  Future<void> onPressedRight() async {
+    period.value = Period.rightButton;
+    updateFilteredReflections(Period.rightButton, isSelectedGood.value);
 
     /// 端末に保存
-    await selectedTaskPagePeriod.save("period-one-month");
+    await selectedTaskPagePeriod.save("period-button-right");
   }
 
   /// 改善することボタンを押した
@@ -167,20 +170,20 @@ UseReturn useHooks(
   /// 端末に保存されてる選択している期間を取得
   Period getPeriodByKVS(String kvsString) {
     switch (kvsString) {
-      case "period-all":
-        return Period.all;
-      case "period-three-month":
-        return Period.threeMonth;
-      case "period-one-month":
-        return Period.oneMonth;
+      case "period-button-left":
+        return Period.leftButton;
+      case "period-button-center":
+        return Period.centerButton;
+      case "period-button-right":
+        return Period.rightButton;
       default:
-        return Period.all;
+        return Period.leftButton;
     }
   }
 
   useEffect(() {
     /// ローカルデータ: 選択期間
-    final String p = futuredPeriod.data ?? 'period-three-month';
+    final String p = futuredPeriod.data ?? 'period-button-center';
     final Period kvsPeriod = getPeriodByKVS(p);
     period.value = kvsPeriod;
 
@@ -199,9 +202,9 @@ UseReturn useHooks(
     period: period.value,
     filteredReflections: filteredReflections.value,
     isSelectedGood: isSelectedGood.value,
-    onPressedAll: onPressedAll,
-    onPressedThreeMonth: onPressedThreeMonth,
-    onPressedMonth: onPressedMonth,
+    onPressedLeft: onPressedLeft,
+    onPressedCenter: onPressedCenter,
+    onPressedRight: onPressedRight,
     onPressedBad: onPressedBad,
     onPressedGood: onPressedGood,
     onChangeReflectionGroup: onChangeReflectionGroup,

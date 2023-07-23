@@ -7,10 +7,16 @@ class ConstantColorButton {
   ConstantColorButton._();
 
   /// ボタン: 背景色
-  static const Color basic = Color.fromARGB(255, 37, 39, 93);
+  static const List<Color> basic = [
+    Color.fromARGB(255, 44, 46, 117),
+    Color.fromARGB(255, 43, 29, 104),
+  ];
 
   /// ボタン: 背景色 薄い
-  static const Color basicThin = Color.fromARGB(150, 37, 39, 93);
+  static const List<Color> basicThin = [
+    Color.fromARGB(150, 37, 39, 93),
+    Color.fromARGB(148, 44, 37, 93),
+  ];
 
   /// ボタン: 枠線色
   static const Color basicBorder = blue;
@@ -31,7 +37,10 @@ class ConstantColorButton {
   static const Color thinActiveBorder = Color.fromARGB(255, 68, 79, 118);
 
   /// 完了ボタン: 背景色
-  static const Color done = Color.fromARGB(255, 79, 125, 85);
+  static const List<Color> done = [
+    Color.fromARGB(255, 79, 125, 85),
+    Color.fromARGB(255, 44, 98, 51),
+  ];
 
   /// 完了ボタン: 背景色 非選択状態
   static const Color doneDisable = Color.fromARGB(255, 98, 123, 100);

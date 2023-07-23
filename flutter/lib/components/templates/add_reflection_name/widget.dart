@@ -23,6 +23,7 @@ class TemplateAddReflectionName extends HookWidget {
   /// 言語を変更する
   final void Function(LocaleCode) changeLocale;
 
+  /// タブを押した
   final void Function() changeTabPage;
 
   @override

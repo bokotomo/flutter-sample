@@ -27,7 +27,7 @@ class TemplateTodo extends HookWidget {
   final List<DomainReflectionGroup> reflectionGroups;
 
   /// やること一覧
-  final List<DomainTodo> todos;
+  final List<DomainTodo>? todos;
 
   /// やることを取得
   final Future<void> Function() fetchTodos;

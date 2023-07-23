@@ -24,7 +24,7 @@ class UseReturn {
   final List<DomainReflectionGroup> reflectionGroups;
 
   /// やること一覧
-  final List<DomainTodo> todos;
+  final List<DomainTodo>? todos;
 
   /// 取得
   final Future<void> Function() fetchTodos;
@@ -37,7 +37,8 @@ class UseReturn {
 UseReturn useFetch(AppLocalizations i18n) {
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
-  final ValueNotifier<List<DomainTodo>> todos = useState<List<DomainTodo>>([]);
+  final ValueNotifier<List<DomainTodo>?> todos =
+      useState<List<DomainTodo>?>(null);
 
   /// 振り返りグループIDの取得
   int getReflectionGroupId(String? id) {

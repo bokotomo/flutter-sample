@@ -12,9 +12,9 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
 Widget view(
   AppLocalizations i18n,
   Period period,
-  void Function() onPressedAll,
-  void Function() onPressedThreeMonth,
-  void Function() onPressedMonth,
+  void Function() onPressedLeft,
+  void Function() onPressedCenter,
+  void Function() onPressedRight,
 ) {
   return Row(
     children: [
@@ -22,24 +22,24 @@ Widget view(
       Expanded(
         child: ButtonPeriod(
           text: i18n.commonButtonPeriodFilterAll,
-          isActive: period == Period.all,
-          onPressed: onPressedAll,
+          isActive: period == Period.leftButton,
+          onPressed: onPressedLeft,
         ),
       ),
       SpacerWidth.s,
       Expanded(
         child: ButtonPeriod(
-          text: i18n.commonButtonPeriodFilterThreeMonth,
-          isActive: period == Period.threeMonth,
-          onPressed: onPressedThreeMonth,
+          text: i18n.commonButtonPeriodFilterCenter,
+          isActive: period == Period.centerButton,
+          onPressed: onPressedCenter,
         ),
       ),
       SpacerWidth.s,
       Expanded(
         child: ButtonPeriod(
-          text: i18n.commonButtonPeriodFilteroOneMonth,
-          isActive: period == Period.oneMonth,
-          onPressed: onPressedMonth,
+          text: i18n.commonButtonPeriodFilterRight,
+          isActive: period == Period.rightButton,
+          onPressed: onPressedRight,
         ),
       ),
       SpacerWidth.m,

@@ -34,10 +34,10 @@ UseReturn useHooks(void Function() changeTabPage) {
     final String name = textReflectionName.value.text;
     if (name.isEmpty) return;
 
-    /// DBに追加
+    // DBに追加
     final int id = await RequestReflectionGroup().addReflectionGroup(name);
 
-    /// 選択しているキャッシュに保存
+    // 選択しているキャッシュに保存
     selectReflectionGroupId.save(id.toString());
 
     // ページ変更
