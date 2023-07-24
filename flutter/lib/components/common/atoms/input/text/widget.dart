@@ -9,7 +9,7 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/input/text/validate.dart'
     show useValidate;
 
-/// input: text
+/// input: 文字入力欄
 class InputText extends StatelessWidget {
   const InputText({
     super.key,

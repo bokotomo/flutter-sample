@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart'
     show
         StatelessWidget,
-        Color,
         Widget,
         BuildContext,
         Container,

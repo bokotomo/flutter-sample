@@ -52,7 +52,7 @@ class BaseLayoutPadding extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final u = useColorBase();
+    final color = useColorBase();
 
     final padding = Padding(
       padding: const EdgeInsets.only(
@@ -72,7 +72,7 @@ class BaseLayoutPadding extends HookWidget {
     );
 
     return Scaffold(
-      backgroundColor: u.content,
+      backgroundColor: color.content,
       appBar: Header(
         i18n: i18n,
         title: title,

@@ -49,6 +49,8 @@ class BasicText extends StatelessWidget {
         return ConstantSizeFont.xm;
       case "S":
         return ConstantSizeFont.s;
+      case "XS":
+        return ConstantSizeFont.xs;
       default:
         return ConstantSizeFont.s;
     }

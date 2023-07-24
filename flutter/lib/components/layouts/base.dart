@@ -51,7 +51,7 @@ class BaseLayout extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final u = useColorBase();
+    final color = useColorBase();
 
     final backGroundBody = Container(
       decoration: const BoxDecoration(
@@ -66,7 +66,7 @@ class BaseLayout extends HookWidget {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
-        backgroundColor: u.content,
+        backgroundColor: color.content,
         appBar: Header(
           i18n: i18n,
           title: title,

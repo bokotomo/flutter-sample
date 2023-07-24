@@ -19,7 +19,7 @@ Widget view(
   int currentIndex,
   void Function(int) onClickTab,
 ) {
-  final u = useColorBase();
+  final color = useColorBase();
 
   /// タブの一覧
   final items = <BottomNavigationBarItem>[
@@ -43,7 +43,7 @@ Widget view(
 
   return BottomNavigationBar(
     currentIndex: currentIndex,
-    backgroundColor: u.footer,
+    backgroundColor: color.footer,
     onTap: onClickTab,
     items: items,
     selectedItemColor: ConstantColor.text,

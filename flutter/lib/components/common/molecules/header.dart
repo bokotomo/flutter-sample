@@ -66,7 +66,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
   @override
   AppBar build(BuildContext context) {
-    final u = useColorBase();
+    final color = useColorBase();
     final ValueNotifier<int> badgeNum = useState<int>(0);
 
     /// 外部で候補一覧が更新されたら実行
@@ -153,7 +153,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
         text: title,
         size: "M",
       ),
-      backgroundColor: u.header,
+      backgroundColor: color.header,
       actions: getActions(),
     );
   }

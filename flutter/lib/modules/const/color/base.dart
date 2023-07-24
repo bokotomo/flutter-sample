@@ -33,6 +33,7 @@ UseReturn useColorBase() {
     return;
   }, [futuredColorMode.data]);
 
+  /// ヘッダーの背景色
   final header =
       isDark.value ? darkBlueLittle : const Color.fromARGB(120, 255, 104, 104);
   final footer =
@@ -50,9 +51,6 @@ UseReturn useColorBase() {
 /// 用途ごとに色を定義する
 class ConstantColor {
   ConstantColor._();
-
-  /// ヘッダーの背景色
-  static const Color header = darkBlueLittle;
 
   /// フッターの背景色
   static const Color footer = darkBlueLittle;
