@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart'
     show
         StatelessWidget,
-        Color,
         Widget,
         BuildContext,
         Container,
@@ -11,6 +10,8 @@ import 'package:flutter/material.dart'
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 
 /// トースト: 注意
 class ToastAlert extends StatelessWidget {
@@ -31,7 +32,7 @@ class ToastAlert extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(ConstantSizeUI.l3),
-        color: const Color.fromARGB(230, 200, 80, 135),
+        color: ConstantColor.alert,
       ),
       child: BasicText(
         text: text,

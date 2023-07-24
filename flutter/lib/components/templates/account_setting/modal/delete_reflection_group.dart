@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart'
-    show BuildContext, Color, showDialog, Navigator;
+import 'package:flutter/material.dart' show BuildContext, showDialog, Navigator;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -14,6 +13,8 @@ import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 
 ///
 void showDeleteModal(
@@ -23,7 +24,7 @@ void showDeleteModal(
   void Function(BuildContext) onPressed,
 ) {
   showDialog(
-    barrierColor: const Color.fromARGB(170, 0, 0, 0),
+    barrierColor: ConstantColor.modalBackground,
     context: context,
     builder: (contextDialog) {
       return ModalBase(

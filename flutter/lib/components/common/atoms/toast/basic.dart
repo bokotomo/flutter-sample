@@ -11,6 +11,8 @@ import 'package:flutter/material.dart'
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
+import 'package:gamer_reflection/modules/const/color/base.dart'
+    show ConstantColor;
 
 /// トースト
 class ToastBasic extends StatelessWidget {
@@ -31,7 +33,7 @@ class ToastBasic extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(ConstantSizeUI.l3),
-        color: const Color.fromARGB(230, 76, 76, 130),
+        color: ConstantColor.toast,
       ),
       child: BasicText(
         text: text,

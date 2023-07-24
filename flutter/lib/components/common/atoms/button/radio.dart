@@ -42,8 +42,8 @@ class ButtonRadio extends StatelessWidget {
 
     final bool isActive = value == groupValue;
     final Color color = isActive
-        ? const Color.fromARGB(255, 93, 168, 103)
-        : const Color.fromARGB(255, 40, 40, 40);
+        ? ConstantColorButton.radioCircleActive
+        : ConstantColorButton.radioCircleDisable;
 
     final style = ElevatedButton.styleFrom(
       backgroundColor: ConstantColorButton.radio,

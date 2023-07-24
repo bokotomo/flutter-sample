@@ -89,4 +89,10 @@ class ConstantColorButton {
 
   /// タスク一覧ボタン: 枠線色
   static const Color taskListBorder = Color.fromARGB(255, 67, 69, 82);
+
+  /// ラジオボタン: アクティブ
+  static const Color radioCircleActive = Color.fromARGB(255, 93, 168, 103);
+
+  /// ラジオボタン: 非アクティブ
+  static const Color radioCircleDisable = Color.fromARGB(255, 40, 40, 40);
 }

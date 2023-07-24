@@ -95,4 +95,10 @@ class ConstantColor {
 
   /// モーダルのコンテンツ後ろの背景
   static const Color modalBackground = Color.fromARGB(180, 0, 0, 0);
+
+  /// アラートの背景色
+  static const Color alert = Color.fromARGB(230, 200, 80, 135);
+
+  /// トースト（ポップアップ）の背景色
+  static const Color toast = Color.fromARGB(230, 76, 76, 130);
 }
