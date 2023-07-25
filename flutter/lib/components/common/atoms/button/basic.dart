@@ -38,6 +38,7 @@ class ButtonBasic extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
       backgroundColor: Colors.transparent,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       shadowColor: isThinColor

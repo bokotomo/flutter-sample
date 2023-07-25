@@ -10,8 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/modules/const/color/base.dart'
     show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show useColorBase;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 
 ///
 Widget view(
@@ -19,7 +18,7 @@ Widget view(
   int currentIndex,
   void Function(int) onClickTab,
 ) {
-  final color = useColorBase();
+  final color = useColor();
 
   /// タブの一覧
   final items = <BottomNavigationBarItem>[
@@ -43,7 +42,7 @@ Widget view(
 
   return BottomNavigationBar(
     currentIndex: currentIndex,
-    backgroundColor: color.footer,
+    backgroundColor: color.base.footer,
     onTap: onClickTab,
     items: items,
     selectedItemColor: ConstantColor.text,

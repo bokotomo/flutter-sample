@@ -26,8 +26,7 @@ import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show useColorBase;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ヘッダー
@@ -66,7 +65,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
   @override
   AppBar build(BuildContext context) {
-    final color = useColorBase();
+    final color = useColor();
     final ValueNotifier<int> badgeNum = useState<int>(0);
 
     /// 外部で候補一覧が更新されたら実行
@@ -153,7 +152,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
         text: title,
         size: "M",
       ),
-      backgroundColor: color.header,
+      backgroundColor: color.base.header,
       actions: getActions(),
     );
   }

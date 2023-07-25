@@ -22,9 +22,9 @@ class ButtonDoneMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
       backgroundColor: Colors.transparent,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l4),
-      padding: EdgeInsets.zero,
       elevation: 0,
       fixedSize: const Size.fromHeight(ConstantSizeUI.l4),
       shadowColor: ConstantColorButton.doneBorder,

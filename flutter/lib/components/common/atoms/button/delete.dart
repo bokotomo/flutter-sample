@@ -7,6 +7,7 @@ import 'package:flutter/material.dart'
         BuildContext,
         ElevatedButton,
         Size,
+        EdgeInsets,
         RoundedRectangleBorder,
         BorderRadius,
         Radius,
@@ -41,6 +42,7 @@ class ButtonDelete extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
       backgroundColor: ConstantColorButton.delete,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,

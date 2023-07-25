@@ -40,6 +40,7 @@ class ButtonDone extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
       backgroundColor: Colors.transparent,
       disabledBackgroundColor: ConstantColorButton.doneDisable,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),

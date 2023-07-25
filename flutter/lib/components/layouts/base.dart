@@ -4,8 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show useColorBase;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 
 /// レイアウト: 基本
 class BaseLayout extends HookWidget {
@@ -51,7 +50,7 @@ class BaseLayout extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = useColorBase();
+    final color = useColor();
 
     final backGroundBody = Container(
       decoration: const BoxDecoration(
@@ -66,7 +65,7 @@ class BaseLayout extends HookWidget {
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
-        backgroundColor: color.content,
+        backgroundColor: color.base.content,
         appBar: Header(
           i18n: i18n,
           title: title,

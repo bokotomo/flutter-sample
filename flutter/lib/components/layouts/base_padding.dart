@@ -17,8 +17,7 @@ import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show useColorBase;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 
 /// レイアウト: 基本パディング
 class BaseLayoutPadding extends HookWidget {
@@ -52,7 +51,7 @@ class BaseLayoutPadding extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = useColorBase();
+    final color = useColor();
 
     final padding = Padding(
       padding: const EdgeInsets.only(
@@ -72,7 +71,7 @@ class BaseLayoutPadding extends HookWidget {
     );
 
     return Scaffold(
-      backgroundColor: color.content,
+      backgroundColor: color.base.content,
       appBar: Header(
         i18n: i18n,
         title: title,

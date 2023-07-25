@@ -7,6 +7,7 @@ import 'package:flutter/material.dart'
         Size,
         RoundedRectangleBorder,
         BorderRadius,
+        EdgeInsets,
         Radius,
         BorderSide;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -38,6 +39,7 @@ class ButtonCancel extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
       backgroundColor: ConstantColorButton.cancel,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 4,
