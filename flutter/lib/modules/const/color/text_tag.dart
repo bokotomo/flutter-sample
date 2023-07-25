@@ -2,7 +2,15 @@ import 'package:flutter/material.dart' show Color;
 import 'package:gamer_reflection/modules/const/color/colors.dart'
     show darkBlue, white;
 
-/// 用途ごとに色を定義する: タグの色
+class ColorTextTag {
+  const ColorTextTag({
+    required this.background,
+  });
+
+  final Color background;
+}
+
+/// 用途ごとに色を定義する: タグの色: ダークモード
 class ConstantColorTextTag {
   ConstantColorTextTag._();
 

@@ -2,7 +2,15 @@ import 'package:flutter/material.dart' show Color;
 import 'package:gamer_reflection/modules/const/color/colors.dart'
     show darkBlue, blue;
 
-/// 用途ごとに色を定義する: ボタンの色
+class ColorButton {
+  const ColorButton({
+    required this.basic,
+  });
+
+  final List<Color> basic;
+}
+
+/// 用途ごとに色を定義する: ボタンの色: ダークモード
 class ConstantColorButton {
   ConstantColorButton._();
 

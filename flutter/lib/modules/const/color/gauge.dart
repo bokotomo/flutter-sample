@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart' show Color;
 
-/// 用途ごとに色を定義する: ゲージ
+class ColorGauge {
+  const ColorGauge({
+    required this.gauge,
+  });
+
+  final Color gauge;
+}
+
+/// 用途ごとに色を定義する: ゲージ: ダークモード
 class ConstantColorGauge {
   ConstantColorGauge._();
 

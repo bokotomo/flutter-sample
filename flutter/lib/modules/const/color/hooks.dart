@@ -1,31 +1,35 @@
-import 'package:flutter/material.dart' show Color, AsyncSnapshot, ValueNotifier;
+import 'package:flutter/material.dart' show AsyncSnapshot, ValueNotifier;
 import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor, ConstantColorLight;
+    show ColorBase, ConstantColor, ConstantColorLight;
+import 'package:gamer_reflection/modules/const/color/button.dart'
+    show ColorButton, ConstantColorButton;
+import 'package:gamer_reflection/modules/const/color/gauge.dart'
+    show ColorGauge, ConstantColorGauge;
+import 'package:gamer_reflection/modules/const/color/input.dart'
+    show ColorInput, ConstantColorInput;
+import 'package:gamer_reflection/modules/const/color/text_tag.dart'
+    show ColorTextTag, ConstantColorTextTag;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useMemoized, useFuture, useEffect, useState;
 import 'package:gamer_reflection/storage/kvs/selected_color_mode.dart'
     show selectColorMode;
 
-class ColorBase {
-  const ColorBase({
-    required this.header,
-    required this.footer,
-    required this.content,
-  });
-
-  final Color header;
-  final Color footer;
-  final Color content;
-}
-
 class UseReturn {
   const UseReturn({
     required this.changeColor,
     required this.base,
+    required this.button,
+    required this.gauge,
+    required this.input,
+    required this.textTag,
   });
 
   final Function changeColor;
   final ColorBase base;
+  final ColorButton button;
+  final ColorGauge gauge;
+  final ColorInput input;
+  final ColorTextTag textTag;
 }
 
 UseReturn useColor() {
@@ -74,5 +78,9 @@ UseReturn useColor() {
       footer: footer(),
       content: content(),
     ),
+    button: const ColorButton(basic: ConstantColorButton.basic),
+    gauge: const ColorGauge(gauge: ConstantColorGauge.gauge),
+    input: const ColorInput(input: ConstantColorInput.input),
+    textTag: const ColorTextTag(background: ConstantColorTextTag.background),
   );
 }

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart' show Color;
 import 'package:gamer_reflection/modules/const/color/colors.dart' show blue;
 
-/// 用途ごとに色を定義する: input
+class ColorInput {
+  const ColorInput({
+    required this.input,
+  });
+
+  final Color input;
+}
+
+/// 用途ごとに色を定義する: input: ダークモード
 class ConstantColorInput {
   ConstantColorInput._();
 

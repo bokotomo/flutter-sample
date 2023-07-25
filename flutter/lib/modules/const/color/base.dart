@@ -2,6 +2,18 @@ import 'package:flutter/material.dart' show Color;
 import 'package:gamer_reflection/modules/const/color/colors.dart'
     show darkBlue, darkBlueLittle, white, grayDark, grayLight;
 
+class ColorBase {
+  const ColorBase({
+    required this.header,
+    required this.footer,
+    required this.content,
+  });
+
+  final Color header;
+  final Color footer;
+  final Color content;
+}
+
 /// 基本的な色: ダークモード
 class ConstantColor {
   ConstantColor._();
