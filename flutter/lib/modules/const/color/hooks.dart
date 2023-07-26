@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart' show AsyncSnapshot, ValueNotifier;
 import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ColorBase, ConstantColor, ConstantColorLight;
+    show ColorBase, colorBase;
 import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ColorButton, ConstantColorButton;
+    show ColorButton, colorButton;
 import 'package:gamer_reflection/modules/const/color/gauge.dart'
-    show ColorGauge, ConstantColorGauge;
+    show ColorGauge, colorGauge;
 import 'package:gamer_reflection/modules/const/color/input.dart'
-    show ColorInput, ConstantColorInput;
+    show ColorInput, colorInput;
 import 'package:gamer_reflection/modules/const/color/text_tag.dart'
-    show ColorTextTag, ConstantColorTextTag;
+    show ColorTextTag, colorTextTag;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useMemoized, useFuture, useEffect, useState;
 import 'package:gamer_reflection/storage/kvs/selected_color_mode.dart'
     show selectColorMode;
 
-class UseReturn {
-  const UseReturn({
+class UseColor {
+  const UseColor({
     required this.changeColor,
+    required this.isDark,
+    required this.isLight,
     required this.base,
     required this.button,
     required this.gauge,
@@ -25,6 +27,8 @@ class UseReturn {
   });
 
   final Function changeColor;
+  final bool isDark;
+  final bool isLight;
   final ColorBase base;
   final ColorButton button;
   final ColorGauge gauge;
@@ -32,7 +36,7 @@ class UseReturn {
   final ColorTextTag textTag;
 }
 
-UseReturn useColor() {
+UseColor useColor() {
   /// 選択している期間
   final Future<String?> memoedColorMode =
       useMemoized(() => selectColorMode.get());
@@ -50,37 +54,20 @@ UseReturn useColor() {
   /// 色モード変更
   changeColor(String mode) => colorMode.value = mode;
 
-  /// カラーモードはダークか
+  /// カラーモードはダーク
   isDark() => colorMode.value == 'dark';
 
-  /// ヘッダーの背景色
-  header() {
-    if (isDark()) return ConstantColor.header;
-    return ConstantColorLight.header;
-  }
+  /// カラーモードはライト
+  isLight() => colorMode.value == 'light';
 
-  /// フッターの背景色
-  footer() {
-    if (isDark()) return ConstantColor.footer;
-    return ConstantColorLight.footer;
-  }
-
-  /// コンテンツの背景色
-  content() {
-    if (isDark()) return ConstantColor.content;
-    return ConstantColorLight.content;
-  }
-
-  return UseReturn(
+  return UseColor(
     changeColor: changeColor,
-    base: ColorBase(
-      header: header(),
-      footer: footer(),
-      content: content(),
-    ),
-    button: const ColorButton(basic: ConstantColorButton.basic),
-    gauge: const ColorGauge(gauge: ConstantColorGauge.gauge),
-    input: const ColorInput(input: ConstantColorInput.input),
-    textTag: const ColorTextTag(background: ConstantColorTextTag.background),
+    isDark: isDark(),
+    isLight: isLight(),
+    base: colorBase(isDark()),
+    button: colorButton(isDark()),
+    gauge: colorGauge(isDark()),
+    input: colorInput(isDark()),
+    textTag: colorTextTag(isDark()),
   );
 }
