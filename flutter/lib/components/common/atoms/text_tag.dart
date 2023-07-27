@@ -15,9 +15,8 @@ import 'package:flutter/material.dart'
         Text,
         TextAlign,
         TextStyle;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
-import 'package:gamer_reflection/modules/const/color/text_tag.dart'
-    show ConstantColorTextTag;
 import 'package:gamer_reflection/modules/type/tag_text_color.dart'
     show TagTextColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -26,9 +25,13 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class TextTag extends StatelessWidget {
   const TextTag({
     super.key,
+    required this.color,
     required this.text,
     required this.colorType,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -40,15 +43,15 @@ class TextTag extends StatelessWidget {
   Color getBorderColor() {
     switch (colorType) {
       case TagTextColor.red:
-        return ConstantColorTextTag.redBorder;
+        return color.textTag.redBorder;
       case TagTextColor.purple:
-        return ConstantColorTextTag.purpleBorder;
+        return color.textTag.purpleBorder;
       case TagTextColor.blue:
-        return ConstantColorTextTag.blueBorder;
+        return color.textTag.blueBorder;
       case TagTextColor.gray:
-        return ConstantColorTextTag.grayBorder;
+        return color.textTag.grayBorder;
       default:
-        return ConstantColorTextTag.blueBorder;
+        return color.textTag.blueBorder;
     }
   }
 
@@ -56,15 +59,15 @@ class TextTag extends StatelessWidget {
   Color getTextColor() {
     switch (colorType) {
       case TagTextColor.red:
-        return ConstantColorTextTag.redText;
+        return color.textTag.redText;
       case TagTextColor.purple:
-        return ConstantColorTextTag.purpleText;
+        return color.textTag.purpleText;
       case TagTextColor.blue:
-        return ConstantColorTextTag.blueText;
+        return color.textTag.blueText;
       case TagTextColor.gray:
-        return ConstantColorTextTag.grayText;
+        return color.textTag.grayText;
       default:
-        return ConstantColorTextTag.blueText;
+        return color.textTag.blueText;
     }
   }
 
@@ -72,9 +75,9 @@ class TextTag extends StatelessWidget {
   Color getBackGroundColor() {
     switch (colorType) {
       case TagTextColor.gray:
-        return ConstantColorTextTag.grayBackGround;
+        return color.textTag.grayBackGround;
       default:
-        return ConstantColorTextTag.background;
+        return color.textTag.background;
     }
   }
 

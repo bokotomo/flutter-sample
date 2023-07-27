@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ボタン: アイコン付き
 class ButtonIcon extends StatelessWidget {
   const ButtonIcon({
     super.key,
+    required this.color,
     required this.text,
     required this.icon,
     this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -37,32 +38,33 @@ class ButtonIcon extends StatelessWidget {
       backgroundColor: Colors.transparent,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.basicBorder,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(100)),
+      shadowColor: color.button.basicBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.basicBorder,
+          color: color.button.basicBorder,
         ),
       ),
     );
 
     return Container(
       padding: EdgeInsets.zero,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: ConstantColorButton.basic,
+          colors: color.button.basic,
         ),
-        borderRadius: BorderRadius.all(Radius.circular(100)),
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
       ),
       child: ElevatedButton.icon(
         onPressed: onPressed,
         style: style,
         icon: Icon(
           icon,
-          color: ConstantColor.icon,
+          color: color.base.icon,
         ),
         label: BasicText(
+          color: color,
           text: text,
           size: "M",
           isNoSelect: true,

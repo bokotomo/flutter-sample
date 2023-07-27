@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart'
     show StatelessWidget, TextAlign, Widget, BuildContext, Text, TextStyle;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 
 /// 注釈テキスト
 class TextAnnotation extends StatelessWidget {
   const TextAnnotation({
     super.key,
+    required this.color,
     required this.text,
     required this.size,
     this.textAlign,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -47,7 +50,7 @@ class TextAnnotation extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.left,
       style: TextStyle(
         fontSize: getFontSize(),
-        color: ConstantColor.textOpacity,
+        color: color.base.textOpacity,
       ),
     );
   }

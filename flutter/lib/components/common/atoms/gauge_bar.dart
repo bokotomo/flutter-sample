@@ -8,15 +8,18 @@ import 'package:flutter/material.dart'
         Radius,
         LinearProgressIndicator,
         AlwaysStoppedAnimation;
-import 'package:gamer_reflection/modules/const/color/gauge.dart'
-    show ConstantColorGauge;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 
 /// ゲージのバー
 class GaugeBar extends StatelessWidget {
   const GaugeBar({
     super.key,
+    required this.color,
     required this.percent,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   final double percent;
 
@@ -26,8 +29,8 @@ class GaugeBar extends StatelessWidget {
       borderRadius: const BorderRadius.all(Radius.circular(100)),
       child: LinearProgressIndicator(
         value: percent,
-        valueColor: const AlwaysStoppedAnimation(ConstantColorGauge.gauge),
-        backgroundColor: ConstantColorGauge.background,
+        valueColor: AlwaysStoppedAnimation(color.gauge.gauge),
+        backgroundColor: color.gauge.background,
         minHeight: 8,
       ),
     );

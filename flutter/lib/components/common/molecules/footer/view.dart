@@ -6,20 +6,17 @@ import 'package:flutter/material.dart'
         Icons,
         BottomNavigationBar,
         BottomNavigationBarType;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   int currentIndex,
   void Function(int) onClickTab,
 ) {
-  final color = useColor();
-
   /// タブの一覧
   final items = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
@@ -45,8 +42,8 @@ Widget view(
     backgroundColor: color.base.footer,
     onTap: onClickTab,
     items: items,
-    selectedItemColor: ConstantColor.text,
-    unselectedItemColor: ConstantColor.textOpacity,
+    selectedItemColor: color.base.text,
+    unselectedItemColor: color.base.textOpacity,
     type: BottomNavigationBarType.fixed,
   );
 }

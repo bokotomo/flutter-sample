@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show AsyncSnapshot, ValueNotifier;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState;
@@ -22,7 +23,10 @@ class UseReturn {
 }
 
 ///
-UseReturn useHooks(AppLocalizations i18n) {
+UseReturn useHooks(
+  AppLocalizations i18n,
+  UseColor color,
+) {
   /// 選択している期間
   final Future<String?> memoedColorMode =
       useMemoized(() => selectColorMode.get());
@@ -33,7 +37,9 @@ UseReturn useHooks(AppLocalizations i18n) {
 
   /// 変更を押した
   void onChanged(String? t) {
-    selectColorMode.save(t ?? "dark");
+    final c = t ?? "dark";
+    selectColorMode.save(c);
+    color.changeColor(c);
   }
 
   /// カラーモード

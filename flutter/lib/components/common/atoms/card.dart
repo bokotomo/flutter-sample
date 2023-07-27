@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 削除ボタン付きコンテンツ
 class Card extends StatelessWidget {
   const Card({
     super.key,
+    required this.color,
     required this.child,
     required this.onPressedRemove,
     required this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final Widget child;
@@ -24,7 +27,7 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = ElevatedButton.styleFrom(
-      backgroundColor: ConstantColor.box,
+      backgroundColor: color.base.box,
       padding: const EdgeInsets.only(
         top: ConstantSizeUI.l4,
         left: ConstantSizeUI.l3,
@@ -34,12 +37,12 @@ class Card extends StatelessWidget {
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 1,
       alignment: Alignment.topLeft,
-      shadowColor: ConstantColor.boxBorder,
+      shadowColor: color.base.boxBorder,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
-        side: const BorderSide(
+        side: BorderSide(
           width: 1.0,
-          color: ConstantColor.boxBorder,
+          color: color.base.boxBorder,
         ),
       ),
     );
@@ -57,13 +60,13 @@ class Card extends StatelessWidget {
           top: ConstantSizeUI.l2,
           child: CircleAvatar(
             radius: 8,
-            backgroundColor: ConstantColor.iconBackGroundThin,
+            backgroundColor: color.base.iconBackGroundThin,
             child: IconButton(
               iconSize: ConstantSizeUI.l3,
               padding: const EdgeInsets.all(0),
-              icon: const Icon(
+              icon: Icon(
                 Icons.close,
-                color: ConstantColor.iconDark,
+                color: color.base.iconDark,
               ),
               onPressed: onPressedRemove,
               splashRadius: 0.1,

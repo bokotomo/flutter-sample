@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 薄いボタン
 class ButtonThin extends StatelessWidget {
   const ButtonThin({
     super.key,
+    required this.color,
     required this.text,
     required this.isActive,
     required this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -31,20 +34,18 @@ class ButtonThin extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor:
-          isActive ? ConstantColorButton.thinActive : ConstantColorButton.thin,
+      backgroundColor: isActive ? color.button.thinActive : color.button.thin,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: isActive
-          ? ConstantColorButton.thinActiveBorder
-          : ConstantColorButton.thinBorder,
+      shadowColor:
+          isActive ? color.button.thinActiveBorder : color.button.thinBorder,
       shape: RoundedRectangleBorder(
         borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
           color: isActive
-              ? ConstantColorButton.thinActiveBorder
-              : ConstantColorButton.thinBorder,
+              ? color.button.thinActiveBorder
+              : color.button.thinBorder,
         ),
       ),
     );
@@ -53,6 +54,7 @@ class ButtonThin extends StatelessWidget {
       onPressed: onPressed,
       style: style,
       child: BasicText(
+        color: color,
         text: text,
         size: "M",
         isNoSelect: true,

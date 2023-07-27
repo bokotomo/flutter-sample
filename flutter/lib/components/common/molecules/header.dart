@@ -15,6 +15,7 @@ import 'package:flutter/material.dart'
         SizedBox,
         Padding,
         EdgeInsets;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:badges/badges.dart' as badges;
@@ -26,7 +27,6 @@ import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
     show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ヘッダー
@@ -34,6 +34,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
   const Header({
     super.key,
     required this.i18n,
+    required this.color,
     required this.title,
     this.onClickRightMenu,
     this.onClickDoneButton,
@@ -43,6 +44,9 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// ヘッダータイトル
   final String title;
@@ -65,7 +69,6 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
   @override
   AppBar build(BuildContext context) {
-    final color = useColor();
     final ValueNotifier<int> badgeNum = useState<int>(0);
 
     /// 外部で候補一覧が更新されたら実行
@@ -98,6 +101,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
             child: SizedBox(
               width: 80,
               child: ButtonDoneMenu(
+                color: color,
                 text: i18n.headerMenuRightDone,
                 onPressed: onClickDoneButton,
               ),
@@ -118,6 +122,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
             child: SizedBox(
               width: 88,
               child: ButtonBasic(
+                color: color,
                 text: i18n.headerMenuRightHistory,
                 onPressed: onClickHistory,
                 isThin: true,
@@ -149,6 +154,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
 
     return AppBar(
       title: BasicText(
+        color: color,
         text: title,
         size: "M",
       ),

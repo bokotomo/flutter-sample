@@ -7,18 +7,21 @@ import 'package:flutter/material.dart'
         EdgeInsets,
         BoxDecoration,
         BorderRadius;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 
 /// トースト
 class ToastBasic extends StatelessWidget {
   const ToastBasic({
     super.key,
+    required this.color,
     required this.text,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -32,9 +35,10 @@ class ToastBasic extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(ConstantSizeUI.l3),
-        color: ConstantColor.toast,
+        color: color.base.toast,
       ),
       child: BasicText(
+        color: color,
         text: text,
         size: "M",
       ),

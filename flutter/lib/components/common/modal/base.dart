@@ -6,19 +6,22 @@ import 'package:flutter/material.dart'
         SimpleDialog,
         EdgeInsets,
         Center;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 基本的なモーダル
 class ModalBase extends StatelessWidget {
   const ModalBase({
     super.key,
+    required this.color,
     required this.title,
     required this.children,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// タイトル
   final String title;
@@ -29,9 +32,10 @@ class ModalBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      backgroundColor: ConstantColor.box,
+      backgroundColor: color.base.box,
       title: Center(
         child: BasicText(
+          color: color,
           text: title,
           size: "M",
         ),

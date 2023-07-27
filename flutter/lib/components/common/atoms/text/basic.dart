@@ -8,20 +8,23 @@ import 'package:flutter/material.dart'
         SelectableText,
         TextStyle,
         FontWeight;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeFont;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 
 /// 基本的なテキスト
 class BasicText extends StatelessWidget {
   const BasicText({
     super.key,
+    required this.color,
     required this.text,
     required this.size,
     this.textAlign,
     this.isNoSelect,
     this.isBold,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -68,7 +71,7 @@ class BasicText extends StatelessWidget {
         style: TextStyle(
           fontSize: getFontSize(),
           fontWeight: isBoldFont ? FontWeight.bold : FontWeight.normal,
-          color: isBoldFont ? ConstantColor.textBold : ConstantColor.text,
+          color: isBoldFont ? color.base.textBold : color.base.text,
         ),
       );
     }
@@ -79,7 +82,7 @@ class BasicText extends StatelessWidget {
       style: TextStyle(
         fontSize: getFontSize(),
         fontWeight: isBoldFont ? FontWeight.bold : FontWeight.normal,
-        color: isBoldFont ? ConstantColor.textBold : ConstantColor.text,
+        color: isBoldFont ? color.base.textBold : color.base.text,
       ),
     );
   }

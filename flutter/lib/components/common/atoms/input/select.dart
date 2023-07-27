@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/input.dart'
-    show ConstantColorInput;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -21,11 +18,15 @@ class SelectItem {
 class InputSelect extends StatelessWidget {
   const InputSelect({
     super.key,
+    required this.color,
     required this.value,
     required this.items,
     this.focusNode,
     this.onChanged,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// フォーカスノード
   final FocusNode? focusNode;
@@ -49,24 +50,25 @@ class InputSelect extends StatelessWidget {
 
     /// decoration
     InputDecoration decoration() {
-      return const InputDecoration(
+      return InputDecoration(
         filled: true,
-        fillColor: ConstantColorInput.input,
+        fillColor: color.input.input,
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+          borderRadius: const BorderRadius.all(Radius.circular(100)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderFocus,
+            color: color.input.inputBorderFocus,
             width: 2.0,
           ),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+          borderRadius: const BorderRadius.all(Radius.circular(100)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorder,
+            color: color.input.inputBorder,
             width: 2.0,
           ),
         ),
-        contentPadding: EdgeInsets.symmetric(horizontal: ConstantSizeUI.l4),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l4),
       );
     }
 
@@ -76,6 +78,7 @@ class InputSelect extends StatelessWidget {
           (item) => DropdownMenuItem(
             value: item.value,
             child: BasicText(
+              color: color,
               size: "M",
               text: item.text,
               isNoSelect: true,
@@ -87,10 +90,10 @@ class InputSelect extends StatelessWidget {
     return DropdownButtonFormField(
       items: menuItems,
       decoration: decoration(),
-      style: const TextStyle(
-        color: ConstantColor.text,
+      style: TextStyle(
+        color: color.base.text,
       ),
-      dropdownColor: ConstantColorInput.input,
+      dropdownColor: color.input.input,
       value: value,
       focusNode: focusNode,
       onChanged: onChanged,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show Widget, Expanded, Row;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/button/period.dart'
@@ -11,6 +12,7 @@ import 'package:gamer_reflection/components/common/molecules/button_period_filte
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   Period period,
   void Function() onPressedLeft,
   void Function() onPressedCenter,
@@ -21,6 +23,7 @@ Widget view(
       SpacerWidth.m,
       Expanded(
         child: ButtonPeriod(
+          color: color,
           text: i18n.commonButtonPeriodFilterAll,
           isActive: period == Period.leftButton,
           onPressed: onPressedLeft,
@@ -29,6 +32,7 @@ Widget view(
       SpacerWidth.s,
       Expanded(
         child: ButtonPeriod(
+          color: color,
           text: i18n.commonButtonPeriodFilterCenter,
           isActive: period == Period.centerButton,
           onPressed: onPressedCenter,
@@ -37,6 +41,7 @@ Widget view(
       SpacerWidth.s,
       Expanded(
         child: ButtonPeriod(
+          color: color,
           text: i18n.commonButtonPeriodFilterRight,
           isActive: period == Period.rightButton,
           onPressed: onPressedRight,

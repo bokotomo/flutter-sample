@@ -8,16 +8,19 @@ import 'package:flutter/material.dart'
         Container,
         BorderRadius,
         EdgeInsets;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 背景付きコンテンツ
 class Box extends StatelessWidget {
   const Box({
     super.key,
+    required this.color,
     required this.child,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final Widget child;
@@ -25,8 +28,8 @@ class Box extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final decoration = BoxDecoration(
-      color: ConstantColor.box,
-      border: Border.all(color: ConstantColor.boxBorder),
+      color: color.base.box,
+      border: Border.all(color: color.base.boxBorder),
       borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
     );
 

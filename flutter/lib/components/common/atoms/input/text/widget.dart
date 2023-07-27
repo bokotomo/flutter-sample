@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/input.dart'
-    show ConstantColorInput;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/atoms/input/text/validate.dart'
     show useValidate;
@@ -14,6 +11,7 @@ class InputText extends StatelessWidget {
   const InputText({
     super.key,
     required this.i18n,
+    required this.color,
     required this.hintText,
     required this.text,
     this.autofocus,
@@ -25,6 +23,9 @@ class InputText extends StatelessWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// プレフィックス
   final TextEditingController text;
@@ -66,43 +67,43 @@ class InputText extends StatelessWidget {
     /// inputのスタイル
     InputDecoration decoration(String hintText) {
       return InputDecoration(
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(100)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderFocus,
+            color: color.input.inputBorderFocus,
             width: 2.0,
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(100)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorder,
+            color: color.input.inputBorder,
             width: 2.0,
           ),
         ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+        errorBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(100)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderError,
+            color: color.input.inputBorderError,
             width: 2.0,
           ),
         ),
-        focusedErrorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(100)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderError,
+            color: color.input.inputBorderError,
             width: 2.0,
           ),
         ),
         errorStyle: TextStyle(
-          color: ConstantColorInput.inputErrorText,
+          color: color.input.inputErrorText,
           fontSize: i18n.localeName == 'de' ? 10 : 12,
         ),
         filled: true,
-        fillColor: ConstantColorInput.input,
+        fillColor: color.input.input,
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: ConstantColorInput.inputHintText,
+        hintStyle: TextStyle(
+          color: color.input.inputHintText,
         ),
         contentPadding: EdgeInsets.only(
           left: ConstantSizeUI.l3,
@@ -117,7 +118,7 @@ class InputText extends StatelessWidget {
       children: [
         TextFormField(
           controller: text,
-          style: const TextStyle(color: ConstantColor.text),
+          style: TextStyle(color: color.base.text),
           decoration: decoration(hintText),
           autofocus: autofocus ?? false,
           focusNode: focusNode,
@@ -134,7 +135,7 @@ class InputText extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerRight,
               child: IconButton(
-                color: ConstantColor.iconThin,
+                color: color.base.iconThin,
                 padding: const EdgeInsets.only(right: ConstantSizeUI.l2),
                 constraints: const BoxConstraints(),
                 iconSize: 24,

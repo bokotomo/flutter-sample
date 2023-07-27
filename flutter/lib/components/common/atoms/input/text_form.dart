@@ -1,15 +1,12 @@
-
 import 'package:flutter/material.dart';
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/input.dart'
-    show ConstantColorInput;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// input: textForm
 class InputTextForm extends StatelessWidget {
   const InputTextForm({
     super.key,
+    required this.color,
     required this.hintText,
     required this.text,
     this.autofocus,
@@ -17,6 +14,9 @@ class InputTextForm extends StatelessWidget {
     this.focusNode,
     this.maxLength,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// プレフィックス
   final TextEditingController text;
@@ -47,42 +47,46 @@ class InputTextForm extends StatelessWidget {
     /// inputのスタイル
     InputDecoration decoration(String hintText) {
       return InputDecoration(
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+        focusedBorder: OutlineInputBorder(
+          borderRadius:
+              const BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderFocus,
+            color: color.input.inputBorderFocus,
             width: 2.0,
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+        enabledBorder: OutlineInputBorder(
+          borderRadius:
+              const BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorder,
+            color: color.input.inputBorder,
             width: 2.0,
           ),
         ),
-        errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+        errorBorder: OutlineInputBorder(
+          borderRadius:
+              const BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderError,
+            color: color.input.inputBorderError,
             width: 2.0,
           ),
         ),
-        focusedErrorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius:
+              const BorderRadius.all(Radius.circular(ConstantSizeUI.l1)),
           borderSide: BorderSide(
-            color: ConstantColorInput.inputBorderError,
+            color: color.input.inputBorderError,
             width: 2.0,
           ),
         ),
-        errorStyle: const TextStyle(
-          color: ConstantColorInput.inputErrorText,
+        errorStyle: TextStyle(
+          color: color.input.inputErrorText,
         ),
         filled: true,
-        fillColor: ConstantColorInput.input,
+        fillColor: color.input.input,
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: ConstantColorInput.inputHintText,
+        hintStyle: TextStyle(
+          color: color.input.inputHintText,
         ),
         contentPadding: const EdgeInsets.all(ConstantSizeUI.l3),
       );
@@ -99,7 +103,7 @@ class InputTextForm extends StatelessWidget {
     return TextFormField(
       keyboardType: TextInputType.multiline,
       controller: text,
-      style: const TextStyle(color: ConstantColor.text),
+      style: TextStyle(color: color.base.text),
       decoration: decoration(hintText),
       autofocus: autofocus ?? false,
       onChanged: onChanged,

@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 期間を選択するボタン
 class ButtonPeriod extends StatelessWidget {
   const ButtonPeriod({
     super.key,
+    required this.color,
     required this.text,
     required this.isActive,
     this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -32,9 +35,8 @@ class ButtonPeriod extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
-      backgroundColor: isActive
-          ? ConstantColorButton.periodActive
-          : ConstantColorButton.period,
+      backgroundColor:
+          isActive ? color.button.periodActive : color.button.period,
       elevation: 4,
       padding: const EdgeInsets.only(
         left: ConstantSizeUI.l0,
@@ -42,12 +44,12 @@ class ButtonPeriod extends StatelessWidget {
         top: ConstantSizeUI.l1,
         bottom: ConstantSizeUI.l1,
       ),
-      shadowColor: ConstantColorButton.periodBorder,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(100)),
+      shadowColor: color.button.periodBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.periodBorder,
+          color: color.button.periodBorder,
         ),
       ),
     );
@@ -56,6 +58,7 @@ class ButtonPeriod extends StatelessWidget {
       onPressed: onPressed,
       style: style,
       child: BasicText(
+        color: color,
         text: text,
         size: "M",
         isNoSelect: true,

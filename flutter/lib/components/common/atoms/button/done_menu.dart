@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ボタン
 class ButtonDoneMenu extends StatelessWidget {
   const ButtonDoneMenu({
     super.key,
+    required this.color,
     required this.text,
     required this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -27,7 +30,7 @@ class ButtonDoneMenu extends StatelessWidget {
       minimumSize: const Size.fromHeight(ConstantSizeUI.l4),
       elevation: 0,
       fixedSize: const Size.fromHeight(ConstantSizeUI.l4),
-      shadowColor: ConstantColorButton.doneBorder,
+      shadowColor: color.button.doneBorder,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
       ),
@@ -35,18 +38,19 @@ class ButtonDoneMenu extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: ConstantColorButton.done,
+        gradient: LinearGradient(
+          colors: color.button.done,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(100)),
         border: Border.all(
-          color: ConstantColorButton.doneBorder,
+          color: color.button.doneBorder,
         ),
       ),
       child: ElevatedButton(
         onPressed: onPressed,
         style: style,
         child: BasicText(
+          color: color,
           text: text,
           size: "M",
           isNoSelect: true,

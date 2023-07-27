@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ボタン: 完了
 class ButtonDone extends StatelessWidget {
   const ButtonDone({
     super.key,
+    required this.color,
     required this.text,
     this.isActive,
     this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -42,12 +43,12 @@ class ButtonDone extends StatelessWidget {
     final style = ElevatedButton.styleFrom(
       padding: EdgeInsets.zero,
       backgroundColor: Colors.transparent,
-      disabledBackgroundColor: ConstantColorButton.doneDisable,
+      disabledBackgroundColor: color.button.doneDisable,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 0,
       shadowColor: isActiveMode()
-          ? ConstantColorButton.doneBorder
-          : ConstantColorButton.doneBorderDisable,
+          ? color.button.doneBorder
+          : color.button.doneBorderDisable,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(100)),
       ),
@@ -56,24 +57,25 @@ class ButtonDone extends StatelessWidget {
     return Container(
       padding: EdgeInsets.zero,
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: ConstantColorButton.done,
+        gradient: LinearGradient(
+          colors: color.button.done,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(100)),
         border: Border.all(
           color: isActiveMode()
-              ? ConstantColorButton.doneBorder
-              : ConstantColorButton.doneBorderDisable,
+              ? color.button.doneBorder
+              : color.button.doneBorderDisable,
         ),
       ),
       child: ElevatedButton.icon(
         onPressed: isActiveMode() ? onPressed : null,
         style: style,
-        icon: const Icon(
+        icon: Icon(
           Icons.check_circle,
-          color: ConstantColor.icon,
+          color: color.base.icon,
         ),
         label: BasicText(
+          color: color,
           text: text,
           size: "M",
           isNoSelect: true,

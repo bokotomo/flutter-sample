@@ -12,21 +12,22 @@ import 'package:flutter/material.dart'
         BorderRadius,
         Radius,
         BorderSide;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ボタン: 削除
 class ButtonDelete extends StatelessWidget {
   const ButtonDelete({
     super.key,
+    required this.color,
     required this.text,
     required this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -43,15 +44,15 @@ class ButtonDelete extends StatelessWidget {
 
     final style = ElevatedButton.styleFrom(
       padding: EdgeInsets.zero,
-      backgroundColor: ConstantColorButton.delete,
+      backgroundColor: color.button.delete,
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
       elevation: 2,
-      shadowColor: ConstantColorButton.deleteBorder,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(100)),
+      shadowColor: color.button.deleteBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(100)),
         side: BorderSide(
           width: 2.0,
-          color: ConstantColorButton.deleteBorder,
+          color: color.button.deleteBorder,
         ),
       ),
     );
@@ -59,11 +60,12 @@ class ButtonDelete extends StatelessWidget {
     return ElevatedButton.icon(
       onPressed: onPressed,
       style: style,
-      icon: const Icon(
+      icon: Icon(
         Icons.delete,
-        color: ConstantColor.icon,
+        color: color.base.icon,
       ),
       label: BasicText(
+        color: color,
         text: text,
         size: "M",
         isNoSelect: true,
