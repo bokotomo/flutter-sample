@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/solution/molecules/button_solution.dart'
     show ButtonSolution;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/domain/solution/reflection.dart'
@@ -16,10 +15,16 @@ class SolutionList extends StatelessWidget {
   const SolutionList({
     super.key,
     required this.i18n,
+    required this.color,
     required this.reflections,
     required this.onPressed,
   });
+
+  /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 振り返り一覧
   final List<DomainSolutionReflection> reflections;
@@ -32,9 +37,10 @@ class SolutionList extends StatelessWidget {
     return Column(
       children: [
         for (int i = 0; i < reflections.length; i++) ...{
-          const Bar(color: ConstantColorButton.taskListBorder),
+          Bar(color: color.button.taskListBorder),
           ButtonSolution(
             i18n: i18n,
+            color: color,
             text: reflections[i].text,
             isThin: i % 2 == 0,
             count: reflections[i].count,
@@ -42,7 +48,7 @@ class SolutionList extends StatelessWidget {
             onPressed: () => onPressed(i),
           ),
         },
-        const Bar(color: ConstantColorButton.taskListBorder),
+        Bar(color: color.button.taskListBorder),
         SpacerHeight.m,
       ],
     );

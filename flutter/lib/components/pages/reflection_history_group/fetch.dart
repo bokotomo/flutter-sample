@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
@@ -21,7 +22,8 @@ class UseReturn {
 }
 
 /// データ取得: 振り返り履歴グループ一覧
-UseReturn useFetch(int reflectionGroupId, AppLocalizations i18n) {
+UseReturn useFetch(
+    int reflectionGroupId, AppLocalizations i18n, UseColor color) {
   final ValueNotifier<List<DomainReflectionHistoryGroup>> historyGroups =
       useState<List<DomainReflectionHistoryGroup>>([]);
 
@@ -37,6 +39,7 @@ UseReturn useFetch(int reflectionGroupId, AppLocalizations i18n) {
   void pushDetail(BuildContext context, String name, int historyGroupId) {
     final PageReflectionHistory page = PageReflectionHistory(
       i18n: i18n,
+      color: color,
       title: name,
       historyGroupId: historyGroupId,
     );

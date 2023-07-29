@@ -6,6 +6,7 @@ import 'package:flutter/material.dart'
         GlobalKey,
         FormState,
         BuildContext;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
@@ -61,6 +62,7 @@ class UseReturn {
 /// ロジック: タスク詳細ページ
 UseReturn useHooks(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   int reflectionId,
   int reflectionGroupId,
@@ -81,7 +83,7 @@ UseReturn useHooks(
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<String> groupValue = useState<String>("");
-  final toast = useToast(context);
+  final toast = useToast(context, color);
 
   /// 編集モード切り替え
   void toggleEditMode() {
@@ -111,6 +113,7 @@ UseReturn useHooks(
   void onPressedDone(BuildContext context) async {
     showModal(
       i18n,
+      color,
       context,
       () async => await RequestReflection().deleteReflection(reflectionId),
     );

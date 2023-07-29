@@ -8,6 +8,7 @@ import 'package:flutter/material.dart'
         FormState,
         AsyncSnapshot,
         Navigator;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
@@ -54,6 +55,7 @@ class UseReturn {
 /// ロジック: アカウント設定ページ
 UseReturn useHooks(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   Future<void> Function() fetchReflectionGroups,
@@ -71,7 +73,7 @@ UseReturn useHooks(
   final FocusNode textReflectionNewNameFocusNode = useFocusNode();
   final GlobalKey<FormState> formKeyNewName = GlobalKey<FormState>();
   final GlobalKey<FormState> formKeyEditName = GlobalKey<FormState>();
-  final toast = useToast(context);
+  final toast = useToast(context, color);
 
   /// 振り返りグループIDの取得
   int getReflectionGroupId(String? id) {
@@ -138,6 +140,7 @@ UseReturn useHooks(
 
     showModal(
       i18n,
+      color,
       context,
       textReflectionNewName.value.text,
       onPressedAddRefletionGroup,
@@ -223,6 +226,7 @@ UseReturn useHooks(
     if (context.mounted) {
       showDeleteModal(
         i18n,
+        color,
         context,
         d.name,
         (context) {

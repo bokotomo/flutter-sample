@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, Padding, EdgeInsets, Row, Expanded, Container;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
@@ -7,8 +8,6 @@ import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/button/thin.dart'
     show ButtonThin;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 下部の固定ボタン
@@ -16,6 +15,7 @@ class BottomButtons extends HookWidget {
   const BottomButtons({
     super.key,
     required this.i18n,
+    required this.color,
     required this.isSelectedGood,
     required this.onPressedBad,
     required this.onPressedGood,
@@ -23,6 +23,9 @@ class BottomButtons extends HookWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 伸ばすことを選択
   final bool isSelectedGood;
@@ -36,7 +39,7 @@ class BottomButtons extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ConstantColor.content,
+      color: color.base.content,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: ConstantSizeUI.l2),
         child: Row(
@@ -44,6 +47,7 @@ class BottomButtons extends HookWidget {
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
+                color: color,
                 text: i18n.pageSolutionButtonGood,
                 onPressed: () => onPressedBad(),
                 isActive: !isSelectedGood,
@@ -52,6 +56,7 @@ class BottomButtons extends HookWidget {
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
+                color: color,
                 text: i18n.pageSolutionButtonBad,
                 onPressed: () => onPressedGood(),
                 isActive: isSelectedGood,

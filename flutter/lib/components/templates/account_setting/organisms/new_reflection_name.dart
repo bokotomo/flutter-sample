@@ -12,6 +12,7 @@ import 'package:flutter/material.dart'
         GlobalKey,
         FormState,
         AutovalidateMode;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -27,6 +28,7 @@ import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
 Widget view(
   BuildContext context,
   AppLocalizations i18n,
+  UseColor color,
   TextEditingController textReflectionNewName,
   FocusNode textReflectionNewNameFocusNode,
   Function(BuildContext context) onPressedNewName,
@@ -36,16 +38,19 @@ Widget view(
     autovalidateMode: AutovalidateMode.onUserInteraction,
     key: formKey,
     child: Box(
+      color: color,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BasicText(
+            color: color,
             text: i18n.accountPageAddReflection,
             size: "M",
           ),
           SpacerHeight.m,
           InputText(
             i18n: i18n,
+            color: color,
             text: textReflectionNewName,
             hintText: i18n.accountPageAddReflectionPlaceHolder,
             focusNode: textReflectionNewNameFocusNode,
@@ -53,6 +58,7 @@ Widget view(
           ),
           SpacerHeight.m,
           ButtonIcon(
+            color: color,
             icon: Icons.add,
             text: i18n.accountPageAddReflectionButton,
             onPressed: () => onPressedNewName(context),
@@ -68,6 +74,7 @@ class NewReflectionName extends StatelessWidget {
   const NewReflectionName({
     super.key,
     required this.i18n,
+    required this.color,
     required this.textReflectionNewNameFocusNode,
     required this.textReflectionNewName,
     required this.onPressedNewName,
@@ -76,6 +83,9 @@ class NewReflectionName extends StatelessWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   ///
   final FocusNode textReflectionNewNameFocusNode;
@@ -94,6 +104,7 @@ class NewReflectionName extends StatelessWidget {
     return view(
       context,
       i18n,
+      color,
       textReflectionNewName,
       textReflectionNewNameFocusNode,
       onPressedNewName,

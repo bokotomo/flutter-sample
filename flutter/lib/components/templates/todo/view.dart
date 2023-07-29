@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, Column, CrossAxisAlignment;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -21,6 +22,7 @@ import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainTodo>? todos,
   List<DomainReflectionGroup> reflectionGroups,
@@ -36,6 +38,7 @@ Widget view(
 
             /// 振り返りグループ選択ボタン
             SelectReflectionGroup(
+              color: color,
               reflectionGroups: reflectionGroups,
               onChanged: onChangeReflectionGroup,
             ),
@@ -43,15 +46,21 @@ Widget view(
             SpacerHeight.m,
 
             /// ない場合
-            if (todos.isEmpty) TodoNoDataAnnotation(i18n: i18n),
+            if (todos.isEmpty)
+              TodoNoDataAnnotation(
+                i18n: i18n,
+                color: color,
+              ),
 
             /// やること一覧
             for (int i = 0; i < todos.length; i++) ...{
               Card(
+                color: color,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BasicText(
+                      color: color,
                       text: todos[i].title,
                       size: "M",
                       isBold: true,
@@ -59,6 +68,7 @@ Widget view(
                     ),
                     SpacerHeight.s,
                     TextAnnotation(
+                      color: color,
                       text: todos[i].subTitle,
                       size: "XS",
                     ),
@@ -75,6 +85,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
+    color: color,
     title: i18n.pageTodoTitle,
     isBackGround: true,
     child: cloumn,

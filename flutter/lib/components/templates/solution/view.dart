@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show Widget, BuildContext, ListView, Padding, EdgeInsets, Column, Expanded;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
@@ -26,6 +27,7 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   void Function(BuildContext, int) pushSolutionDetail,
@@ -41,6 +43,7 @@ Widget view(
 ) {
   final list = SolutionList(
     i18n: i18n,
+    color: color,
     reflections: filteredReflections,
     onPressed: (int index) => pushSolutionDetail(
       context,
@@ -50,6 +53,7 @@ Widget view(
   final layoutChild = filteredReflections.isEmpty
       ? SolutionNoDataAnnotation(
           i18n: i18n,
+          color: color,
         )
       : list;
 
@@ -63,6 +67,7 @@ Widget view(
           horizontal: ConstantSizeUI.l3,
         ),
         child: SelectReflectionGroup(
+          color: color,
           reflectionGroups: reflectionGroups,
           onChanged: onChangeReflectionGroup,
         ),
@@ -73,6 +78,7 @@ Widget view(
       /// 期間選択ボタン
       ButtonPeriodFilter(
         i18n: i18n,
+        color: color,
         period: period,
         onPressedLeft: () => onPressedLeft(),
         onPressedCenter: () => onPressedCenter(),
@@ -91,6 +97,7 @@ Widget view(
       Expanded(child: body),
       BottomButtons(
         i18n: i18n,
+        color: color,
         isSelectedGood: isSelectedGood,
         onPressedBad: () => onPressedBad(),
         onPressedGood: () => onPressedGood(),
@@ -100,6 +107,7 @@ Widget view(
 
   return BaseLayout(
     i18n: i18n,
+    color: color,
     title: i18n.pageSolutionTitle,
     isBackGround: true,
     child: content,

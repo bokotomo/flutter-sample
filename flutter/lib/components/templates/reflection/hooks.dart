@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show BuildContext;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/reflection/game.dart'
@@ -30,6 +31,7 @@ class UseReturn {
 /// ロジック: 振り返りページ
 UseReturn useHooks(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   DomainReflectionGame game,
@@ -40,7 +42,7 @@ UseReturn useHooks(
   Future<void> Function() fetchCounts,
 ) {
   // トースト通知
-  final toast = useToast(context);
+  final toast = useToast(context, color);
 
   /// 振り返りの開始を押した
   Future<void> onPressedStart(BuildContext c) async {

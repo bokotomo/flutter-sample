@@ -8,8 +8,7 @@ import 'package:flutter/material.dart'
         SizedBox,
         Container;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 import 'package:gamer_reflection/components/layouts/tabbar/tabbar.dart'
     show Tabbar;
 import 'package:gamer_reflection/components/pages/add_reflection_name/add_reflection_name.dart'
@@ -27,6 +26,7 @@ class App extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final h = useHooks(context);
+    final c = useColor();
 
     /// コンテンツ
     home() {
@@ -34,7 +34,7 @@ class App extends HookWidget {
 
       if (isFirstPage == null) {
         return Container(
-          color: ConstantColor.content,
+          color: c.base.content,
           child: const SizedBox(),
         );
       }
@@ -42,6 +42,7 @@ class App extends HookWidget {
       // 初回ページ
       if (isFirstPage) {
         return PageAddReflectionName(
+          color: c,
           changeTabPage: h.changeTabPage,
           changeLocale: h.changeLocale,
         );
@@ -49,6 +50,7 @@ class App extends HookWidget {
 
       // メインページ
       return Tabbar(
+        color: c,
         canDC: h.canDC,
         changeLocale: h.changeLocale,
       );

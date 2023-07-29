@@ -15,16 +15,13 @@ import 'package:flutter/material.dart'
         Expanded,
         Icon,
         Icons;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:url_launcher/url_launcher.dart' show canLaunchUrl, launchUrl;
 
 /// ボタンの設定値
@@ -43,7 +40,11 @@ class ButtonLinks extends StatelessWidget {
   const ButtonLinks({
     super.key,
     required this.params,
+    required this.color,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final List<ButtonLinksParam> params;
@@ -59,8 +60,8 @@ class ButtonLinks extends StatelessWidget {
 
     // 背景色の設定
     final decoration = BoxDecoration(
-      color: ConstantColor.box,
-      border: Border.all(color: ConstantColor.boxBorder),
+      color: color.base.box,
+      border: Border.all(color: color.base.boxBorder),
       borderRadius: BorderRadius.circular(ConstantSizeUI.l1),
     );
 
@@ -69,11 +70,11 @@ class ButtonLinks extends StatelessWidget {
       child: Column(
         children: [
           for (var i = 0; i < params.length; i++) ...{
-            if (i != 0) const Bar(color: ConstantColorButton.taskListBorder),
+            if (i != 0) Bar(color: color.button.taskListBorder),
             ElevatedButton(
               onPressed: () async => await onPressed(params[i].link),
               style: ElevatedButton.styleFrom(
-                backgroundColor: ConstantColor.box,
+                backgroundColor: color.base.box,
                 minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
                 padding: const EdgeInsets.only(
                   left: ConstantSizeUI.l3,
@@ -84,15 +85,16 @@ class ButtonLinks extends StatelessWidget {
                 children: [
                   Expanded(
                     child: BasicText(
+                      color: color,
                       text: params[i].text,
                       size: "M",
                       isNoSelect: true,
                     ),
                   ),
                   SpacerWidth.s,
-                  const Icon(
+                  Icon(
                     Icons.arrow_right,
-                    color: ConstantColor.taskListArrow,
+                    color: color.base.taskListArrow,
                     size: 40.0,
                   ),
                 ],

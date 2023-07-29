@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
@@ -10,14 +11,13 @@ import 'package:gamer_reflection/components/templates/reflection_add/molecules/b
     show ButtonCandidate;
 import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
 /// 振り返りがない場合
 Widget candidatesNone(
   AppLocalizations i18n,
+  UseColor color,
   bool isNotAdd,
 ) {
   final text = isNotAdd
@@ -29,6 +29,7 @@ Widget candidatesNone(
       SpacerHeight.xm,
       Center(
         child: TextAnnotation(
+          color: color,
           text: text,
           size: "M",
           textAlign: TextAlign.center,
@@ -40,6 +41,7 @@ Widget candidatesNone(
 
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   List<DomainReflectionAddReflection> reflections,
   bool isNotAdd,
   Function(String text) onPressCandidate,
@@ -47,17 +49,18 @@ Widget view(
   final Column candidateTitles = Column(
     children: [
       for (int i = 0; i < reflections.length; i++) ...{
-        const Bar(
-          color: ConstantColorButton.taskListBorder,
+        Bar(
+          color: color.button.taskListBorder,
         ),
         ButtonCandidate(
+          color: color,
           text: reflections[i].text,
           isThin: i % 2 == 0,
           onPressed: () => onPressCandidate(reflections[i].text),
         ),
       },
-      const Bar(
-        color: ConstantColorButton.taskListBorder,
+      Bar(
+        color: color.button.taskListBorder,
       )
     ],
   );
@@ -65,6 +68,7 @@ Widget view(
   final candidates = reflections.isEmpty
       ? candidatesNone(
           i18n,
+          color,
           isNotAdd,
         )
       : candidateTitles;
@@ -82,6 +86,7 @@ class ReflectionAddCandidate extends HookWidget {
   const ReflectionAddCandidate({
     super.key,
     required this.i18n,
+    required this.color,
     required this.reflections,
     required this.onPressCandidate,
     required this.candidatesForListener,
@@ -89,6 +94,9 @@ class ReflectionAddCandidate extends HookWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
   final List<DomainReflectionAddReflection> reflections;
   final Function(String text) onPressCandidate;
   final ValueNotifier<List<DomainReflectionAddReflection>>
@@ -130,6 +138,7 @@ class ReflectionAddCandidate extends HookWidget {
 
     return view(
       i18n,
+      color,
       candidates.value,
       isNotAdd,
       onPressCandidate,

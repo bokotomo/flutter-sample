@@ -9,12 +9,11 @@ import 'package:flutter/material.dart'
         Icon,
         Icons,
         TextAlign;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 
@@ -22,11 +21,15 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 class TodoNoDataAnnotation extends StatelessWidget {
   const TodoNoDataAnnotation({
     required this.i18n,
+    required this.color,
     super.key,
   });
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +39,14 @@ class TodoNoDataAnnotation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SpacerHeight.xl,
-          const Icon(
+          Icon(
             Icons.info,
-            color: ConstantColor.textOpacity,
+            color: color.base.textOpacity,
             size: 56,
           ),
           SpacerHeight.m,
           TextAnnotation(
+            color: color,
             text: i18n.pageTodoNoData,
             size: "M",
             textAlign: TextAlign.center,

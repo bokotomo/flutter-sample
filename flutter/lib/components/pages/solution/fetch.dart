@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
@@ -33,7 +34,8 @@ class UseReturn {
 }
 
 /// データ取得: タスク一覧
-UseReturn useFetch(ValueNotifier<bool> canDC, AppLocalizations i18n) {
+UseReturn useFetch(
+    ValueNotifier<bool> canDC, AppLocalizations i18n, UseColor color) {
   final ValueNotifier<List<DomainSolutionReflection>> reflections =
       useState<List<DomainSolutionReflection>>([]);
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
@@ -65,6 +67,7 @@ UseReturn useFetch(ValueNotifier<bool> canDC, AppLocalizations i18n) {
   void pushSolutionDetail(BuildContext context, int reflectionId) {
     final PageSolutionDetail page = PageSolutionDetail(
       i18n: i18n,
+      color: color,
       reflectionId: reflectionId,
     );
     Navigator.push(

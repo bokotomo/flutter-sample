@@ -9,6 +9,7 @@ import 'package:flutter/material.dart'
         CrossAxisAlignment,
         GlobalKey,
         FormState;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -43,6 +44,7 @@ import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 /// アカウント設定
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   void Function(LocaleCode) changeLocale,
   List<DomainReflectionGroup> reflectionGroups,
@@ -63,12 +65,14 @@ Widget view(
     children: [
       SpacerHeight.m,
       SelectReflectionGroup(
+        color: color,
         reflectionGroups: reflectionGroups,
         onChanged: onChangeReflectionGroup,
       ),
       SpacerHeight.m,
       EditReflectionName(
         i18n: i18n,
+        color: color,
         textReflectionName: textReflectionName,
         textReflectionNameFocusNode: textReflectionNameFocusNode,
         onPressedEdit: onPressedEdit,
@@ -77,6 +81,7 @@ Widget view(
       SpacerHeight.m,
       NewReflectionName(
         i18n: i18n,
+        color: color,
         textReflectionNewName: textReflectionNewName,
         textReflectionNewNameFocusNode: textReflectionNewNameFocusNode,
         onPressedNewName: onPressedNewName,
@@ -84,6 +89,7 @@ Widget view(
       ),
       SpacerHeight.m,
       ButtonLinks(
+        color: color,
         params: [
           if (i18n.localeName == 'ja')
             ButtonLinksParam(
@@ -102,20 +108,24 @@ Widget view(
       ),
       SpacerHeight.m,
       Box(
+        color: color,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
+              color: color,
               text: i18n.accountPageDeleteReflection,
               size: "M",
             ),
             SpacerHeight.xs,
             TextAnnotation(
+              color: color,
               text: i18n.accountPageDeleteReflectionDetail,
               size: "S",
             ),
             SpacerHeight.m,
             ButtonDelete(
+              color: color,
               text: i18n.accountPageDeleteButton,
               onPressed: () => onPressedDelete(context),
             ),
@@ -124,45 +134,56 @@ Widget view(
       ),
       SpacerHeight.m,
       Box(
+        color: color,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
+              color: color,
               text: i18n.accountPageChangeColorMode,
               size: "M",
             ),
             SpacerHeight.m,
             SelectColorMode(
               i18n: i18n,
+              color: color,
             ),
           ],
         ),
       ),
       SpacerHeight.m,
       Box(
+        color: color,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
+              color: color,
               text: i18n.accountPageChangeLanguage,
               size: "M",
             ),
             SpacerHeight.m,
-            SelectLanguage(changeLocale: changeLocale),
+            SelectLanguage(
+              color: color,
+              changeLocale: changeLocale,
+            ),
           ],
         ),
       ),
       SpacerHeight.m,
       Box(
+        color: color,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
+              color: color,
               text: i18n.accountPageAppInfo,
               size: "M",
             ),
             SpacerHeight.m,
-            const BasicText(
+            BasicText(
+              color: color,
               text: 'Version ${ConstantAppInfo.version}',
               size: "M",
             ),
@@ -175,6 +196,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
+    color: color,
     title: i18n.accountPageTitle,
     onTap: () => {
       textReflectionNameFocusNode.unfocus(),

@@ -12,6 +12,7 @@ import 'package:flutter/material.dart'
         GlobalKey,
         FormState,
         AutovalidateMode;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -26,6 +27,7 @@ import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
 
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   TextEditingController textReflectionName,
   FocusNode textReflectionNameFocusNode,
   void Function() onPressedEdit,
@@ -35,16 +37,19 @@ Widget view(
     autovalidateMode: AutovalidateMode.onUserInteraction,
     key: formKey,
     child: Box(
+      color: color,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BasicText(
+            color: color,
             text: i18n.accountPageChangeReflectionName,
             size: "M",
           ),
           SpacerHeight.m,
           InputText(
             i18n: i18n,
+            color: color,
             text: textReflectionName,
             hintText: i18n.accountPageChangeReflectionNamePlaceHolder,
             focusNode: textReflectionNameFocusNode,
@@ -52,6 +57,7 @@ Widget view(
           ),
           SpacerHeight.m,
           ButtonIcon(
+            color: color,
             icon: Icons.edit,
             text: i18n.accountPageChangeReflectionNameButton,
             onPressed: () => onPressedEdit(),
@@ -67,6 +73,7 @@ class EditReflectionName extends StatelessWidget {
   const EditReflectionName({
     super.key,
     required this.i18n,
+    required this.color,
     required this.textReflectionNameFocusNode,
     required this.textReflectionName,
     required this.onPressedEdit,
@@ -75,6 +82,9 @@ class EditReflectionName extends StatelessWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   ///
   final FocusNode textReflectionNameFocusNode;
@@ -92,6 +102,7 @@ class EditReflectionName extends StatelessWidget {
   Widget build(BuildContext context) {
     return view(
       i18n,
+      color,
       textReflectionName,
       textReflectionNameFocusNode,
       onPressedEdit,

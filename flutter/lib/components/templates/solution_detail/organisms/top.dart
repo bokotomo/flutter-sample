@@ -8,6 +8,7 @@ import 'package:flutter/material.dart'
         Column,
         Row,
         CrossAxisAlignment;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
@@ -34,6 +35,7 @@ class SolutionDetailTop extends StatelessWidget {
   const SolutionDetailTop({
     super.key,
     required this.i18n,
+    required this.color,
     required this.reflection,
     required this.titleFocusNode,
     required this.detailFocusNode,
@@ -43,6 +45,9 @@ class SolutionDetailTop extends StatelessWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final DomainSolutionDetailReflection? reflection;
@@ -82,7 +87,9 @@ class SolutionDetailTop extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Box(
+          color: color,
           child: BasicText(
+            color: color,
             text: reflectionText,
             size: "M",
           ),
@@ -91,11 +98,13 @@ class SolutionDetailTop extends StatelessWidget {
         Row(
           children: [
             TextTag(
+              color: color,
               text: countText,
               colorType: TagTextColor.gray,
             ),
             SpacerWidth.m,
             TextTag(
+              color: color,
               text: reflectionTypeText,
               colorType: TagTextColor.gray,
             ),
@@ -103,22 +112,27 @@ class SolutionDetailTop extends StatelessWidget {
         ),
         SpacerHeight.m,
         TextTag(
+          color: color,
           text: reflectionUpdateAtText,
           colorType: TagTextColor.gray,
         ),
         SpacerHeight.m,
         BasicText(
+          color: color,
           text: detailTitle,
           size: "M",
         ),
         SpacerHeight.m,
         Box(
+          color: color,
           child: detailNotExist
               ? TextAnnotation(
+                  color: color,
                   text: i18n.solutionDetailPageTopNoData,
                   size: "M",
                 )
               : BasicText(
+                  color: color,
                   text: reflectionDetail,
                   size: "M",
                 ),

@@ -11,19 +11,20 @@ import 'package:flutter/material.dart'
         DecorationImage,
         AssetImage,
         BoxFit;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 import 'package:gamer_reflection/components/common/molecules/header.dart'
     show Header;
-import 'package:gamer_reflection/modules/const/color/hooks.dart' show useColor;
 
 /// レイアウト: 基本パディング
 class BaseLayoutPadding extends HookWidget {
   const BaseLayoutPadding({
     super.key,
     required this.i18n,
+    required this.color,
     required this.child,
     required this.title,
     required this.isBackGround,
@@ -33,6 +34,9 @@ class BaseLayoutPadding extends HookWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// コンテンツ
   final Widget child;
@@ -51,8 +55,6 @@ class BaseLayoutPadding extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = useColor();
-
     final padding = Padding(
       padding: const EdgeInsets.only(
         left: ConstantSizeUI.l3,
@@ -74,6 +76,7 @@ class BaseLayoutPadding extends HookWidget {
       backgroundColor: color.base.content,
       appBar: Header(
         i18n: i18n,
+        color: color,
         title: title,
         onClickHistory: onClickHistory,
       ),

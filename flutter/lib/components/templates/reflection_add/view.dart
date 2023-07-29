@@ -12,6 +12,7 @@ import 'package:flutter/material.dart'
         Expanded,
         Form,
         AutovalidateMode;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
@@ -27,6 +28,7 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainReflectionAddReflection> reflections,
   String title,
@@ -47,6 +49,7 @@ Widget view(
     children: [
       ReflectionAddCandidate(
         i18n: i18n,
+        color: color,
         reflections: reflections,
         onPressCandidate: (String text) => onPressedAddCandidate(text),
         candidatesForListener: candidatesForListener,
@@ -60,6 +63,7 @@ Widget view(
       Expanded(child: column),
       BottomContents(
         i18n: i18n,
+        color: color,
         textReflection: textReflection,
         textFieldFocusNode: textFieldFocusNode,
         onPressedReflectionDone: onPressedReflectionDone,
@@ -72,6 +76,7 @@ Widget view(
 
   return BaseLayout(
     i18n: i18n,
+    color: color,
     title: title,
     isBackGround: false,
     onTap: () => textFieldFocusNode.unfocus(),

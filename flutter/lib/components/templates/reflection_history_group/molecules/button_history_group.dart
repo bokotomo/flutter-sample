@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -13,10 +10,14 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 class ButtonHistoryGroup extends StatelessWidget {
   const ButtonHistoryGroup({
     super.key,
+    required this.color,
     required this.text,
     required this.isThin,
     this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -38,9 +39,8 @@ class ButtonHistoryGroup extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: isThin
-            ? ConstantColorButton.taskListThin
-            : ConstantColorButton.taskList,
+        backgroundColor:
+            isThin ? color.button.taskListThin : color.button.taskList,
         minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
         padding: const EdgeInsets.only(
           left: ConstantSizeUI.l3,
@@ -51,15 +51,16 @@ class ButtonHistoryGroup extends StatelessWidget {
         children: [
           Expanded(
             child: BasicText(
+              color: color,
               text: text,
               size: "M",
               isNoSelect: true,
             ),
           ),
           SpacerWidth.s,
-          const Icon(
+          Icon(
             Icons.arrow_right,
-            color: ConstantColor.taskListArrow,
+            color: color.base.taskListArrow,
             size: 40.0,
           ),
         ],

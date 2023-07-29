@@ -7,20 +7,23 @@ import 'package:flutter/material.dart'
         Size,
         Align,
         Alignment;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// ボタン: 候補一覧
 class ButtonCandidate extends StatelessWidget {
   const ButtonCandidate({
     super.key,
+    required this.color,
     required this.text,
     required this.isThin,
     this.onPressed,
   });
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -42,14 +45,14 @@ class ButtonCandidate extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: isThin
-            ? ConstantColorButton.taskListThin
-            : ConstantColorButton.taskList,
+        backgroundColor:
+            isThin ? color.button.taskListThin : color.button.taskList,
         fixedSize: const Size.fromHeight(ConstantSizeUI.l7),
       ),
       child: Align(
         alignment: Alignment.centerLeft,
         child: BasicText(
+          color: color,
           text: text,
           size: "S",
           isNoSelect: true,

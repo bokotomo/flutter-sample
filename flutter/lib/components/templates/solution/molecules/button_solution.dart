@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -20,6 +17,7 @@ class ButtonSolution extends StatelessWidget {
   const ButtonSolution({
     super.key,
     required this.i18n,
+    required this.color,
     required this.text,
     required this.isThin,
     required this.count,
@@ -28,6 +26,9 @@ class ButtonSolution extends StatelessWidget {
   });
 
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -55,9 +56,8 @@ class ButtonSolution extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: isThin
-            ? ConstantColorButton.taskListThin
-            : ConstantColorButton.taskList,
+        backgroundColor:
+            isThin ? color.button.taskListThin : color.button.taskList,
         minimumSize: const Size.fromHeight(ConstantSizeUI.l10),
         padding: const EdgeInsets.only(
           left: ConstantSizeUI.l3,
@@ -67,21 +67,23 @@ class ButtonSolution extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
+            color: color,
             text: i18n.pageSolutionCountValue(count),
             colorType: tagTextColor,
           ),
           SpacerWidth.m,
           Expanded(
             child: BasicText(
+              color: color,
               text: text,
               size: "M",
               isNoSelect: true,
             ),
           ),
           SpacerWidth.s,
-          const Icon(
+          Icon(
             Icons.arrow_right,
-            color: ConstantColor.taskListArrow,
+            color: color.base.taskListArrow,
             size: 40.0,
           ),
         ],

@@ -1,6 +1,7 @@
 // import 'package:flutter/material.dart'
 //     show Widget, BuildContext, ListView, Column;
 import 'package:flutter/material.dart';
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
@@ -23,12 +24,11 @@ import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
 import 'package:gamer_reflection/components/common/atoms/gauge_bar.dart'
     show GaugeBar;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainReflectionGroup> reflectionGroups,
   String expText,
@@ -44,6 +44,7 @@ Widget view(
     children: [
       SpacerHeight.m,
       SelectReflectionGroup(
+        color: color,
         reflectionGroups: reflectionGroups,
         onChanged: onChangeReflectionGroup,
       ),
@@ -65,6 +66,7 @@ Widget view(
                   Row(
                     children: [
                       BasicText(
+                        color: color,
                         text: rank,
                         size: "M",
                         isBold: true,
@@ -72,13 +74,13 @@ Widget view(
                       ),
                       CircleAvatar(
                         radius: 8,
-                        backgroundColor: ConstantColor.iconBackGround,
+                        backgroundColor: color.base.iconBackGround,
                         child: IconButton(
                           iconSize: ConstantSizeUI.l3,
                           padding: const EdgeInsets.all(0),
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.question_mark,
-                            color: ConstantColor.iconDark,
+                            color: color.base.iconDark,
                           ),
                           onPressed: () => onPressedRankDetail(context),
                           splashRadius: 0.1,
@@ -87,6 +89,7 @@ Widget view(
                     ],
                   ),
                   BasicText(
+                    color: color,
                     text: expText,
                     size: "S",
                     isBold: true,
@@ -95,27 +98,34 @@ Widget view(
                 ],
               ),
               SpacerHeight.s,
-              GaugeBar(percent: gaugePercent),
+              GaugeBar(
+                color: color,
+                percent: gaugePercent,
+              ),
             ],
           ),
         )
       ]),
       SpacerHeight.m,
       Box(
+        color: color,
         child: Column(
           children: [
             BasicText(
+              color: color,
               text: i18n.pageReflectionHowToTitle,
               size: "M",
               isBold: true,
             ),
             SpacerHeight.m,
             BasicText(
+              color: color,
               text: i18n.pageReflectionHowToDetail,
               size: "M",
             ),
             SpacerHeight.s,
             TextAnnotation(
+              color: color,
               text: i18n.pageReflectionHowToDetailSub,
               size: "XS",
             ),
@@ -124,6 +134,7 @@ Widget view(
       ),
       SpacerHeight.m,
       ButtonBasic(
+        color: color,
         text: i18n.pageReflectionButtonStart,
         onPressed: () => onPressedStart(context),
       ),
@@ -132,6 +143,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
+    color: color,
     title: i18n.pageReflectionTitle,
     isBackGround: true,
     onClickHistory: () => onPressedHistory(context),

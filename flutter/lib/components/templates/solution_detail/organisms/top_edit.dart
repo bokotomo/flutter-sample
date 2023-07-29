@@ -6,6 +6,7 @@ import 'package:flutter/material.dart'
         Widget,
         BuildContext,
         CrossAxisAlignment;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
@@ -34,6 +35,7 @@ class SolutionDetailTopEdit extends HookWidget {
   const SolutionDetailTopEdit({
     super.key,
     required this.i18n,
+    required this.color,
     required this.reflection,
     required this.titleFocusNode,
     required this.detailFocusNode,
@@ -46,6 +48,9 @@ class SolutionDetailTopEdit extends HookWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final DomainSolutionDetailReflection? reflection;
@@ -85,12 +90,14 @@ class SolutionDetailTopEdit extends HookWidget {
 
     final InputText titleForm = InputText(
       i18n: i18n,
+      color: color,
       text: titleController,
       hintText: i18n.solutionDetailPageTopEditTitleHint,
       focusNode: titleFocusNode,
       maxLength: 74,
     );
     final InputTextForm detailForm = InputTextForm(
+      color: color,
       text: detailController,
       hintText: detailHintText,
       focusNode: detailFocusNode,
@@ -103,12 +110,14 @@ class SolutionDetailTopEdit extends HookWidget {
         titleForm,
         SpacerHeight.m,
         TextTag(
+          color: color,
           text: countText,
           colorType: TagTextColor.gray,
         ),
         SpacerHeight.m,
         RadioGoodBadButton(
           i18n: i18n,
+          color: color,
           groupValue: groupValue,
           onChangedGood: onChangedGood,
           onChangedBad: onChangedBad,
@@ -116,6 +125,7 @@ class SolutionDetailTopEdit extends HookWidget {
         ),
         SpacerHeight.m,
         BasicText(
+          color: color,
           text: detailTitle,
           size: "M",
         ),

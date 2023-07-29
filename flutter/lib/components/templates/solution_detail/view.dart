@@ -10,6 +10,7 @@ import 'package:flutter/material.dart'
         EdgeInsets,
         Icons,
         Form;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/templates/solution_detail/organisms/top.dart'
@@ -30,6 +31,7 @@ import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   bool todoExist,
   FocusNode titleFocusNode,
@@ -55,6 +57,7 @@ Widget view(
       SpacerHeight.m,
       SolutionDetailTop(
         i18n: i18n,
+        color: color,
         reflection: reflection,
         titleFocusNode: titleFocusNode,
         detailFocusNode: detailFocusNode,
@@ -63,12 +66,14 @@ Widget view(
       ),
       SpacerHeight.xm,
       ButtonIcon(
+        color: color,
         icon: Icons.edit,
         text: i18n.solutionDetailPageButtonEdit,
         onPressed: () => toggleEditMode(),
       ),
       SpacerHeight.xm,
       ButtonCancel(
+        color: color,
         text: todoExist
             ? i18n.solutionDetailPageButtonRemoveTodo
             : i18n.solutionDetailPageButtonAddTodo,
@@ -85,6 +90,7 @@ Widget view(
       SpacerHeight.m,
       SolutionDetailTopEdit(
         i18n: i18n,
+        color: color,
         reflection: reflection,
         titleFocusNode: titleFocusNode,
         detailFocusNode: detailFocusNode,
@@ -96,12 +102,14 @@ Widget view(
       ),
       SpacerHeight.xm,
       ButtonIcon(
+        color: color,
         icon: Icons.check_circle,
         text: i18n.solutionDetailPageButtonDone,
         onPressed: () => onPressedEditDone(),
       ),
       SpacerHeight.xm,
       ButtonCancel(
+        color: color,
         text: i18n.solutionDetailPageButtonCancel,
         onPressed: () => onPressedCancel(),
       ),
@@ -116,6 +124,7 @@ Widget view(
 
   return BaseLayout(
     i18n: i18n,
+    color: color,
     title: i18n.solutionDetailPageTitle,
     isBackGround: false,
     onClickDoneButton: isEditMode ? null : () => onPressedDone(context),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show ValueNotifier, BuildContext, Navigator, MaterialPageRoute;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
@@ -30,7 +31,7 @@ class UseReturn {
 }
 
 /// データ取得: 振り返り追加
-UseReturn useFetch(int groupId, AppLocalizations i18n) {
+UseReturn useFetch(int groupId, AppLocalizations i18n, UseColor color) {
   final ValueNotifier<List<DomainReflectionAddReflection>> reflections =
       useState<List<DomainReflectionAddReflection>>([]);
   ValueNotifier<List<DomainReflectionAdded>> addedReflectionsFromOtherPage =
@@ -92,6 +93,7 @@ UseReturn useFetch(int groupId, AppLocalizations i18n) {
   ) {
     final PageReflectionAddedList page = PageReflectionAddedList(
       i18n: i18n,
+      color: color,
       reflections: reflections,
       groupId: groupId,
       isSavePage: isSavePage,

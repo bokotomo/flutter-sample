@@ -13,6 +13,7 @@ import 'package:flutter/material.dart'
         Expanded,
         SizedBox,
         Builder;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
@@ -27,11 +28,10 @@ import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
     show SpacerWidth;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   FocusNode textFieldFocusNode,
   TextEditingController textReflection,
@@ -53,19 +53,21 @@ Widget view(
           horizontal: ConstantSizeUI.l2,
         ),
         child: ButtonDone(
+          color: color,
           text: i18n.reflectionAddPageBottomDone,
           onPressed: () => onPressedReflectionDone(context),
         ),
       ),
       SpacerHeight.s,
       Container(
-        color: ConstantColor.footer,
+        color: color.base.footer,
         padding: const EdgeInsets.all(ConstantSizeUI.l2),
         child: Row(
           children: [
             Expanded(
               child: InputText(
                 i18n: i18n,
+                color: color,
                 autofocus: false,
                 text: textReflection,
                 hintText: i18n.reflectionAddPageBottomHint,
@@ -79,6 +81,7 @@ Widget view(
             SizedBox(
               width: 80,
               child: ButtonBasic(
+                color: color,
                 text: i18n.reflectionAddPageBottomButtonAdd,
                 textSize: isTextSizeS ? 'S' : 'M',
                 onPressed: () => onPressedAddReflection(context),
@@ -96,6 +99,7 @@ class BottomContents extends HookWidget {
   const BottomContents({
     super.key,
     required this.i18n,
+    required this.color,
     required this.textFieldFocusNode,
     required this.textReflection,
     required this.onPressedReflectionDone,
@@ -106,6 +110,9 @@ class BottomContents extends HookWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   ///
   final FocusNode textFieldFocusNode;
@@ -131,6 +138,7 @@ class BottomContents extends HookWidget {
       builder: (context) {
         return view(
           i18n,
+          color,
           context,
           textFieldFocusNode,
           textReflection,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart'
     show Widget, Row, ListView, Image, TextAlign;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
@@ -16,12 +17,14 @@ import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
 ///
 Widget view(
   AppLocalizations i18n,
+  UseColor color,
   List<ConstantRankSystem> ranks,
 ) {
   ListView cloumn = ListView(
     children: [
       SpacerHeight.xm,
       BasicText(
+        color: color,
         text: i18n.pageRankDetailSubTitle,
         size: 'S',
         textAlign: TextAlign.center,
@@ -38,6 +41,7 @@ Widget view(
             ),
             SpacerWidth.m,
             BasicText(
+              color: color,
               text: ranks[i].prevExp == 0
                   ? ranks[i].rank
                   : "${ranks[i].rank}  ${ranks[i].prevExp}exp",
@@ -52,6 +56,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
+    color: color,
     title: i18n.pageRankDetailTitle,
     isBackGround: false,
     child: cloumn,

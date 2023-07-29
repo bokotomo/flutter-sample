@@ -13,15 +13,12 @@ import 'package:flutter/material.dart'
         EdgeInsets,
         Row,
         Container;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
-import 'package:gamer_reflection/modules/const/color/button.dart'
-    show ConstantColorButton;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/text_tag.dart'
     show TextTag;
 import 'package:gamer_reflection/components/common/atoms/spacer/width.dart'
@@ -35,6 +32,7 @@ class ButtonCandidate extends StatelessWidget {
   const ButtonCandidate({
     super.key,
     required this.i18n,
+    required this.color,
     required this.text,
     required this.isThin,
     required this.count,
@@ -44,6 +42,9 @@ class ButtonCandidate extends StatelessWidget {
 
   /// 言語
   final AppLocalizations i18n;
+
+  /// カラーの設定
+  final UseColor color;
 
   /// 文字
   final String text;
@@ -64,11 +65,9 @@ class ButtonCandidate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: isThin
-            ? ConstantColorButton.taskListThin
-            : ConstantColorButton.taskList,
-        border: const Border.symmetric(
-          vertical: BorderSide(color: ConstantColor.boxBorder),
+        color: isThin ? color.button.taskListThin : color.button.taskList,
+        border: Border.symmetric(
+          vertical: BorderSide(color: color.base.boxBorder),
         ),
       ),
       padding: const EdgeInsets.symmetric(
@@ -78,12 +77,14 @@ class ButtonCandidate extends StatelessWidget {
       child: Row(
         children: [
           TextTag(
+            color: color,
             text: i18n.pageReflectionAddedListCountValue(count),
             colorType: TagTextColor.blue,
           ),
           SpacerWidth.m,
           Expanded(
             child: BasicText(
+              color: color,
               text: text,
               size: "S",
             ),
@@ -92,13 +93,13 @@ class ButtonCandidate extends StatelessWidget {
           if (!isSavePage)
             CircleAvatar(
               radius: ConstantSizeUI.l3,
-              backgroundColor: ConstantColor.iconBackGround,
+              backgroundColor: color.base.iconBackGround,
               child: IconButton(
                 iconSize: ConstantSizeUI.l3,
                 padding: const EdgeInsets.all(0),
-                icon: const Icon(
+                icon: Icon(
                   Icons.close,
-                  color: ConstantColor.iconDark,
+                  color: color.base.iconDark,
                 ),
                 onPressed: () => onClickRemove(),
                 splashRadius: 0.1,

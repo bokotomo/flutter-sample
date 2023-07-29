@@ -7,6 +7,7 @@ import 'package:flutter/material.dart'
         GlobalKey,
         FormState,
         Navigator;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
@@ -57,6 +58,7 @@ class UseReturn {
 /// ロジック: 振り返り追加ページ
 UseReturn useHooks(
   AppLocalizations i18n,
+  UseColor color,
   BuildContext context,
   List<DomainReflectionAddReflection> reflections,
   List<DomainReflectionAdded> addedReflectionsFromOtherPage,
@@ -79,7 +81,7 @@ UseReturn useHooks(
   ValueNotifier<List<DomainReflectionAddReflection>> candidatesForListener =
       ValueNotifier<List<DomainReflectionAddReflection>>([]);
   // トースト通知
-  final toast = useToast(context);
+  final toast = useToast(context, color);
 
   /// 入力欄をリセットする
   void resetInput() {
@@ -186,6 +188,7 @@ UseReturn useHooks(
     // 追加するモーダルを表示する
     showAddModal(
       i18n,
+      color,
       context,
       text,
       candidateExist,
@@ -247,7 +250,7 @@ UseReturn useHooks(
     if (reflectionNotExist) return Future.value(true);
 
     // 追加するモーダルを表示する
-    showModalConfirmBack(i18n, context);
+    showModalConfirmBack(i18n, color, context);
 
     // 戻らない
     return Future.value(false);

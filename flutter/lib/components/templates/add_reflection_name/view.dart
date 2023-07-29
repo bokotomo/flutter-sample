@@ -17,6 +17,7 @@ import 'package:flutter/material.dart'
         Expanded,
         AutovalidateMode,
         CrossAxisAlignment;
+import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:gamer_reflection/components/common/atoms/input/text/widget.dart'
     show InputText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
@@ -25,8 +26,6 @@ import 'package:gamer_reflection/components/common/molecules/select_language/wid
     show SelectLanguage;
 import 'package:gamer_reflection/components/layouts/base_padding.dart'
     show BaseLayoutPadding;
-import 'package:gamer_reflection/modules/const/color/base.dart'
-    show ConstantColor;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
@@ -42,6 +41,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 /// 見た目
 Widget view(
   BuildContext context,
+  UseColor color,
   AppLocalizations i18n,
   GlobalKey<FormState> formKey,
   TextEditingController textReflectionName,
@@ -53,6 +53,7 @@ Widget view(
     children: [
       SpacerHeight.xl,
       BasicText(
+        color: color,
         size: "M",
         text: i18n.pageAddReflectionNameTitle,
         isBold: true,
@@ -60,28 +61,33 @@ Widget view(
       ),
       SpacerHeight.m,
       BasicText(
+        color: color,
         size: "M",
         text: i18n.pageAddReflectionNameSubTitle,
         textAlign: TextAlign.center,
       ),
       SpacerHeight.l,
       Box(
+        color: color,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BasicText(
+              color: color,
               size: "M",
               text: i18n.pageAddReflectionNameFormTitle,
               isBold: true,
             ),
             SpacerHeight.s,
             TextAnnotation(
+              color: color,
               size: "S",
               text: i18n.pageAddReflectionNameFormAnnotation,
             ),
             SpacerHeight.xm,
             InputText(
               i18n: i18n,
+              color: color,
               text: textReflectionName,
               hintText: i18n.pageAddReflectionNameFormPlaceHolder,
               focusNode: textFieldFocusNode,
@@ -89,6 +95,7 @@ Widget view(
             ),
             SpacerHeight.xm,
             ButtonIcon(
+              color: color,
               icon: Icons.add,
               text: i18n.pageAddReflectionNameFormButton,
               onPressed: onPressedRegister,
@@ -105,18 +112,22 @@ Widget view(
     child: cloumn,
   );
   final bottomContent = Container(
-    color: ConstantColor.content,
+    color: color.base.content,
     child: Padding(
       padding: const EdgeInsets.symmetric(vertical: ConstantSizeUI.l3),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BasicText(
+            color: color,
             text: i18n.pageAddReflectionNameLanguageTitle,
             size: "M",
           ),
           SpacerHeight.s,
-          SelectLanguage(changeLocale: changeLocale),
+          SelectLanguage(
+            color: color,
+            changeLocale: changeLocale,
+          ),
         ],
       ),
     ),
@@ -131,6 +142,7 @@ Widget view(
 
   return BaseLayoutPadding(
     i18n: i18n,
+    color: color,
     title: "Ref",
     isBackGround: true,
     child: content,
