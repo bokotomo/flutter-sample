@@ -26,13 +26,28 @@ class UseColor {
     required this.textTag,
   });
 
+  /// 色を変更する
   final Function changeColor;
+
+  /// ダークモードか
   final bool isDark;
+
+  /// ライトモードか
   final bool isLight;
+
+  /// 色: 基本的なもの
   final ColorBase base;
+
+  /// 色: ボタン
   final ColorButton button;
+
+  /// 色: 経験値ゲージ
   final ColorGauge gauge;
+
+  /// 色: input
   final ColorInput input;
+
+  /// 色: タグ
   final ColorTextTag textTag;
 }
 

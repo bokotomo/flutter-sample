@@ -23,123 +23,139 @@ class ColorBase {
     required this.toast,
   });
 
+  /// ヘッダーの背景色
   final Color header;
+
+  /// フッターの背景色
   final Color footer;
+
+  /// コンテンツの背景色
   final Color content;
+
+  /// ボックスの背景色
   final Color box;
+
+  /// ボックスの枠線色
   final Color boxBorder;
+
+  /// 基本的な文字色
   final Color text;
+
+  /// 基本的な文字色: 太字
   final Color textBold;
+
+  /// 薄い文字
   final Color textOpacity;
+
+  /// タスクリストの矢印の色
   final Color taskListArrow;
+
+  /// アイコンの色
   final Color icon;
+
+  /// アイコンの背景の円の色
   final Color iconBackGround;
+
+  /// アイコンの背景の円の色 薄い
   final Color iconBackGroundThin;
+
+  /// アイコンの色
   final Color iconDark;
+
+  /// 薄いアイコンの色
   final Color iconThin;
+
+  /// モーダルのコンテンツ後ろの背景
   final Color modalBackground;
+
+  /// アラートの背景色
   final Color alert;
+
+  /// トースト（ポップアップ）の背景色
   final Color toast;
 }
 
 ColorBase colorBase(bool isDark) {
-  /// ヘッダーの背景色
   header() {
     if (isDark) return ConstantColorDark.header;
     return ConstantColorLight.header;
   }
 
-  /// フッターの背景色
   footer() {
     if (isDark) return ConstantColorDark.footer;
     return ConstantColorLight.footer;
   }
 
-  /// コンテンツの背景色
   content() {
     if (isDark) return ConstantColorDark.content;
     return ConstantColorLight.content;
   }
 
-  /// ボックスの背景色
   box() {
     if (isDark) return ConstantColorDark.box;
     return ConstantColorLight.box;
   }
 
-  /// ボックスの枠線色
   boxBorder() {
     if (isDark) return ConstantColorDark.boxBorder;
     return ConstantColorLight.boxBorder;
   }
 
-  /// 基本的な文字色
   text() {
     if (isDark) return ConstantColorDark.text;
     return ConstantColorLight.text;
   }
 
-  /// 基本的な文字色: 太字
   textBold() {
     if (isDark) return ConstantColorDark.textBold;
     return ConstantColorLight.textBold;
   }
 
-  /// 薄い文字
   textOpacity() {
     if (isDark) return ConstantColorDark.textOpacity;
     return ConstantColorLight.textOpacity;
   }
 
-  /// タスクリストの矢印の色
   taskListArrow() {
     if (isDark) return ConstantColorDark.taskListArrow;
     return ConstantColorLight.taskListArrow;
   }
 
-  /// アイコンの色
   icon() {
     if (isDark) return ConstantColorDark.icon;
     return ConstantColorLight.icon;
   }
 
-  /// アイコンの背景の円の色
   iconBackGround() {
     if (isDark) return ConstantColorDark.iconBackGround;
     return ConstantColorLight.iconBackGround;
   }
 
-  /// アイコンの背景の円の色 薄い
   iconBackGroundThin() {
     if (isDark) return ConstantColorDark.iconBackGroundThin;
     return ConstantColorLight.iconBackGroundThin;
   }
 
-  /// アイコンの色
   iconDark() {
     if (isDark) return ConstantColorDark.iconDark;
     return ConstantColorLight.iconDark;
   }
 
-  /// 薄いアイコンの色
   iconThin() {
     if (isDark) return ConstantColorDark.iconThin;
     return ConstantColorLight.iconThin;
   }
 
-  /// モーダルのコンテンツ後ろの背景
   modalBackground() {
     if (isDark) return ConstantColorDark.modalBackground;
     return ConstantColorLight.modalBackground;
   }
 
-  /// アラートの背景色
   alert() {
     if (isDark) return ConstantColorDark.alert;
     return ConstantColorLight.alert;
   }
 
-  /// トースト（ポップアップ）の背景色
   toast() {
     if (isDark) return ConstantColorDark.toast;
     return ConstantColorLight.toast;
