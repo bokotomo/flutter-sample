@@ -11,33 +11,63 @@ class ColorInput {
     required this.inputErrorText,
   });
 
+  /// inputの背景色
   final Color input;
+
+  /// inputの枠線色
   final Color inputBorder;
+
+  /// prefixの文字色
   final Color inputHintText;
+
+  /// inputの枠線色フォーカス
   final Color inputBorderFocus;
+
+  /// inputの枠線色エラーテキスト
   final Color inputBorderError;
+
+  /// inputのエラーテキスト色
   final Color inputErrorText;
 }
 
 ColorInput colorInput(bool isDark) {
+  input() {
+    if (isDark) return ConstantColorInputDark.input;
+    return ConstantColorInputLight.input;
+  }
+
+  inputBorder() {
+    if (isDark) return ConstantColorInputDark.inputBorder;
+    return ConstantColorInputLight.inputBorder;
+  }
+
+  inputHintText() {
+    if (isDark) return ConstantColorInputDark.inputHintText;
+    return ConstantColorInputLight.inputHintText;
+  }
+
+  inputBorderFocus() {
+    if (isDark) return ConstantColorInputDark.inputBorderFocus;
+    return ConstantColorInputLight.inputBorderFocus;
+  }
+
+  inputBorderError() {
+    if (isDark) return ConstantColorInputDark.inputBorderError;
+    return ConstantColorInputLight.inputBorderError;
+  }
+
+  inputErrorText() {
+    if (isDark) return ConstantColorInputDark.inputErrorText;
+    return ConstantColorInputLight.inputErrorText;
+  }
+
   return ColorInput(
-    input:
-        isDark ? ConstantColorInputDark.input : ConstantColorInputLight.input,
-    inputBorder: isDark
-        ? ConstantColorInputDark.inputBorder
-        : ConstantColorInputLight.inputBorder,
-    inputHintText: isDark
-        ? ConstantColorInputDark.inputHintText
-        : ConstantColorInputLight.inputHintText,
-    inputBorderFocus: isDark
-        ? ConstantColorInputDark.inputBorderFocus
-        : ConstantColorInputLight.inputBorderFocus,
-    inputBorderError: isDark
-        ? ConstantColorInputDark.inputBorderError
-        : ConstantColorInputLight.inputBorderError,
-    inputErrorText: isDark
-        ? ConstantColorInputDark.inputErrorText
-        : ConstantColorInputLight.inputErrorText,
+    input: input(),
+    inputBorder: inputBorder(),
+    inputHintText: inputHintText(),
+    inputBorderFocus: inputBorderFocus(),
+    inputBorderError: inputBorderError(),
+    inputErrorText: inputErrorText(),
   );
 }
 

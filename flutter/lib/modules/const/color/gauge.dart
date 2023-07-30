@@ -6,17 +6,27 @@ class ColorGauge {
     required this.background,
   });
 
+  /// ゲージ: ゲージ色
   final Color gauge;
+
+  /// ゲージ: 背景色
   final Color background;
 }
 
 ColorGauge colorGauge(bool isDark) {
+  gauge() {
+    if (isDark) return ConstantColorGaugeDark.gauge;
+    return ConstantColorGaugeLight.gauge;
+  }
+
+  background() {
+    if (isDark) return ConstantColorGaugeDark.background;
+    return ConstantColorGaugeLight.background;
+  }
+
   return ColorGauge(
-    gauge:
-        isDark ? ConstantColorGaugeDark.gauge : ConstantColorGaugeLight.gauge,
-    background: isDark
-        ? ConstantColorGaugeDark.background
-        : ConstantColorGaugeLight.background,
+    gauge: gauge(),
+    background: background(),
   );
 }
 

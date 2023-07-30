@@ -16,50 +16,99 @@ class ColorTextTag {
     required this.grayBackGround,
   });
 
+  /// タグの背景色
   final Color background;
+
+  /// タグの色 枠線 red
   final Color redBorder;
+
+  /// タグの色 枠線 purple
   final Color purpleBorder;
+
+  /// タグの色 枠線 blue
   final Color blueBorder;
+
+  /// タグの色 枠線 gray
   final Color grayBorder;
+
+  /// タグの色 red
   final Color redText;
+
+  /// タグの色 purple
   final Color purpleText;
+
+  /// タグの色 blue
   final Color blueText;
+
+  /// タグの色 gray
   final Color grayText;
+
+  /// タグの色 背景 gray
   final Color grayBackGround;
 }
 
 ColorTextTag colorTextTag(bool isDark) {
+  background() {
+    if (isDark) return ConstantColorTextTagDark.background;
+    return ConstantColorTextTagLight.background;
+  }
+
+  redBorder() {
+    if (isDark) return ConstantColorTextTagDark.redBorder;
+    return ConstantColorTextTagLight.redBorder;
+  }
+
+  purpleBorder() {
+    if (isDark) return ConstantColorTextTagDark.purpleBorder;
+    return ConstantColorTextTagLight.purpleBorder;
+  }
+
+  blueBorder() {
+    if (isDark) return ConstantColorTextTagDark.blueBorder;
+    return ConstantColorTextTagLight.blueBorder;
+  }
+
+  grayBorder() {
+    if (isDark) return ConstantColorTextTagDark.grayBorder;
+    return ConstantColorTextTagLight.grayBorder;
+  }
+
+  redText() {
+    if (isDark) return ConstantColorTextTagDark.redText;
+    return ConstantColorTextTagLight.redText;
+  }
+
+  purpleText() {
+    if (isDark) return ConstantColorTextTagDark.purpleText;
+    return ConstantColorTextTagLight.purpleText;
+  }
+
+  blueText() {
+    if (isDark) return ConstantColorTextTagDark.blueText;
+    return ConstantColorTextTagLight.blueText;
+  }
+
+  grayText() {
+    if (isDark) return ConstantColorTextTagDark.grayText;
+    return ConstantColorTextTagLight.grayText;
+  }
+
+  grayBackGround() {
+    if (isDark) return ConstantColorTextTagDark.grayBackGround;
+    return ConstantColorTextTagLight.grayBackGround;
+  }
+
   return ColorTextTag(
-    background: isDark
-        ? ConstantColorTextTagDark.background
-        : ConstantColorTextTagLight.background,
-    redBorder: isDark
-        ? ConstantColorTextTagDark.redBorder
-        : ConstantColorTextTagLight.redBorder,
-    purpleBorder: isDark
-        ? ConstantColorTextTagDark.purpleBorder
-        : ConstantColorTextTagLight.purpleBorder,
-    blueBorder: isDark
-        ? ConstantColorTextTagDark.blueBorder
-        : ConstantColorTextTagLight.blueBorder,
-    grayBorder: isDark
-        ? ConstantColorTextTagDark.grayBorder
-        : ConstantColorTextTagLight.grayBorder,
-    redText: isDark
-        ? ConstantColorTextTagDark.redText
-        : ConstantColorTextTagLight.redText,
-    purpleText: isDark
-        ? ConstantColorTextTagDark.purpleText
-        : ConstantColorTextTagLight.purpleText,
-    blueText: isDark
-        ? ConstantColorTextTagDark.blueText
-        : ConstantColorTextTagLight.blueText,
-    grayText: isDark
-        ? ConstantColorTextTagDark.grayText
-        : ConstantColorTextTagLight.grayText,
-    grayBackGround: isDark
-        ? ConstantColorTextTagDark.grayBackGround
-        : ConstantColorTextTagLight.grayBackGround,
+    background: background(),
+    redBorder: redBorder(),
+    purpleBorder: purpleBorder(),
+    blueBorder: blueBorder(),
+    grayBorder: grayBorder(),
+    redText: redText(),
+    purpleText: purpleText(),
+    blueText: blueText(),
+    grayText: grayText(),
+    grayBackGround: grayBackGround(),
   );
 }
 
