@@ -6,12 +6,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;
-import 'package:gamer_reflection/api/command/controller/reflection.dart'
-    show RequestReflection;
-import 'package:gamer_reflection/api/command/controller/reflection_history_group.dart'
-    show RequestReflectionHistoryGroup;
-import 'package:gamer_reflection/api/command/controller/game.dart'
-    show RequestGame;
+import 'package:gamer_reflection/api/command/controller/reflection_add_list.dart'
+    show RequestReflectionAddList;
 import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;
 
@@ -55,23 +51,13 @@ UseReturn useHooks(
 
   /// 完了を押した
   void onPressedReflectionDone(BuildContext context) {
-    // todo: 複数のDB処理はトランザクションにする
-    // 振り返りをDBに保存する
-    RequestReflection().addReflection(
-      reflectionsOnPage.value,
-      groupId,
-    );
-
-    // 履歴をDBに保存する
-    RequestReflectionHistoryGroup().addReflectionHisotry(
-      reflectionsOnPage.value,
-      groupId,
-    );
-
     // 経験値は固定
     const exp = 35;
-    // 経験値加算をDBに保存する
-    RequestGame().updateAddExp(exp);
+    RequestReflectionAddList().createReflection(
+      reflectionsOnPage.value,
+      groupId,
+      exp,
+    );
 
     toast.showNotification(i18n.pageReflectionAddedListDoneAlert, 2500);
 

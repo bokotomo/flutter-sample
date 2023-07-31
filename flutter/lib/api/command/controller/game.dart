@@ -10,8 +10,8 @@ class RequestGame {
   final IRepositoryGameCommand rGame = GetIt.I<IRepositoryGameCommand>();
 
   /// 更新: 経験値を加算
-  Future<void> updateAddExp(int exp) async {
-    final Database db = GetIt.I<DBConnection>().db;
-    await rGame.updateAddExp(db, exp);
-  }
+  // Future<void> updateAddExp(int exp) async {
+  //   final Database db = GetIt.I<DBConnection>().db;
+  //   await rGame.updateAddExp(db, exp);
+  // }
 }
