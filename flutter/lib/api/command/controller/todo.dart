@@ -5,7 +5,7 @@ import 'package:gamer_reflection/storage/rdb/repository/command/todo.dart'
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
 
-/// Request: Todo
+/// Request: やることリスト
 class RequestTodo {
   final IRepositoryTodoCommand rTodo = GetIt.I<IRepositoryTodoCommand>();
 

@@ -5,7 +5,7 @@ import 'package:gamer_reflection/storage/rdb/repository/command/reflection_group
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
 
-/// Request: ReflectionGroup
+/// Request: 振り返りグループ
 class RequestReflectionGroup {
   final IRepositoryReflectionGroupCommand rReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupCommand>();

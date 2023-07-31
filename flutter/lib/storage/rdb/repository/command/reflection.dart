@@ -1,4 +1,5 @@
-import 'package:sqflite/sqflite.dart' show Database, ConflictAlgorithm;
+import 'package:sqflite/sqflite.dart'
+    show Database, ConflictAlgorithm, Transaction;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection, tableNameReflection;
@@ -10,7 +11,7 @@ import 'package:gamer_reflection/domain/common/reflection_added.dart'
 /// Interface: RepositoryReflectionCommand
 abstract class IRepositoryReflectionCommand {
   Future<void> insertReflection(
-    Database db,
+    Transaction txn,
     List<DomainReflectionAdded> reflections,
     int groupId,
   );
@@ -27,71 +28,68 @@ abstract class IRepositoryReflectionCommand {
 /// Repository: 振り返り
 @Injectable(as: IRepositoryReflectionCommand)
 class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
-  /// 追加: 振り返り
+  /// 追加: 振り返り トランザクション
   @override
   Future<void> insertReflection(
-    Database db,
+    Transaction txn,
     List<DomainReflectionAdded> reflections,
     int groupId,
   ) async {
-    // トランザクション
-    db.transaction((txn) async {
-      for (var reflection in reflections) {
-        /// idにする
-        final List<Map<String, Object?>> res = await txn.query(
-          tableNameReflection,
-          columns: ['id', 'count'],
-          where: '"text" = ? and "reflection_group_id" = ?',
-          whereArgs: [reflection.text, groupId],
+    for (var reflection in reflections) {
+      /// idにする
+      final List<Map<String, Object?>> res = await txn.query(
+        tableNameReflection,
+        columns: ['id', 'count'],
+        where: '"text" = ? and "reflection_group_id" = ?',
+        whereArgs: [reflection.text, groupId],
+      );
+
+      if (res.isEmpty) {
+        /// 新規登録
+        final ModelReflection model = ModelReflection(
+          reflectionGroupId: groupId,
+          reflectionType:
+              reflection.reflectionType == ReflectionType.good ? 1 : 2,
+          text: reflection.text,
+          detail: "",
+          count: reflection.count,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
         );
 
-        if (res.isEmpty) {
-          /// 新規登録
-          final ModelReflection model = ModelReflection(
-            reflectionGroupId: groupId,
-            reflectionType:
-                reflection.reflectionType == ReflectionType.good ? 1 : 2,
-            text: reflection.text,
-            detail: "",
-            count: reflection.count,
-            createdAt: DateTime.now(),
-            updatedAt: DateTime.now(),
-          );
+        await txn.insert(
+          tableNameReflection,
+          model.toMap(),
+          conflictAlgorithm: ConflictAlgorithm.replace,
+        );
+      } else {
+        /// 登録済み
+        final int id = res.first['id'] as int;
+        final int resCount = res.first['count'] as int;
 
-          await txn.insert(
-            tableNameReflection,
-            model.toMap(),
-            conflictAlgorithm: ConflictAlgorithm.replace,
-          );
-        } else {
-          /// 登録済み
-          final int id = res.first['id'] as int;
-          final int resCount = res.first['count'] as int;
+        final ModelReflection model = ModelReflection(
+          reflectionGroupId: groupId,
+          reflectionType:
+              reflection.reflectionType == ReflectionType.good ? 1 : 2,
+          text: "",
+          detail: "",
+          count: resCount + reflection.count,
+          createdAt: DateTime.now(),
+          updatedAt: DateTime.now(),
+        );
 
-          final ModelReflection model = ModelReflection(
-            reflectionGroupId: groupId,
-            reflectionType:
-                reflection.reflectionType == ReflectionType.good ? 1 : 2,
-            text: "",
-            detail: "",
-            count: resCount + reflection.count,
-            createdAt: DateTime.now(),
-            updatedAt: DateTime.now(),
-          );
+        final Map<String, Object?> map = {}
+          ..addAll(model.toMapCount())
+          ..addAll(model.toMapUpdatedAt());
 
-          final Map<String, Object?> map = {}
-            ..addAll(model.toMapCount())
-            ..addAll(model.toMapUpdatedAt());
-
-          await txn.update(
-            tableNameReflection,
-            map,
-            where: 'id = ?',
-            whereArgs: [id],
-          );
-        }
+        await txn.update(
+          tableNameReflection,
+          map,
+          where: 'id = ?',
+          whereArgs: [id],
+        );
       }
-    });
+    }
   }
 
   /// 更新: 指定したIDの振り返り

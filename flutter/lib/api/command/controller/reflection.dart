@@ -7,7 +7,7 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 
-/// Request: Reflection
+/// Request: 振り返り
 class RequestReflection {
   final IRepositoryReflectionCommand rReflection =
       GetIt.I<IRepositoryReflectionCommand>();

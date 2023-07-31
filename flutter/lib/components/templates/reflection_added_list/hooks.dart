@@ -53,15 +53,17 @@ UseReturn useHooks(
   void onPressedReflectionDone(BuildContext context) {
     // 経験値は固定
     const exp = 35;
+    // 振り返りをDBに保存
     RequestReflectionAddList().createReflection(
       reflectionsOnPage.value,
       groupId,
       exp,
     );
 
+    // 追加完了
     toast.showNotification(i18n.pageReflectionAddedListDoneAlert, 2500);
 
-    // 二つ前のページへ戻る
+    // モーダルを閉じて、前のページへ戻る
     Navigator.of(context)
       ..pop()
       ..pop();
