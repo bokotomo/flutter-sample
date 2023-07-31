@@ -8,7 +8,7 @@ import 'package:gamer_reflection/storage/rdb/repository/query/todo.dart'
     show IRepositoryTodoQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/modules/adapter/solution_detail.dart'
+import 'package:gamer_reflection/api/query/adapter/solution_detail.dart'
     show AdapterDomainSolutionDetailPage;
 
 /// データ取得: 振り返り詳細ページ

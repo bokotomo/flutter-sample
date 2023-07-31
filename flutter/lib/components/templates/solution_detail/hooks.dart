@@ -11,11 +11,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
-import 'package:gamer_reflection/storage/rdb/controller/command/reflection.dart'
+import 'package:gamer_reflection/api/command/controller/reflection.dart'
     show RequestReflection;
 import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;
-import 'package:gamer_reflection/storage/rdb/controller/command/todo.dart'
+import 'package:gamer_reflection/api/command/controller/todo.dart'
     show RequestTodo;
 import 'package:gamer_reflection/domain/solution_detail/reflection.dart'
     show DomainSolutionDetailReflection;

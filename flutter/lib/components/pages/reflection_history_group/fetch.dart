@@ -8,7 +8,7 @@ import 'package:gamer_reflection/components/pages/reflection_history/widget.dart
     show PageReflectionHistory;
 import 'package:gamer_reflection/domain/reflection_history_group/reflection_history_group.dart'
     show DomainReflectionHistoryGroup;
-import 'package:gamer_reflection/storage/rdb/controller/query/reflection_history_group.dart'
+import 'package:gamer_reflection/api/query/controller/reflection_history_group.dart'
     show FetchReflectionHistoryGroupPage;
 
 class UseReturn {

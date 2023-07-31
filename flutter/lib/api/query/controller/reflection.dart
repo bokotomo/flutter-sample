@@ -14,9 +14,9 @@ import 'package:gamer_reflection/storage/rdb/repository/query/game.dart'
     show IRepositoryGameQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/modules/adapter/reflection_group.dart'
+import 'package:gamer_reflection/api/query/adapter/reflection_group.dart'
     show AdapterReflectionGroup;
-import 'package:gamer_reflection/modules/adapter/reflection.dart'
+import 'package:gamer_reflection/api/query/adapter/reflection.dart'
     show AdapterReflection;
 
 /// データ取得: 振り返りページ

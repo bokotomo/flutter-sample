@@ -9,9 +9,9 @@ import 'package:gamer_reflection/storage/rdb/repository/query/todo.dart'
     show IRepositoryTodoQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/modules/adapter/reflection_group.dart'
+import 'package:gamer_reflection/api/query/adapter/reflection_group.dart'
     show AdapterReflectionGroup;
-import 'package:gamer_reflection/modules/adapter/todo.dart' show AdapterTodo;
+import 'package:gamer_reflection/api/query/adapter/todo.dart' show AdapterTodo;
 
 /// データ取得: タスク一覧ページ
 class FetchTodoPage {

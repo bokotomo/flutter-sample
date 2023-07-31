@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'dart:convert' show utf8;
 import 'package:flutter/material.dart';
 
 /// 先頭が空白

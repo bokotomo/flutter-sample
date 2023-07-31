@@ -8,7 +8,7 @@ import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;
-import 'package:gamer_reflection/storage/rdb/controller/query/reflection_add.dart'
+import 'package:gamer_reflection/api/query/controller/reflection_add.dart'
     show FetchReflectionAddPage;
 import 'package:gamer_reflection/components/pages/reflection_added_list/widget.dart'
     show PageReflectionAddedList;
