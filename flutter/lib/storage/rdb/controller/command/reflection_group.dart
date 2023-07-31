@@ -7,13 +7,13 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
 
 /// Request: ReflectionGroup
 class RequestReflectionGroup {
-  final IRepositoryReflectionGroupCommand repositoryReflectionGroup =
+  final IRepositoryReflectionGroupCommand rReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupCommand>();
 
   /// 新規追加: ReflectionGroup
   Future<int> addReflectionGroup(String name) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final id = await repositoryReflectionGroup.insertReflectionGroup(db, name);
+    final id = await rReflectionGroup.insertReflectionGroup(db, name);
     return id;
   }
 
@@ -23,12 +23,12 @@ class RequestReflectionGroup {
     String name,
   ) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflectionGroup.updateReflectionGroupNameById(db, id, name);
+    await rReflectionGroup.updateReflectionGroupNameById(db, id, name);
   }
 
   /// 削除: ReflectionGroup
   Future<void> deleteReflection(int id) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflectionGroup.deleteReflectionGroupById(db, id);
+    await rReflectionGroup.deleteReflectionGroupById(db, id);
   }
 }

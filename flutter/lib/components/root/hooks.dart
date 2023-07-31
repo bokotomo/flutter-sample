@@ -9,7 +9,8 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
 import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 import 'package:gamer_reflection/storage/kvs/selected_language.dart'
     show selectLanguage;
-import 'package:gamer_reflection/modules/fetch/root.dart' show FetchRootPage;
+import 'package:gamer_reflection/storage/rdb/controller/query/root.dart'
+    show FetchRootPage;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 

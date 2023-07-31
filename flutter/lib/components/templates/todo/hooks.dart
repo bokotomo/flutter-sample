@@ -2,7 +2,8 @@ import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/request/todo.dart' show RequestTodo;
+import 'package:gamer_reflection/storage/rdb/controller/command/todo.dart'
+    show RequestTodo;
 
 class UseReturn {
   const UseReturn({

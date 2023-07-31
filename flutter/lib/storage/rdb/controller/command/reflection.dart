@@ -11,7 +11,7 @@ import 'package:gamer_reflection/domain/common/reflection_added.dart'
 
 /// Request: Reflection
 class RequestReflection {
-  final IRepositoryReflectionCommand repositoryReflection =
+  final IRepositoryReflectionCommand rReflection =
       GetIt.I<IRepositoryReflectionCommand>();
 
   /// 新規追加: Reflection
@@ -20,7 +20,7 @@ class RequestReflection {
     int groupId,
   ) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflection.insertReflection(db, reflections, groupId);
+    await rReflection.insertReflection(db, reflections, groupId);
   }
 
   /// 更新: Reflection
@@ -31,7 +31,7 @@ class RequestReflection {
     ReflectionType reflectionType,
   ) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflection.updateReflectionById(
+    await rReflection.updateReflectionById(
       db,
       id,
       title,
@@ -43,6 +43,6 @@ class RequestReflection {
   /// 削除: Reflection
   Future<void> deleteReflection(int id) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflection.deleteReflectionById(db, id);
+    await rReflection.deleteReflectionById(db, id);
   }
 }

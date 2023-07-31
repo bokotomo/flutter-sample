@@ -13,26 +13,26 @@ import 'package:gamer_reflection/modules/adapter/solution_detail.dart'
 
 /// データ取得: 振り返り詳細ページ
 class FetchSolutionDetailPage {
-  final IRepositoryReflectionQuery repositoryReflection =
+  final IRepositoryReflectionQuery rReflection =
       GetIt.I<IRepositoryReflectionQuery>();
-  final IRepositoryTodoQuery repositoryTodo = GetIt.I<IRepositoryTodoQuery>();
+  final IRepositoryTodoQuery rTodo = GetIt.I<IRepositoryTodoQuery>();
 
   /// 取得: 振り返り詳細
   Future<DomainSolutionDetailReflection> fetchReflectionById(int id) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final model = await repositoryReflection.getReflectionById(db, id);
+    final model = await rReflection.getReflectionById(db, id);
     return AdapterDomainSolutionDetailPage().domainReflection(model);
   }
 
   /// 取得: やることが追加されているか
   Future<bool> fetchTodoExistById(int id) async {
     final Database db = GetIt.I<DBConnection>().db;
-    return await repositoryTodo.todoExist(db, id);
+    return await rTodo.todoExist(db, id);
   }
 
   /// 取得: やること総数
   Future<int> fetchTodoCount(int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    return await repositoryTodo.getTodoCount(db, groupId);
+    return await rTodo.getTodoCount(db, groupId);
   }
 }

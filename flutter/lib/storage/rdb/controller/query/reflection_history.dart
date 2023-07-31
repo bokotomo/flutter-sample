@@ -11,15 +11,15 @@ import 'package:gamer_reflection/modules/adapter/reflection_history.dart'
 
 /// データ取得: 振り返り履歴詳細ページ
 class FetchReflectionHistoryPage {
-  final IRepositoryReflectionHisotryQuery repositoryReflectionHistory =
+  final IRepositoryReflectionHisotryQuery rReflectionHistory =
       GetIt.I<IRepositoryReflectionHisotryQuery>();
 
   /// 取得: 振り返り履歴一覧
   Future<List<DomainReflectionHistory>> fetchReflectionHistory(
       int historyGroupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await repositoryReflectionHistory
-        .getReflectionHistoryByGroupId(db, historyGroupId);
+    final models = await rReflectionHistory.getReflectionHistoryByGroupId(
+        db, historyGroupId);
     return AdapterReflectionHistory().domainReflectionHistorys(models);
   }
 }

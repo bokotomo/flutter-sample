@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/fetch/account.dart'
+import 'package:gamer_reflection/storage/rdb/controller/query/account.dart'
     show FetchAccountPage;
 
 class UseReturn {

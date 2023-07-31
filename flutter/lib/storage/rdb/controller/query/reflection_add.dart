@@ -17,23 +17,23 @@ import 'package:gamer_reflection/modules/adapter/reflection_add.dart'
 
 /// データ取得: 振り返り追加ページ
 class FetchReflectionAddPage {
-  final IRepositoryReflectionQuery repositoryReflection =
+  final IRepositoryReflectionQuery rReflection =
       GetIt.I<IRepositoryReflectionQuery>();
-  final IRepositoryReflectionGroupQuery repositoryReflectionGroup =
+  final IRepositoryReflectionGroupQuery rReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupQuery>();
 
   /// 取得: 振り返り一覧
   Future<List<DomainReflectionAddReflection>> fetchReflections(
       int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await repositoryReflection.getReflections(db, groupId);
+    final models = await rReflection.getReflections(db, groupId);
     return AdapterDomainReflectionAddPage().domainReflections(models);
   }
 
   /// 取得: 振り返りグループ一覧
   Future<List<DomainReflectionGroup>> fetchReflectionGroups() async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await repositoryReflectionGroup.getReflectionGroups(db);
+    final models = await rReflectionGroup.getReflectionGroups(db);
     return AdapterReflectionGroup().domainReflectionGroups(models);
   }
 }

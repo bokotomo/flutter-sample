@@ -14,7 +14,7 @@ import 'package:gamer_reflection/components/pages/rank_detail/widget.dart'
     show PageRankDetail;
 import 'package:gamer_reflection/domain/reflection/game.dart'
     show DomainReflectionGame;
-import 'package:gamer_reflection/modules/fetch/reflection.dart'
+import 'package:gamer_reflection/storage/rdb/controller/query/reflection.dart'
     show FetchReflectionPage;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;

@@ -7,12 +7,11 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
 
 /// Request: Game
 class RequestGame {
-  final IRepositoryGameCommand repositoryGame =
-      GetIt.I<IRepositoryGameCommand>();
+  final IRepositoryGameCommand rGame = GetIt.I<IRepositoryGameCommand>();
 
   /// 更新: 経験値を加算
   Future<void> updateAddExp(int exp) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryGame.updateAddExp(db, exp);
+    await rGame.updateAddExp(db, exp);
   }
 }

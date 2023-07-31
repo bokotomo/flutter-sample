@@ -21,29 +21,29 @@ import 'package:gamer_reflection/modules/adapter/reflection.dart'
 
 /// データ取得: 振り返りページ
 class FetchReflectionPage {
-  final IRepositoryReflectionGroupQuery repositoryReflectionGroup =
+  final IRepositoryReflectionGroupQuery rReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupQuery>();
-  final IRepositoryGameQuery repositoryGame = GetIt.I<IRepositoryGameQuery>();
-  final IRepositoryReflectionQuery repositoryReflection =
+  final IRepositoryGameQuery rGame = GetIt.I<IRepositoryGameQuery>();
+  final IRepositoryReflectionQuery rReflection =
       GetIt.I<IRepositoryReflectionQuery>();
 
   /// 取得: 振り返りグループ一覧
   Future<List<DomainReflectionGroup>> fetchReflectionGroups() async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await repositoryReflectionGroup.getReflectionGroups(db);
+    final models = await rReflectionGroup.getReflectionGroups(db);
     return AdapterReflectionGroup().domainReflectionGroups(models);
   }
 
   /// 取得: ゲーミフィケーション情報
   Future<DomainReflectionGame> fetchGame(AppLocalizations i18n) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final model = await repositoryGame.getGame(db);
+    final model = await rGame.getGame(db);
     return AdapterReflection().domainGame(model, i18n);
   }
 
   /// 取得: 振り返り総数
   Future<int> fetchReflectionCount(int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    return await repositoryReflection.getReflectionCount(db, groupId);
+    return await rReflection.getReflectionCount(db, groupId);
   }
 }

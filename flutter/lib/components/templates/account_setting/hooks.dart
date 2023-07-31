@@ -13,7 +13,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/request/reflection_group.dart'
+import 'package:gamer_reflection/storage/rdb/controller/command/reflection_group.dart'
     show RequestReflectionGroup;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;

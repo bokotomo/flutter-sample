@@ -9,8 +9,7 @@ import 'package:gamer_reflection/domain/common/reflection_added.dart'
 
 /// Request: ReflectionHistoryGroup
 class RequestReflectionHistoryGroup {
-  final IRepositoryReflectionHistoryGroupCommand
-      repositoryReflectionHistoryGroup =
+  final IRepositoryReflectionHistoryGroupCommand rReflectionHistoryGroup =
       GetIt.I<IRepositoryReflectionHistoryGroupCommand>();
 
   /// 新規追加: ReflectionHistoryGroup
@@ -19,7 +18,7 @@ class RequestReflectionHistoryGroup {
     int groupId,
   ) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryReflectionHistoryGroup
-        .insertAndDeleteReflectionHistoryGroup(db, reflections, groupId);
+    await rReflectionHistoryGroup.insertAndDeleteReflectionHistoryGroup(
+        db, reflections, groupId);
   }
 }

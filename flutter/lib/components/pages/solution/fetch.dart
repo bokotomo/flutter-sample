@@ -8,7 +8,7 @@ import 'package:gamer_reflection/domain/solution/reflection.dart'
     show DomainSolutionReflection;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/modules/fetch/solution.dart'
+import 'package:gamer_reflection/storage/rdb/controller/query/solution.dart'
     show FetchSolutionPage;
 import 'package:gamer_reflection/components/pages/solution_detail/widget.dart'
     show PageSolutionDetail;

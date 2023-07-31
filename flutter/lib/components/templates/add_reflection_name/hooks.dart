@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart'
     show TextEditingController, FocusNode, ValueNotifier, GlobalKey, FormState;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useFocusNode;
-import 'package:gamer_reflection/modules/request/reflection_group.dart'
+import 'package:gamer_reflection/storage/rdb/controller/command/reflection_group.dart'
     show RequestReflectionGroup;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;

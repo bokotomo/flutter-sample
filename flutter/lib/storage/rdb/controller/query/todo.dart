@@ -15,22 +15,21 @@ import 'package:gamer_reflection/modules/adapter/todo.dart' show AdapterTodo;
 
 /// データ取得: タスク一覧ページ
 class FetchTodoPage {
-  final IRepositoryReflectionGroupQuery repositoryReflectionGroup =
+  final IRepositoryReflectionGroupQuery rReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupQuery>();
-  final IRepositoryTodoQuery repositoryTodoQuery =
-      GetIt.I<IRepositoryTodoQuery>();
+  final IRepositoryTodoQuery rTodo = GetIt.I<IRepositoryTodoQuery>();
 
   /// 取得: 振り返りグループ一覧
   Future<List<DomainReflectionGroup>> fetchReflectionGroups() async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await repositoryReflectionGroup.getReflectionGroups(db);
+    final models = await rReflectionGroup.getReflectionGroups(db);
     return AdapterReflectionGroup().domainReflectionGroups(models);
   }
 
   /// 取得: やること一覧
   Future<List<DomainTodo>> fetchTodos(int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await repositoryTodoQuery.getTodos(db, groupId);
+    final models = await rTodo.getTodos(db, groupId);
     return AdapterTodo().domainTodos(models);
   }
 }

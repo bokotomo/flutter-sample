@@ -6,11 +6,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;
-import 'package:gamer_reflection/modules/request/reflection.dart'
+import 'package:gamer_reflection/storage/rdb/controller/command/reflection.dart'
     show RequestReflection;
-import 'package:gamer_reflection/modules/request/reflection_history_group.dart'
+import 'package:gamer_reflection/storage/rdb/controller/command/reflection_history_group.dart'
     show RequestReflectionHistoryGroup;
-import 'package:gamer_reflection/modules/request/game.dart' show RequestGame;
+import 'package:gamer_reflection/storage/rdb/controller/command/game.dart'
+    show RequestGame;
 import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;
 

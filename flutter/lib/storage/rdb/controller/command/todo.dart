@@ -7,18 +7,17 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
 
 /// Request: Todo
 class RequestTodo {
-  final IRepositoryTodoCommand repositoryTodo =
-      GetIt.I<IRepositoryTodoCommand>();
+  final IRepositoryTodoCommand rTodo = GetIt.I<IRepositoryTodoCommand>();
 
   /// 新規追加: Todo
   Future<void> insertTodo(int reflectionId, int reflectionGroupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryTodo.insertTodo(db, reflectionId, reflectionGroupId);
+    await rTodo.insertTodo(db, reflectionId, reflectionGroupId);
   }
 
   /// 削除: Todo
   Future<void> deleteTodo(int reflectionId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    await repositoryTodo.deleteTodoById(db, reflectionId);
+    await rTodo.deleteTodoById(db, reflectionId);
   }
 }

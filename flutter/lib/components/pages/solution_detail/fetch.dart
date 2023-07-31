@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' show ValueNotifier;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/solution_detail/reflection.dart'
     show DomainSolutionDetailReflection;
-import 'package:gamer_reflection/modules/fetch/solution_detail.dart'
+import 'package:gamer_reflection/storage/rdb/controller/query/solution_detail.dart'
     show FetchSolutionDetailPage;
 import 'package:gamer_reflection/modules/type/data_fetch.dart'
     show DataFetchState;

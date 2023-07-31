@@ -7,7 +7,8 @@ import 'package:flutter_hooks/flutter_hooks.dart' show useState, useEffect;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
-import 'package:gamer_reflection/modules/fetch/todo.dart' show FetchTodoPage;
+import 'package:gamer_reflection/storage/rdb/controller/query/todo.dart'
+    show FetchTodoPage;
 import 'package:gamer_reflection/components/pages/solution_detail/widget.dart'
     show PageSolutionDetail;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
