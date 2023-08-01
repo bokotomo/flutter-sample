@@ -18,8 +18,8 @@ class BaseLayout extends HookWidget {
     this.onTap,
     this.badgeNumForListener,
     this.onClickRightMenu,
-    this.onClickDoneButton,
     this.onWillPop,
+    this.rightButton,
   });
 
   /// 言語
@@ -46,11 +46,11 @@ class BaseLayout extends HookWidget {
   /// 右のメニューをクリックした
   final void Function()? onClickRightMenu;
 
-  /// メニューの完了ボタンをクリックした
-  final void Function()? onClickDoneButton;
-
   /// 戻る時のアクション
   final Future<bool> Function()? onWillPop;
+
+  /// 右上のメニューに表示
+  final Widget? rightButton;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class BaseLayout extends HookWidget {
           title: title,
           badgeNumForListener: badgeNumForListener,
           onClickRightMenu: onClickRightMenu,
-          onClickDoneButton: onClickDoneButton,
+          rightButton: rightButton,
         ),
         body: GestureDetector(
           onTap: onTap,

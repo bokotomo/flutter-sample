@@ -141,12 +141,32 @@ Widget view(
     ],
   );
 
+  // 右上のメニュー: 履歴
+  final isSizeS = i18n.localeName == 'fr' || i18n.localeName == 'it';
+  Padding rightButton = Padding(
+    padding: const EdgeInsets.only(
+      top: ConstantSizeUI.l2,
+      bottom: ConstantSizeUI.l2,
+      right: ConstantSizeUI.l2,
+    ),
+    child: SizedBox(
+      width: 88,
+      child: ButtonBasic(
+        color: color,
+        text: i18n.headerMenuRightHistory,
+        onPressed: () => onPressedHistory(context),
+        isThin: true,
+        textSize: isSizeS ? 'S' : 'M',
+      ),
+    ),
+  );
+
   return BaseLayoutPadding(
     i18n: i18n,
     color: color,
     title: i18n.pageReflectionTitle,
     isBackGround: true,
-    onClickHistory: () => onPressedHistory(context),
+    rightButton: rightButton,
     child: cloumn,
   );
 }

@@ -28,8 +28,8 @@ class BaseLayoutPadding extends HookWidget {
     required this.child,
     required this.title,
     required this.isBackGround,
-    this.onClickHistory,
     this.onTap,
+    this.rightButton,
   });
 
   /// 言語
@@ -50,8 +50,8 @@ class BaseLayoutPadding extends HookWidget {
   /// 外部を押した
   final void Function()? onTap;
 
-  /// メニューの履歴ボタンをクリックした
-  final void Function()? onClickHistory;
+  /// 右上のメニューに表示
+  final Widget? rightButton;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class BaseLayoutPadding extends HookWidget {
         i18n: i18n,
         color: color,
         title: title,
-        onClickHistory: onClickHistory,
+        rightButton: rightButton,
       ),
       body: GestureDetector(
         onTap: onTap,

@@ -11,20 +11,13 @@ import 'package:flutter/material.dart'
         Size,
         IconButton,
         Icon,
-        Icons,
-        SizedBox,
-        Padding,
-        EdgeInsets;
+        Icons;
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show HookWidget, useEffect, useState;
-import 'package:gamer_reflection/components/common/atoms/button/done_menu.dart'
-    show ButtonDoneMenu;
-import 'package:gamer_reflection/components/common/atoms/button/basic.dart'
-    show ButtonBasic;
 import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
@@ -37,9 +30,8 @@ class Header extends HookWidget implements PreferredSizeWidget {
     required this.color,
     required this.title,
     this.onClickRightMenu,
-    this.onClickDoneButton,
-    this.onClickHistory,
     this.badgeNumForListener,
+    this.rightButton,
   });
 
   /// 言語
@@ -57,11 +49,8 @@ class Header extends HookWidget implements PreferredSizeWidget {
   /// 右のハンバーガーメニューをクリックした
   final void Function()? onClickRightMenu;
 
-  /// メニューの完了ボタンをクリックした
-  final void Function()? onClickDoneButton;
-
-  /// メニューの履歴ボタンをクリックした
-  final void Function()? onClickHistory;
+  /// 右上のメニューに表示
+  final Widget? rightButton;
 
   /// 高さのサイズ
   @override
@@ -86,53 +75,16 @@ class Header extends HookWidget implements PreferredSizeWidget {
     }, [badgeNumForListener]);
 
     /// 右上のアイコンを追加
-    /// todo: リファクタ
     List<Widget> getActions() {
-      final isSizeS = i18n.localeName == 'fr' || i18n.localeName == 'it';
-      // 完了
-      if (onClickDoneButton != null) {
-        return [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: ConstantSizeUI.l2,
-              bottom: ConstantSizeUI.l2,
-              right: ConstantSizeUI.l2,
-            ),
-            child: SizedBox(
-              width: 80,
-              child: ButtonDoneMenu(
-                color: color,
-                text: i18n.headerMenuRightDone,
-                onPressed: onClickDoneButton,
-              ),
-            ),
-          ),
-        ];
-      }
+      // 右上に何も表示しない
+      if (rightButton == null) return [];
+      // 右上に表示する
+      return [rightButton!];
+    }
 
-      // 履歴
-      if (onClickHistory != null) {
-        return [
-          Padding(
-            padding: const EdgeInsets.only(
-              top: ConstantSizeUI.l2,
-              bottom: ConstantSizeUI.l2,
-              right: ConstantSizeUI.l2,
-            ),
-            child: SizedBox(
-              width: 88,
-              child: ButtonBasic(
-                color: color,
-                text: i18n.headerMenuRightHistory,
-                onPressed: onClickHistory,
-                isThin: true,
-                textSize: isSizeS ? 'S' : 'M',
-              ),
-            ),
-          ),
-        ];
-      }
-      if (onClickRightMenu == null) return [];
+    /// 右上のアイコンを追加
+    /// todo: リファクタ
+    List<Widget> getActionsBadge() {
       // 数字なしなら非表示
       if (badgeNum.value == 0) return [];
 
@@ -159,7 +111,7 @@ class Header extends HookWidget implements PreferredSizeWidget {
         size: "M",
       ),
       backgroundColor: color.base.header,
-      actions: getActions(),
+      actions: onClickRightMenu == null ? getActions() : getActionsBadge(),
     );
   }
 }

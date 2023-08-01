@@ -9,7 +9,9 @@ import 'package:flutter/material.dart'
         ListView,
         EdgeInsets,
         Icons,
-        Form;
+        Form,
+        Padding,
+        SizedBox;
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
@@ -17,6 +19,8 @@ import 'package:gamer_reflection/components/templates/solution_detail/organisms/
     show SolutionDetailTop;
 import 'package:gamer_reflection/components/templates/solution_detail/organisms/top_edit.dart'
     show SolutionDetailTopEdit;
+import 'package:gamer_reflection/components/common/atoms/button/done_menu.dart'
+    show ButtonDoneMenu;
 import 'package:gamer_reflection/components/common/atoms/button/icon.dart'
     show ButtonIcon;
 import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
@@ -122,12 +126,29 @@ Widget view(
     child: editContent,
   );
 
+  // 右上のメニュー: 完了
+  Padding rightButton = Padding(
+    padding: const EdgeInsets.only(
+      top: ConstantSizeUI.l2,
+      bottom: ConstantSizeUI.l2,
+      right: ConstantSizeUI.l2,
+    ),
+    child: SizedBox(
+      width: 80,
+      child: ButtonDoneMenu(
+        color: color,
+        text: i18n.headerMenuRightDone,
+        onPressed: isEditMode ? null : () => onPressedDone(context),
+      ),
+    ),
+  );
+
   return BaseLayout(
     i18n: i18n,
     color: color,
     title: i18n.solutionDetailPageTitle,
     isBackGround: false,
-    onClickDoneButton: isEditMode ? null : () => onPressedDone(context),
+    rightButton: rightButton,
     onTap: () => {
       titleFocusNode.unfocus(),
       detailFocusNode.unfocus(),
