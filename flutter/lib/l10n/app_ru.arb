@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Список дел",
   "pageTodoNoData": "Задачи не добавлены. \nДавайте добавим из Решение.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Настройка аккаунта",

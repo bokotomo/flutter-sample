@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Lista delle cose da fare",
   "pageTodoNoData": "Non sono state aggiunte cose da fare. \nAggiungiamo dalla Soluzione.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Impostazioni account",

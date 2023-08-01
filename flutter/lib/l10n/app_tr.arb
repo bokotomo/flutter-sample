@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Yapılacaklar listesi",
   "pageTodoNoData": "Yapılacaklar eklenmedi. \nÇözümden ekleyelim.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Hesap ayarı",

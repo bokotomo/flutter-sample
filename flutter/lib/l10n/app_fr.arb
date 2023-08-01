@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Liste de tâches",
   "pageTodoNoData": "Aucune tâche n'a été ajoutée. \nAjoutons à partir de la Solution.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Paramètres du compte",

@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "待办事项列表",
   "pageTodoNoData": "尚未添加待办事项。\n让我们从解决方案中添加。",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "账户设置",

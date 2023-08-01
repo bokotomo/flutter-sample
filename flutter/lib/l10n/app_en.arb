@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Todo list",
   "pageTodoNoData": "No todos have been added. \nLet's add from the Solution.",
+  "pageTodoButtonGame": "Game",
+  "pageTodoButtonTraining": "Training",
 
 
   "accountPageTitle": "Account setting",

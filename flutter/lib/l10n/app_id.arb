@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Daftar yang harus dilakukan",
   "pageTodoNoData": "Belum ada todo yang ditambahkan. \nMari tambahkan dari Solusi.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Pengaturan akun",

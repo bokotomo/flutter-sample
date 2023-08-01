@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Todo liste",
   "pageTodoNoData": "Der er ikke tilføjet todos. \nLad os tilføje fra Løsning.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Kontoindstilling",

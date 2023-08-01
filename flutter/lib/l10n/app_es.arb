@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Lista de tareas pendientes",
   "pageTodoNoData": "No todos han sido agregados. \nVamos a agregar desde la Solución.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Configuración de cuenta",

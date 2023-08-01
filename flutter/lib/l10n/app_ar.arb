@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "كله تمام",
   "pageTodoNoData": "لم يتم إضافة أي مهام.\nدعنا نضيف من الحل.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "إعدادات الحساب",

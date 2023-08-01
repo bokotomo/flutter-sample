@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "Aufgabenliste",
   "pageTodoNoData": "Es wurden keine Aufgaben hinzugefügt. \nFügen wir aus der Lösung hinzu.",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "Kontoeinstellung",

@@ -93,6 +93,8 @@
 
   "pageTodoTitle": "やることリスト",
   "pageTodoNoData": "やることが追加されていません。\n「解決案」から追加しましょう!",
+  "pageTodoButtonGame": "試合",
+  "pageTodoButtonTraining": "練習",
 
 
   "accountPageTitle": "アカウント設定",
