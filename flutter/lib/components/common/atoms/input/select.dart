@@ -67,8 +67,9 @@ class InputSelect extends StatelessWidget {
             width: 2.0,
           ),
         ),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: ConstantSizeUI.l4),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: ConstantSizeUI.l4,
+        ),
       );
     }
 

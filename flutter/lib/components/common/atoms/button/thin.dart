@@ -34,8 +34,9 @@ class ButtonThin extends StatelessWidget {
     }
 
     final style = ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
       backgroundColor: isActive ? color.button.thinActive : color.button.thin,
-      minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
+      minimumSize: const Size.fromHeight(ConstantSizeUI.l6),
       elevation: 2,
       shadowColor:
           isActive ? color.button.thinActiveBorder : color.button.thinBorder,

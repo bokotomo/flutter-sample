@@ -29,9 +29,9 @@ class Card extends StatelessWidget {
     final style = ElevatedButton.styleFrom(
       backgroundColor: color.base.box,
       padding: const EdgeInsets.only(
-        top: ConstantSizeUI.l4,
+        top: 20,
         left: ConstantSizeUI.l3,
-        bottom: ConstantSizeUI.l4,
+        bottom: 20,
         right: ConstantSizeUI.l4,
       ),
       minimumSize: const Size.fromHeight(ConstantSizeUI.l7),
