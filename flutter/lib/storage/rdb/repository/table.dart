@@ -72,6 +72,7 @@ CREATE TABLE IF NOT EXISTS todo(
   index_num INTEGER NOT NULL,
   reflection_id INTEGER NOT NULL,
   reflection_group_id INTEGER NOT NULL,
+  todo_type INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'localtime')),
   foreign key (reflection_id) references reflection(id) on delete cascade
 )

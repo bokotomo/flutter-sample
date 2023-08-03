@@ -36,7 +36,7 @@ class RepositoryReflectionCommand extends IRepositoryReflectionCommand {
     int groupId,
   ) async {
     for (var reflection in reflections) {
-      /// idにする
+      // すでに同じ文言が追加されてるか取得する
       final List<Map<String, Object?>> res = await txn.query(
         tableNameReflection,
         columns: ['id', 'count'],

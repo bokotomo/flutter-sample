@@ -4,10 +4,11 @@ import 'package:gamer_reflection/storage/rdb/model/todo.dart'
     show tableNameTodo;
 import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection;
+import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 
 /// Interface: RepositoryTodoQuery
 abstract class IRepositoryTodoQuery {
-  Future<List<ModelReflection>> getTodos(Database db, int groupId);
+  Future<List<DomainTodo>> getTodos(Database db, int groupId);
   Future<int> getTodoCount(Database db, int groupId);
   Future<bool> todoExist(Database db, int reflectionId);
 }
@@ -17,7 +18,7 @@ abstract class IRepositoryTodoQuery {
 class RepositoryTodoQuery extends IRepositoryTodoQuery {
   /// 取得: やること一覧
   @override
-  Future<List<ModelReflection>> getTodos(
+  Future<List<DomainTodo>> getTodos(
     Database db,
     int groupId,
   ) async {
@@ -25,22 +26,16 @@ class RepositoryTodoQuery extends IRepositoryTodoQuery {
       'SELECT * FROM todo as t LEFT JOIN reflection as r ON r.id = t.reflection_id WHERE r.reflection_group_id = ? ORDER BY created_at DESC LIMIT ?',
       [
         groupId,
-        100,
+        40,
       ],
     );
 
     return List.generate(res.length, (i) {
-      return ModelReflection(
-        id: res[i]['reflection_id'] as int,
-        reflectionGroupId: res[i]['reflection_group_id'] as int,
-        reflectionType: res[i]['reflection_type'] as int,
-        text: res[i]['text'] as String,
-        detail: res[i]['detail'] as String,
-        count: res[i]['count'] as int,
-        updatedAt:
-            DateTime.tryParse(res[i]['updated_at'] as String) ?? DateTime.now(),
-        createdAt:
-            DateTime.tryParse(res[i]['created_at'] as String) ?? DateTime.now(),
+      return DomainTodo(
+        reflectionId: res[i]['reflection_id'] as int,
+        todoType: res[i]['todo_type'] as int,
+        title: res[i]['detail'] as String,
+        subTitle: res[i]['text'] as String,
       );
     });
   }

@@ -5,7 +5,12 @@ import 'package:gamer_reflection/storage/rdb/model/todo.dart'
 
 /// Interface: RepositoryTodoCommand
 abstract class IRepositoryTodoCommand {
-  Future<void> insertTodo(Database db, int reflectionId, int reflectionGroupId);
+  Future<void> insertTodo(
+    Database db,
+    int reflectionId,
+    int reflectionGroupId,
+    int todoType,
+  );
   Future<void> deleteTodoById(Database db, int reflectionId);
 }
 
@@ -18,12 +23,14 @@ class RepositoryTodoCommand extends IRepositoryTodoCommand {
     Database db,
     int reflectionId,
     int reflectionGroupId,
+    int todoType,
   ) async {
     /// 新規登録
     final ModelTodo todo = ModelTodo(
       indexNum: 0,
       reflectionId: reflectionId,
       reflectionGroupId: reflectionGroupId,
+      todoType: todoType,
       createdAt: DateTime.now(),
     );
     await db.insert(

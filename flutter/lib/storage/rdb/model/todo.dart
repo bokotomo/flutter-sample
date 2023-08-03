@@ -9,6 +9,7 @@ class ModelTodo {
     required this.indexNum,
     required this.reflectionId,
     required this.reflectionGroupId,
+    required this.todoType,
     required this.createdAt,
   });
 
@@ -24,6 +25,9 @@ class ModelTodo {
   /// GROUP_ID
   final int reflectionGroupId;
 
+  /// 振り返りの種類 1: 試合, 2: 練習
+  final int todoType;
+
   /// 追加日
   final DateTime createdAt;
 
@@ -34,6 +38,7 @@ class ModelTodo {
       'index_num': indexNum,
       'reflection_id': reflectionId,
       'reflection_group_id': reflectionGroupId,
+      'todo_type': todoType,
       'created_at': formatted,
     };
   }
