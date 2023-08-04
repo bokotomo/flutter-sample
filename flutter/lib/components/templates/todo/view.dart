@@ -87,8 +87,10 @@ Widget view(
                     ),
                   ],
                 ),
-                onPressed: () =>
-                    pushSolutionDetail(context, todos[i].reflectionId),
+                onPressed: () => pushSolutionDetail(
+                  context,
+                  todos[i].reflectionId,
+                ),
                 onPressedRemove: () => onClickRemove(todos[i].reflectionId),
               ),
               SpacerHeight.m,
