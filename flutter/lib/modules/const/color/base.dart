@@ -208,7 +208,7 @@ class ConstantColorDark {
   static const Color box = grayDark;
 
   /// ボックスの枠線色
-  static const Color boxBorder = grayLight;
+  static const Color boxBorder = Color.fromARGB(255, 46, 52, 65);
 
   /// タスクリストの矢印の色
   static const Color taskListArrow = Color.fromARGB(55, 255, 255, 255);

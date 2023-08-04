@@ -7,6 +7,8 @@ import 'package:gamer_reflection/storage/kvs/selected_reflection_type.dart'
     show selectReflectionType;
 import 'package:gamer_reflection/storage/kvs/selected_reflection_group.dart'
     show selectReflectionGroupId;
+import 'package:gamer_reflection/storage/kvs/selected_todo_type.dart'
+    show selectTodoType;
 import 'package:gamer_reflection/storage/kvs/selected_language.dart'
     show selectLanguage;
 import 'package:gamer_reflection/storage/kvs/selected_color_mode.dart'
@@ -57,6 +59,8 @@ ${await selectedTaskPagePeriod.get()}
 ${await selectReflectionType.get()}
 - select ReflectionGroupId
 ${await selectReflectionGroupId.get()}
+- select TodoType
+${await selectTodoType.get()}
 - select Language
 ${await selectLanguage.get()}
 - select ColorMode
