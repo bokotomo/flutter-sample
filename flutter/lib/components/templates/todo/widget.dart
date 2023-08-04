@@ -42,16 +42,19 @@ class TemplateTodo extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final h = useHooks(reflectionGroups, fetchTodos);
+    final h = useHooks(reflectionGroups, fetchTodos, todos);
 
     return view(
       i18n,
       color,
       context,
-      todos,
+      h.isSelectedTraining,
+      h.filterTodos,
       reflectionGroups,
       h.onChangeReflectionGroup,
       h.onClickRemove,
+      h.onPressedGame,
+      h.onPressedTraining,
       pushSolutionDetail,
     );
   }

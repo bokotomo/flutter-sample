@@ -84,7 +84,7 @@ Widget view(
               size: "S",
               text: i18n.pageAddReflectionNameFormAnnotation,
             ),
-            SpacerHeight.xm,
+            SpacerHeight.m,
             InputText(
               i18n: i18n,
               color: color,
@@ -93,7 +93,7 @@ Widget view(
               focusNode: textFieldFocusNode,
               maxLength: 28,
             ),
-            SpacerHeight.xm,
+            SpacerHeight.m,
             ButtonIcon(
               color: color,
               icon: Icons.add,

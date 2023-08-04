@@ -88,51 +88,6 @@ Widget view(
         formKey: formKeyNewName,
       ),
       SpacerHeight.m,
-      ButtonLinks(
-        color: color,
-        params: [
-          if (i18n.localeName == 'ja')
-            ButtonLinksParam(
-              text: i18n.accountPageQuestionnaire,
-              link: 'https://flutter.dev',
-            ),
-          ButtonLinksParam(
-            text: i18n.accountPageTermsOfService,
-            link: 'https://flutter.dev',
-          ),
-          ButtonLinksParam(
-            text: i18n.accountPagePrivacyPolicy,
-            link: 'https://flutter.dev',
-          ),
-        ],
-      ),
-      SpacerHeight.m,
-      Box(
-        color: color,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BasicText(
-              color: color,
-              text: i18n.accountPageDeleteReflection,
-              size: "M",
-            ),
-            SpacerHeight.xs,
-            TextAnnotation(
-              color: color,
-              text: i18n.accountPageDeleteReflectionDetail,
-              size: "S",
-            ),
-            SpacerHeight.m,
-            ButtonDelete(
-              color: color,
-              text: i18n.accountPageDeleteButton,
-              onPressed: () => onPressedDelete(context),
-            ),
-          ],
-        ),
-      ),
-      SpacerHeight.m,
       Box(
         color: color,
         child: Column(
@@ -169,6 +124,51 @@ Widget view(
             ),
           ],
         ),
+      ),
+      SpacerHeight.m,
+      Box(
+        color: color,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BasicText(
+              color: color,
+              text: i18n.accountPageDeleteReflection,
+              size: "M",
+            ),
+            SpacerHeight.xs,
+            TextAnnotation(
+              color: color,
+              text: i18n.accountPageDeleteReflectionDetail,
+              size: "S",
+            ),
+            SpacerHeight.m,
+            ButtonDelete(
+              color: color,
+              text: i18n.accountPageDeleteButton,
+              onPressed: () => onPressedDelete(context),
+            ),
+          ],
+        ),
+      ),
+      SpacerHeight.m,
+      ButtonLinks(
+        color: color,
+        params: [
+          if (i18n.localeName == 'ja')
+            ButtonLinksParam(
+              text: i18n.accountPageQuestionnaire,
+              link: 'https://flutter.dev',
+            ),
+          ButtonLinksParam(
+            text: i18n.accountPageTermsOfService,
+            link: 'https://flutter.dev',
+          ),
+          ButtonLinksParam(
+            text: i18n.accountPagePrivacyPolicy,
+            link: 'https://flutter.dev',
+          ),
+        ],
       ),
       SpacerHeight.m,
       Box(

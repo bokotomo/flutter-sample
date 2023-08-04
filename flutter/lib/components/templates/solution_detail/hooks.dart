@@ -22,7 +22,9 @@ import 'package:gamer_reflection/domain/solution_detail/reflection.dart'
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
 import 'package:gamer_reflection/components/templates/solution_detail/modal/check_done.dart'
-    show showModal;
+    show showModalDone;
+import 'package:gamer_reflection/components/templates/solution_detail/modal/add_todo.dart'
+    show showModalAddTodo;
 
 class UseReturn {
   const UseReturn({
@@ -112,7 +114,7 @@ UseReturn useHooks(
 
   /// タスク完了ボタンを押した
   void onPressedDone(BuildContext context) async {
-    showModal(
+    showModalDone(
       i18n,
       color,
       context,
@@ -156,6 +158,10 @@ UseReturn useHooks(
 
       // 追加数を1減らす
       todoAddCount.value--;
+      // 通知
+      toast.showNotification(i18n.solutionDetailPageHooksAlertRemoveTodo, 2500);
+      // 表示を切り替える
+      todoExist.value = !todoExist.value;
     } else {
       // 詳細が空の場合
       if (detailController.value.text.isEmpty) {
@@ -175,20 +181,29 @@ UseReturn useHooks(
       }
 
       // なければ新規追加
-      await RequestTodo().insertTodo(
-        reflectionId,
-        reflectionGroupId,
+      showModalAddTodo(
+        i18n,
+        color,
+        context,
+        (bool isGame) async {
+          final int todoType = isGame ? 1 : 2;
+          await RequestTodo().insertTodo(
+            reflectionId,
+            reflectionGroupId,
+            todoType,
+          );
+          // 通知
+          toast.showNotification(
+            i18n.solutionDetailPageHooksAlertAddTodo,
+            2500,
+          );
+          // 追加数を1増やす
+          todoAddCount.value++;
+          // 表示を切り替える
+          todoExist.value = !todoExist.value;
+        },
       );
-
-      // 追加数を1増やす
-      todoAddCount.value++;
     }
-    final String textNotificatoin = todoExist.value
-        ? i18n.solutionDetailPageHooksAlertRemoveTodo
-        : i18n.solutionDetailPageHooksAlertAddTodo;
-    toast.showNotification(textNotificatoin, 2500);
-
-    todoExist.value = !todoExist.value;
   }
 
   /// 良いを押した

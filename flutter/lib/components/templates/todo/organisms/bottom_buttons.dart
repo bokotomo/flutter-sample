@@ -11,14 +11,14 @@ import 'package:gamer_reflection/components/common/atoms/button/thin.dart'
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 /// 下部の固定ボタン
-class BottomButtons extends HookWidget {
-  const BottomButtons({
+class TodoBottomButtons extends HookWidget {
+  const TodoBottomButtons({
     super.key,
     required this.i18n,
     required this.color,
-    required this.isSelectedGood,
-    required this.onPressedBad,
-    required this.onPressedGood,
+    required this.isSelectedTraining,
+    required this.onPressedGame,
+    required this.onPressedTraining,
   });
 
   /// 言語
@@ -27,14 +27,14 @@ class BottomButtons extends HookWidget {
   /// カラーの設定
   final UseColor color;
 
-  /// 伸ばすことを選択
-  final bool isSelectedGood;
+  /// 練習を選択
+  final bool isSelectedTraining;
 
-  /// 改善することを押した
-  final void Function() onPressedBad;
+  /// 試合を押した
+  final void Function() onPressedGame;
 
-  /// 伸ばすことを押した
-  final void Function() onPressedGood;
+  /// 練習を押した
+  final void Function() onPressedTraining;
 
   @override
   Widget build(BuildContext context) {
@@ -51,18 +51,18 @@ class BottomButtons extends HookWidget {
             Expanded(
               child: ButtonThin(
                 color: color,
-                text: i18n.pageSolutionButtonGood,
-                onPressed: () => onPressedBad(),
-                isActive: !isSelectedGood,
+                text: i18n.pageTodoButtonGame,
+                onPressed: () => onPressedGame(),
+                isActive: !isSelectedTraining,
               ),
             ),
             SpacerWidth.m,
             Expanded(
               child: ButtonThin(
                 color: color,
-                text: i18n.pageSolutionButtonBad,
-                onPressed: () => onPressedGood(),
-                isActive: isSelectedGood,
+                text: i18n.pageTodoButtonTraining,
+                onPressed: () => onPressedTraining(),
+                isActive: isSelectedTraining,
               ),
             ),
             SpacerWidth.m,

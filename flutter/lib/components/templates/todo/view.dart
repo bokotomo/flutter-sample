@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart'
-    show Widget, BuildContext, ListView, Column, CrossAxisAlignment;
+    show
+        Widget,
+        BuildContext,
+        ListView,
+        Column,
+        CrossAxisAlignment,
+        Expanded,
+        Padding,
+        EdgeInsets;
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
@@ -7,10 +15,11 @@ import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
     show BasicText;
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
-import 'package:gamer_reflection/components/layouts/base_padding.dart'
-    show BaseLayoutPadding;
+import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
 import 'package:gamer_reflection/components/templates/todo/organisms/no_data_annotation.dart'
     show TodoNoDataAnnotation;
+import 'package:gamer_reflection/components/templates/todo/organisms/bottom_buttons.dart'
+    show TodoBottomButtons;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
 import 'package:gamer_reflection/components/common/atoms/card.dart' show Card;
@@ -19,18 +28,22 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
+import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 Widget view(
   AppLocalizations i18n,
   UseColor color,
   BuildContext context,
+  bool isSelectedTraining,
   List<DomainTodo>? todos,
   List<DomainReflectionGroup> reflectionGroups,
   void Function(String?) onChangeReflectionGroup,
   void Function(int) onClickRemove,
+  void Function() onPressedGame,
+  void Function() onPressedTraining,
   void Function(BuildContext, int) pushSolutionDetail,
 ) {
-  ListView cloumn = ListView(
+  ListView column = ListView(
     children: todos == null
         ? []
         : [
@@ -66,7 +79,7 @@ Widget view(
                       isBold: true,
                       isNoSelect: true,
                     ),
-                    SpacerHeight.s,
+                    SpacerHeight.xs,
                     TextAnnotation(
                       color: color,
                       text: todos[i].subTitle,
@@ -83,11 +96,31 @@ Widget view(
           ],
   );
 
-  return BaseLayoutPadding(
+  final content = Column(
+    children: <Widget>[
+      Expanded(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: ConstantSizeUI.l3,
+          ),
+          child: column,
+        ),
+      ),
+      TodoBottomButtons(
+        i18n: i18n,
+        color: color,
+        isSelectedTraining: isSelectedTraining,
+        onPressedGame: onPressedGame,
+        onPressedTraining: onPressedTraining,
+      ),
+    ],
+  );
+
+  return BaseLayout(
     i18n: i18n,
     color: color,
     title: i18n.pageTodoTitle,
     isBackGround: true,
-    child: cloumn,
+    child: content,
   );
 }

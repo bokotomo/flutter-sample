@@ -11,7 +11,6 @@ import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
 import 'package:gamer_reflection/api/query/adapter/reflection_group.dart'
     show AdapterReflectionGroup;
-import 'package:gamer_reflection/api/query/adapter/todo.dart' show AdapterTodo;
 
 /// データ取得: タスク一覧ページ
 class FetchTodoPage {
@@ -29,7 +28,6 @@ class FetchTodoPage {
   /// 取得: やること一覧
   Future<List<DomainTodo>> fetchTodos(int groupId) async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await rTodo.getTodos(db, groupId);
-    return AdapterTodo().domainTodos(models);
+    return await rTodo.getTodos(db, groupId);
   }
 }

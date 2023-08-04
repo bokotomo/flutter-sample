@@ -15,7 +15,7 @@ import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
 
 ///
-void showModal(
+void showModalDone(
   AppLocalizations i18n,
   UseColor color,
   BuildContext context,
