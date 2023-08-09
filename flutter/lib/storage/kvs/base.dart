@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart'
     show SharedPreferences;
 
-/// KVS
+/// KVS: 文字
 class StrageKVS {
   String key = "";
   StrageKVS(this.key);
@@ -19,7 +19,7 @@ class StrageKVS {
   }
 }
 
-/// KVS
+/// KVS: 数字
 class StrageKVSNumber {
   String key = "";
   StrageKVSNumber(this.key);
