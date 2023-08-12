@@ -15,12 +15,13 @@ class AdapterDomainSolutionPage {
     /// ドメインに変換
     final domain = models.map(
       (m) {
+        ReflectionType reflectionType =
+            m.reflectionType == 1 ? ReflectionType.good : ReflectionType.bad;
         return DomainSolutionReflection(
           id: m.id ?? 0,
           text: m.text,
           count: m.count,
-          reflectionType:
-              m.reflectionType == 1 ? ReflectionType.good : ReflectionType.bad,
+          reflectionType: reflectionType,
           priority: 1,
           tagColor: TagTextColor.gray,
           updatedAt: m.updatedAt,

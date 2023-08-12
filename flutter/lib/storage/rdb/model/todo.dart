@@ -2,7 +2,7 @@ import 'package:intl/intl.dart' show DateFormat;
 
 const String tableNameTodo = "todo";
 
-/// Model: Todo やること
+/// Model: やること
 class ModelTodo {
   ModelTodo({
     this.id,

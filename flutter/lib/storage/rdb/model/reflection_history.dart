@@ -1,6 +1,6 @@
 const String tableNameReflectionHistory = "reflection_history";
 
-/// Model: Reflection 振り返りの履歴
+/// Model: 振り返りの履歴
 class ModelReflectionHistory {
   ModelReflectionHistory({
     this.id,

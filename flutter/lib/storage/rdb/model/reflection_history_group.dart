@@ -2,7 +2,7 @@ import 'package:intl/intl.dart' show DateFormat;
 
 const String tableNameReflectionHistoryGroup = "reflection_history_group";
 
-/// Model: Reflection 振り返りの履歴のグループ
+/// Model: 振り返りの履歴のグループ
 class ModelReflectionHistoryGroup {
   ModelReflectionHistoryGroup({
     this.id,
