@@ -2,8 +2,6 @@ import 'package:sqflite/sqflite.dart' show Database;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/todo.dart'
     show tableNameTodo;
-import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
-    show ModelReflection;
 import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
 
 /// Interface: RepositoryTodoQuery
@@ -30,14 +28,17 @@ class RepositoryTodoQuery extends IRepositoryTodoQuery {
       ],
     );
 
-    return List.generate(res.length, (i) {
-      return DomainTodo(
-        reflectionId: res[i]['reflection_id'] as int,
-        todoType: res[i]['todo_type'] as int,
-        title: res[i]['detail'] as String,
-        subTitle: res[i]['text'] as String,
-      );
-    });
+    return List.generate(
+      res.length,
+      (i) {
+        return DomainTodo(
+          reflectionId: res[i]['reflection_id'] as int,
+          todoType: res[i]['todo_type'] as int,
+          title: res[i]['detail'] as String,
+          subTitle: res[i]['text'] as String,
+        );
+      },
+    );
   }
 
   /// 取得: やること総数

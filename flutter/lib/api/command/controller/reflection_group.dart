@@ -10,14 +10,14 @@ class RequestReflectionGroup {
   final IRepositoryReflectionGroupCommand rReflectionGroup =
       GetIt.I<IRepositoryReflectionGroupCommand>();
 
-  /// 新規追加: ReflectionGroup
+  /// 新規追加
   Future<int> addReflectionGroup(String name) async {
     final Database db = GetIt.I<DBConnection>().db;
     final id = await rReflectionGroup.insertReflectionGroup(db, name);
     return id;
   }
 
-  /// 更新: ReflectionGroup
+  /// 更新
   Future<void> updateReflectionGroup(
     int id,
     String name,
@@ -26,7 +26,7 @@ class RequestReflectionGroup {
     await rReflectionGroup.updateReflectionGroupNameById(db, id, name);
   }
 
-  /// 削除: ReflectionGroup
+  /// 削除
   Future<void> deleteReflection(int id) async {
     final Database db = GetIt.I<DBConnection>().db;
     await rReflectionGroup.deleteReflectionGroupById(db, id);

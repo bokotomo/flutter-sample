@@ -1,11 +1,13 @@
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/reflection_history.dart'
-    show ModelReflectionHistory, tableNameReflectionHistory;
+    show tableNameReflectionHistory;
+import 'package:gamer_reflection/domain/reflection_history/reflection_history.dart'
+    show DomainReflectionHistory;
 
 /// Interface: RepositoryReflectionHistoryQuery
 abstract class IRepositoryReflectionHisotryQuery {
-  Future<List<ModelReflectionHistory>> getReflectionHistoryByGroupId(
+  Future<List<DomainReflectionHistory>> getReflectionHistoryByGroupId(
     Database db,
     int reflectionHistoryGroupId,
   );
@@ -17,7 +19,7 @@ class RepositoryReflectionHistoryQuery
     extends IRepositoryReflectionHisotryQuery {
   /// 取得: グループ中の振り返り履歴一覧
   @override
-  Future<List<ModelReflectionHistory>> getReflectionHistoryByGroupId(
+  Future<List<DomainReflectionHistory>> getReflectionHistoryByGroupId(
     Database db,
     int reflectionHistoryGroupId,
   ) async {
@@ -30,14 +32,15 @@ class RepositoryReflectionHistoryQuery
       limit: 30,
     );
 
-    return List.generate(res.length, (i) {
-      return ModelReflectionHistory(
-        id: res[i]['id'] as int,
-        reflectionHistoryGroupId: res[i]['reflection_history_group_id'] as int,
-        reflectionType: res[i]['reflection_type'] as int,
-        text: res[i]['text'] as String,
-        count: res[i]['count'] as int,
-      );
-    });
+    return List.generate(
+      res.length,
+      (i) {
+        return DomainReflectionHistory(
+          id: res[i]['id'] as int,
+          text: res[i]['text'] as String,
+          count: res[i]['count'] as int,
+        );
+      },
+    );
   }
 }

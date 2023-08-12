@@ -12,7 +12,7 @@ class RequestReflection {
   final IRepositoryReflectionCommand rReflection =
       GetIt.I<IRepositoryReflectionCommand>();
 
-  /// 更新: Reflection
+  /// 更新
   Future<void> updateReflection(
     int id,
     String title,
@@ -29,7 +29,7 @@ class RequestReflection {
     );
   }
 
-  /// 削除: Reflection
+  /// 削除
   Future<void> deleteReflection(int id) async {
     final Database db = GetIt.I<DBConnection>().db;
     await rReflection.deleteReflectionById(db, id);

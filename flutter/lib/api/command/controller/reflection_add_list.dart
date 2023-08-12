@@ -19,7 +19,7 @@ class RequestReflectionAddList {
       GetIt.I<IRepositoryReflectionHistoryGroupCommand>();
   final IRepositoryGameCommand rGame = GetIt.I<IRepositoryGameCommand>();
 
-  /// 新規追加: 振り返り
+  /// 新規追加
   Future<void> createReflection(
     List<DomainReflectionAdded> reflections,
     int groupId,

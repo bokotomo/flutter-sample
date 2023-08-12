@@ -4,8 +4,6 @@ import 'package:gamer_reflection/storage/rdb/repository/query/reflection_group.d
     show IRepositoryReflectionGroupQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/api/query/adapter/reflection_group.dart'
-    show AdapterReflectionGroup;
 
 /// データ取得: メインページ
 class FetchRootPage {
@@ -16,6 +14,6 @@ class FetchRootPage {
   Future<bool> reflectionGroupsExist() async {
     final Database db = GetIt.I<DBConnection>().db;
     final models = await rReflectionGroup.getReflectionGroups(db);
-    return AdapterReflectionGroup().domainReflectionGroups(models).isNotEmpty;
+    return models.isNotEmpty;
   }
 }

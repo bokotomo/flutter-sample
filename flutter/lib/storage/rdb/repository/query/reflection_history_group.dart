@@ -1,11 +1,13 @@
 import 'package:sqflite/sqflite.dart' show Database;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/reflection_history_group.dart'
-    show ModelReflectionHistoryGroup, tableNameReflectionHistoryGroup;
+    show tableNameReflectionHistoryGroup;
+import 'package:gamer_reflection/domain/reflection_history_group/reflection_history_group.dart'
+    show DomainReflectionHistoryGroup;
 
 /// Interface: RepositoryReflectionHistoryGroupQuery
 abstract class IRepositoryReflectionHistoryGroupQuery {
-  Future<List<ModelReflectionHistoryGroup>> getReflectionHistoryGroups(
+  Future<List<DomainReflectionHistoryGroup>> getReflectionHistoryGroups(
     Database db,
     int reflectionGroupId,
   );
@@ -17,7 +19,7 @@ class RepositoryReflectionHistoryGroupQuery
     extends IRepositoryReflectionHistoryGroupQuery {
   /// 取得: 振り返り履歴のグループ一覧
   @override
-  Future<List<ModelReflectionHistoryGroup>> getReflectionHistoryGroups(
+  Future<List<DomainReflectionHistoryGroup>> getReflectionHistoryGroups(
     Database db,
     int reflectionGroupId,
   ) async {
@@ -30,12 +32,14 @@ class RepositoryReflectionHistoryGroupQuery
       limit: 10,
     );
 
-    return List.generate(res.length, (i) {
-      return ModelReflectionHistoryGroup(
-        id: res[i]['id'] as int,
-        reflectionGroupId: res[i]['reflection_group_id'] as int,
-        date: DateTime.tryParse(res[i]['date'] as String) ?? DateTime.now(),
-      );
-    });
+    return List.generate(
+      res.length,
+      (i) {
+        return DomainReflectionHistoryGroup(
+          id: res[i]['id'] as int,
+          date: DateTime.tryParse(res[i]['date'] as String) ?? DateTime.now(),
+        );
+      },
+    );
   }
 }

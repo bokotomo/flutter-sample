@@ -27,20 +27,23 @@ class RepositoryReflectionQuery extends IRepositoryReflectionQuery {
       limit: 400,
     );
 
-    return List.generate(res.length, (i) {
-      return ModelReflection(
-        id: res[i]['id'] as int,
-        reflectionGroupId: res[i]['reflection_group_id'] as int,
-        reflectionType: res[i]['reflection_type'] as int,
-        text: res[i]['text'] as String,
-        detail: res[i]['detail'] as String,
-        count: res[i]['count'] as int,
-        createdAt:
-            DateTime.tryParse(res[i]['created_at'] as String) ?? DateTime.now(),
-        updatedAt:
-            DateTime.tryParse(res[i]['updated_at'] as String) ?? DateTime.now(),
-      );
-    });
+    return List.generate(
+      res.length,
+      (i) {
+        return ModelReflection(
+          id: res[i]['id'] as int,
+          reflectionGroupId: res[i]['reflection_group_id'] as int,
+          reflectionType: res[i]['reflection_type'] as int,
+          text: res[i]['text'] as String,
+          detail: res[i]['detail'] as String,
+          count: res[i]['count'] as int,
+          createdAt: DateTime.tryParse(res[i]['created_at'] as String) ??
+              DateTime.now(),
+          updatedAt: DateTime.tryParse(res[i]['updated_at'] as String) ??
+              DateTime.now(),
+        );
+      },
+    );
   }
 
   /// 取得: 振り返り総数

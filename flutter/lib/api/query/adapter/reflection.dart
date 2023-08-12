@@ -11,7 +11,9 @@ class AdapterReflection {
   /// ゲーミフィケーション
   DomainReflectionGame domainGame(ModelGame model, AppLocalizations i18n) {
     final currentRank = constantRankSystems(i18n).firstWhere((e) {
+      // 次のランクがなく経験値がprevExp以上
       if (e.nextExp == null && e.prevExp <= model.exp) return true;
+      // prevExp以上かつnextExpより小さい
       return e.prevExp <= model.exp && model.exp < e.nextExp!;
     });
 

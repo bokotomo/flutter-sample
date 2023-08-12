@@ -16,7 +16,7 @@ class ModelReflectionHistory {
   /// 振り返りの履歴のグループID
   final int reflectionHistoryGroupId;
 
-  /// 振り返りの種類 1: Good, 2: Bad
+  /// 振り返りの種類 1: Good, 2: Bad 未使用だが保存はしておく
   final int reflectionType;
 
   /// 振り返り内容

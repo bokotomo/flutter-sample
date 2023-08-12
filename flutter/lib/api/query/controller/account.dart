@@ -6,8 +6,6 @@ import 'package:gamer_reflection/storage/rdb/repository/query/reflection_group.d
     show IRepositoryReflectionGroupQuery;
 import 'package:gamer_reflection/storage/rdb/driver/sqlite.dart'
     show DBConnection;
-import 'package:gamer_reflection/api/query/adapter/reflection_group.dart'
-    show AdapterReflectionGroup;
 
 /// データ取得: アカウント設定ページ
 class FetchAccountPage {
@@ -17,7 +15,6 @@ class FetchAccountPage {
   /// 取得: 振り返りグループ一覧
   Future<List<DomainReflectionGroup>> fetchReflectionGroups() async {
     final Database db = GetIt.I<DBConnection>().db;
-    final models = await rReflectionGroup.getReflectionGroups(db);
-    return AdapterReflectionGroup().domainReflectionGroups(models);
+    return await rReflectionGroup.getReflectionGroups(db);
   }
 }
