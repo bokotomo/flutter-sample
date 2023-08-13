@@ -27,13 +27,20 @@ Future<Database> initDatabase() async {
   Database db = await openDatabase(
     path,
     version: version,
-    onCreate: (Database db, int version) async {
+    onCreate: (
+      Database db,
+      int version,
+    ) async {
       await TableSetUp().createTables(db);
     },
     onOpen: (Database db) async {
       await TableOpenSetUp().setUpTable(db);
     },
-    onUpgrade: (Database db, int oldVersion, int newVersion) async {
+    onUpgrade: (
+      Database db,
+      int oldVersion,
+      int newVersion,
+    ) async {
       for (int i = oldVersion; i < newVersion; i++) {
         await TableMigration().migrate(db, i);
       }
@@ -41,10 +48,15 @@ Future<Database> initDatabase() async {
   );
 
   /// DEBUG MODE
+  debugLog(db);
+
+  return db;
+}
+
+/// データベースのデバッグ
+Future<void> debugLog(Database db) async {
   // await TableSetUp().createTables(db); // 消す
   // await TableDebug().dropKVS(db); // 消す
   // await TableDebug().dropAllTables(db); // 消す
   await TableDebug().showRecords(db); // コメントアウトする
-
-  return db;
 }
