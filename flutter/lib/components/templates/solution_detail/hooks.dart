@@ -159,7 +159,10 @@ UseReturn useHooks(
       // 追加数を1減らす
       todoAddCount.value--;
       // 通知
-      toast.showNotification(i18n.solutionDetailPageHooksAlertRemoveTodo, 2500);
+      toast.showNotification(
+        i18n.solutionDetailPageHooksAlertRemoveTodo,
+        2500,
+      );
       // 表示を切り替える
       todoExist.value = !todoExist.value;
     } else {
@@ -174,9 +177,13 @@ UseReturn useHooks(
       }
 
       // やることは15件までしかできない
+      // 試合と練習それぞれに対してUXとしての制限
       const max = 15;
       if ((todoCount + todoAddCount.value) >= max) {
-        toast.showAlert(i18n.solutionDetailPageHooksAddTodoValidate, 2500);
+        toast.showAlert(
+          i18n.solutionDetailPageHooksAddTodoValidate,
+          2500,
+        );
         return;
       }
 
