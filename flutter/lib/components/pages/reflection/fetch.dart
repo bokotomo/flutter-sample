@@ -12,7 +12,7 @@ import 'package:gamer_reflection/components/pages/reflection_history_group/widge
     show PageReflectionHistoryGroup;
 import 'package:gamer_reflection/components/pages/rank_detail/widget.dart'
     show PageRankDetail;
-import 'package:gamer_reflection/domain/reflection/game.dart'
+import 'package:gamer_reflection/components/templates/reflection/domain/game.dart'
     show DomainReflectionGame;
 import 'package:gamer_reflection/api/query/controller/reflection.dart'
     show FetchReflectionPage;

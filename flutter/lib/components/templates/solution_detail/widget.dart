@@ -3,7 +3,7 @@ import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
-import 'package:gamer_reflection/domain/solution_detail/reflection.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/domain/reflection.dart'
     show DomainSolutionDetailReflection;
 import 'package:gamer_reflection/components/templates/solution_detail/hooks.dart'
     show useHooks;

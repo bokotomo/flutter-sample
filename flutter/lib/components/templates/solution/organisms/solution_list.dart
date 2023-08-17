@@ -7,7 +7,7 @@ import 'package:gamer_reflection/components/templates/solution/molecules/button_
     show ButtonSolution;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;
-import 'package:gamer_reflection/domain/solution/reflection.dart'
+import 'package:gamer_reflection/components/templates/solution/domain/reflection.dart'
     show DomainSolutionReflection;
 
 /// 解決案一覧: 一覧

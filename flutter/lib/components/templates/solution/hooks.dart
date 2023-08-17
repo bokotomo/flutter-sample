@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useEffect, useMemoized, useFuture;
-import 'package:gamer_reflection/domain/solution/reflection.dart'
+import 'package:gamer_reflection/components/templates/solution/domain/reflection.dart'
     show DomainSolutionReflection;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;

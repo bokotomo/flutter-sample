@@ -7,7 +7,8 @@ import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
 import 'package:gamer_reflection/api/command/controller/todo.dart'
     show RequestTodo;
-import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
+import 'package:gamer_reflection/components/templates/todo/domain/todo.dart'
+    show DomainTodo;
 import 'package:gamer_reflection/storage/kvs/selected_todo_type.dart'
     show selectTodoType;
 

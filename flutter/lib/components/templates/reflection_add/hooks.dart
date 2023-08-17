@@ -12,7 +12,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect;
-import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/domain/common/reflection_added.dart'
     show DomainReflectionAdded;

@@ -15,15 +15,14 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'storage/rdb/repository/command/game.dart' as _i3;
 import 'storage/rdb/repository/command/reflection.dart' as _i5;
 import 'storage/rdb/repository/command/reflection_group.dart' as _i6;
-import 'storage/rdb/repository/command/reflection_history.dart' as _i9;
-import 'storage/rdb/repository/command/reflection_history_group.dart' as _i10;
-import 'storage/rdb/repository/command/todo.dart' as _i13;
+import 'storage/rdb/repository/command/reflection_history_group.dart' as _i9;
+import 'storage/rdb/repository/command/todo.dart' as _i12;
 import 'storage/rdb/repository/query/game.dart' as _i4;
-import 'storage/rdb/repository/query/reflection.dart' as _i12;
+import 'storage/rdb/repository/query/reflection.dart' as _i11;
 import 'storage/rdb/repository/query/reflection_group.dart' as _i7;
 import 'storage/rdb/repository/query/reflection_history.dart' as _i8;
-import 'storage/rdb/repository/query/reflection_history_group.dart' as _i11;
-import 'storage/rdb/repository/query/todo.dart' as _i14;
+import 'storage/rdb/repository/query/reflection_history_group.dart' as _i10;
+import 'storage/rdb/repository/query/todo.dart' as _i13;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -48,15 +47,13 @@ _i1.GetIt init(
       () => _i7.RepositoryReflectionQuery());
   gh.factory<_i8.IRepositoryReflectionHisotryQuery>(
       () => _i8.RepositoryReflectionHistoryQuery());
-  gh.factory<_i9.IRepositoryReflectionHistoryCommand>(
-      () => _i9.RepositoryReflectionHistoryCommand());
-  gh.factory<_i10.IRepositoryReflectionHistoryGroupCommand>(
-      () => _i10.RepositoryReflectionHistoryGroupCommand());
-  gh.factory<_i11.IRepositoryReflectionHistoryGroupQuery>(
-      () => _i11.RepositoryReflectionHistoryGroupQuery());
-  gh.factory<_i12.IRepositoryReflectionQuery>(
-      () => _i12.RepositoryReflectionQuery());
-  gh.factory<_i13.IRepositoryTodoCommand>(() => _i13.RepositoryTodoCommand());
-  gh.factory<_i14.IRepositoryTodoQuery>(() => _i14.RepositoryTodoQuery());
+  gh.factory<_i9.IRepositoryReflectionHistoryGroupCommand>(
+      () => _i9.RepositoryReflectionHistoryGroupCommand());
+  gh.factory<_i10.IRepositoryReflectionHistoryGroupQuery>(
+      () => _i10.RepositoryReflectionHistoryGroupQuery());
+  gh.factory<_i11.IRepositoryReflectionQuery>(
+      () => _i11.RepositoryReflectionQuery());
+  gh.factory<_i12.IRepositoryTodoCommand>(() => _i12.RepositoryTodoCommand());
+  gh.factory<_i13.IRepositoryTodoQuery>(() => _i13.RepositoryTodoQuery());
   return getIt;
 }

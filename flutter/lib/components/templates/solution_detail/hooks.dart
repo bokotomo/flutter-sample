@@ -17,7 +17,7 @@ import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;
 import 'package:gamer_reflection/api/command/controller/todo.dart'
     show RequestTodo;
-import 'package:gamer_reflection/domain/solution_detail/reflection.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/domain/reflection.dart'
     show DomainSolutionDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

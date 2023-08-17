@@ -16,7 +16,7 @@ import 'package:gamer_reflection/components/common/atoms/text/basic.dart'
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/box.dart' show Box;
-import 'package:gamer_reflection/domain/solution_detail/reflection.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/domain/reflection.dart'
     show DomainSolutionDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

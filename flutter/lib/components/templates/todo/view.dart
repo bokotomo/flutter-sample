@@ -27,7 +27,8 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
     show SelectReflectionGroup;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/domain/todo/todo.dart' show DomainTodo;
+import 'package:gamer_reflection/components/templates/todo/domain/todo.dart'
+    show DomainTodo;
 import 'package:gamer_reflection/modules/const/size.dart' show ConstantSizeUI;
 
 Widget view(

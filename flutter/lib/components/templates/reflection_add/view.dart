@@ -20,7 +20,7 @@ import 'package:gamer_reflection/components/templates/reflection_add/organisms/c
     show ReflectionAddCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/organisms/bottom_contents.dart'
     show BottomContents;
-import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

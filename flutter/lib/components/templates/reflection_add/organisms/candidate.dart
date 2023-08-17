@@ -9,7 +9,7 @@ import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
 import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_candidate.dart'
     show ButtonCandidate;
-import 'package:gamer_reflection/domain/reflection_add/reflection.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection.dart'
     show DomainReflectionAddReflection;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

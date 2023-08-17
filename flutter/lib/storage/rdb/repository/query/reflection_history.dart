@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart' show Database;
 import 'package:injectable/injectable.dart' show Injectable;
 import 'package:gamer_reflection/storage/rdb/model/reflection_history.dart'
     show tableNameReflectionHistory;
-import 'package:gamer_reflection/domain/reflection_history/reflection_history.dart'
+import 'package:gamer_reflection/components/templates/reflection_history/domain/reflection_history.dart'
     show DomainReflectionHistory;
 
 /// Interface: RepositoryReflectionHistoryQuery

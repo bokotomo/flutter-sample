@@ -7,7 +7,7 @@ import 'package:gamer_reflection/components/templates/reflection_history_group/v
     show view;
 import 'package:gamer_reflection/components/templates/reflection_history_group/hooks.dart'
     show useHooks;
-import 'package:gamer_reflection/domain/reflection_history_group/reflection_history_group.dart'
+import 'package:gamer_reflection/components/templates/reflection_history_group/domain/reflection_history_group.dart'
     show DomainReflectionHistoryGroup;
 
 /// テンプレート: 振り返り履歴グループ一覧

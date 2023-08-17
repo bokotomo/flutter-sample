@@ -1,4 +1,4 @@
-import 'package:gamer_reflection/domain/solution/reflection.dart'
+import 'package:gamer_reflection/components/templates/solution/domain/reflection.dart'
     show DomainSolutionReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;

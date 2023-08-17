@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/pages/reflection_history/widget.dart'
     show PageReflectionHistory;
-import 'package:gamer_reflection/domain/reflection_history_group/reflection_history_group.dart'
+import 'package:gamer_reflection/components/templates/reflection_history_group/domain/reflection_history_group.dart'
     show DomainReflectionHistoryGroup;
 import 'package:gamer_reflection/api/query/controller/reflection_history_group.dart'
     show FetchReflectionHistoryGroupPage;

@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart' show GetIt;
 import 'package:sqflite/sqflite.dart' show Database;
-import 'package:gamer_reflection/domain/reflection_history/reflection_history.dart'
+import 'package:gamer_reflection/components/templates/reflection_history/domain/reflection_history.dart'
     show DomainReflectionHistory;
 import 'package:gamer_reflection/storage/rdb/repository/query/reflection_history.dart'
     show IRepositoryReflectionHisotryQuery;

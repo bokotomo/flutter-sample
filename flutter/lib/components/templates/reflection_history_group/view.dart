@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/domain/reflection_history_group/reflection_history_group.dart'
+import 'package:gamer_reflection/components/templates/reflection_history_group/domain/reflection_history_group.dart'
     show DomainReflectionHistoryGroup;
 import 'package:gamer_reflection/components/templates/reflection_history_group/molecules/button_history_group.dart'
     show ButtonHistoryGroup;
