@@ -5,7 +5,7 @@ import 'package:gamer_reflection/storage/rdb/model/reflection.dart'
     show ModelReflection, tableNameReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
-import 'package:gamer_reflection/domain/common/reflection_added.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection_added.dart'
     show DomainReflectionAdded;
 
 /// Interface: RepositoryReflectionCommand

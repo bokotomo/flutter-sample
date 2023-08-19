@@ -5,7 +5,7 @@ import 'package:gamer_reflection/storage/rdb/model/reflection_history_group.dart
     show ModelReflectionHistoryGroup, tableNameReflectionHistoryGroup;
 import 'package:gamer_reflection/storage/rdb/model/reflection_history.dart'
     show ModelReflectionHistory, tableNameReflectionHistory;
-import 'package:gamer_reflection/domain/common/reflection_added.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection_added.dart'
     show DomainReflectionAdded;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
