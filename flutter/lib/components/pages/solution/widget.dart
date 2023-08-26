@@ -24,6 +24,7 @@ class PageSolution extends HookWidget {
   /// カラーの設定
   final UseColor color;
 
+  ///
   final ValueNotifier<bool> canDC;
 
   @override

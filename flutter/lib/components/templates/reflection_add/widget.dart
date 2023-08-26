@@ -7,7 +7,7 @@ import 'package:gamer_reflection/components/templates/reflection_add/hooks.dart'
     show useHooks;
 import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection.dart'
     show DomainReflectionAddReflection;
-import 'package:gamer_reflection/domain/common/reflection_added.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection_added.dart'
     show DomainReflectionAdded;
 import 'package:gamer_reflection/components/templates/reflection_add/view.dart'
     show view;

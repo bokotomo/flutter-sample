@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
 import 'package:flutter_hooks/flutter_hooks.dart' show HookWidget;
 import 'package:gamer_reflection/components/templates/reflection_added_list/hooks.dart'
     show useHooks;
-import 'package:gamer_reflection/domain/common/reflection_added.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection_added.dart'
     show DomainReflectionAdded;
 import 'package:gamer_reflection/components/templates/reflection_added_list/view.dart'
     show view;

@@ -22,6 +22,8 @@ class PageSolutionDetail extends HookWidget {
 
   /// カラーの設定
   final UseColor color;
+
+  ///
   final int reflectionId;
 
   @override
