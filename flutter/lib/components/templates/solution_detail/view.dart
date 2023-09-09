@@ -138,7 +138,7 @@ Widget view(
       child: ButtonDoneMenu(
         color: color,
         text: i18n.headerMenuRightDone,
-        onPressed: isEditMode ? null : () => onPressedDone(context),
+        onPressed: () => onPressedDone(context),
       ),
     ),
   );
@@ -148,7 +148,7 @@ Widget view(
     color: color,
     title: i18n.solutionDetailPageTitle,
     isBackGround: false,
-    rightButton: rightButton,
+    rightButton: isEditMode ? null : rightButton,
     onTap: () => {
       titleFocusNode.unfocus(),
       detailFocusNode.unfocus(),

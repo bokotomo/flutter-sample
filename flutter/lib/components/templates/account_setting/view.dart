@@ -60,6 +60,9 @@ Widget view(
   GlobalKey<FormState> formKeyEditName,
 ) {
   final i18n = AppLocalizations.of(context)!;
+  const questionnaireLink = "https://flutter.dev";
+  const termsOfServiceLink = "https://flutter.dev";
+  const privacyPolicyLink = "https://flutter.dev";
 
   ListView cloumn = ListView(
     children: [
@@ -158,15 +161,15 @@ Widget view(
           if (i18n.localeName == 'ja')
             ButtonLinksParam(
               text: i18n.accountPageQuestionnaire,
-              link: 'https://flutter.dev',
+              link: questionnaireLink,
             ),
           ButtonLinksParam(
             text: i18n.accountPageTermsOfService,
-            link: 'https://flutter.dev',
+            link: termsOfServiceLink,
           ),
           ButtonLinksParam(
             text: i18n.accountPagePrivacyPolicy,
-            link: 'https://flutter.dev',
+            link: privacyPolicyLink,
           ),
         ],
       ),

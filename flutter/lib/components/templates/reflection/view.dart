@@ -1,6 +1,21 @@
-// import 'package:flutter/material.dart'
-//     show Widget, BuildContext, ListView, Column;
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        Widget,
+        BuildContext,
+        ListView,
+        Column,
+        Row,
+        Image,
+        Expanded,
+        MainAxisAlignment,
+        TextAlign,
+        CircleAvatar,
+        IconButton,
+        EdgeInsets,
+        Padding,
+        SizedBox,
+        Icon,
+        Icons;
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
