@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart' show Widget, ValueNotifier, BuildContext;
 import 'package:flutter_hooks/flutter_hooks.dart' show useState;
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
-import 'package:gamer_reflection/components/pages/account/account_setting.dart'
+import 'package:gamer_reflection/components/pages/account/widget.dart'
     show PageAccountSetting;
 import 'package:gamer_reflection/components/pages/solution/widget.dart'
     show PageSolution;
 import 'package:gamer_reflection/components/pages/todo/widget.dart'
     show PageTodo;
-import 'package:gamer_reflection/components/pages/reflection/reflection.dart'
+import 'package:gamer_reflection/components/pages/reflection/widget.dart'
     show PageReflection;
 import 'package:gamer_reflection/modules/type/locale.dart' show LocaleCode;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
