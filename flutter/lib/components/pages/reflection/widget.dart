@@ -8,7 +8,7 @@ import 'package:gamer_reflection/components/templates/reflection/widget.dart'
 import 'package:gamer_reflection/components/pages/reflection/fetch.dart'
     show useFetch;
 
-/// ページ: 振り返り
+/// ページ: 振り返りの追加説明
 class PageReflection extends HookWidget {
   const PageReflection({
     super.key,

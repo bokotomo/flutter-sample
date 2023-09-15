@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/components/pages/reflection_add/reflection_add.dart'
+import 'package:gamer_reflection/components/pages/reflection_add/widget.dart'
     show PageReflectionAdd;
 import 'package:gamer_reflection/components/pages/reflection_history_group/widget.dart'
     show PageReflectionHistoryGroup;
@@ -44,13 +44,15 @@ UseReturn useFetch(AppLocalizations i18n, UseColor color) {
   final ValueNotifier<List<DomainReflectionGroup>> reflectionGroups =
       useState<List<DomainReflectionGroup>>([]);
   final ValueNotifier<DomainReflectionGame> game =
-      useState<DomainReflectionGame>(const DomainReflectionGame(
-    exp: 0,
-    nextExp: 0,
-    prevExp: 0,
-    rank: '',
-    rankImage: '',
-  ));
+      useState<DomainReflectionGame>(
+    const DomainReflectionGame(
+      exp: 0,
+      nextExp: 0,
+      prevExp: 0,
+      rank: '',
+      rankImage: '',
+    ),
+  );
   // 振り返り総数
   final ValueNotifier<int> reflectionCount = useState<int>(0);
 

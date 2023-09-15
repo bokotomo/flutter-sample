@@ -24,10 +24,10 @@ class PageReflectionAdd extends HookWidget {
   /// カラーの設定
   final UseColor color;
 
-  ///
+  /// 振り返りグループ名
   final String title;
 
-  ///
+  /// 振り返りグループID
   final int groupId;
 
   @override

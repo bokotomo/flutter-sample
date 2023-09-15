@@ -24,10 +24,10 @@ class PageReflectionHistory extends HookWidget {
   /// カラーの設定
   final UseColor color;
 
-  ///
+  /// 振り返り履歴グループID
   final int historyGroupId;
 
-  ///
+  /// 振り返り履歴グループ名
   final String title;
 
   @override

@@ -8,7 +8,7 @@ import 'package:gamer_reflection/components/templates/reflection_added_list/widg
 import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection_added.dart'
     show DomainReflectionAdded;
 
-/// ページ: タスク一覧
+/// ページ: 追加ページにて一時的に追加した振り返りの一覧
 class PageReflectionAddedList extends HookWidget {
   const PageReflectionAddedList({
     super.key,
@@ -31,6 +31,7 @@ class PageReflectionAddedList extends HookWidget {
   /// 振り返りグループID
   final int groupId;
 
+  /// 入力確認ページか、一次確認ページか
   /// todo: pageを分ける
   final bool isSavePage;
 

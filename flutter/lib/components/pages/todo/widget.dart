@@ -8,7 +8,7 @@ import 'package:gamer_reflection/components/templates/todo/widget.dart'
 import 'package:gamer_reflection/components/pages/todo/fetch.dart'
     show useFetch;
 
-/// ページ: タスク一覧
+/// ページ: やることリスト
 class PageTodo extends HookWidget {
   const PageTodo({
     super.key,

@@ -23,7 +23,7 @@ class PageSolutionDetail extends HookWidget {
   /// カラーの設定
   final UseColor color;
 
-  ///
+  /// 選択している振り返りID
   final int reflectionId;
 
   @override
