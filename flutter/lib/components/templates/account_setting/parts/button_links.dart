@@ -70,7 +70,10 @@ class ButtonLinks extends StatelessWidget {
       child: Column(
         children: [
           for (var i = 0; i < params.length; i++) ...{
+            // 線
             if (i != 0) Bar(color: color.button.taskListBorder),
+
+            // ボタン
             ElevatedButton(
               onPressed: () async => await onPressed(params[i].link),
               style: ElevatedButton.styleFrom(

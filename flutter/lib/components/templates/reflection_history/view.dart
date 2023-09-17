@@ -3,7 +3,7 @@ import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/components/templates/reflection_history/molecules/button_history.dart'
+import 'package:gamer_reflection/components/templates/reflection_history/parts/button_history.dart'
     show ButtonHistory;
 import 'package:gamer_reflection/components/templates/reflection_history/domain/reflection_history.dart'
     show DomainReflectionHistory;

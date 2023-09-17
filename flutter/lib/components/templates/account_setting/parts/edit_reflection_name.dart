@@ -41,12 +41,16 @@ Widget view(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 振り返り名の変更タイトル
           BasicText(
             color: color,
             text: i18n.accountPageChangeReflectionName,
             size: "M",
           ),
+
           SpacerHeight.m,
+
+          // 入力欄
           InputText(
             i18n: i18n,
             color: color,
@@ -55,7 +59,10 @@ Widget view(
             focusNode: textReflectionNameFocusNode,
             maxLength: 28,
           ),
+
           SpacerHeight.m,
+
+          // アイコン付きボタン
           ButtonIcon(
             color: color,
             icon: Icons.edit,

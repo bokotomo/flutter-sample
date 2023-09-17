@@ -3,7 +3,7 @@ import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
-import 'package:gamer_reflection/components/templates/solution/molecules/button_solution.dart'
+import 'package:gamer_reflection/components/templates/solution/parts/button_solution.dart'
     show ButtonSolution;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

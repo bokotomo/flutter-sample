@@ -7,7 +7,7 @@ import 'package:flutter_hooks/flutter_hooks.dart'
 import 'package:gamer_reflection/components/common/atoms/text/annotation.dart'
     show TextAnnotation;
 import 'package:gamer_reflection/components/common/atoms/bar.dart' show Bar;
-import 'package:gamer_reflection/components/templates/reflection_add/molecules/button_candidate.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/parts/button_candidate.dart'
     show ButtonCandidate;
 import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection.dart'
     show DomainReflectionAddReflection;

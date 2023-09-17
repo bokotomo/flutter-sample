@@ -18,9 +18,9 @@ import 'package:gamer_reflection/components/templates/reflection_add/domain/refl
     show DomainReflectionAdded;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
-import 'package:gamer_reflection/components/templates/reflection_add/modal/add.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/parts/modal/add.dart'
     show showAddModal;
-import 'package:gamer_reflection/components/templates/reflection_add/modal/confirm_back.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/parts/modal/confirm_back.dart'
     show showModalConfirmBack;
 import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;

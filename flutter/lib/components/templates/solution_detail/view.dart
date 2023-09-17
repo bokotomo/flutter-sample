@@ -15,9 +15,9 @@ import 'package:flutter/material.dart'
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
-import 'package:gamer_reflection/components/templates/solution_detail/organisms/top.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/parts/top.dart'
     show SolutionDetailTop;
-import 'package:gamer_reflection/components/templates/solution_detail/organisms/top_edit.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/parts/top_edit.dart'
     show SolutionDetailTopEdit;
 import 'package:gamer_reflection/components/common/atoms/button/done_menu.dart'
     show ButtonDoneMenu;

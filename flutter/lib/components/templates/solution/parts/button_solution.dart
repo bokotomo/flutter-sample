@@ -1,4 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'
+    show
+        StatelessWidget,
+        Widget,
+        BuildContext,
+        ElevatedButton,
+        Size,
+        EdgeInsets,
+        Row,
+        Expanded,
+        Icon,
+        Icons;
 import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;

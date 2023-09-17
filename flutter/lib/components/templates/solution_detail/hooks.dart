@@ -21,9 +21,9 @@ import 'package:gamer_reflection/components/templates/solution_detail/domain/ref
     show DomainSolutionDetailReflection;
 import 'package:gamer_reflection/modules/type/reflection.dart'
     show ReflectionType;
-import 'package:gamer_reflection/components/templates/solution_detail/modal/check_done.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/parts/modal/check_done.dart'
     show showModalDone;
-import 'package:gamer_reflection/components/templates/solution_detail/modal/add_todo.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/parts/modal/add_todo.dart'
     show showModalAddTodo;
 
 class UseReturn {

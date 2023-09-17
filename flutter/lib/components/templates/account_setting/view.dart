@@ -31,11 +31,11 @@ import 'package:gamer_reflection/components/common/molecules/select_reflection_g
     show SelectReflectionGroup;
 import 'package:gamer_reflection/domain/common/reflection_group.dart'
     show DomainReflectionGroup;
-import 'package:gamer_reflection/components/templates/account_setting/organisms/new_reflection_name.dart'
+import 'package:gamer_reflection/components/templates/account_setting/parts/new_reflection_name.dart'
     show NewReflectionName;
-import 'package:gamer_reflection/components/templates/account_setting/organisms/edit_reflection_name.dart'
+import 'package:gamer_reflection/components/templates/account_setting/parts/edit_reflection_name.dart'
     show EditReflectionName;
-import 'package:gamer_reflection/components/templates/account_setting/molecules/button_links.dart'
+import 'package:gamer_reflection/components/templates/account_setting/parts/button_links.dart'
     show ButtonLinks, ButtonLinksParam;
 import 'package:gamer_reflection/modules/const/app_info.dart'
     show ConstantAppInfo;
@@ -67,12 +67,17 @@ Widget view(
   ListView cloumn = ListView(
     children: [
       SpacerHeight.m,
+
+      // 振り返りグループの選択欄
       SelectReflectionGroup(
         color: color,
         reflectionGroups: reflectionGroups,
         onChanged: onChangeReflectionGroup,
       ),
+
       SpacerHeight.m,
+
+      // 振り返り名の編集
       EditReflectionName(
         i18n: i18n,
         color: color,
@@ -81,7 +86,10 @@ Widget view(
         onPressedEdit: onPressedEdit,
         formKey: formKeyEditName,
       ),
+
       SpacerHeight.m,
+
+      // 新規振り返り名の追加
       NewReflectionName(
         i18n: i18n,
         color: color,
@@ -90,6 +98,7 @@ Widget view(
         onPressedNewName: onPressedNewName,
         formKey: formKeyNewName,
       ),
+
       // SpacerHeight.m,
       // Box(
       //   color: color,
@@ -109,7 +118,10 @@ Widget view(
       //     ],
       //   ),
       // ),
+
       SpacerHeight.m,
+
+      // 言語変更欄
       Box(
         color: color,
         child: Column(
@@ -128,7 +140,10 @@ Widget view(
           ],
         ),
       ),
+
       SpacerHeight.m,
+
+      // 選択中の振り返りの削除
       Box(
         color: color,
         child: Column(
@@ -154,7 +169,10 @@ Widget view(
           ],
         ),
       ),
+
       SpacerHeight.m,
+
+      // 外部リンク欄
       ButtonLinks(
         color: color,
         params: [
@@ -173,7 +191,10 @@ Widget view(
           ),
         ],
       ),
+
       SpacerHeight.m,
+
+      // アプリ情報欄
       Box(
         color: color,
         child: Column(
@@ -193,6 +214,7 @@ Widget view(
           ],
         ),
       ),
+
       SpacerHeight.m,
     ],
   );

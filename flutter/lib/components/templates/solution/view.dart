@@ -4,11 +4,11 @@ import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/components/templates/solution/organisms/no_data_annotation.dart'
+import 'package:gamer_reflection/components/templates/solution/parts/no_data_annotation.dart'
     show SolutionNoDataAnnotation;
-import 'package:gamer_reflection/components/templates/solution/organisms/solution_list.dart'
+import 'package:gamer_reflection/components/templates/solution/parts/solution_list.dart'
     show SolutionList;
-import 'package:gamer_reflection/components/templates/solution/organisms/bottom_buttons.dart'
+import 'package:gamer_reflection/components/templates/solution/parts/bottom_buttons.dart'
     show BottomButtons;
 import 'package:gamer_reflection/components/common/atoms/spacer/height.dart'
     show SpacerHeight;

@@ -21,9 +21,9 @@ import 'package:gamer_reflection/components/common/atoms/toast/hooks.dart'
     show useToast;
 import 'package:flutter_hooks/flutter_hooks.dart'
     show useState, useFocusNode, useEffect, useMemoized, useFuture;
-import 'package:gamer_reflection/components/templates/account_setting/modal/new_reflection_name.dart'
+import 'package:gamer_reflection/components/templates/account_setting/parts/modal/new_reflection_name.dart'
     show showModal;
-import 'package:gamer_reflection/components/templates/account_setting/modal/delete_reflection_group.dart'
+import 'package:gamer_reflection/components/templates/account_setting/parts/modal/delete_reflection_group.dart'
     show showDeleteModal;
 
 class UseReturn {

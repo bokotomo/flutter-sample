@@ -16,9 +16,9 @@ import 'package:gamer_reflection/modules/const/color/hooks.dart' show UseColor;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart'
     show AppLocalizations;
 import 'package:gamer_reflection/components/layouts/base.dart' show BaseLayout;
-import 'package:gamer_reflection/components/templates/reflection_add/organisms/candidate.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/parts/candidate.dart'
     show ReflectionAddCandidate;
-import 'package:gamer_reflection/components/templates/reflection_add/organisms/bottom_contents.dart'
+import 'package:gamer_reflection/components/templates/reflection_add/parts/bottom_contents.dart'
     show BottomContents;
 import 'package:gamer_reflection/components/templates/reflection_add/domain/reflection.dart'
     show DomainReflectionAddReflection;

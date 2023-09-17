@@ -42,12 +42,16 @@ Widget view(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 振り返りの追加タイトル
           BasicText(
             color: color,
             text: i18n.accountPageAddReflection,
             size: "M",
           ),
+
           SpacerHeight.m,
+
+          // 入力欄
           InputText(
             i18n: i18n,
             color: color,
@@ -56,7 +60,10 @@ Widget view(
             focusNode: textReflectionNewNameFocusNode,
             maxLength: 28,
           ),
+
           SpacerHeight.m,
+
+          // アイコン付きボタン
           ButtonIcon(
             color: color,
             icon: Icons.add,

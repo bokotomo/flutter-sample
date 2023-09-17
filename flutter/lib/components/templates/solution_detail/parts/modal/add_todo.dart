@@ -20,7 +20,7 @@ import 'package:gamer_reflection/components/common/atoms/button/cancel.dart'
     show ButtonCancel;
 import 'package:gamer_reflection/components/common/modal/base.dart'
     show ModalBase;
-import 'package:gamer_reflection/components/templates/solution_detail/molecules/radio_game_traning_button.dart'
+import 'package:gamer_reflection/components/templates/solution_detail/parts/radio_game_traning_button.dart'
     show RadioGameTraningButton;
 
 /// todoに追加するモーダルを表示
